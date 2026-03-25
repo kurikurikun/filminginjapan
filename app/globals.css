@@ -119,6 +119,18 @@
   .prose-fij strong { font-weight: 900; }
   .prose-fij hr { border-color: #e8d9c8; margin: 2.5rem 0; }
 
+  /* People carousel scroll animations */
+  .people-scroll-left {
+    animation: people-scroll-left 240s linear infinite;
+  }
+  .people-scroll-right {
+    animation: people-scroll-right 240s linear infinite;
+  }
+  .people-scroll-left:hover,
+  .people-scroll-right:hover {
+    animation-play-state: paused;
+  }
+
   /* Film grain overlay */
   .grain::after {
     content: '';
@@ -132,4 +144,13 @@
     mix-blend-mode: overlay;
     z-index: 1;
   }
+}
+
+@keyframes people-scroll-left {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+@keyframes people-scroll-right {
+  from { transform: translateX(-50%); }
+  to { transform: translateX(0); }
 }

@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Footer from "@/components/Footer";
-import WorkCarousel from "@/components/WorkCarousel";
+import VideoLightbox from "@/components/VideoLightbox";
+import PeopleCarousel from "@/components/PeopleCarousel";
+import ServiceGrid from "@/components/ServiceGrid";
+import InstagramFeed from "@/components/InstagramFeed";
 
 export const metadata: Metadata = {
   title: "Filming in Japan | Corporate Video Production Tokyo",
@@ -10,36 +13,6 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://www.filminginjapan.com" },
 };
 
-const services = [
-  {
-    num: "01",
-    title: "Branding, Interview & Recruitment",
-    titleJp: "ブランディング・インタビュー・採用動画",
-    desc: "End-to-end brand videos connecting corporate services to diverse audiences in English and Japanese, using the power of story.",
-    href: "/corporate-video",
-  },
-  {
-    num: "02",
-    title: "Client Testimonial Stories",
-    titleJp: "お客様インタビュー動画",
-    desc: "Let your biggest fans tell the world. Multi-camera testimonial production, onsite or remote, in English or Japanese.",
-    href: "/client-testimonial",
-  },
-  {
-    num: "03",
-    title: "Event Photo & Video",
-    titleJp: "イベント撮影",
-    desc: "Complete photo and video coverage of corporate events. Digest edits ready for social media delivery within the hour.",
-    href: "/event-photo-video",
-  },
-  {
-    num: "04",
-    title: "Real Estate Photo, Video & 360°",
-    titleJp: "不動産・建築撮影・360°ツアー",
-    desc: "Architectural photography and video, renovation documentation, and high-quality 360° panoramas for virtual tours.",
-    href: "/real-estate-photo-video",
-  },
-];
 
 const clients = ["Sony", "HP", "Canon", "NEC", "JLL", "Accenture", "Microsoft", "Google"];
 
@@ -119,8 +92,8 @@ export default function HomePage() {
           </h1>
 
           <p className="text-lg max-w-xl leading-relaxed mb-12" style={{ color: "rgba(253,248,243,0.65)" }}>
-            Full-service bilingual production for global brands. Trusted by Sony,
-            Google, Microsoft, Canon and many more.
+            Full-service bilingual production for progressive global brands.<br />
+            Trusted by Sony, Google, Microsoft, Canon and many more.
           </p>
 
           <div className="flex flex-wrap gap-4 items-center">
@@ -128,7 +101,7 @@ export default function HomePage() {
               Start Your Project
             </Link>
             <Link
-              href="/corporate-video"
+              href="/corporate-branding-videos-japan"
               className="font-mono text-xs tracking-[0.25em] uppercase"
               style={{ color: "rgba(253,248,243,0.5)" }}
             >
@@ -162,9 +135,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── Work Carousel ── */}
-      <WorkCarousel />
-
       {/* ── Services ── */}
       <section className="py-32" style={{ backgroundColor: "#fdf8f3" }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12">
@@ -188,33 +158,7 @@ export default function HomePage() {
           </div>
 
           {/* Service cards */}
-          <div className="grid md:grid-cols-2 gap-px" style={{ backgroundColor: "#e8d9c8" }}>
-            {services.map((s) => (
-              <Link
-                key={s.num}
-                href={s.href}
-                className="service-card p-10 lg:p-12 flex flex-col"
-              >
-                <div className="flex items-start justify-between mb-8">
-                  <span className="service-num font-mono text-[10px] tracking-[0.3em]" style={{ color: "#e95228" }}>
-                    {s.num}
-                  </span>
-                  <span className="service-learn font-mono text-[10px] tracking-[0.2em] uppercase" style={{ color: "#e95228" }}>
-                    Learn more →
-                  </span>
-                </div>
-                <h3 className="service-title text-xl lg:text-2xl font-black leading-tight mb-1" style={{ color: "#1c1208" }}>
-                  {s.title}
-                </h3>
-                <p className="service-jp text-xs font-jp mb-5" style={{ color: "#e95228" }}>
-                  {s.titleJp}
-                </p>
-                <p className="service-desc text-sm leading-relaxed mt-auto" style={{ color: "rgba(28,18,8,0.5)" }}>
-                  {s.desc}
-                </p>
-              </Link>
-            ))}
-          </div>
+          <ServiceGrid />
         </div>
       </section>
 
@@ -222,25 +166,7 @@ export default function HomePage() {
       <section className="relative overflow-hidden">
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-[1fr_1fr]">
-            {/* Photo */}
-            <div
-              className="relative min-h-[520px] flex items-end justify-start p-10 lg:p-14"
-              style={{ backgroundColor: "#1a1208" }}
-            >
-              <div className="absolute inset-0 flex items-center justify-center">
-                <span className="font-mono text-xs tracking-[0.2em]" style={{ color: "rgba(196,168,130,0.2)" }}>
-                  PHOTO COMING SOON
-                </span>
-              </div>
-              {/* Name card — dark on dark photo */}
-              <div
-                className="relative z-10 inline-block px-4 py-2"
-                style={{ backgroundColor: "#e95228" }}
-              >
-                <p className="font-black text-xs tracking-wide" style={{ color: "#0d0a07" }}>Chris Moore</p>
-                <p className="font-mono text-[10px] tracking-wider" style={{ color: "rgba(13,10,7,0.6)" }}>Creative Director</p>
-              </div>
-            </div>
+            <VideoLightbox vimeoId="900727297" vimeoHash="a9dbbfbac5" title="Chris Moore — Filming in Japan" />
 
             {/* Content — orange background */}
             <div className="p-12 lg:p-16 xl:p-20 flex flex-col justify-center" style={{ backgroundColor: "#e95228" }}>
@@ -283,6 +209,9 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* ── People Carousel ── */}
+      <PeopleCarousel />
 
       {/* ── Workflow ── */}
       <section className="py-32" style={{ backgroundColor: "#fdf8f3" }}>
@@ -432,6 +361,7 @@ export default function HomePage() {
         </div>
       </section>
 
+      <InstagramFeed />
       <Footer lang="en" />
     </div>
   );

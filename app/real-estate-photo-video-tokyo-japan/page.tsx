@@ -27,6 +27,7 @@ const services = [
       { src: "/images/re_photo_5.jpg", alt: "Commercial property interior Tokyo" },
       { src: "/images/re_office_3.jpg", alt: "Commercial building lobby, Tokyo" },
       { src: "/images/re_office_4.jpg", alt: "Office lounge interior, Japan" },
+      { src: "/images/re_office_5.jpg", alt: "Commercial building exterior at night, Japan" },
       { src: "/images/re_office_2.jpg", alt: "Creative office interior with mural, Tokyo" },
     ],
     videos: [],
@@ -82,7 +83,6 @@ const services = [
       { src: "/images/re_facility_2.jpg", alt: "Facility video production Tokyo" },
       { src: "/images/re_facility_3.jpg", alt: "Commercial building video Japan" },
       { src: "/images/re_residence_1.jpg", alt: "Luxury private residence exterior, Tokyo" },
-      { src: "/images/re_residence_2.jpg", alt: "Luxury private residence interior, Tokyo" },
       { src: "/images/re_residence_3.jpg", alt: "Luxury private residence staircase, Tokyo" },
     ],
     videos: [

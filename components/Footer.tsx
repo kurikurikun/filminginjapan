@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 interface FooterProps {
   lang?: "en" | "jp";
@@ -13,13 +14,14 @@ export default function Footer({ lang = "en" }: FooterProps) {
         <div className="grid md:grid-cols-4 gap-10 pb-12 border-b border-white/10">
           {/* Brand */}
           <div className="md:col-span-2">
-            <div className="flex items-center gap-2 mb-4">
-              <div className="w-8 h-8 bg-white flex items-center justify-center">
-                <span className="text-[#e95228] font-black text-xs">FiJ</span>
-              </div>
-              <span className="font-black text-white text-base tracking-tight">
-                filming<span className="text-[#e95228]">in</span>japan
-              </span>
+            <div className="mb-4 inline-block px-3 py-2 bg-white">
+              <Image
+                src="/images/fij.png"
+                alt="Filming in Japan"
+                width={160}
+                height={54}
+                className="h-9 w-auto"
+              />
             </div>
             <p className="text-neutral-400 text-sm leading-relaxed mb-4 max-w-sm">
               {isJp
@@ -48,6 +50,9 @@ export default function Footer({ lang = "en" }: FooterProps) {
             <p className="text-neutral-400 text-sm mt-3">
               <a href="mailto:filminginjapan@move-ment.co" className="hover:text-[#e95228] transition-colors">
                 filminginjapan@move-ment.co
+              </a><br />
+              <a href="https://wa.me/819038800895" target="_blank" rel="noopener noreferrer" className="hover:text-[#e95228] transition-colors">
+                +81 90 3880 0895 (WhatsApp)
               </a>
             </p>
           </div>
@@ -60,11 +65,6 @@ export default function Footer({ lang = "en" }: FooterProps) {
             <p className="text-neutral-400 text-sm leading-relaxed">
               {isJp ? "広島市東区南牛田1-13-4" : "1-13-4 Ushita Minami"}<br />
               {isJp ? "" : "Higashi-ku, Hiroshima"}
-            </p>
-            <p className="text-neutral-400 text-sm mt-3">
-              <a href="https://wa.me/819038800895" target="_blank" rel="noopener noreferrer" className="hover:text-[#e95228] transition-colors">
-                +81 90 3880 0895 (WhatsApp)
-              </a>
             </p>
           </div>
         </div>

@@ -42,9 +42,9 @@ export default function Navigation() {
             <Image
               src="/images/fij.png"
               alt="Filming in Japan"
-              width={120}
-              height={40}
-              className="h-8 w-auto"
+              width={160}
+              height={54}
+              className="h-11 w-auto"
               priority
             />
           </Link>
@@ -75,7 +75,7 @@ export default function Navigation() {
 
             {/* Contact CTA */}
             <Link
-              href={isJp ? "/jp/corporate-branding-videos-japan" : "/corporate-branding-videos-japan"}
+              href={isJp ? "/jp/contact" : "/contact"}
               className="hidden sm:block bg-[#e95228] text-white text-xs font-bold tracking-[0.15em] uppercase px-4 py-2 hover:bg-[#c43d10] transition-colors"
             >
               {isJp ? "相談する" : "Get a Quote"}

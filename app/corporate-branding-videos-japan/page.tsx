@@ -3,52 +3,14 @@ import Footer from "@/components/Footer";
 import LandingContactForm from "@/components/LandingContactForm";
 
 export const metadata: Metadata = {
-  title: "Corporate Branding Videos Japan | Filming in Japan",
-  description: "Professional corporate branding, interview and recruitment video production in Japan. Bilingual EN/JP team. Trusted by Sony, Google, Microsoft, HP, EY, Canon.",
+  title: "Corporate Video Production Japan | Filming in Japan",
+  description: "Professional corporate interview, brand film and recruitment video production in Japan. Bilingual EN/JP team. Trusted by Sony, Google, Microsoft, HP, EY, Canon.",
   alternates: { canonical: "https://www.filminginjapan.com/corporate-branding-videos-japan" },
 };
 
-const points = [
-  {
-    num: "01",
-    title: "Any location in Japan",
-    desc: "We've filmed hundreds of corporate interviews across Japan — inside data centres and factory clean rooms, corporate boardrooms, and in front of green screens. We adapt to any location and make it look and sound its best.",
-  },
-  {
-    num: "02",
-    title: "Bilingual production",
-    desc: "Native English and Japanese interviewers, directors and editors in-house. We ensure the interviewee is relaxed and comfortable, or set up a remote feed so your overseas director can monitor or ask questions directly.",
-  },
-  {
-    num: "03",
-    title: "Full-service from concept to delivery",
-    desc: "Location scouting, scripting, shoot, edit, colour grade and delivery. We handle permits, translations and bilingual crews so international clients don't have to worry about logistics.",
-  },
-  {
-    num: "04",
-    title: "Recruitment & brand films",
-    desc: "Our documentary style ditches the teleprompters for genuine comments from employees on company values — trusted by Microsoft, HP, EY, Sony and Google to connect with audiences in both Japanese and English.",
-  },
-];
-
-const workflow = [
-  {
-    step: "The Plan",
-    desc: "We location scout video interview locations beforehand, take photos, then work together on a call to discuss the best options. We align on message, length, tone and where the video will be used — website, SNS, trade shows.",
-  },
-  {
-    step: "The Shoot",
-    desc: "On the day we ask the questions in Japanese or English, ensuring the interviewee is relaxed and comfortable. Or we set up a remote feed for a producer or director based overseas to monitor the shoot or ask questions directly.",
-  },
-  {
-    step: "The Edit",
-    desc: "Native Japanese and English editors cut to your house style or to a pre-agreed script. We deliver in all formats — 16:9 for YouTube and websites, 9:16 for social — via Google Drive, Dropbox, MASV, Frame.io, or hard disk by courier.",
-  },
-];
-
 const faqs = [
   {
-    q: "How do you ensure the branding film aligns with our company's message?",
+    q: "How do you ensure the video aligns with our company's message?",
     a: "We begin by meeting with your marketing team or production agency to understand the core message and outcomes. We also discuss where the video will be used — website, SNS, trade shows — so the length, style and tone are aligned with your overall marketing strategy.",
   },
   {
@@ -56,7 +18,7 @@ const faqs = [
     a: "Not always. We're comfortable with a documentary style, but using a storyboard ensures the scenes support your message and avoids surprises in the edit stage.",
   },
   {
-    q: "What factors determine the budget for a branding film in Japan?",
+    q: "What factors determine the budget for a corporate video in Japan?",
     a: "The main driver is the number of production days and deliverables. Other factors include preproduction requirements, talent, locations, equipment and whether professional actors are needed. We can also tailor a plan to work within a fixed budget.",
   },
   {
@@ -88,7 +50,7 @@ const faqs = [
     a: "Yes. We handle the full workflow — from concept development, scriptwriting and location scouting, to shooting, editing and final delivery. We also manage permits, translations and bilingual crews, so international clients don't have to worry about logistics.",
   },
   {
-    q: "How long does it take to produce a branding film in Japan?",
+    q: "How long does it take to produce a corporate video in Japan?",
     a: "A small-scale shoot can take 2–3 weeks from planning to delivery; larger productions 1–2 months. We recommend starting the conversation at least 4–6 weeks before your target delivery date.",
   },
   {
@@ -100,12 +62,10 @@ const faqs = [
     a: "We typically deliver via Google Drive, Dropbox, MASV or Frame.io. If required, we can also ship hard drives internationally. We provide both horizontal (16:9) and vertical (9:16) formats for social media campaigns.",
   },
   {
-    q: "What are the typical costs for a branding film in Japan?",
+    q: "What are the typical costs for a corporate video in Japan?",
     a: "Costs depend on crew size, equipment, locations and post-production requirements. We provide transparent quotes and can tailor packages for different budgets while maintaining high production value.",
   },
 ];
-
-const clients = ["Sony", "HP", "Canon", "EY", "NEC", "Accenture", "Microsoft", "Google"];
 
 const testimonials = [
   {
@@ -126,25 +86,6 @@ const testimonials = [
   },
 ];
 
-const selectedWork = [
-  {
-    title: "Nadaman Restaurant — CNNj Commercial",
-    desc: "A 30-second brand commercial broadcast on CNNj. The brief was to show the history of the restaurant but demonstrate its contemporary relevance across the four seasons. We tracked down archival footage from the Ronald Reagan Presidential Library of world leaders dining at Nadaman, and referenced Natsume Soseki's mention of the restaurant in his novels.",
-  },
-  {
-    title: "HP — Asian Influencer Series",
-    desc: "One of four branding videos for HP showcasing Asian-based influencers. By showing the vision that drives each influencer and how they use HP products to communicate that vision, HP connected authentically with their target audience.",
-  },
-  {
-    title: "Craft Brewery & Distillery — Brand Film",
-    desc: "An unusual brief: the same site brews both sake and whisky. We used a split-screen effect to visually tell this story, following a couple who connect over whisky and then tour the distillery the next day.",
-  },
-  {
-    title: "Handmade Knife Company — Brand Film",
-    desc: "By finding out why the blade smiths continually strive for a better knife — what drives them to keep forging — we delivered a video that presented value in the knives far beyond cutting ability or aesthetics.",
-  },
-];
-
 const equipment = [
   "Canon C300, C200, C70",
   "Sony FX3, FX6, FX9, FS7, FS5",
@@ -152,6 +93,23 @@ const equipment = [
   "3-point lighting, boom & lapel mics",
   "Sliders, gimbals, portable green screen",
 ];
+
+const clients = ["Sony", "HP", "Canon", "EY", "NEC", "Accenture", "Microsoft", "Google"];
+
+function VideoEmbed({ src, title }: { src: string; title: string }) {
+  return (
+    <div className="relative w-full" style={{ paddingBottom: "56.25%" }}>
+      <iframe
+        src={src}
+        title={title}
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
+        allowFullScreen
+        className="absolute inset-0 w-full h-full"
+        style={{ border: 0 }}
+      />
+    </div>
+  );
+}
 
 export default function CorporateBrandingPage() {
   return (
@@ -173,12 +131,12 @@ export default function CorporateBrandingPage() {
             </span>
           </div>
           <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black leading-[0.9] mb-8 max-w-4xl" style={{ color: "#fdf8f3" }}>
-            Corporate Branding<br />
-            Videos in <em className="not-italic" style={{ color: "#e95228" }}>Japan.</em>
+            Corporate Video<br />
+            Production in <em className="not-italic" style={{ color: "#e95228" }}>Japan.</em>
           </h1>
           <p className="text-lg max-w-2xl leading-relaxed" style={{ color: "rgba(253,248,243,0.6)" }}>
-            We produce brand films, CEO interviews, recruitment videos and internal communications
-            for global companies operating in Japan. Bilingual team, broadcast-quality results.
+            Corporate interviews, brand films and recruitment videos for global companies operating in Japan.
+            Bilingual team, broadcast-quality results.
           </p>
         </div>
       </section>
@@ -198,26 +156,6 @@ export default function CorporateBrandingPage() {
         </div>
       </section>
 
-      {/* Featured video */}
-      <section style={{ backgroundColor: "#0d0a07" }}>
-        <div className="max-w-7xl mx-auto px-6 sm:px-12 lg:px-16 py-16">
-          <div className="flex items-center gap-4 mb-8">
-            <div className="h-px w-10" style={{ backgroundColor: "#e95228" }} />
-            <span className="font-mono text-[10px] tracking-[0.35em] uppercase" style={{ color: "#e95228" }}>Sample work</span>
-          </div>
-          <div className="relative w-full" style={{ paddingBottom: "56.25%" }}>
-            <iframe
-              src="https://www.youtube.com/embed/t-VSxoBQlRA?rel=0"
-              title="Corporate branding video — Filming in Japan"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-              className="absolute inset-0 w-full h-full"
-              style={{ border: 0 }}
-            />
-          </div>
-        </div>
-      </section>
-
       {/* Main content + form */}
       <section className="py-24">
         <div className="max-w-7xl mx-auto px-6 sm:px-12 lg:px-16">
@@ -225,25 +163,122 @@ export default function CorporateBrandingPage() {
 
             {/* Left — service detail */}
             <div>
-              <div className="flex items-center gap-4 mb-6">
-                <div className="h-px w-10" style={{ backgroundColor: "#e95228" }} />
-                <span className="font-mono text-[10px] tracking-[0.35em] uppercase" style={{ color: "#e95228" }}>What we deliver</span>
-              </div>
-              <h2 className="text-3xl sm:text-4xl font-black mb-10 leading-tight" style={{ color: "#1c1208" }}>
-                Stories that connect your<br />brand to Japanese audiences<span style={{ color: "#e95228" }}>.</span>
-              </h2>
 
-              <div className="space-y-8 mb-16">
-                {points.map((p) => (
-                  <div key={p.num} className="flex gap-6 pb-8 border-b" style={{ borderColor: "#e8d9c8" }}>
-                    <span className="font-mono text-xs font-black shrink-0 mt-0.5" style={{ color: "#e95228" }}>{p.num}</span>
-                    <div>
-                      <h3 className="font-black mb-1" style={{ color: "#1c1208" }}>{p.title}</h3>
-                      <p className="text-sm leading-relaxed" style={{ color: "rgba(28,18,8,0.55)" }}>{p.desc}</p>
-                    </div>
-                  </div>
-                ))}
+              {/* ── Section 1: Corporate Interviews ── */}
+              <div className="mb-20">
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="h-px w-10" style={{ backgroundColor: "#e95228" }} />
+                  <span className="font-mono text-[10px] tracking-[0.35em] uppercase" style={{ color: "#e95228" }}>01</span>
+                </div>
+                <h2 className="text-3xl sm:text-4xl font-black mb-6 leading-tight" style={{ color: "#1c1208" }}>
+                  Corporate Interviews<span style={{ color: "#e95228" }}>.</span>
+                </h2>
+                <p className="text-sm leading-relaxed mb-4" style={{ color: "rgba(28,18,8,0.6)" }}>
+                  CEO interviews, exec profiles, thought leadership pieces and case study interviews — filmed at your client's office, a studio, or anywhere in Japan. We have native English and Japanese interviewers on every shoot, ensuring the interviewee is relaxed and delivers genuine, on-message answers.
+                </p>
+                <p className="text-sm leading-relaxed mb-8" style={{ color: "rgba(28,18,8,0.6)" }}>
+                  We can link overseas producers or directors to the set via remote video, enabling them to observe, give feedback or ask questions directly. Small crew to keep your subjects comfortable.
+                </p>
+                <VideoEmbed
+                  src="https://player.vimeo.com/video/561655197?h=d1ca57fb5c"
+                  title="Corporate interview video samples — Filming in Japan"
+                />
+                <p className="mt-3 text-sm font-black" style={{ color: "#1c1208" }}>
+                  Selected corporate interview clips — Tokyo
+                </p>
               </div>
+
+              <div className="h-px mb-20" style={{ backgroundColor: "#e8d9c8" }} />
+
+              {/* ── Section 2: Brand Films ── */}
+              <div className="mb-20">
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="h-px w-10" style={{ backgroundColor: "#e95228" }} />
+                  <span className="font-mono text-[10px] tracking-[0.35em] uppercase" style={{ color: "#e95228" }}>02</span>
+                </div>
+                <h2 className="text-3xl sm:text-4xl font-black mb-6 leading-tight" style={{ color: "#1c1208" }}>
+                  Brand Films<span style={{ color: "#e95228" }}>.</span>
+                </h2>
+                <p className="text-sm leading-relaxed mb-8" style={{ color: "rgba(28,18,8,0.6)" }}>
+                  Brand films, product launches, influencer series and commercial content for global brands operating in Japan. We use a documentary approach — finding the authentic story behind the brand — rather than scripted advertising. Trusted by HP, Canon and others to connect with Japanese and international audiences.
+                </p>
+
+                <div className="space-y-8">
+                  <div>
+                    <VideoEmbed
+                      src="https://www.youtube.com/embed/t-VSxoBQlRA?rel=0"
+                      title="Corporate branding video — Filming in Japan"
+                    />
+                    <p className="mt-3 text-sm font-black" style={{ color: "#1c1208" }}>Brand film — Japan</p>
+                  </div>
+                  <div>
+                    <VideoEmbed
+                      src="https://www.youtube.com/embed/m1KV1UTpSzU?rel=0"
+                      title="HP Asian Influencer Series — Filming in Japan"
+                    />
+                    <p className="mt-3 text-sm font-black" style={{ color: "#1c1208" }}>HP — Asian Influencer Series</p>
+                  </div>
+                  <div>
+                    <VideoEmbed
+                      src="https://player.vimeo.com/video/836766996?h=ccb3b1ab04"
+                      title="White Express brand film — Filming in Japan"
+                    />
+                    <p className="mt-3 text-sm font-black" style={{ color: "#1c1208" }}>White Express — Brand Film</p>
+                  </div>
+                  <div>
+                    <VideoEmbed
+                      src="https://player.vimeo.com/video/517509247"
+                      title="Craft brewery and distillery brand film — Japan"
+                    />
+                    <p className="mt-3 text-sm font-black" style={{ color: "#1c1208" }}>Craft Brewery & Distillery — Brand Film</p>
+                  </div>
+                  <div>
+                    <VideoEmbed
+                      src="https://player.vimeo.com/video/888141337?h=7f88a78ba3"
+                      title="Handmade knife company brand film — Japan"
+                    />
+                    <p className="mt-3 text-sm font-black" style={{ color: "#1c1208" }}>Handmade Knife Company — Brand Film</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="h-px mb-20" style={{ backgroundColor: "#e8d9c8" }} />
+
+              {/* ── Section 3: Recruitment & Employee Profiles ── */}
+              <div className="mb-20">
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="h-px w-10" style={{ backgroundColor: "#e95228" }} />
+                  <span className="font-mono text-[10px] tracking-[0.35em] uppercase" style={{ color: "#e95228" }}>03</span>
+                </div>
+                <h2 className="text-3xl sm:text-4xl font-black mb-6 leading-tight" style={{ color: "#1c1208" }}>
+                  Recruitment &amp; Employee Profiles<span style={{ color: "#e95228" }}>.</span>
+                </h2>
+                <p className="text-sm leading-relaxed mb-4" style={{ color: "rgba(28,18,8,0.6)" }}>
+                  Our documentary style ditches the teleprompters and set phrases for genuine comments from your employees on your company values, what motivates them and what makes your company the place to work.
+                </p>
+                <p className="text-sm leading-relaxed mb-8" style={{ color: "rgba(28,18,8,0.6)" }}>
+                  Part of a series of six recruit and employee profile videos for <strong style={{ color: "#1c1208" }}>EY</strong> — going beyond the workplace to discover the passion that drives their life and work. Recruitment video for <strong style={{ color: "#1c1208" }}>Google Japan</strong>, hearing from employees at their Inzai data centre near Tokyo about why they think Google is the right place for them.
+                </p>
+
+                <div className="space-y-8">
+                  <div>
+                    <VideoEmbed
+                      src="https://www.youtube.com/embed/UbkuSD-ht1U?rel=0"
+                      title="Google Japan recruitment video — Filming in Japan"
+                    />
+                    <p className="mt-3 text-sm font-black" style={{ color: "#1c1208" }}>Google Japan — Recruitment Video</p>
+                  </div>
+                  <div>
+                    <VideoEmbed
+                      src="https://www.youtube.com/embed/ZDKXfIE_b1Y?rel=0"
+                      title="EY employee profile video — Filming in Japan"
+                    />
+                    <p className="mt-3 text-sm font-black" style={{ color: "#1c1208" }}>EY — Employee Profile Series</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="h-px mb-20" style={{ backgroundColor: "#e8d9c8" }} />
 
               {/* Workflow */}
               <div className="mb-16 p-8" style={{ backgroundColor: "#0d0a07" }}>
@@ -252,52 +287,26 @@ export default function CorporateBrandingPage() {
                   <span className="font-mono text-[10px] tracking-[0.35em] uppercase" style={{ color: "#e95228" }}>How it works</span>
                 </div>
                 <div className="space-y-6">
-                  {workflow.map((w, i) => (
+                  {[
+                    {
+                      step: "The Plan",
+                      desc: "We location scout video interview locations beforehand, take photos, then work together on a call to discuss the best options. We align on message, length, tone and where the video will be used — website, SNS, trade shows.",
+                    },
+                    {
+                      step: "The Shoot",
+                      desc: "On the day we ask the questions in Japanese or English, ensuring the interviewee is relaxed and comfortable. Or we set up a remote feed for a producer or director based overseas to monitor the shoot or ask questions directly.",
+                    },
+                    {
+                      step: "The Edit",
+                      desc: "Native Japanese and English editors cut to your house style or to a pre-agreed script. We deliver in all formats — 16:9 for YouTube and websites, 9:16 for social — via Google Drive, Dropbox, MASV, Frame.io, or hard disk by courier.",
+                    },
+                  ].map((w, i) => (
                     <div key={i} className="flex gap-6 pb-6 border-b last:border-0 last:pb-0" style={{ borderColor: "rgba(255,255,255,0.08)" }}>
                       <span className="font-mono text-xs font-black shrink-0 mt-0.5 w-20" style={{ color: "#e95228" }}>{w.step}</span>
                       <p className="text-sm leading-relaxed" style={{ color: "rgba(253,248,243,0.6)" }}>{w.desc}</p>
                     </div>
                   ))}
                 </div>
-              </div>
-
-              {/* Selected work */}
-              <div className="mb-16">
-                <div className="flex items-center gap-4 mb-8">
-                  <div className="h-px w-10" style={{ backgroundColor: "#e95228" }} />
-                  <span className="font-mono text-[10px] tracking-[0.35em] uppercase" style={{ color: "#e95228" }}>Selected work</span>
-                </div>
-                <div className="space-y-8">
-                  {selectedWork.map((w, i) => (
-                    <div key={i} className="flex gap-6 pb-8 border-b" style={{ borderColor: "#e8d9c8" }}>
-                      <span className="font-mono text-xs font-black shrink-0 mt-0.5" style={{ color: "#e95228" }}>0{i + 1}</span>
-                      <div>
-                        <h3 className="font-black mb-2" style={{ color: "#1c1208" }}>{w.title}</h3>
-                        <p className="text-sm leading-relaxed" style={{ color: "rgba(28,18,8,0.55)" }}>{w.desc}</p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Recruitment section */}
-              <div className="mb-16 p-8" style={{ backgroundColor: "#f5ede2" }}>
-                <div className="flex items-center gap-4 mb-6">
-                  <div className="h-px w-10" style={{ backgroundColor: "#e95228" }} />
-                  <span className="font-mono text-[10px] tracking-[0.35em] uppercase" style={{ color: "#e95228" }}>Recruitment & employee profiles</span>
-                </div>
-                <h3 className="text-2xl font-black mb-4" style={{ color: "#1c1208" }}>
-                  Let your employees spread the word<span style={{ color: "#e95228" }}>.</span>
-                </h3>
-                <p className="text-sm leading-relaxed mb-4" style={{ color: "rgba(28,18,8,0.6)" }}>
-                  Our documentary style ditches the teleprompters and set phrases for genuine comments from your employees on your company values, what motivates them and what makes your company the place to work.
-                </p>
-                <p className="text-sm leading-relaxed mb-4" style={{ color: "rgba(28,18,8,0.6)" }}>
-                  Part of a series of six recruit/employee profile videos for <strong style={{ color: "#1c1208" }}>EY</strong> — going beyond the workplace to discover the passion that drives their life and work.
-                </p>
-                <p className="text-sm leading-relaxed" style={{ color: "rgba(28,18,8,0.6)" }}>
-                  Recruitment video for <strong style={{ color: "#1c1208" }}>Google Japan</strong>, hearing from employees at their Inzai data center near Tokyo about why they think Google is the right place for them.
-                </p>
               </div>
 
               {/* Testimonials */}
@@ -366,7 +375,7 @@ export default function CorporateBrandingPage() {
                 <p className="text-sm mb-6" style={{ color: "rgba(28,18,8,0.5)" }}>
                   Tell us about your project. We reply within 24 hours.
                 </p>
-                <LandingContactForm service="Corporate Branding Video Japan" />
+                <LandingContactForm service="Corporate Video Japan" />
               </div>
             </div>
           </div>

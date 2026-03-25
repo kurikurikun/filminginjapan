@@ -73,7 +73,7 @@ const testimonials = [
     credit: "Overseas-based client",
   },
   {
-    quote: "Your expertise and dedication truly made this video what it is. We also appreciate your continuous support and patience as we requested improvements multiple times.",
+    quote: "Your expertise and dedication truly made this video what it is. We also appreciate your continuous support and patience as we requested improvements multiple times. Once again, thank you so much for working with us. I hope we can collaborate again in the future!",
     credit: "Manager · International Technology Company",
   },
   {

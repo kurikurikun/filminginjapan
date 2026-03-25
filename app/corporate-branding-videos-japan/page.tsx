@@ -34,32 +34,12 @@ const faqs = [
     a: "Yes. We can link overseas directors to the set via remote video, enabling them to observe, give feedback or ask interview questions directly.",
   },
   {
-    q: "Do you offer editing in both English and Japanese?",
-    a: "Yes. We have native English and native Japanese editors in-house who can cut to a pre-agreed script or shape a story from the footage. We deliver in formats suitable for YouTube, websites and social platforms (both vertical and horizontal).",
-  },
-  {
-    q: "How many rounds of review are included?",
-    a: "Typically, two main rounds of edits get us close to final — after that, only minor adjustments are needed. Careful preproduction helps us minimise revisions later.",
-  },
-  {
-    q: "Can you provide bilingual interviewers and directors?",
-    a: "Yes. We have native and fluent Japanese interviewers, as well as bilingual directors and producers who ensure smooth communication between overseas clients and local crews.",
-  },
-  {
-    q: "Can you manage the entire production process for overseas clients?",
-    a: "Yes. We handle the full workflow — from concept development, scriptwriting and location scouting, to shooting, editing and final delivery. We also manage permits, translations and bilingual crews, so international clients don't have to worry about logistics.",
-  },
-  {
     q: "How long does it take to produce a corporate video in Japan?",
     a: "A small-scale shoot can take 2–3 weeks from planning to delivery; larger productions 1–2 months. We recommend starting the conversation at least 4–6 weeks before your target delivery date.",
   },
   {
     q: "Do we need filming permits in Japan?",
     a: "If we are putting up a tripod then permits are generally required in public locations. With a small handheld crew of 3–5 people, permits are often not required — though there are many exceptions. We advise on a case-by-case basis.",
-  },
-  {
-    q: "How do you deliver the final film?",
-    a: "We typically deliver via Google Drive, Dropbox, MASV or Frame.io. If required, we can also ship hard drives internationally. We provide both horizontal (16:9) and vertical (9:16) formats for social media campaigns.",
   },
   {
     q: "What are the typical costs for a corporate video in Japan?",
@@ -196,7 +176,7 @@ export default function CorporateBrandingPage() {
                   Brand Films<span style={{ color: "#e95228" }}>.</span>
                 </h2>
                 <p className="text-sm leading-relaxed mb-8" style={{ color: "rgba(28,18,8,0.6)" }}>
-                  Brand films, product launches, influencer series and commercial content for global brands operating in Japan. We use a documentary approach — finding the authentic story behind the brand — rather than scripted advertising. Trusted by HP, Canon and others to connect with Japanese and international audiences.
+                  Brand films, product launches, influencer series and commercial content for global brands operating in Japan. We use a documentary approach — finding the authentic story behind the brand — rather than scripted advertising. Trusted by HP, Canon, Google and others to connect with Japanese and international audiences.
                 </p>
 
                 <div className="space-y-8">

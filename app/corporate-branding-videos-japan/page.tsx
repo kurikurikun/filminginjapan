@@ -253,11 +253,8 @@ export default function CorporateBrandingPage() {
                 <h2 className="text-3xl sm:text-4xl font-black mb-6 leading-tight" style={{ color: "#1c1208" }}>
                   Recruitment &amp; Employee Profiles<span style={{ color: "#e95228" }}>.</span>
                 </h2>
-                <p className="text-sm leading-relaxed mb-4" style={{ color: "rgba(28,18,8,0.6)" }}>
-                  Our documentary style ditches the teleprompters and set phrases for genuine comments from your employees on your company values, what motivates them and what makes your company the place to work.
-                </p>
                 <p className="text-sm leading-relaxed mb-8" style={{ color: "rgba(28,18,8,0.6)" }}>
-                  Part of a series of six recruit and employee profile videos for <strong style={{ color: "#1c1208" }}>EY</strong> — going beyond the workplace to discover the passion that drives their life and work. Recruitment video for <strong style={{ color: "#1c1208" }}>Google Japan</strong>, hearing from employees at their Inzai data centre near Tokyo about why they think Google is the right place for them.
+                  Our documentary style ditches the teleprompters and set phrases for genuine comments from your employees on your company values, what motivates them and what makes your company the place to work.
                 </p>
 
                 <div className="space-y-8">
@@ -267,6 +264,7 @@ export default function CorporateBrandingPage() {
                       title="Google Japan recruitment video — Filming in Japan"
                     />
                     <p className="mt-3 text-sm font-black" style={{ color: "#1c1208" }}>Google Japan — Recruitment Video</p>
+                    <p className="mt-2 text-sm leading-relaxed" style={{ color: "rgba(28,18,8,0.55)" }}>Recruitment video for Google Japan, hearing from employees at their Inzai data centre near Tokyo about why they think Google is the right place for them.</p>
                   </div>
                   <div>
                     <VideoEmbed
@@ -274,6 +272,7 @@ export default function CorporateBrandingPage() {
                       title="EY employee profile video — Filming in Japan"
                     />
                     <p className="mt-3 text-sm font-black" style={{ color: "#1c1208" }}>EY — Employee Profile Series</p>
+                    <p className="mt-2 text-sm leading-relaxed" style={{ color: "rgba(28,18,8,0.55)" }}>Part of a series of six recruit and employee profile videos for EY — going beyond the workplace to discover the passion that drives their life and work.</p>
                   </div>
                 </div>
               </div>

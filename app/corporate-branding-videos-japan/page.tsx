@@ -99,7 +99,7 @@ export default function CorporateBrandingPage() {
             alt=""
             fill
             priority
-            className="object-cover object-[center_70%]"
+            className="object-cover object-[center_20%]"
             sizes="100vw"
           />
           <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(13,10,7,0.92) 0%, rgba(13,10,7,0.6) 50%, rgba(13,10,7,0.45) 100%)" }} />

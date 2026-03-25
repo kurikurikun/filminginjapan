@@ -86,7 +86,7 @@ export default function LandingContactForm({ service }: Props) {
             Company Website
           </label>
           <input
-            type="url"
+            type="text"
             name="company_website"
             placeholder="https://yourcompany.com"
             className="w-full px-4 py-3 text-sm border outline-none"

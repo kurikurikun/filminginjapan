@@ -83,44 +83,30 @@ export default function LandingContactForm({ service }: Props) {
         </div>
         <div>
           <label className="block font-mono text-[10px] tracking-[0.2em] uppercase mb-2" style={{ color: "rgba(28,18,8,0.5)" }}>
-            Company
+            Company Website
           </label>
           <input
-            type="text"
-            name="company"
-            placeholder="Your company"
+            type="url"
+            name="company_website"
+            placeholder="https://yourcompany.com"
             className="w-full px-4 py-3 text-sm border outline-none"
             style={{ backgroundColor: "#fdf8f3", borderColor: "#e8d9c8", color: "#1c1208" }}
           />
         </div>
       </div>
 
-      <div className="grid sm:grid-cols-2 gap-4">
-        <div>
-          <label className="block font-mono text-[10px] tracking-[0.2em] uppercase mb-2" style={{ color: "rgba(28,18,8,0.5)" }}>
-            Email *
-          </label>
-          <input
-            type="email"
-            name="email"
-            required
-            placeholder="your@email.com"
-            className="w-full px-4 py-3 text-sm border outline-none"
-            style={{ backgroundColor: "#fdf8f3", borderColor: "#e8d9c8", color: "#1c1208" }}
-          />
-        </div>
-        <div>
-          <label className="block font-mono text-[10px] tracking-[0.2em] uppercase mb-2" style={{ color: "rgba(28,18,8,0.5)" }}>
-            Phone / WhatsApp
-          </label>
-          <input
-            type="tel"
-            name="phone"
-            placeholder="+1 or +81..."
-            className="w-full px-4 py-3 text-sm border outline-none"
-            style={{ backgroundColor: "#fdf8f3", borderColor: "#e8d9c8", color: "#1c1208" }}
-          />
-        </div>
+      <div>
+        <label className="block font-mono text-[10px] tracking-[0.2em] uppercase mb-2" style={{ color: "rgba(28,18,8,0.5)" }}>
+          Email *
+        </label>
+        <input
+          type="email"
+          name="email"
+          required
+          placeholder="your@email.com"
+          className="w-full px-4 py-3 text-sm border outline-none"
+          style={{ backgroundColor: "#fdf8f3", borderColor: "#e8d9c8", color: "#1c1208" }}
+        />
       </div>
 
       <div>

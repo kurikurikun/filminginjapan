@@ -73,11 +73,15 @@ const faqs = [
   },
   {
     q: "Do you offer editing in both English and Japanese?",
-    a: "Yes. We have native English and native Japanese editors in-house who can cut to a pre-agreed script or shape a story from the footage. We deliver formats for YouTube, websites and social (both vertical and horizontal).",
+    a: "Yes. We have native English and native Japanese editors in-house who can cut to a pre-agreed script or shape a story from the footage. We deliver in formats suitable for YouTube, websites and social platforms (both vertical and horizontal).",
   },
   {
     q: "How many rounds of review are included?",
     a: "Typically, two main rounds of edits get us close to final — after that, only minor adjustments are needed. Careful preproduction helps us minimise revisions later.",
+  },
+  {
+    q: "Can you provide bilingual interviewers and directors?",
+    a: "Yes. We have native and fluent Japanese interviewers, as well as bilingual directors and producers who ensure smooth communication between overseas clients and local crews.",
   },
   {
     q: "Can you manage the entire production process for overseas clients?",
@@ -90,6 +94,10 @@ const faqs = [
   {
     q: "Do we need filming permits in Japan?",
     a: "If we are putting up a tripod then permits are generally required in public locations. With a small handheld crew of 3–5 people, permits are often not required — though there are many exceptions. We advise on a case-by-case basis.",
+  },
+  {
+    q: "How do you deliver the final film?",
+    a: "We typically deliver via Google Drive, Dropbox, MASV or Frame.io. If required, we can also ship hard drives internationally. We provide both horizontal (16:9) and vertical (9:16) formats for social media campaigns.",
   },
   {
     q: "What are the typical costs for a branding film in Japan?",
@@ -112,6 +120,37 @@ const testimonials = [
     quote: "Thank you so much for your work and dedication. The image and sound are very good. It was a real pleasure to work with you.",
     credit: "Overseas Director · Remote Production",
   },
+  {
+    quote: "We just completed the edit. Great job with the footage. Love the shot of the city from the window. Seems like you and the interview subject got along well in the interview.",
+    credit: "Director · Overseas Production Company",
+  },
+];
+
+const selectedWork = [
+  {
+    title: "Nadaman Restaurant — CNNj Commercial",
+    desc: "A 30-second brand commercial broadcast on CNNj. The brief was to show the history of the restaurant but demonstrate its contemporary relevance across the four seasons. We tracked down archival footage from the Ronald Reagan Presidential Library of world leaders dining at Nadaman, and referenced Natsume Soseki's mention of the restaurant in his novels.",
+  },
+  {
+    title: "HP — Asian Influencer Series",
+    desc: "One of four branding videos for HP showcasing Asian-based influencers. By showing the vision that drives each influencer and how they use HP products to communicate that vision, HP connected authentically with their target audience.",
+  },
+  {
+    title: "Craft Brewery & Distillery — Brand Film",
+    desc: "An unusual brief: the same site brews both sake and whisky. We used a split-screen effect to visually tell this story, following a couple who connect over whisky and then tour the distillery the next day.",
+  },
+  {
+    title: "Handmade Knife Company — Brand Film",
+    desc: "By finding out why the blade smiths continually strive for a better knife — what drives them to keep forging — we delivered a video that presented value in the knives far beyond cutting ability or aesthetics.",
+  },
+];
+
+const equipment = [
+  "Canon C300, C200, C70",
+  "Sony FX3, FX6, FX9, FS7, FS5",
+  "Arri Amira, Alexa Mini",
+  "3-point lighting, boom & lapel mics",
+  "Sliders, gimbals, portable green screen",
 ];
 
 export default function CorporateBrandingPage() {
@@ -159,6 +198,26 @@ export default function CorporateBrandingPage() {
         </div>
       </section>
 
+      {/* Featured video */}
+      <section style={{ backgroundColor: "#0d0a07" }}>
+        <div className="max-w-7xl mx-auto px-6 sm:px-12 lg:px-16 py-16">
+          <div className="flex items-center gap-4 mb-8">
+            <div className="h-px w-10" style={{ backgroundColor: "#e95228" }} />
+            <span className="font-mono text-[10px] tracking-[0.35em] uppercase" style={{ color: "#e95228" }}>Sample work</span>
+          </div>
+          <div className="relative w-full" style={{ paddingBottom: "56.25%" }}>
+            <iframe
+              src="https://www.youtube.com/embed/t-VSxoBQlRA?rel=0"
+              title="Corporate branding video — Filming in Japan"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              className="absolute inset-0 w-full h-full"
+              style={{ border: 0 }}
+            />
+          </div>
+        </div>
+      </section>
+
       {/* Main content + form */}
       <section className="py-24">
         <div className="max-w-7xl mx-auto px-6 sm:px-12 lg:px-16">
@@ -202,6 +261,45 @@ export default function CorporateBrandingPage() {
                 </div>
               </div>
 
+              {/* Selected work */}
+              <div className="mb-16">
+                <div className="flex items-center gap-4 mb-8">
+                  <div className="h-px w-10" style={{ backgroundColor: "#e95228" }} />
+                  <span className="font-mono text-[10px] tracking-[0.35em] uppercase" style={{ color: "#e95228" }}>Selected work</span>
+                </div>
+                <div className="space-y-8">
+                  {selectedWork.map((w, i) => (
+                    <div key={i} className="flex gap-6 pb-8 border-b" style={{ borderColor: "#e8d9c8" }}>
+                      <span className="font-mono text-xs font-black shrink-0 mt-0.5" style={{ color: "#e95228" }}>0{i + 1}</span>
+                      <div>
+                        <h3 className="font-black mb-2" style={{ color: "#1c1208" }}>{w.title}</h3>
+                        <p className="text-sm leading-relaxed" style={{ color: "rgba(28,18,8,0.55)" }}>{w.desc}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Recruitment section */}
+              <div className="mb-16 p-8" style={{ backgroundColor: "#f5ede2" }}>
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="h-px w-10" style={{ backgroundColor: "#e95228" }} />
+                  <span className="font-mono text-[10px] tracking-[0.35em] uppercase" style={{ color: "#e95228" }}>Recruitment & employee profiles</span>
+                </div>
+                <h3 className="text-2xl font-black mb-4" style={{ color: "#1c1208" }}>
+                  Let your employees spread the word<span style={{ color: "#e95228" }}>.</span>
+                </h3>
+                <p className="text-sm leading-relaxed mb-4" style={{ color: "rgba(28,18,8,0.6)" }}>
+                  Our documentary style ditches the teleprompters and set phrases for genuine comments from your employees on your company values, what motivates them and what makes your company the place to work.
+                </p>
+                <p className="text-sm leading-relaxed mb-4" style={{ color: "rgba(28,18,8,0.6)" }}>
+                  Part of a series of six recruit/employee profile videos for <strong style={{ color: "#1c1208" }}>EY</strong> — going beyond the workplace to discover the passion that drives their life and work.
+                </p>
+                <p className="text-sm leading-relaxed" style={{ color: "rgba(28,18,8,0.6)" }}>
+                  Recruitment video for <strong style={{ color: "#1c1208" }}>Google Japan</strong>, hearing from employees at their Inzai data center near Tokyo about why they think Google is the right place for them.
+                </p>
+              </div>
+
               {/* Testimonials */}
               <div className="space-y-6 mb-16">
                 <div className="flex items-center gap-4 mb-6">
@@ -218,6 +316,25 @@ export default function CorporateBrandingPage() {
                     </cite>
                   </blockquote>
                 ))}
+              </div>
+
+              {/* Equipment */}
+              <div className="mb-16 p-8 border" style={{ borderColor: "#e8d9c8" }}>
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="h-px w-10" style={{ backgroundColor: "#e95228" }} />
+                  <span className="font-mono text-[10px] tracking-[0.35em] uppercase" style={{ color: "#e95228" }}>Our equipment</span>
+                </div>
+                <p className="text-sm leading-relaxed mb-4" style={{ color: "rgba(28,18,8,0.6)" }}>
+                  We shoot on professional cinema cameras and are happy to work with a specific camera you require. Our in-house kit includes:
+                </p>
+                <ul className="space-y-2">
+                  {equipment.map((item, i) => (
+                    <li key={i} className="flex items-center gap-3 text-sm" style={{ color: "rgba(28,18,8,0.7)" }}>
+                      <span style={{ color: "#e95228" }}>—</span>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
               </div>
 
               {/* FAQ */}

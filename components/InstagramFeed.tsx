@@ -16,13 +16,13 @@ export default function InstagramFeed() {
             Follow the work<span style={{ color: "#e95228" }}>.</span>
           </h2>
           <a
-            href="https://www.instagram.com/filminginjapan/"
+            href="https://www.instagram.com/move_ment.co.ltd/"
             target="_blank"
             rel="noopener noreferrer"
             className="font-mono text-[10px] tracking-[0.2em] uppercase hidden sm:block"
             style={{ color: "rgba(28,18,8,0.45)" }}
           >
-            @filminginjapan →
+            @move_ment.co.ltd →
           </a>
         </div>
 

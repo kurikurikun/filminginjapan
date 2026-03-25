@@ -217,6 +217,40 @@ export default function TestimonialsPage() {
                 </div>
               </div>
 
+              {/* Green screen section */}
+              <div className="mb-16 p-8" style={{ backgroundColor: "#0d0a07" }}>
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="h-px w-10" style={{ backgroundColor: "#e95228" }} />
+                  <span className="font-mono text-[10px] tracking-[0.35em] uppercase" style={{ color: "#e95228" }}>Green screen on location</span>
+                </div>
+                <h3 className="text-2xl font-black mb-4" style={{ color: "#fdf8f3" }}>
+                  Studio quality, anywhere in Japan<span style={{ color: "#e95228" }}>.</span>
+                </h3>
+                <p className="text-sm leading-relaxed mb-8" style={{ color: "rgba(253,248,243,0.6)" }}>
+                  We have recorded corporate presentations for companies such as Canon, and client testimonials at events for companies such as SAP, on green screen. We carry a complete package — large portable green screen, professional lighting, boom and lapel sound, and cameras — to set up a broadcast-quality green screen studio anywhere there is space.
+                </p>
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="relative w-full" style={{ paddingBottom: "66.67%" }}>
+                    <Image
+                      src="/images/tokyo_japan_studio_green_screen_recordings_1.jpeg"
+                      alt="Green screen studio setup in Tokyo Japan"
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                    />
+                  </div>
+                  <div className="relative w-full" style={{ paddingBottom: "66.67%" }}>
+                    <Image
+                      src="/images/tokyo_japan_studio_green_screen_recordings_2.jpg"
+                      alt="Green screen testimonial recording in Tokyo Japan"
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                    />
+                  </div>
+                </div>
+              </div>
+
               {/* Testimonials */}
               <div className="space-y-6 mb-16">
                 <div className="flex items-center gap-4 mb-6">

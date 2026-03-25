@@ -22,14 +22,25 @@ export default async function BlogPage() {
     <div style={{ backgroundColor: "#fdf8f3" }}>
 
       {/* Hero */}
-      <section className="relative pt-32 pb-20" style={{ backgroundColor: "#0d0a07" }}>
-        <div className="absolute top-8 left-8 pointer-events-none">
+      <section className="relative pt-32 pb-20 overflow-hidden" style={{ backgroundColor: "#0d0a07" }}>
+        <div className="absolute inset-0">
+          <Image
+            src="/images/filming_in_japan_blog_photo.jpeg"
+            alt=""
+            fill
+            priority
+            className="object-cover"
+            sizes="100vw"
+          />
+          <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(13,10,7,0.92) 0%, rgba(13,10,7,0.6) 50%, rgba(13,10,7,0.45) 100%)" }} />
+        </div>
+        <div className="absolute top-8 left-8 pointer-events-none" style={{ zIndex: 1 }}>
           <div className="w-8 h-8 border-t border-l" style={{ borderColor: "rgba(233,82,40,0.4)" }} />
         </div>
-        <div className="absolute top-8 right-8 pointer-events-none">
+        <div className="absolute top-8 right-8 pointer-events-none" style={{ zIndex: 1 }}>
           <div className="w-8 h-8 border-t border-r" style={{ borderColor: "rgba(233,82,40,0.4)" }} />
         </div>
-        <div className="max-w-7xl mx-auto px-6 sm:px-12 lg:px-16">
+        <div className="relative max-w-7xl mx-auto px-6 sm:px-12 lg:px-16" style={{ zIndex: 1 }}>
           <div className="flex items-center gap-4 mb-8">
             <div className="h-px w-10" style={{ backgroundColor: "#e95228" }} />
             <span className="font-mono text-[10px] tracking-[0.35em] uppercase" style={{ color: "#e95228" }}>

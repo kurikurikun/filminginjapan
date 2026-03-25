@@ -64,7 +64,7 @@ const testimonials = [
 
 const equipment = [
   "Canon C80, R5C",
-  "Blackmagic Design CC 6k, BMPCC 4K",
+  "Blackmagic Design CC 6K, BMPCC 4K",
   "3-point lighting, boom & lapel mics, time code sync",
   "Sliders, gimbals, portable green screen",
 ];

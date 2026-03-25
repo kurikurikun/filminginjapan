@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Footer from "@/components/Footer";
 import LandingContactForm from "@/components/LandingContactForm";
+import PhotoGrid from "@/components/PhotoGrid";
 
 export const metadata: Metadata = {
   title: "Commercial Real Estate Photography, Video & Virtual Tours Japan | Filming in Japan",
@@ -8,36 +10,87 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://www.filminginjapan.com/real-estate-photo-video-tokyo-japan" },
 };
 
-const points = [
+const services = [
   {
     num: "01",
-    title: "Architectural photography",
-    desc: "Interior and exterior stills for listings, brochures and press. We work from a floor plan and decide how best to present the space, or collaborate with your marketing or renovation team. HDR-merged, colour-graded and retouched.",
+    title: "Commercial real estate photos",
+    desc: "Interior and exterior stills for listings, brochures and press — office completions, before/after renovations, shop interiors, commercial property sales photography and Tokyo cityscapes. We work from a floor plan to decide the best angles and time of day, or collaborate directly with your marketing or renovation team. HDR-merged, colour-graded and retouched.",
+    projects: [
+      "Yoyogi luxury residence — architectural photography and print production",
+      "Tokyo office completions for JLL and CBRE",
+    ],
+    leadImage: { src: "/images/re_photo_1.jpg", alt: "Commercial real estate interior photography, Tokyo" },
+    gridImages: [
+      { src: "/images/re_lounge_1.jpg", alt: "High-rise office lounge interior with Tokyo skyline view" },
+      { src: "/images/re_photo_2.jpg", alt: "Office interior photography Japan" },
+      { src: "/images/re_photo_4.jpg", alt: "Real estate interior photography Japan" },
+      { src: "/images/re_photo_5.jpg", alt: "Commercial property interior Tokyo" },
+      { src: "/images/re_office_3.jpg", alt: "Commercial building lobby, Tokyo" },
+      { src: "/images/re_office_4.jpg", alt: "Office lounge interior, Japan" },
+      { src: "/images/re_office_2.jpg", alt: "Creative office interior with mural, Tokyo" },
+    ],
+    videos: [],
+    matterport: null,
   },
   {
     num: "02",
-    title: "Drone photo & video",
-    desc: "High-rise buildings, hotels and large commercial complexes photographed and filmed from the air. We combine drone aerials with ground photography on the same day — consistent look, cost savings, single crew.",
+    title: "Real estate drone photos and video",
+    desc: "High-rise buildings, hotels and large commercial complexes photographed and filmed from the air — for promotions, listings, construction records or renovation documentation. By combining drone aerials with ground photography on the same day, we deliver a consistent look at lower total cost with a single crew.",
+    projects: [
+      "Yokohama Bay — high-rise office fly-through",
+      "Hines distribution centre — aerial and ground footage plus completion photography",
+      "Fukuoka Hilton — drone video for sale promotion",
+    ],
+    leadImage: { src: "/images/re_drone_1.jpg", alt: "Drone aerial photography of commercial building, Japan" },
+    gridImages: [
+      { src: "/images/re_photo_3.jpg", alt: "Aerial drone photography of spiral building structure, Japan" },
+      { src: "/images/re_drone_4.jpg", alt: "Aerial building photography Japan" },
+      { src: "/images/re_drone_5.jpg", alt: "Commercial complex drone photography Tokyo" },
+      { src: "/images/re_drone_6.jpg", alt: "High-rise drone photography Japan" },
+    ],
+    videos: [
+      { id: "873209362", hash: "092fe43e56", caption: "Fukuoka Hilton — drone video for sale promotion" },
+      { id: "952995962", hash: "541869b193", caption: "Distribution center — drone footage" },
+    ],
+    matterport: null,
   },
   {
     num: "03",
-    title: "360° virtual tours & Matterport",
-    desc: "Matterport Pro 3 tours let overseas buyers and tenants explore every room from anywhere in the world. We also produce 360° tours for VR headsets (Meta Quest) and smartphone/desktop browsers.",
+    title: "360° VR and Matterport building tours",
+    desc: "Matterport Pro 3 tours let overseas buyers and tenants explore every room from anywhere in the world, via browser or VR headset (Meta Quest). We also produce 360° tours using the Insta360 Pro 2, Insta360 1-inch, or stitched full-frame mirrorless images for maximum quality — covering offices, warehouses, distribution centres and outdoor spaces.",
+    projects: [
+      "Warehouse and distribution centre 360° tour",
+      "Hiroshima Peace Memorial Park — 360° virtual experience",
+      "Yoyogi luxury residence — Matterport tour for overseas buyers",
+    ],
+    leadImage: null,
+    gridImages: [],
+    videos: [],
+    matterport: "14HzQMjL4RW",
   },
   {
     num: "04",
-    title: "Facility & promotion videos",
-    desc: "Cinematic videos for data centres, hotels, warehouses, office buildings, residences and shopping centres. We combine interview, b-roll and aerial footage into compelling promotional films.",
-  },
-  {
-    num: "05",
-    title: "Full-package shoots",
-    desc: "We combine Matterport tours, ground photography, drone photos and video in a single multi-day shoot — capturing every type of media needed to market a facility, all in one coordinated production.",
-  },
-  {
-    num: "06",
-    title: "Fast turnaround",
-    desc: "Photos delivered within 24 hours of the shoot. Video and virtual tours within 72 hours. Rush delivery available on request for time-sensitive listings or launches.",
+    title: "Building, residence and facilities videos",
+    desc: "Cinematic promotion and completion videos for data centres, hotels, warehouses, office buildings, residences and shopping centres. We combine interview, b-roll and aerial footage into compelling promotional films — and can package photography, drone and Matterport into a single multi-day shoot for maximum efficiency. Photos delivered within 24 hours; video and virtual tours within 72 hours.",
+    projects: [
+      "Hines distribution centre — promotion video",
+      "Data centre completion videos in Tokyo",
+      "Hotel and shopping centre facility films across Japan",
+    ],
+    leadImage: { src: "/images/re_facility_1.jpg", alt: "Building facilities video production Japan" },
+    gridImages: [
+      { src: "/images/re_facility_2.jpg", alt: "Facility video production Tokyo" },
+      { src: "/images/re_facility_3.jpg", alt: "Commercial building video Japan" },
+      { src: "/images/re_residence_1.jpg", alt: "Luxury private residence exterior, Tokyo" },
+      { src: "/images/re_residence_2.jpg", alt: "Luxury private residence interior, Tokyo" },
+      { src: "/images/re_residence_3.jpg", alt: "Luxury private residence staircase, Tokyo" },
+    ],
+    videos: [
+      { id: "953857182", hash: null, caption: "Luxury Azabu-juban private residence promotion, Tokyo" },
+      { id: "887091197", hash: "76711d9979", caption: "Luxury Yoyogi private residence showcase walkthrough, Tokyo" },
+      { id: "867821014", hash: "19dce56809", caption: "Office interior photography and video, Tokyo" },
+    ],
+    matterport: null,
   },
 ];
 
@@ -80,7 +133,7 @@ const faqs = [
   },
 ];
 
-const clients = ["JLL", "CBRE", "Cushman & Wakefield", "Hines", "Savills", "NEC", "Microsoft"];
+const clients = ["JLL", "CBRE", "Cushman & Wakefield", "Hines", "Savills"];
 
 export default function RealEstatePage() {
   return (
@@ -88,13 +141,25 @@ export default function RealEstatePage() {
 
       {/* Hero */}
       <section className="relative pt-32 pb-20 overflow-hidden" style={{ backgroundColor: "#0d0a07" }}>
-        <div className="absolute top-8 left-8 pointer-events-none">
+        {/* Background image */}
+        <div className="absolute inset-0">
+          <Image
+            src="/images/tokyo-real-estate-drone-photo1.jpg"
+            alt=""
+            fill
+            priority
+            className="object-cover"
+            sizes="100vw"
+          />
+          <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(13,10,7,0.92) 0%, rgba(13,10,7,0.6) 50%, rgba(13,10,7,0.45) 100%)" }} />
+        </div>
+        <div className="absolute top-8 left-8 pointer-events-none" style={{ zIndex: 1 }}>
           <div className="w-8 h-8 border-t border-l" style={{ borderColor: "rgba(233,82,40,0.4)" }} />
         </div>
-        <div className="absolute top-8 right-8 pointer-events-none">
+        <div className="absolute top-8 right-8 pointer-events-none" style={{ zIndex: 1 }}>
           <div className="w-8 h-8 border-t border-r" style={{ borderColor: "rgba(233,82,40,0.4)" }} />
         </div>
-        <div className="max-w-7xl mx-auto px-6 sm:px-12 lg:px-16">
+        <div className="relative max-w-7xl mx-auto px-6 sm:px-12 lg:px-16" style={{ zIndex: 1 }}>
           <div className="flex items-center gap-4 mb-8">
             <div className="h-px w-10" style={{ backgroundColor: "#e95228" }} />
             <span className="font-mono text-[10px] tracking-[0.35em] uppercase" style={{ color: "#e95228" }}>
@@ -142,14 +207,68 @@ export default function RealEstatePage() {
                 Showcasing property assets<br />in the best light<span style={{ color: "#e95228" }}>.</span>
               </h2>
 
-              <div className="space-y-8 mb-16">
-                {points.map((p) => (
-                  <div key={p.num} className="flex gap-6 pb-8 border-b" style={{ borderColor: "#e8d9c8" }}>
-                    <span className="font-mono text-xs font-black shrink-0 mt-0.5" style={{ color: "#e95228" }}>{p.num}</span>
-                    <div>
-                      <h3 className="font-black mb-1" style={{ color: "#1c1208" }}>{p.title}</h3>
-                      <p className="text-sm leading-relaxed" style={{ color: "rgba(28,18,8,0.55)" }}>{p.desc}</p>
+              <div className="space-y-16 mb-16">
+                {services.map((s) => (
+                  <div key={s.num} className="pb-16 border-b" style={{ borderColor: "#e8d9c8" }}>
+                    <div className="flex items-center gap-3 mb-3">
+                      <span className="font-mono text-xs font-black" style={{ color: "#e95228" }}>{s.num}</span>
+                      <h3 className="text-lg font-black" style={{ color: "#1c1208" }}>{s.title}</h3>
                     </div>
+                    <p className="text-sm leading-relaxed mb-4" style={{ color: "rgba(28,18,8,0.55)" }}>{s.desc}</p>
+                    <div className="space-y-1 mb-8">
+                      {s.projects.map((proj, i) => (
+                        <div key={i} className="flex items-start gap-2 text-sm" style={{ color: "rgba(28,18,8,0.45)" }}>
+                          <span className="shrink-0 mt-0.5" style={{ color: "#e95228" }}>—</span>
+                          <span>{proj}</span>
+                        </div>
+                      ))}
+                    </div>
+
+                    {/* Lead image */}
+                    {s.leadImage && (
+                      <div className="relative w-full mb-2" style={{ paddingBottom: "56.25%" }}>
+                        <Image src={s.leadImage.src} alt={s.leadImage.alt} fill className="object-cover" sizes="(max-width: 768px) 100vw, 65vw" />
+                      </div>
+                    )}
+
+                    {/* Photo grid */}
+                    {s.gridImages.length > 0 && (
+                      <PhotoGrid images={s.gridImages} />
+                    )}
+
+                    {/* Matterport embed */}
+                    {s.matterport && (
+                      <div className="mb-4">
+                        <div className="relative w-full" style={{ paddingBottom: "56.25%" }}>
+                          <iframe
+                            src={`https://my.matterport.com/show/?m=${s.matterport}`}
+                            title="Matterport 360° virtual tour"
+                            allow="vr; xr; accelerometer; magnetometer; gyroscope; autoplay"
+                            allowFullScreen
+                            className="absolute inset-0 w-full h-full"
+                            style={{ border: 0 }}
+                          />
+                        </div>
+                        <p className="mt-2 text-sm font-black" style={{ color: "#1c1208" }}>360° Matterport virtual tour — explore in your browser or VR headset</p>
+                      </div>
+                    )}
+
+                    {/* Videos */}
+                    {s.videos.map((v, i) => (
+                      <div key={i} className="mb-4">
+                        <div className="relative w-full" style={{ paddingBottom: "56.25%" }}>
+                          <iframe
+                            src={`https://player.vimeo.com/video/${v.id}${v.hash ? `?h=${v.hash}` : ""}`}
+                            title={v.caption}
+                            allow="autoplay; fullscreen; picture-in-picture"
+                            allowFullScreen
+                            className="absolute inset-0 w-full h-full"
+                            style={{ border: 0 }}
+                          />
+                        </div>
+                        <p className="mt-2 text-sm font-black" style={{ color: "#1c1208" }}>{v.caption}</p>
+                      </div>
+                    ))}
                   </div>
                 ))}
               </div>
@@ -170,14 +289,6 @@ export default function RealEstatePage() {
                   </cite>
                 </blockquote>
 
-                <blockquote className="pl-6 border-l-4" style={{ borderColor: "#e8d9c8" }}>
-                  <p className="text-base font-black italic leading-snug mb-3" style={{ color: "#1c1208" }}>
-                    &ldquo;The virtual tour alone closed two overseas buyers who never visited the property in person. The ROI was immediate.&rdquo;
-                  </p>
-                  <cite className="font-mono text-[10px] tracking-widest not-italic uppercase" style={{ color: "rgba(28,18,8,0.4)" }}>
-                    Senior Director · Leading Real Estate Firm · Tokyo
-                  </cite>
-                </blockquote>
               </div>
 
               {/* FAQ */}

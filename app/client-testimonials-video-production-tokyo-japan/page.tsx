@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Footer from "@/components/Footer";
 import LandingContactForm from "@/components/LandingContactForm";
 
@@ -50,11 +51,23 @@ const faqs = [
   },
   {
     q: "What camera and audio equipment do you use?",
-    a: "We shoot on Sony FX3, FX6, FX9, Canon C300/C200/C70 and Arri Amira. Audio is captured with boom and lapel mics. Three-point lighting as standard.",
+    a: "Our standard equipment is the Canon C80 and Canon R5C, but we have shot on Sony FX3, FX6, FX9 and Arri Amira cameras. Audio is captured with boom and lapel mics. We have a compact lighting setup that travels well, or can do three-point lighting.",
   },
   {
     q: "Can the interview be directed remotely by our overseas team?",
     a: "Yes. We can link overseas producers or directors to the set via remote video, enabling them to observe, give feedback or ask questions directly.",
+  },
+  {
+    q: "What is the process for preparing a testimonial shoot?",
+    a: "We work with you in advance to agree on interview questions, filming style and location. We can also coordinate directly with your client to keep scheduling simple and ensure they feel comfortable on camera before the shoot day.",
+  },
+  {
+    q: "Do you provide B-roll footage as part of the testimonial?",
+    a: "Yes. We can capture additional office, product or cityscape footage — for example, Tokyo skyline shots — to complement the interview and make the final video more engaging.",
+  },
+  {
+    q: "How do you ensure the interviewee is comfortable on camera?",
+    a: "We treat interviews as a natural conversation, with genuine curiosity about what drives the interviewee. We keep crew sizes small and create a relaxed environment so interviewees deliver authentic, engaging answers rather than stiff on-camera performances.",
   },
   {
     q: "How quickly can you turn around the edited video?",
@@ -74,13 +87,25 @@ export default function TestimonialsPage() {
 
       {/* Hero */}
       <section className="relative pt-32 pb-20 overflow-hidden" style={{ backgroundColor: "#0d0a07" }}>
-        <div className="absolute top-8 left-8 pointer-events-none">
+        {/* Background image */}
+        <div className="absolute inset-0">
+          <Image
+            src="/images/customer_testimonial_office_tokyo.jpeg"
+            alt=""
+            fill
+            priority
+            className="object-cover"
+            sizes="100vw"
+          />
+          <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(13,10,7,0.92) 0%, rgba(13,10,7,0.6) 50%, rgba(13,10,7,0.45) 100%)" }} />
+        </div>
+        <div className="absolute top-8 left-8 pointer-events-none" style={{ zIndex: 1 }}>
           <div className="w-8 h-8 border-t border-l" style={{ borderColor: "rgba(233,82,40,0.4)" }} />
         </div>
-        <div className="absolute top-8 right-8 pointer-events-none">
+        <div className="absolute top-8 right-8 pointer-events-none" style={{ zIndex: 1 }}>
           <div className="w-8 h-8 border-t border-r" style={{ borderColor: "rgba(233,82,40,0.4)" }} />
         </div>
-        <div className="max-w-7xl mx-auto px-6 sm:px-12 lg:px-16">
+        <div className="relative max-w-7xl mx-auto px-6 sm:px-12 lg:px-16" style={{ zIndex: 1 }}>
           <div className="flex items-center gap-4 mb-8">
             <div className="h-px w-10" style={{ backgroundColor: "#e95228" }} />
             <span className="font-mono text-[10px] tracking-[0.35em] uppercase" style={{ color: "#e95228" }}>
@@ -140,6 +165,58 @@ export default function TestimonialsPage() {
                 ))}
               </div>
 
+              {/* Video samples */}
+              <div className="mb-16">
+                <div className="flex items-center gap-4 mb-8">
+                  <div className="h-px w-10" style={{ backgroundColor: "#e95228" }} />
+                  <span className="font-mono text-[10px] tracking-[0.35em] uppercase" style={{ color: "#e95228" }}>Work samples</span>
+                </div>
+
+                <div className="space-y-8">
+                  <div>
+                    <div className="relative w-full" style={{ paddingBottom: "56.25%" }}>
+                      <iframe
+                        src="https://www.youtube.com/embed/72GKHq5pCDY"
+                        title="Client testimonial video filmed for Microsoft Asia"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                        className="absolute inset-0 w-full h-full"
+                        style={{ border: 0 }}
+                      />
+                    </div>
+                    <p className="mt-3 text-sm font-black" style={{ color: "#1c1208" }}>Chris from Filming in Japan was the DP for this client testimonial for Microsoft</p>
+                  </div>
+
+                  <div>
+                    <div className="relative w-full" style={{ paddingBottom: "56.25%" }}>
+                      <iframe
+                        src="https://player.vimeo.com/video/561655197?h=d1ca57fb5c"
+                        title="Video clip samples from selected past corporate interview projects and client testimonial videos in Tokyo"
+                        allow="autoplay; fullscreen; picture-in-picture"
+                        allowFullScreen
+                        className="absolute inset-0 w-full h-full"
+                        style={{ border: 0 }}
+                      />
+                    </div>
+                    <p className="mt-3 text-sm font-black" style={{ color: "#1c1208" }}>Video clip samples from selected past corporate interview projects / client testimonial videos in Tokyo</p>
+                  </div>
+
+                  <div>
+                    <div className="relative w-full" style={{ paddingBottom: "56.25%" }}>
+                      <iframe
+                        src="https://www.youtube.com/embed/3Jf81EQ_1Jw"
+                        title="Chris from Filming in Japan as DP on Microsoft client testimonial"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                        className="absolute inset-0 w-full h-full"
+                        style={{ border: 0 }}
+                      />
+                    </div>
+                    <p className="mt-3 text-sm font-black" style={{ color: "#1c1208" }}>Client testimonial video we filmed for Microsoft Asia</p>
+                  </div>
+                </div>
+              </div>
+
               {/* Testimonials */}
               <div className="space-y-6 mb-16">
                 <div className="flex items-center gap-4 mb-6">
@@ -148,15 +225,6 @@ export default function TestimonialsPage() {
                 </div>
 
                 <blockquote className="pl-6 border-l-4" style={{ borderColor: "#e95228" }}>
-                  <p className="text-base font-black italic leading-snug mb-3" style={{ color: "#1c1208" }}>
-                    &ldquo;We&apos;ve worked with production companies in five countries. The Filming in Japan team is the most professional — and the final videos drove real pipeline.&rdquo;
-                  </p>
-                  <cite className="font-mono text-[10px] tracking-widest not-italic uppercase" style={{ color: "rgba(28,18,8,0.4)" }}>
-                    Head of Marketing · Enterprise Software Company
-                  </cite>
-                </blockquote>
-
-                <blockquote className="pl-6 border-l-4" style={{ borderColor: "#e8d9c8" }}>
                   <p className="text-base font-black italic leading-snug mb-3" style={{ color: "#1c1208" }}>
                     &ldquo;Again, great job with the video. I was a bit worried going into this as I don&apos;t speak Japanese, but this turned out really fantastic.&rdquo;
                   </p>

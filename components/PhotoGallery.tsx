@@ -53,7 +53,7 @@ export default function PhotoGallery({ events }: { events: Event[] }) {
                     {/* Thumbnail strip preview */}
                     <div className="flex -space-x-2 shrink-0">
                       {e.photos.slice(0, 3).map((src, j) => (
-                        <div key={j} className="relative w-8 h-8 rounded overflow-hidden ring-1" style={{ ringColor: "#0d0a07" }}>
+                        <div key={j} className="relative w-8 h-8 rounded overflow-hidden ring-1 ring-[#0d0a07]">
                           <Image src={src} alt="" fill className="object-cover" sizes="32px" />
                         </div>
                       ))}

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Navigation from "@/components/Navigation";
+import ClickTracker from "@/components/ClickTracker";
 import Script from "next/script";
 
 export const metadata: Metadata = {
@@ -37,6 +38,7 @@ export default function RootLayout({
       </head>
       <body className="antialiased">
         <Navigation />
+        <ClickTracker />
         <main className="pt-16">{children}</main>
       </body>
     </html>

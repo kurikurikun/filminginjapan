@@ -41,9 +41,20 @@ export default function LandingContactForm({ service }: Props) {
     const data = new FormData(form);
 
     try {
-      const res = await fetch("https://api.web3forms.com/submit", {
+      const res = await fetch("https://lead-hub-nine.vercel.app/api/leads", {
         method: "POST",
-        body: data,
+        headers: {
+          "Content-Type": "application/json",
+          "x-api-key": "fij2025key",
+        },
+        body: JSON.stringify({
+          name: data.get("name") || "",
+          email: data.get("email") || "",
+          subject: `${service} — ${data.get("company_website") || "no website"}`,
+          message: String(data.get("message") || ""),
+          source: `${window.location.pathname}${tracking.gclid ? " (Google Ads)" : ""}${tracking.utm_source ? ` (${tracking.utm_source})` : ""}`,
+          tags: [service.toLowerCase().replace(/\s+/g, "-")],
+        }),
       });
       if (res.ok) {
         router.push("/thank-you");

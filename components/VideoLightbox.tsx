@@ -31,10 +31,11 @@ export default function VideoLightbox({ vimeoId, vimeoHash, title }: VideoLightb
           allowFullScreen
           className="absolute"
           style={{
-            top: 0, bottom: 0, left: "50%",
-            transform: "translateX(-50%)",
+            top: "50%", left: "50%",
+            transform: "translate(-50%, -50%)",
             width: "177.78%",
-            height: "100%",
+            aspectRatio: "16/9",
+            minHeight: "100%",
             border: 0,
           }}
         />

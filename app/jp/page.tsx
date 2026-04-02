@@ -7,11 +7,11 @@ import ServiceGrid from "@/components/ServiceGrid";
 import InstagramFeed from "@/components/InstagramFeed";
 
 export const metadata: Metadata = {
-  title: { absolute: "Filming in Japan | Corporate Video Production Tokyo" },
+  title: { absolute: "企業向け映像制作・東京 | Filming in Japan" },
   description:
-    "Full-service corporate video production in Japan for global brands. Bilingual EN/JP team, Tokyo & Hiroshima. Trusted by Sony, Google, Microsoft, Canon and more.",
+    "日本全国対応の企業向け映像制作。日英バイリンガルチーム、東京・広島拠点。Sony、Google、Microsoft、Canonなど国内外大手企業に信頼されています。",
   alternates: {
-    canonical: "https://www.filminginjapan.com",
+    canonical: "https://www.filminginjapan.com/jp",
     languages: {
       "en": "https://www.filminginjapan.com",
       "ja": "https://www.filminginjapan.com/jp",
@@ -20,80 +20,31 @@ export const metadata: Metadata = {
   },
 };
 
-
 const clients = ["Sony", "HP", "Canon", "NEC", "JLL", "Accenture", "Microsoft", "Google"];
 
 const workflow = [
-  { step: "01", title: "Get in touch", desc: "Contact us by form, email or WhatsApp with the details you have. Book a 30-min Zoom directly from the calendar link." },
-  { step: "02", title: "We reply", desc: "We review your brief, confirm availability and ask any clarifying questions before preparing a quote." },
-  { step: "03", title: "The quote", desc: "A quick call ensures we're aligned before we set out the full quote with all parts included." },
-  { step: "04", title: "Shoot prep call", desc: "Once dates and costs are sorted, a prep call ensures everything is in place for shoot day." },
-  { step: "05", title: "Shoot & delivery", desc: "We shoot to brief, with optional live feed for overseas directors. Data or edited files delivered via Drive, Dropbox, or FedEx." },
+  { step: "01", title: "お問い合わせ", desc: "フォーム・メール・WhatsAppでご連絡ください。カレンダーリンクから30分のZoom相談もご予約いただけます。" },
+  { step: "02", title: "ご返信", desc: "ご依頼内容を確認し、スケジュールの空き状況をご連絡します。見積もり前に不明点があればご質問します。" },
+  { step: "03", title: "お見積もり", desc: "簡単なお打ち合わせで内容を確認後、全項目を含む正式なお見積もりを提出します。" },
+  { step: "04", title: "撮影準備MTG", desc: "日程・費用が確定したら、撮影当日に向けた準備確認のお打ち合わせを行います。" },
+  { step: "05", title: "撮影・納品", desc: "ご依頼内容に沿って撮影。海外からのディレクションにはライブフィードにも対応。データまたは編集済みファイルをDrive・Dropbox・FedExにて納品します。" },
 ];
 
 const faqs = [
-  { q: "How far in advance do you need to confirm?", a: "Earlier is always better, but we're flexible. A 1–2 person shoot can typically be confirmed up to a week before the date." },
-  { q: "What are your payment terms?", a: "We invoice after delivery. For large upfront costs like studio hire or equipment rental, we require those costs in advance." },
-  { q: "Can your team conduct interviews in Japanese?", a: "Yes — we have both native and fluent Japanese speakers who have conducted many interviews in Japanese." },
-  { q: "Can you just shoot and hand over the raw footage?", a: "Absolutely. We're happy to shoot and deliver the raw data for your team to edit." },
-  { q: "How do you deliver footage?", a: "Usually via Google Drive or Dropbox, but we've also FedExed hard drives around the world." },
-  { q: "Do you take on smaller or more creative projects?", a: "Absolutely. If there's a human story in it, we're usually keen. Recent examples: a shamisen player under cherry blossoms, pro women wrestlers, a classical violinist on a mountaintop." },
+  { q: "どのくらい前に依頼すればいいですか？", a: "早いほど安心ですが、柔軟に対応します。1〜2名の撮影であれば、1週間前の確定でも対応可能な場合があります。" },
+  { q: "支払い条件を教えてください。", a: "基本的に納品後の請求となります。スタジオレンタルや機材レンタルなど、大きな先払いコストが発生する場合はその分のみ事前にご請求します。" },
+  { q: "日本語でのインタビュー撮影は可能ですか？", a: "はい。ネイティブおよび流暢な日本語スピーカーが在籍しており、日本語インタビューの撮影実績も多数あります。" },
+  { q: "撮影のみ（編集なし）でも対応できますか？", a: "もちろんです。素材データをそのままご提出し、編集はクライアント側で行っていただく形にも対応しています。" },
+  { q: "納品方法を教えてください。", a: "通常はGoogle DriveまたはDropboxで納品します。ハードドライブをFedExで国際配送した実績もあります。" },
+  { q: "小規模・クリエイティブ系のプロジェクトにも対応できますか？", a: "もちろんです。人間のストーリーがあるものであれば基本的に喜んでお引き受けします。最近の例：桜の下での三味線奏者、プロ女子プロレスラー、山頂でのクラシックバイオリニストなど。" },
 ];
 
-export default function HomePage() {
+export default function HomePageJp() {
   return (
     <div style={{ backgroundColor: "#fdf8f3" }}>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify({
-          "@context": "https://schema.org",
-          "@graph": [
-            {
-              "@type": ["LocalBusiness", "ProfessionalService"],
-              "@id": "https://www.filminginjapan.com/#organization",
-              "name": "Filming in Japan",
-              "alternateName": "Move-ment Co. Ltd.",
-              "url": "https://www.filminginjapan.com",
-              "telephone": "+81-50-1724-6517",
-              "email": "filminginjapan@move-ment.co",
-              "image": "https://www.filminginjapan.com/opengraph-image",
-              "description": "Full-service bilingual corporate video production in Japan for global brands. Bilingual EN/JP team based in Tokyo and Hiroshima.",
-              "address": {
-                "@type": "PostalAddress",
-                "streetAddress": "1-18-5-503 Higashi Gotanda",
-                "addressLocality": "Shinagawa",
-                "addressRegion": "Tokyo",
-                "postalCode": "141-0022",
-                "addressCountry": "JP"
-              },
-              "sameAs": ["https://www.instagram.com/move_ment.co.ltd"],
-              "areaServed": { "@type": "Country", "name": "Japan" },
-              "priceRange": "$$"
-            },
-            {
-              "@type": "WebSite",
-              "@id": "https://www.filminginjapan.com/#website",
-              "name": "Filming in Japan",
-              "url": "https://www.filminginjapan.com"
-            },
-            {
-              "@type": "FAQPage",
-              "mainEntity": [
-                { "@type": "Question", "name": "How far in advance do you need to confirm?", "acceptedAnswer": { "@type": "Answer", "text": "Earlier is always better, but we're flexible. A 1–2 person shoot can typically be confirmed up to a week before the date." } },
-                { "@type": "Question", "name": "What are your payment terms?", "acceptedAnswer": { "@type": "Answer", "text": "We invoice after delivery. For large upfront costs like studio hire or equipment rental, we require those costs in advance." } },
-                { "@type": "Question", "name": "Can your team conduct interviews in Japanese?", "acceptedAnswer": { "@type": "Answer", "text": "Yes — we have both native and fluent Japanese speakers who have conducted many interviews in Japanese." } },
-                { "@type": "Question", "name": "Can you just shoot and hand over the raw footage?", "acceptedAnswer": { "@type": "Answer", "text": "Absolutely. We're happy to shoot and deliver the raw data for your team to edit." } },
-                { "@type": "Question", "name": "How do you deliver footage?", "acceptedAnswer": { "@type": "Answer", "text": "Usually via Google Drive or Dropbox, but we've also FedExed hard drives around the world." } },
-                { "@type": "Question", "name": "Do you take on smaller or more creative projects?", "acceptedAnswer": { "@type": "Answer", "text": "Absolutely. If there's a human story in it, we're usually keen. Recent examples: a shamisen player under cherry blossoms, pro women wrestlers, a classical violinist on a mountaintop." } }
-              ]
-            }
-          ]
-        }) }}
-      />
 
-      {/* ── Hero — autoplay video ── */}
+      {/* ── Hero ── */}
       <section className="relative min-h-screen flex flex-col justify-end overflow-hidden">
-        {/* Vimeo background video */}
         <div className="absolute inset-0" style={{ zIndex: 0 }}>
           <iframe
             src="https://player.vimeo.com/video/533378669?background=1&autoplay=1&loop=1&muted=1&autopause=0"
@@ -106,20 +57,15 @@ export default function HomePage() {
               pointerEvents: "none",
             }}
             allow="autoplay; fullscreen"
-            title="Hero video"
+            title="ヒーロー映像"
           />
         </div>
-
-        {/* Dark gradient overlay */}
         <div
           className="absolute inset-0"
           style={{ background: "linear-gradient(to top, rgba(13,10,7,0.92) 0%, rgba(13,10,7,0.5) 50%, rgba(13,10,7,0.3) 100%)", zIndex: 1 }}
         />
-
-        {/* Fallback dark bg if video not loaded */}
         <div className="absolute inset-0" style={{ backgroundColor: "#0d0a07", zIndex: -1 }} />
 
-        {/* Frame corners */}
         <div className="absolute top-8 left-8 lg:top-12 lg:left-12 pointer-events-none" style={{ zIndex: 2 }} aria-hidden="true">
           <div className="w-8 h-8 border-t border-l" style={{ borderColor: "rgba(233,82,40,0.4)" }} />
         </div>
@@ -127,59 +73,53 @@ export default function HomePage() {
           <div className="w-8 h-8 border-t border-r" style={{ borderColor: "rgba(233,82,40,0.4)" }} />
         </div>
 
-        {/* Content */}
         <div className="relative px-8 sm:px-14 lg:px-20 pb-20 pt-40 max-w-7xl" style={{ zIndex: 2 }}>
           <div className="flex items-center gap-4 mb-10">
             <div className="h-px w-12" style={{ backgroundColor: "#e95228" }} />
             <span className="font-mono text-xs tracking-[0.35em] uppercase" style={{ color: "#e95228" }}>
-              Tokyo · Hiroshima · All Japan
+              東京 · 広島 · 日本全国
             </span>
           </div>
 
           <h1
-            className="text-5xl sm:text-7xl lg:text-8xl xl:text-9xl font-black leading-[0.88] mb-10 max-w-4xl"
+            className="text-5xl sm:text-7xl lg:text-8xl xl:text-9xl font-black leading-[0.88] mb-10 max-w-4xl break-keep"
             style={{ color: "#fdf8f3" }}
           >
-            Bilingual<br />
-            Video<br />
-            <em className="not-italic" style={{ color: "#e95228" }}>Production</em><br />
-            in Japan
-            <span style={{ color: "#e95228" }}>.</span>
+            企業向け映像制作<br />
+            <em className="not-italic" style={{ color: "#e95228" }}>日本全国</em>
+            <span style={{ color: "#e95228" }}>。</span>
           </h1>
 
-          <p className="text-lg max-w-xl leading-relaxed mb-12" style={{ color: "rgba(253,248,243,0.65)" }}>
-            Full-service bilingual production for progressive global brands.<br />
-            Trusted by Sony, Google, Microsoft, Canon and many more.
+          <p className="text-lg max-w-xl leading-relaxed mb-12 break-keep" style={{ color: "rgba(253,248,243,0.65)" }}>
+            グローバルブランドのための日英バイリンガル映像制作。<br />
+            Sony・Google・Microsoft・Canonなど国内外大手企業に信頼されています。
           </p>
 
           <div className="flex flex-wrap gap-4 items-center">
-            <Link href="/contact" className="btn-warm font-black text-sm tracking-[0.18em] uppercase px-8 py-4">
-              Start Your Project
+            <Link href="/jp/contact" className="btn-warm font-black text-sm tracking-[0.18em] uppercase px-8 py-4">
+              プロジェクトを相談する
             </Link>
             <Link
-              href="/corporate-branding-videos-japan"
+              href="/jp/corporate-video"
               className="font-mono text-xs tracking-[0.25em] uppercase"
               style={{ color: "rgba(253,248,243,0.5)" }}
             >
-              See Our Work →
+              制作実績を見る →
             </Link>
           </div>
         </div>
       </section>
 
-      {/* ── Clients — warm orange band ── */}
+      {/* ── Clients ── */}
       <section className="py-7" style={{ backgroundColor: "#e95228" }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12">
           <div className="flex flex-wrap items-center gap-x-2 gap-y-3">
             <span className="font-mono text-[10px] tracking-[0.35em] uppercase mr-6" style={{ color: "rgba(13,10,7,0.5)" }}>
-              Trusted by
+              実績企業
             </span>
             {clients.map((c, i) => (
               <span key={c} className="flex items-center gap-2">
-                <span
-                  className="text-sm font-black tracking-wide cursor-default"
-                  style={{ color: "rgba(13,10,7,0.7)" }}
-                >
+                <span className="text-sm font-black tracking-wide cursor-default" style={{ color: "rgba(13,10,7,0.7)" }}>
                   {c}
                 </span>
                 {i < clients.length - 1 && (
@@ -194,62 +134,56 @@ export default function HomePage() {
       {/* ── Services ── */}
       <section className="py-32" style={{ backgroundColor: "#fdf8f3" }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12">
-          {/* Section header */}
           <div className="grid lg:grid-cols-[1fr_auto] items-end gap-8 mb-16">
             <div>
               <div className="flex items-center gap-4 mb-6">
                 <div className="h-px w-12" style={{ backgroundColor: "#e95228" }} />
                 <span className="font-mono text-[10px] tracking-[0.35em] uppercase" style={{ color: "#e95228" }}>
-                  What we do
+                  サービス内容
                 </span>
               </div>
               <h2 className="text-4xl sm:text-6xl font-black leading-[0.9]" style={{ color: "#1c1208" }}>
-                Four ways we<br />
-                <em className="not-italic" style={{ color: "#e95228" }}>tell your story.</em>
+                4つのサービスで<br />
+                <em className="not-italic" style={{ color: "#e95228" }}>ストーリーを届ける。</em>
               </h2>
             </div>
             <p className="text-sm leading-relaxed max-w-xs lg:text-right" style={{ color: "rgba(28,18,8,0.45)" }}>
-              Bilingual corporate video production across Japan, from Tokyo to the regions.
+              東京から地方まで、日本全国で展開するバイリンガル企業映像制作。
             </p>
           </div>
-
-          {/* Service cards */}
-          <ServiceGrid />
+          <ServiceGrid lang="jp" />
         </div>
       </section>
 
-      {/* ── About Chris — warm orange split ── */}
+      {/* ── About Chris ── */}
       <section className="relative overflow-hidden">
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-[1fr_1fr]">
             <VideoLightbox vimeoId="900727297" vimeoHash="a9dbbfbac5" title="Chris Moore — Filming in Japan" />
 
-            {/* Content — orange background */}
             <div className="p-12 lg:p-16 xl:p-20 flex flex-col justify-center" style={{ backgroundColor: "#e95228" }}>
               <div className="flex items-center gap-4 mb-8">
                 <div className="h-px w-10" style={{ backgroundColor: "rgba(13,10,7,0.3)" }} />
                 <span className="font-mono text-[10px] tracking-[0.35em] uppercase" style={{ color: "rgba(13,10,7,0.5)" }}>
-                  About
+                  代表について
                 </span>
               </div>
               <h2 className="text-4xl lg:text-5xl font-black leading-tight mb-8" style={{ color: "#0d0a07" }}>
-                Hi, I&apos;m Chris<span style={{ color: "#fdf8f3" }}>.</span>
+                はじめまして、クリスです<span style={{ color: "#fdf8f3" }}>。</span>
               </h2>
               <p className="leading-relaxed mb-5 text-base" style={{ color: "rgba(13,10,7,0.7)" }}>
-                Originally from New Zealand, I&apos;ve spent many years filming across Japan, building a business
-                that connects global brands to Japanese stories. Bilingual, and comfortable in both English
-                and Japanese work environments.
+                ニュージーランド出身。長年にわたり日本各地で撮影を続け、グローバルブランドと日本のストーリーをつなぐ事業を築いてきました。日英バイリンガルで、日本語・英語どちらの現場にも対応しています。
               </p>
               <p className="leading-relaxed mb-10 text-base" style={{ color: "rgba(13,10,7,0.7)" }}>
-                From Tokyo boardrooms to mountain summits — we make corporate video feel genuinely human.
+                東京のオフィスから山頂まで — 企業映像に、本物の人間味を。
               </p>
               <div className="flex flex-wrap gap-4">
                 <Link
-                  href="/contact"
+                  href="/jp/contact"
                   className="font-black text-sm tracking-[0.15em] uppercase px-6 py-3 transition-colors"
                   style={{ backgroundColor: "#0d0a07", color: "#fdf8f3" }}
                 >
-                  Get in Touch
+                  お問い合わせ
                 </Link>
                 <a
                   href="https://www.instagram.com/chrism_visuals/"
@@ -275,11 +209,11 @@ export default function HomePage() {
           <div className="flex items-center gap-4 mb-6">
             <div className="h-px w-12" style={{ backgroundColor: "#e95228" }} />
             <span className="font-mono text-[10px] tracking-[0.35em] uppercase" style={{ color: "#e95228" }}>
-              Process
+              ご依頼の流れ
             </span>
           </div>
           <h2 className="text-4xl sm:text-5xl font-black leading-none mb-16" style={{ color: "#1c1208" }}>
-            How we work<span style={{ color: "#e95228" }}>.</span>
+            制作の進め方<span style={{ color: "#e95228" }}>。</span>
           </h2>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-5 divide-y sm:divide-y-0 sm:divide-x" style={{ borderColor: "#e8d9c8", border: "1px solid #e8d9c8" }}>
@@ -289,10 +223,7 @@ export default function HomePage() {
                 className="p-8 lg:p-10"
                 style={{ borderColor: "#e8d9c8", borderRight: i < workflow.length - 1 ? "1px solid #e8d9c8" : undefined }}
               >
-                <span
-                  className="font-mono text-4xl font-black leading-none block mb-6"
-                  style={{ color: "#e95228" }}
-                >
+                <span className="font-mono text-4xl font-black leading-none block mb-6" style={{ color: "#e95228" }}>
                   {w.step}
                 </span>
                 <h3 className="font-black mb-3" style={{ color: "#1c1208" }}>{w.title}</h3>
@@ -309,11 +240,11 @@ export default function HomePage() {
           <div className="flex items-center gap-4 mb-6">
             <div className="h-px w-12" style={{ backgroundColor: "#e95228" }} />
             <span className="font-mono text-[10px] tracking-[0.35em] uppercase" style={{ color: "#e95228" }}>
-              FAQ
+              よくある質問
             </span>
           </div>
           <h2 className="text-4xl sm:text-5xl font-black leading-none mb-16" style={{ color: "#1c1208" }}>
-            Common questions<span style={{ color: "#e95228" }}>.</span>
+            FAQ<span style={{ color: "#e95228" }}>。</span>
           </h2>
           <div>
             {faqs.map((faq, i) => (
@@ -337,12 +268,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── CTA — cinematic dark ── */}
-      <section
-        className="relative py-32 overflow-hidden grain"
-        style={{ backgroundColor: "#0d0a07" }}
-      >
-        {/* Frame corners */}
+      {/* ── CTA ── */}
+      <section className="relative py-32 overflow-hidden grain" style={{ backgroundColor: "#0d0a07" }}>
         <div className="absolute top-8 left-8 pointer-events-none" aria-hidden="true">
           <div className="w-8 h-8 border-t border-l" style={{ borderColor: "rgba(196,168,130,0.3)" }} />
         </div>
@@ -362,29 +289,29 @@ export default function HomePage() {
               <div className="flex items-center gap-4 mb-8">
                 <div className="h-px w-12" style={{ backgroundColor: "#e95228" }} />
                 <span className="font-mono text-[10px] tracking-[0.35em] uppercase" style={{ color: "#e95228" }}>
-                  Ready to start?
+                  まずはご相談ください
                 </span>
               </div>
               <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black leading-tight mb-8" style={{ color: "#fdf8f3" }}>
-                Let&apos;s make your<br />
-                Japan project<br />
-                <em className="not-italic" style={{ color: "#e95228" }}>happen.</em>
+                日本でのプロジェクトを<br />
+                一緒に<br />
+                <em className="not-italic" style={{ color: "#e95228" }}>実現しましょう。</em>
               </h2>
               <p className="leading-relaxed mb-10" style={{ color: "rgba(253,248,243,0.5)" }}>
-                We aim to reply within 24 hours. Contact us by form, email or WhatsApp.
+                24時間以内にご返信します。フォーム・メール・WhatsAppでお気軽にどうぞ。
               </p>
               <Link
-                href="/contact"
+                href="/jp/contact"
                 className="btn-warm inline-block font-black text-sm tracking-[0.18em] uppercase px-8 py-4 transition-colors"
-            >
-                Start the Conversation
+              >
+                お問い合わせはこちら
               </Link>
             </div>
 
             <div className="border-l pl-12 lg:pl-16" style={{ borderColor: "rgba(196,168,130,0.15)" }}>
               <div className="space-y-7">
                 <div>
-                  <p className="font-mono text-[10px] tracking-[0.3em] uppercase mb-2" style={{ color: "rgba(196,168,130,0.5)" }}>Email</p>
+                  <p className="font-mono text-[10px] tracking-[0.3em] uppercase mb-2" style={{ color: "rgba(196,168,130,0.5)" }}>メール</p>
                   <a
                     href="mailto:filminginjapan@move-ment.co"
                     className="font-black text-base transition-colors"
@@ -404,12 +331,12 @@ export default function HomePage() {
                   </a>
                 </div>
                 <div>
-                  <p className="font-mono text-[10px] tracking-[0.3em] uppercase mb-2" style={{ color: "rgba(196,168,130,0.5)" }}>Tokyo</p>
-                  <p className="text-sm" style={{ color: "rgba(253,248,243,0.45)" }}>1-18-5-503 Higashi Gotanda, Shinagawa</p>
+                  <p className="font-mono text-[10px] tracking-[0.3em] uppercase mb-2" style={{ color: "rgba(196,168,130,0.5)" }}>東京</p>
+                  <p className="text-sm" style={{ color: "rgba(253,248,243,0.45)" }}>東京都品川区東五反田1-18-5-503</p>
                 </div>
                 <div>
-                  <p className="font-mono text-[10px] tracking-[0.3em] uppercase mb-2" style={{ color: "rgba(196,168,130,0.5)" }}>Hiroshima</p>
-                  <p className="text-sm" style={{ color: "rgba(253,248,243,0.45)" }}>1-13-4 Ushita Minami, Higashi-ku</p>
+                  <p className="font-mono text-[10px] tracking-[0.3em] uppercase mb-2" style={{ color: "rgba(196,168,130,0.5)" }}>広島</p>
+                  <p className="text-sm" style={{ color: "rgba(253,248,243,0.45)" }}>広島市東区南牛田1-13-4</p>
                 </div>
               </div>
             </div>
@@ -418,7 +345,7 @@ export default function HomePage() {
       </section>
 
       <InstagramFeed />
-      <Footer lang="en" />
+      <Footer lang="jp" />
     </div>
   );
 }

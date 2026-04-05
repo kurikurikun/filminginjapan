@@ -6,8 +6,11 @@ interface Service {
   num: string;
   title: string;
   titleJp: string;
+  enLabel: string;   // EN subtitle shown in JP mode
   desc: string;
+  descJp: string;
   href: string;
+  hrefJp: string;
   videoType: "youtube" | "vimeo";
   videoId: string;
   videoHash?: string;
@@ -18,26 +21,35 @@ const services: Service[] = [
     num: "01",
     title: "Branding, Interview & Recruitment",
     titleJp: "ブランディング・インタビュー・採用動画",
+    enLabel: "Branding, Interview + Recruitment",
     desc: "End-to-end brand videos connecting corporate services to diverse audiences in English and Japanese, using the power of story.",
+    descJp: "日英バイリンガルで企業サービスと多様なオーディエンスをつなぐブランド動画。ストーリーの力で、伝わる映像を制作します。",
     href: "/corporate-branding-videos-japan",
+    hrefJp: "/corporate-branding-videos-japan",
     videoType: "youtube",
     videoId: "t-VSxoBQlRA",
   },
   {
     num: "02",
     title: "Client Testimonial Stories",
-    titleJp: "お客様インタビュー動画",
+    titleJp: "カスタマーストーリー",
+    enLabel: "Customer Stories",
     desc: "Let your biggest fans tell the world. Multi-camera testimonial production, onsite or remote, in English or Japanese.",
+    descJp: "オンライン取材、オフィス取材、イベント取材でも。お客様のリアルな声で、次の顧客と出会う。顧客の声が最強のマーケティングツールになります。",
     href: "/client-testimonials-video-production-tokyo-japan",
+    hrefJp: "/jp/client-testimonials-video-production-tokyo-japan",
     videoType: "youtube",
     videoId: "vmPtyBH9VQY",
   },
   {
     num: "03",
     title: "Event Photo & Video",
-    titleJp: "イベント撮影",
+    titleJp: "イベント写真・映像制作",
+    enLabel: "Event Photo + Video",
     desc: "Complete photo and video coverage of corporate events. Digest edits ready for social media delivery within the hour.",
+    descJp: "企業イベントの写真・映像を完全カバー。SNS向けダイジェスト編集は当日中に納品対応。",
     href: "/event-photo-video-japan",
+    hrefJp: "/jp/event-photo-video-japan",
     videoType: "vimeo",
     videoId: "835953571",
     videoHash: "db224e3600",
@@ -46,8 +58,11 @@ const services: Service[] = [
     num: "04",
     title: "Real Estate Photo, Video & 360°",
     titleJp: "不動産・建築撮影・360°ツアー",
+    enLabel: "Real Estate Photo, Video + 360°",
     desc: "Architectural photography and video, renovation documentation, and high-quality 360° panoramas for virtual tours.",
+    descJp: "建築写真・動画撮影、リノベーション記録、高品質な360°パノラマによるバーチャルツアー制作。",
     href: "/real-estate-photo-video-tokyo-japan",
+    hrefJp: "/jp/real-estate-photo-video-tokyo-japan",
     videoType: "vimeo",
     videoId: "893552694",
     videoHash: "5ad49846c3",
@@ -61,7 +76,8 @@ function embedUrl(s: Service) {
   return `https://player.vimeo.com/video/${s.videoId}?h=${s.videoHash}&autoplay=1`;
 }
 
-export default function ServiceGrid() {
+export default function ServiceGrid({ lang = "en" }: { lang?: "en" | "jp" }) {
+  const isJp = lang === "jp";
   const [active, setActive] = useState<Service | null>(null);
 
   useEffect(() => {
@@ -77,23 +93,23 @@ export default function ServiceGrid() {
         {services.map((s) => (
           <div key={s.num} className="service-card flex flex-col">
             {/* Text portion — navigates to service page */}
-            <Link href={s.href} className="p-10 lg:p-12 flex flex-col flex-1">
+            <Link href={isJp ? s.hrefJp : s.href} className="p-10 lg:p-12 flex flex-col flex-1">
               <div className="flex items-start justify-between mb-8">
                 <span className="service-num font-mono text-[10px] tracking-[0.3em]" style={{ color: "#e95228" }}>
                   {s.num}
                 </span>
                 <span className="service-learn font-mono text-[10px] tracking-[0.2em] uppercase" style={{ color: "#e95228" }}>
-                  Learn more →
+                  {isJp ? "詳しく見る →" : "Learn more →"}
                 </span>
               </div>
               <h3 className="service-title text-xl lg:text-2xl font-black leading-tight mb-1" style={{ color: "#1c1208" }}>
-                {s.title}
+                {isJp ? s.titleJp : s.title}
               </h3>
               <p className="service-jp text-xs font-jp mb-5" style={{ color: "#e95228" }}>
-                {s.titleJp}
+                {isJp ? s.enLabel : s.titleJp}
               </p>
               <p className="service-desc text-sm leading-relaxed mt-auto" style={{ color: "rgba(28,18,8,0.5)" }}>
-                {s.desc}
+                {isJp ? s.descJp : s.desc}
               </p>
             </Link>
 
@@ -102,7 +118,7 @@ export default function ServiceGrid() {
               onClick={() => setActive(s)}
               className="flex items-center gap-3 px-10 lg:px-12 py-4 border-t transition-colors group/play"
               style={{ borderColor: "#e8d9c8", backgroundColor: "transparent" }}
-              aria-label={`Watch ${s.title} example`}
+              aria-label={isJp ? `${s.titleJp}の動画を見る` : `Watch ${s.title} example`}
             >
               <span
                 className="flex items-center justify-center w-7 h-7 rounded-full border transition-colors group-hover/play:bg-[#e95228] group-hover/play:border-[#e95228]"
@@ -113,7 +129,7 @@ export default function ServiceGrid() {
                 </svg>
               </span>
               <span className="font-mono text-[10px] tracking-[0.2em] uppercase transition-colors" style={{ color: "rgba(28,18,8,0.45)" }}>
-                Watch example
+                {isJp ? "動画を見る" : "Watch example"}
               </span>
             </button>
           </div>

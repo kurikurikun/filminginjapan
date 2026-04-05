@@ -6,60 +6,67 @@ import GoogleReviews from "@/components/GoogleReviews";
 import PhotoGallery from "@/components/PhotoGallery";
 
 export const metadata: Metadata = {
-  title: "Corporate Event Photography & Video Tokyo Japan | Filming in Japan",
-  description: "Bilingual corporate event photography and video in Tokyo and across Japan. Conferences, summits, product launches, galas. Same-day edits. Trusted by global brands.",
-  alternates: { canonical: "https://www.filminginjapan.com/jp/event-photo-video-japan" },
+  title: "企業イベント撮影・映像制作 東京・日本全国",
+  description: "東京・全国対応のバイリンガル企業イベント写真・映像制作。カンファレンス、サミット、製品発表会、ガラ。当日納品にも対応。国内外大手企業に信頼されています。",
+  alternates: {
+    canonical: "https://www.filminginjapan.com/jp/event-photo-video-japan",
+    languages: {
+      "en": "https://www.filminginjapan.com/event-photo-video-japan",
+      "ja": "https://www.filminginjapan.com/jp/event-photo-video-japan",
+      "x-default": "https://www.filminginjapan.com/event-photo-video-japan",
+    },
+  },
 };
 
 const services = [
-  "Corporate event photography and highlight films",
-  "Multi-camera coverage for conferences and panels",
-  "Executive interviews and keynote documentation",
-  "Same-day social media edits and recap videos",
-  "Live streaming and hybrid event support",
-  "Sound bite comments to camera from attendees",
+  "企業イベント写真撮影・ハイライト映像制作",
+  "カンファレンス・パネルディスカッションのマルチカメラ収録",
+  "役員インタビュー・基調講演の映像記録",
+  "SNS向け当日編集・ダイジェスト動画",
+  "ライブ配信・ハイブリッドイベントのサポート",
+  "参加者・登壇者のコメント撮影",
 ];
 
 const differentiators = [
   {
-    title: "Bilingual crew",
-    desc: "We communicate smoothly in English and Japanese — coordinating directly with venues, local AV teams, and staff. No friction, no delays on the day.",
+    title: "バイリンガルクルー",
+    desc: "日英両語でスムーズにコミュニケーション。会場スタッフ・現地AVチームと直接連携するため、当日のロスタイムや連絡ミスが発生しません。",
   },
   {
-    title: "Corporate-ready workflow",
-    desc: "We understand NDAs, VIP protocol, and brand consistency. Experienced working at events involving government delegations, C-suite executives and international brands.",
+    title: "企業イベントに対応したワークフロー",
+    desc: "NDA・VIPプロトコル・ブランドガイドラインへの対応実績あり。政府代表団・経営幹部・国際ブランドが参加するイベントでの撮影経験が豊富です。",
   },
   {
-    title: "Flexible scale",
-    desc: "From a single photographer to a full multi-camera video crew. From a single day to multi-day, multi-location events across Japan. We scale to your event.",
+    title: "柔軟なスケール対応",
+    desc: "カメラマン1名から、マルチカメラの映像クルーまで対応。1日完結から複数日・複数会場にわたる全国規模のイベントまで、規模に合わせてスケールします。",
   },
   {
-    title: "Trusted by global brands",
-    desc: "Our clients include government delegations, international NGOs, and multinational companies hosting events in Tokyo. We know what's expected at high-profile events.",
+    title: "国内外大手企業との実績",
+    desc: "政府代表団・国際NGO・多国籍企業の東京イベントに多数対応。ハイプロファイルなイベントで求められる品質・対応力を備えています。",
   },
 ];
 
 const projects = [
   {
-    title: "International Hospitality Investment Forum",
-    venue: "Kimpton Hotel, Shinjuku, Tokyo · 2025",
-    desc: "Event highlight video, full photography coverage, and standalone attendee testimonial-style recap videos for the IHIF conference — all delivered from a single coordinated shoot.",
+    title: "International Hospitality Investment Forum (IHIF）",
+    venue: "キンプトンホテル 新宿・東京 · 2025",
+    desc: "IHIFカンファレンスのイベントハイライト映像・写真撮影全般・参加者インタビュー形式のリキャップ動画を、ひとつの統合撮影チームで一括納品。",
     vimeoId: "1063107227",
     vimeoHash: "c0bc991380",
     img: null,
   },
   {
     title: "CITC CLSA Tokyo Forum",
-    venue: "Tokyo · 2024 · 3-day event",
-    desc: "Promotional video filmed over 3 days with comments from staff, attendees and speakers at locations selected to convey the event atmosphere. Edited with Japanese and English subtitles, with careful attention to attendee visibility requirements.",
+    venue: "東京 · 2024 · 3日間イベント",
+    desc: "スタッフ・参加者・登壇者のコメントを3日間かけて収録したプロモーション動画。イベントの雰囲気を伝えるロケーションを選定し、日英字幕付きで編集。参加者の映り込み要件にも細心の注意を払いました。",
     vimeoId: "959287158",
     vimeoHash: "1368289498",
     img: null,
   },
   {
-    title: "Data Centre Opening Ceremony",
-    venue: "Saitama · Japan",
-    desc: "Digest video of the opening ceremony, plus photo coverage with a fast-turnaround social media photo selection delivered shortly after the event finished.",
+    title: "データセンター開所式",
+    venue: "埼玉 · 日本",
+    desc: "開所式のダイジェスト映像制作と写真撮影。イベント終了後すぐにSNS向け写真セレクションを高速納品しました。",
     vimeoId: "1079354745",
     vimeoHash: "17c53b18eb",
     img: null,
@@ -68,8 +75,8 @@ const projects = [
 
 const photoEvents = [
   {
-    label: "Network of independent advertising agencies",
-    location: "Tokyo",
+    label: "Worldwide Partners (WPI) event",
+    location: "東京",
     photos: [
       "/images/Tokyo-corporate-event-photography1.jpg",
       "/images/Tokyo-corporate-event-photography2.jpg",
@@ -85,7 +92,7 @@ const photoEvents = [
   },
   {
     label: "Government trade delegation from Ireland",
-    location: "Tokyo",
+    location: "東京",
     photos: [
       "/images/event_photography_tokyo_japan_11.jpg",
       "/images/event_photography_tokyo_japan_10.jpg",
@@ -96,7 +103,7 @@ const photoEvents = [
   },
   {
     label: "Red Bull esports gaming event",
-    location: "Tokyo",
+    location: "東京",
     photos: [
       "/images/tokyo-event-esports-photography_1.jpg",
       "/images/tokyo-event-esports-photography_2.jpg",
@@ -107,7 +114,7 @@ const photoEvents = [
   },
   {
     label: "International philanthropic organisation gathering",
-    location: "Tokyo",
+    location: "東京",
     photos: [
       "/images/tokyo_event_photography_happoen1.jpg",
       "/images/tokyo_event_photography_happoen2.jpg",
@@ -121,7 +128,7 @@ const photoEvents = [
   },
   {
     label: "Government trade delegation from Oman",
-    location: "Tokyo",
+    location: "東京",
     photos: [
       "/images/event_photography_tokyo_japan_4.jpg",
       "/images/event_photography_tokyo_japan_5.jpg",
@@ -133,36 +140,36 @@ const photoEvents = [
 
 const faqs = [
   {
-    q: "What types of events do you cover in Japan?",
-    a: "Global summits, press conferences, multi-day multi-location conferences, product launches, awards ceremonies, corporate galas, government delegations, NGO events and private corporate gatherings. From 20 guests to 2,000.",
+    q: "対応できるイベントの種類を教えてください。",
+    a: "グローバルサミット、記者会見、複数日・複数会場カンファレンス、製品発表会、アワードセレモニー、企業ガラ、政府代表団、NGOイベント、プライベート社内行事など。20名規模から2,000名規模まで対応可能です。",
   },
   {
-    q: "Can you provide both photography and video on the same day?",
-    a: "Yes — one coordinated bilingual team covers both stills and motion. This keeps costs down and ensures a consistent look and feel across all your event assets.",
+    q: "写真と動画を同日にまとめて依頼できますか？",
+    a: "はい。ひとつのバイリンガルチームが写真と映像の両方を担当するため、コストを抑えつつ、全素材に統一感のある仕上がりを実現します。",
   },
   {
-    q: "Do you offer same-day editing for social media?",
-    a: "Yes. We can deliver a highlight reel and social cuts the same day — ideal for live social coverage or next-morning press distribution while the event is still trending.",
+    q: "SNS向けの当日編集に対応していますか？",
+    a: "はい。ハイライトリールやSNSカットを当日中に納品可能です。イベントがトレンドに乗っている間のライブSNS投稿や、翌朝のプレス配信に最適です。",
   },
   {
-    q: "Can you handle multi-day or multi-location events?",
-    a: "Yes. We've covered events spanning multiple days and multiple venues across Tokyo and Japan, scaling crew and equipment to match.",
+    q: "複数日・複数会場のイベントに対応できますか？",
+    a: "はい。東京および全国の複数日・複数会場にわたるイベントに対応実績があります。規模に合わせてクルーと機材をスケールします。",
   },
   {
-    q: "Can you support live streaming or hybrid events?",
-    a: "Yes. We support live streaming setups and hybrid events where remote attendees join in real time. Broadcast-quality feeds for internal and public-facing streams.",
+    q: "ライブ配信やハイブリッドイベントのサポートはできますか？",
+    a: "はい。ライブ配信設備のセットアップおよびリモート参加者をリアルタイムで繋ぐハイブリッドイベントに対応。社内・対外向けいずれも放送品質の映像を提供します。",
   },
   {
-    q: "How do you handle VIP protocol and NDAs?",
-    a: "We understand VIP protocol, confidentiality requirements and brand consistency. We're experienced at events involving government delegations, C-suite executives and high-profile international brands.",
+    q: "VIPプロトコルやNDAへの対応はできますか？",
+    a: "はい。VIPプロトコル・守秘義務要件・ブランド一貫性への対応実績があります。政府代表団・経営幹部・国際的なハイプロファイルブランドが関わるイベントでの経験が豊富です。",
   },
   {
-    q: "How do you coordinate with Japanese venue AV teams?",
-    a: "Our bilingual crew liaises directly with Japanese venue and AV staff, removing the friction that slows down international production teams — particularly valuable for overseas clients managing events remotely.",
+    q: "日本語の会場AVチームとの調整はどうなりますか？",
+    a: "バイリンガルクルーが会場・AVスタッフと直接日本語でやり取りします。海外から遠隔でイベントを管理する担当者にとって特に重要なポイントで、当日の摩擦を大幅に軽減します。",
   },
   {
-    q: "Can you film executive interviews at the event?",
-    a: "Yes. We set up dedicated interview spots at the venue for planned executive interviews and spontaneous attendee soundbites — adding depth to your event film and providing content for future campaigns.",
+    q: "イベント当日に役員インタビューを撮影できますか？",
+    a: "はい。会場内に専用インタビュースポットを設け、事前設定した役員インタビューやその場でのアテンディーコメント収録に対応します。イベント映像に深みが増し、将来のキャンペーン素材としても活用できます。",
   },
 ];
 
@@ -195,17 +202,15 @@ export default function EventVideoPageJP() {
           <div className="flex items-center gap-4 mb-8">
             <div className="h-px w-10" style={{ backgroundColor: "#e95228" }} />
             <span className="font-mono text-[10px] tracking-[0.35em] uppercase" style={{ color: "#e95228" }}>
-              Event Coverage · Tokyo · Japan
+              イベント撮影 · 東京 · 日本全国
             </span>
           </div>
-          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black leading-[0.9] mb-8 max-w-4xl" style={{ color: "#fdf8f3" }}>
-            Corporate Event<br />
-            Photo &amp; Video in <em className="not-italic" style={{ color: "#e95228" }}>Japan.</em>
+          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black leading-[0.9] mb-8 max-w-4xl break-keep" style={{ color: "#fdf8f3" }}>
+            企業イベント<br />
+            写真・映像制作 <em className="not-italic" style={{ color: "#e95228" }}>全国対応。</em>
           </h1>
           <p className="text-lg max-w-2xl leading-relaxed" style={{ color: "rgba(253,248,243,0.6)" }}>
-            Our bilingual Tokyo-based team photographs and films corporate events — from global summits
-            and press conferences to multi-day conferences and corporate galas. Visual stories that
-            showcase your brand&apos;s energy, people and purpose.
+            東京拠点のバイリンガルチームが、グローバルサミットや記者会見から複数日カンファレンス・企業ガラまで、あらゆる企業イベントの写真・映像を担当します。ブランドのエネルギー、人、目的を伝えるビジュアルストーリーを制作します。
           </p>
         </div>
       </section>
@@ -236,14 +241,13 @@ export default function EventVideoPageJP() {
               {/* Services */}
               <div className="flex items-center gap-4 mb-6">
                 <div className="h-px w-10" style={{ backgroundColor: "#e95228" }} />
-                <span className="font-mono text-[10px] tracking-[0.35em] uppercase" style={{ color: "#e95228" }}>What we deliver</span>
+                <span className="font-mono text-[10px] tracking-[0.35em] uppercase" style={{ color: "#e95228" }}>サービス内容</span>
               </div>
               <h2 className="text-3xl sm:text-4xl font-black mb-8 leading-tight" style={{ color: "#1c1208" }}>
-                Every moment captured.<br />Nothing missed<span style={{ color: "#e95228" }}>.</span>
+                すべての瞬間を捉える。<br />スタイリッシュで<span style={{ color: "#e95228" }}>。</span>
               </h2>
               <p className="text-sm leading-relaxed mb-8" style={{ color: "rgba(28,18,8,0.6)" }}>
-                With deep experience covering events for international clients in Japan, we understand the importance
-                of delivering visuals that reflect your brand standards.
+                海外クライアントの日本国内イベントを数多く手がけてきた経験から、ブランド基準に沿ったビジュアル納品の重要性を深く理解しています。
               </p>
               <ul className="space-y-3 mb-16">
                 {services.map((s, i) => (
@@ -257,7 +261,7 @@ export default function EventVideoPageJP() {
               {/* Why us */}
               <div className="flex items-center gap-4 mb-6">
                 <div className="h-px w-10" style={{ backgroundColor: "#e95228" }} />
-                <span className="font-mono text-[10px] tracking-[0.35em] uppercase" style={{ color: "#e95228" }}>Why clients choose us</span>
+                <span className="font-mono text-[10px] tracking-[0.35em] uppercase" style={{ color: "#e95228" }}>選ばれる理由</span>
               </div>
               <div className="space-y-0 mb-16">
                 {differentiators.map((d, i) => (
@@ -278,7 +282,7 @@ export default function EventVideoPageJP() {
                 <div className="relative overflow-hidden" style={{ aspectRatio: "3/4" }}>
                   <Image
                     src="/images/event_side1.jpeg"
-                    alt="Event coverage in Japan"
+                    alt="日本のイベント撮影"
                     fill
                     className="object-cover"
                     sizes="(max-width: 1024px) 50vw, 320px"
@@ -287,7 +291,7 @@ export default function EventVideoPageJP() {
                 <div className="relative overflow-hidden" style={{ aspectRatio: "3/4" }}>
                   <Image
                     src="/images/event_side2.jpeg"
-                    alt="Corporate event photography Japan"
+                    alt="企業イベント写真撮影・日本"
                     fill
                     className="object-cover"
                     sizes="(max-width: 1024px) 50vw, 320px"
@@ -298,7 +302,7 @@ export default function EventVideoPageJP() {
               {/* Project examples */}
               <div className="flex items-center gap-4 mb-6">
                 <div className="h-px w-10" style={{ backgroundColor: "#e95228" }} />
-                <span className="font-mono text-[10px] tracking-[0.35em] uppercase" style={{ color: "#e95228" }}>Recent projects</span>
+                <span className="font-mono text-[10px] tracking-[0.35em] uppercase" style={{ color: "#e95228" }}>制作事例</span>
               </div>
               <div className="space-y-8 mb-16">
                 {projects.map((p, i) => (
@@ -336,7 +340,7 @@ export default function EventVideoPageJP() {
               {/* Photo events */}
               <div className="flex items-center gap-4 mb-6">
                 <div className="h-px w-10" style={{ backgroundColor: "#e95228" }} />
-                <span className="font-mono text-[10px] tracking-[0.35em] uppercase" style={{ color: "#e95228" }}>Photography events</span>
+                <span className="font-mono text-[10px] tracking-[0.35em] uppercase" style={{ color: "#e95228" }}>写真撮影実績</span>
               </div>
               <div className="mb-16">
                 <PhotoGallery events={photoEvents} />
@@ -346,7 +350,7 @@ export default function EventVideoPageJP() {
               <div className="mb-16">
                 <div className="flex items-center gap-4 mb-8">
                   <div className="h-px w-10" style={{ backgroundColor: "#e95228" }} />
-                  <span className="font-mono text-[10px] tracking-[0.35em] uppercase" style={{ color: "#e95228" }}>Google reviews</span>
+                  <span className="font-mono text-[10px] tracking-[0.35em] uppercase" style={{ color: "#e95228" }}>Googleレビュー</span>
                 </div>
                 <GoogleReviews appId="94fa8f98-15eb-4b6a-8318-c0d4579384d8" />
               </div>
@@ -355,7 +359,7 @@ export default function EventVideoPageJP() {
               <div className="space-y-6 mb-16">
                 <div className="flex items-center gap-4 mb-6">
                   <div className="h-px w-10" style={{ backgroundColor: "#e95228" }} />
-                  <span className="font-mono text-[10px] tracking-[0.35em] uppercase" style={{ color: "#e95228" }}>Client feedback</span>
+                  <span className="font-mono text-[10px] tracking-[0.35em] uppercase" style={{ color: "#e95228" }}>クライアントの声</span>
                 </div>
                 <blockquote className="pl-6 border-l-4" style={{ borderColor: "#e95228" }}>
                   <p className="text-base font-black italic leading-snug mb-3" style={{ color: "#1c1208" }}>
@@ -379,7 +383,7 @@ export default function EventVideoPageJP() {
               <div>
                 <div className="flex items-center gap-4 mb-8">
                   <div className="h-px w-10" style={{ backgroundColor: "#e95228" }} />
-                  <span className="font-mono text-[10px] tracking-[0.35em] uppercase" style={{ color: "#e95228" }}>FAQ</span>
+                  <span className="font-mono text-[10px] tracking-[0.35em] uppercase" style={{ color: "#e95228" }}>よくある質問</span>
                 </div>
                 <div className="space-y-6">
                   {faqs.map((faq, i) => (
@@ -410,7 +414,7 @@ export default function EventVideoPageJP() {
       <section className="py-16 border-t" style={{ borderColor: "#e8d9c8", backgroundColor: "#f5ede2" }}>
         <div className="max-w-7xl mx-auto px-6 sm:px-12 lg:px-16 flex flex-col sm:flex-row items-center justify-between gap-6">
           <div>
-            <p className="font-mono text-[10px] tracking-[0.3em] uppercase mb-2" style={{ color: "#e95228" }}>お気軽にご連絡ください</p>
+            <p className="font-mono text-[10px] tracking-[0.3em] uppercase mb-2" style={{ color: "#e95228" }}>まずはお気軽に</p>
             <p className="font-black text-lg" style={{ color: "#1c1208" }}>WhatsAppまたはメールで、すぐにご返信します。</p>
           </div>
           <div className="flex gap-4">

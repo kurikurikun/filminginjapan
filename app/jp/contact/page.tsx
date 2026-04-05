@@ -4,10 +4,10 @@ import Footer from "@/components/Footer";
 import LandingContactForm from "@/components/LandingContactForm";
 
 export const metadata: Metadata = {
-  title: "Corporate Video Production Quote — Tokyo Japan",
-  description: "Get in touch with Filming in Japan for video production, photography and virtual tours. We reply within 24 hours.",
+  title: "映像制作のお見積もり・ご相談",
+  description: "映像制作・写真撮影・VRツアーのご相談はこちら。24時間以内にご返信します。",
   alternates: {
-    canonical: "https://www.filminginjapan.com/contact",
+    canonical: "https://www.filminginjapan.com/jp/contact",
     languages: {
       "en": "https://www.filminginjapan.com/contact",
       "ja": "https://www.filminginjapan.com/jp/contact",
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   },
 };
 
-export default function ContactPage() {
+export default function ContactPageJp() {
   return (
     <div style={{ backgroundColor: "#fdf8f3" }}>
 
@@ -37,15 +37,15 @@ export default function ContactPage() {
           <div className="flex items-center gap-4 mb-8">
             <div className="h-px w-10" style={{ backgroundColor: "#e95228" }} />
             <span className="font-mono text-[10px] tracking-[0.35em] uppercase" style={{ color: "#e95228" }}>
-              Tokyo · Japan
+              東京 · 日本
             </span>
           </div>
           <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black leading-[0.9] mb-6 max-w-2xl" style={{ color: "#fdf8f3" }}>
-            Get in<br />
-            <em className="not-italic" style={{ color: "#e95228" }}>Touch.</em>
+            お気軽に<br />
+            <em className="not-italic" style={{ color: "#e95228" }}>ご相談ください。</em>
           </h1>
           <p className="text-lg max-w-xl leading-relaxed" style={{ color: "rgba(253,248,243,0.6)" }}>
-            Tell us about your project. We reply within 24 hours.
+            プロジェクトの内容をお聞かせください。24時間以内にご返信します。
           </p>
         </div>
       </section>
@@ -69,7 +69,7 @@ export default function ContactPage() {
                   </a>
                 </div>
                 <div>
-                  <p className="font-mono text-[10px] tracking-[0.3em] uppercase mb-3" style={{ color: "#e95228" }}>Email</p>
+                  <p className="font-mono text-[10px] tracking-[0.3em] uppercase mb-3" style={{ color: "#e95228" }}>メール</p>
                   <a
                     href="mailto:filminginjapan@move-ment.co"
                     className="text-2xl font-black hover:text-[#e95228] transition-colors"
@@ -79,9 +79,9 @@ export default function ContactPage() {
                   </a>
                 </div>
                 <div>
-                  <p className="font-mono text-[10px] tracking-[0.3em] uppercase mb-3" style={{ color: "#e95228" }}>Based in</p>
-                  <p className="text-lg font-black" style={{ color: "#1c1208" }}>Tokyo &amp; Hiroshima, Japan</p>
-                  <p className="text-sm mt-1" style={{ color: "rgba(28,18,8,0.5)" }}>Available nationwide</p>
+                  <p className="font-mono text-[10px] tracking-[0.3em] uppercase mb-3" style={{ color: "#e95228" }}>拠点</p>
+                  <p className="text-lg font-black" style={{ color: "#1c1208" }}>東京・広島</p>
+                  <p className="text-sm mt-1" style={{ color: "rgba(28,18,8,0.5)" }}>全国対応</p>
                 </div>
               </div>
             </div>
@@ -93,12 +93,12 @@ export default function ContactPage() {
                 style={{ backgroundColor: "#fff", border: "1px solid #e8d9c8" }}
               >
                 <h2 className="text-xl font-black mb-2" style={{ color: "#1c1208" }}>
-                  Get a free quote
+                  無料見積もりを依頼する
                 </h2>
                 <p className="text-sm mb-6" style={{ color: "rgba(28,18,8,0.5)" }}>
-                  Tell us about your project. We reply within 24 hours.
+                  プロジェクトの内容をお聞かせください。24時間以内にご返信します。
                 </p>
-                <LandingContactForm service="General Enquiry" />
+                <LandingContactForm service="General Enquiry (JP)" />
               </div>
             </div>
 
@@ -106,7 +106,7 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <Footer lang="en" />
+      <Footer lang="jp" />
     </div>
   );
 }

@@ -4,9 +4,16 @@ import Footer from "@/components/Footer";
 import LandingContactForm from "@/components/LandingContactForm";
 
 export const metadata: Metadata = {
-  title: "Corporate Video Production Japan | Filming in Japan",
+  title: "Corporate Video Production Japan",
   description: "Professional corporate interview, brand film and recruitment video production in Japan. Bilingual EN/JP team. Trusted by Sony, Google, Microsoft, HP, EY, Canon.",
-  alternates: { canonical: "https://www.filminginjapan.com/corporate-branding-videos-japan" },
+  alternates: {
+    canonical: "https://www.filminginjapan.com/corporate-branding-videos-japan",
+    languages: {
+      "en": "https://www.filminginjapan.com/corporate-branding-videos-japan",
+      "ja": "https://www.filminginjapan.com/jp/corporate-video",
+      "x-default": "https://www.filminginjapan.com/corporate-branding-videos-japan",
+    },
+  },
 };
 
 const faqs = [
@@ -90,6 +97,24 @@ function VideoEmbed({ src, title }: { src: string; title: string }) {
 export default function CorporateBrandingPage() {
   return (
     <div style={{ backgroundColor: "#fdf8f3" }}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            { "@type": "Question", "name": "How do you ensure the video aligns with our company's message?", "acceptedAnswer": { "@type": "Answer", "text": "We begin by meeting with your marketing team or production agency to understand the core message and outcomes. We also discuss where the video will be used — website, SNS, trade shows — so the length, style and tone are aligned with your overall marketing strategy." } },
+            { "@type": "Question", "name": "Do you always need a script and storyboard?", "acceptedAnswer": { "@type": "Answer", "text": "Not always. We're comfortable with a documentary style, but using a storyboard ensures the scenes support your message and avoids surprises in the edit stage." } },
+            { "@type": "Question", "name": "What factors determine the budget for a corporate video in Japan?", "acceptedAnswer": { "@type": "Answer", "text": "The main driver is the number of production days and deliverables. Other factors include preproduction requirements, talent, locations, equipment and whether professional actors are needed. We can also tailor a plan to work within a fixed budget." } },
+            { "@type": "Question", "name": "Can you source talent and locations for us?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We source both Japanese and international talent, as well as studios and outdoor locations across Japan. We specialise in working with non-professional talent — your own staff or influencers — to create authentic and engaging content." } },
+            { "@type": "Question", "name": "What size crew should we expect on the day?", "acceptedAnswer": { "@type": "Answer", "text": "Crew size depends on budget and the type of production. We can scale up when needed, but we also keep teams small when working with non-professional talent, helping them feel relaxed and natural on camera." } },
+            { "@type": "Question", "name": "Can interviews be directed remotely by our overseas team?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We can link overseas directors to the set via remote video, enabling them to observe, give feedback or ask interview questions directly." } },
+            { "@type": "Question", "name": "How long does it take to produce a corporate video in Japan?", "acceptedAnswer": { "@type": "Answer", "text": "A small-scale shoot can take 2–3 weeks from planning to delivery; larger productions 1–2 months. We recommend starting the conversation at least 4–6 weeks before your target delivery date." } },
+            { "@type": "Question", "name": "Do we need filming permits in Japan?", "acceptedAnswer": { "@type": "Answer", "text": "If we are putting up a tripod then permits are generally required in public locations. With a small handheld crew of 3–5 people, permits are often not required — though there are many exceptions. We advise on a case-by-case basis." } },
+            { "@type": "Question", "name": "What are the typical costs for a corporate video in Japan?", "acceptedAnswer": { "@type": "Answer", "text": "Costs depend on crew size, equipment, locations and post-production requirements. We provide transparent quotes and can tailor packages for different budgets while maintaining high production value." } }
+          ]
+        }) }}
+      />
 
       {/* Hero */}
       <section className="relative pt-32 pb-20 overflow-hidden" style={{ backgroundColor: "#0d0a07" }}>

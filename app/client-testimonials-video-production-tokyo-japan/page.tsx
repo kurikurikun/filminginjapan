@@ -4,9 +4,16 @@ import Footer from "@/components/Footer";
 import LandingContactForm from "@/components/LandingContactForm";
 
 export const metadata: Metadata = {
-  title: "Client Testimonial Video Production Tokyo Japan | Filming in Japan",
+  title: "Client Testimonial Video Production Tokyo Japan",
   description: "Professional client testimonial and case study video production in Tokyo and across Japan. Bilingual EN/JP team. Trusted by JLL, Microsoft, SAP, HP, Canon.",
-  alternates: { canonical: "https://www.filminginjapan.com/client-testimonials-video-production-tokyo-japan" },
+  alternates: {
+    canonical: "https://www.filminginjapan.com/client-testimonials-video-production-tokyo-japan",
+    languages: {
+      "en": "https://www.filminginjapan.com/client-testimonials-video-production-tokyo-japan",
+      "ja": "https://www.filminginjapan.com/jp/client-testimonials-video-production-tokyo-japan",
+      "x-default": "https://www.filminginjapan.com/client-testimonials-video-production-tokyo-japan",
+    },
+  },
 };
 
 const points = [
@@ -84,6 +91,26 @@ const clients = ["JLL", "Microsoft", "SAP", "Celonis", "HP", "Canon", "Sony", "A
 export default function TestimonialsPage() {
   return (
     <div style={{ backgroundColor: "#fdf8f3" }}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            { "@type": "Question", "name": "Where do you film client testimonial videos in Japan?", "acceptedAnswer": { "@type": "Answer", "text": "Anywhere that suits your client — their office, a studio, an event venue, or outdoors. We can also set up green screen on location. We scout locations beforehand and advise on the best setup for lighting and sound." } },
+            { "@type": "Question", "name": "Can you film in Japanese and English on the same shoot?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We have native English and Japanese interviewers on every shoot. We can conduct the same interview in both languages and cut bilingual versions for domestic and international audiences." } },
+            { "@type": "Question", "name": "What clients have you produced testimonial videos for?", "acceptedAnswer": { "@type": "Answer", "text": "We've been trusted by JLL, Microsoft, SAP, Celonis, HP and many others to film client testimonial and case study videos in Japan." } },
+            { "@type": "Question", "name": "Do you offer studio facilities?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We have access to studios in Tokyo, or we can set up a professional-grade studio environment at your client's office using our own lighting and backdrop equipment." } },
+            { "@type": "Question", "name": "What camera and audio equipment do you use?", "acceptedAnswer": { "@type": "Answer", "text": "Our standard equipment is the Canon C80 and Canon R5C, but we have shot on Sony FX3, FX6, FX9 and Arri Amira cameras. Audio is captured with boom and lapel mics. We have a compact lighting setup that travels well, or can do three-point lighting." } },
+            { "@type": "Question", "name": "Can the interview be directed remotely by our overseas team?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We can link overseas producers or directors to the set via remote video, enabling them to observe, give feedback or ask questions directly." } },
+            { "@type": "Question", "name": "What is the process for preparing a testimonial shoot?", "acceptedAnswer": { "@type": "Answer", "text": "We work with you in advance to agree on interview questions, filming style and location. We can also coordinate directly with your client to keep scheduling simple and ensure they feel comfortable on camera before the shoot day." } },
+            { "@type": "Question", "name": "Do you provide B-roll footage as part of the testimonial?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We can capture additional office, product or cityscape footage — for example, Tokyo skyline shots — to complement the interview and make the final video more engaging." } },
+            { "@type": "Question", "name": "How do you ensure the interviewee is comfortable on camera?", "acceptedAnswer": { "@type": "Answer", "text": "We treat interviews as a natural conversation, with genuine curiosity about what drives the interviewee. We keep crew sizes small and create a relaxed environment so interviewees deliver authentic, engaging answers rather than stiff on-camera performances." } },
+            { "@type": "Question", "name": "How quickly can you turn around the edited video?", "acceptedAnswer": { "@type": "Answer", "text": "Rough cut typically within 1–2 weeks of the shoot. Final delivery depends on the number of review rounds. Same-day social cuts available on request." } },
+            { "@type": "Question", "name": "What formats do you deliver in?", "acceptedAnswer": { "@type": "Answer", "text": "16:9 for YouTube and websites, 9:16 for social media (Reels, TikTok, Stories), and 1:1 square. We deliver via Google Drive, Dropbox, MASV or Frame.io — or hard disk by courier if required." } }
+          ]
+        }) }}
+      />
 
       {/* Hero */}
       <section className="relative pt-32 pb-20 overflow-hidden" style={{ backgroundColor: "#0d0a07" }}>

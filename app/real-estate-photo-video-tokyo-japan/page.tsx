@@ -5,9 +5,16 @@ import LandingContactForm from "@/components/LandingContactForm";
 import PhotoGrid from "@/components/PhotoGrid";
 
 export const metadata: Metadata = {
-  title: "Commercial Real Estate Photography, Video & Virtual Tours Japan | Filming in Japan",
+  title: "Commercial Real Estate Photography, Video & Virtual Tours Japan",
   description: "Commercial real estate photos, drone video and 360° Matterport virtual tours across Japan. Trusted by JLL, CBRE, Cushman & Wakefield, Hines and Savills.",
-  alternates: { canonical: "https://www.filminginjapan.com/real-estate-photo-video-tokyo-japan" },
+  alternates: {
+    canonical: "https://www.filminginjapan.com/real-estate-photo-video-tokyo-japan",
+    languages: {
+      "en": "https://www.filminginjapan.com/real-estate-photo-video-tokyo-japan",
+      "ja": "https://www.filminginjapan.com/jp/real-estate-photo-video-tokyo-japan",
+      "x-default": "https://www.filminginjapan.com/real-estate-photo-video-tokyo-japan",
+    },
+  },
 };
 
 const services = [
@@ -138,6 +145,24 @@ const clients = ["JLL", "CBRE", "Cushman & Wakefield", "Hines", "Savills"];
 export default function RealEstatePage() {
   return (
     <div style={{ backgroundColor: "#fdf8f3" }}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            { "@type": "Question", "name": "What types of commercial real estate do you cover in Japan?", "acceptedAnswer": { "@type": "Answer", "text": "Hotels, shopping malls, data centres, warehouses, office buildings, high-rise towers, residential developments and retail interiors. We've worked for JLL, CBRE, Cushman & Wakefield, Hines and Savills across a wide range of asset types throughout Japan." } },
+            { "@type": "Question", "name": "Can you combine photography, drone, video and Matterport in one shoot?", "acceptedAnswer": { "@type": "Answer", "text": "Yes — this is one of our key strengths. We combine ground photography, drone photography and video, and Matterport virtual tours in a single multi-day shoot. One crew, one consistent look, lower total cost." } },
+            { "@type": "Question", "name": "What Matterport equipment do you use?", "acceptedAnswer": { "@type": "Answer", "text": "We use the Matterport Pro 3 camera for high-quality interior scanning, including large and outdoor spaces. For 360° tours we use the Insta360 Pro 2, Insta360 1-inch, or stitched full-frame mirrorless images for maximum quality." } },
+            { "@type": "Question", "name": "Can overseas buyers view virtual tours remotely?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Matterport tours and 360° virtual experiences are accessible via any web browser or VR headset (Meta Quest). Overseas buyers and tenants can explore the property in full detail without visiting Japan." } },
+            { "@type": "Question", "name": "Do you film drone video of buildings in Japan?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We have extensive experience filming high-rise buildings, hotels and large commercial complexes from the air across Japan. We handle all permits and coordinate with building management." } },
+            { "@type": "Question", "name": "What are your turnaround times?", "acceptedAnswer": { "@type": "Answer", "text": "Photos are delivered within 24 hours of the shoot. Video edits and Matterport tours within 72 hours. Rush delivery is available on request for time-sensitive projects." } },
+            { "@type": "Question", "name": "Do you produce videos for data centres and industrial facilities?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We have produced promotion and completion videos for data centres, warehouses, distribution centres, office buildings and shopping centres in Tokyo and throughout Japan — including projects for Hines." } },
+            { "@type": "Question", "name": "Can you produce content for luxury residential properties?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We produce cinematic walkthroughs, architect interview films and comprehensive media packages for luxury residences — combining photography, video and Matterport tours with bilingual text and print production if required." } },
+            { "@type": "Question", "name": "How do you handle shoot access and building management in Japan?", "acceptedAnswer": { "@type": "Answer", "text": "Our bilingual team liaises directly with building management, facility teams and local staff in Japanese. This removes the logistical friction that often delays overseas-coordinated shoots." } }
+          ]
+        }) }}
+      />
 
       {/* Hero */}
       <section className="relative pt-32 pb-20 overflow-hidden" style={{ backgroundColor: "#0d0a07" }}>

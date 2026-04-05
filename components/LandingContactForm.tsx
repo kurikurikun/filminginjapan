@@ -2,6 +2,13 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 
+declare global {
+  interface Window {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    gtag?: (...args: any[]) => void;
+  }
+}
+
 const UTM_KEYS = ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term", "gclid"];
 
 function getTrackingParams(): Record<string, string> {
@@ -50,13 +57,14 @@ export default function LandingContactForm({ service }: Props) {
         body: JSON.stringify({
           name: data.get("name") || "",
           email: data.get("email") || "",
-          subject: `${service} — ${data.get("company_website") || "no website"}`,
+          website: String(data.get("company_website") || ""),
           message: String(data.get("message") || ""),
           source: `${window.location.pathname}${tracking.gclid ? " (Google Ads)" : ""}${tracking.utm_source ? ` (${tracking.utm_source})` : ""}`,
           tags: [service.toLowerCase().replace(/\s+/g, "-")],
         }),
       });
       if (res.ok) {
+        window.gtag?.("event", "form_submit", { event_category: "contact", event_label: service });
         router.push("/thank-you");
       } else {
         setStatus("error");

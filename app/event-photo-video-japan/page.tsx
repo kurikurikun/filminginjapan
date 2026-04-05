@@ -6,9 +6,16 @@ import GoogleReviews from "@/components/GoogleReviews";
 import PhotoGallery from "@/components/PhotoGallery";
 
 export const metadata: Metadata = {
-  title: "Corporate Event Photography & Video Tokyo Japan | Filming in Japan",
+  title: "Corporate Event Photography & Video Tokyo Japan",
   description: "Bilingual corporate event photography and video in Tokyo and across Japan. Conferences, summits, product launches, galas. Same-day edits. Trusted by global brands.",
-  alternates: { canonical: "https://www.filminginjapan.com/event-photo-video-japan" },
+  alternates: {
+    canonical: "https://www.filminginjapan.com/event-photo-video-japan",
+    languages: {
+      "en": "https://www.filminginjapan.com/event-photo-video-japan",
+      "ja": "https://www.filminginjapan.com/jp/event-photo-video-japan",
+      "x-default": "https://www.filminginjapan.com/event-photo-video-japan",
+    },
+  },
 };
 
 const services = [
@@ -68,7 +75,7 @@ const projects = [
 
 const photoEvents = [
   {
-    label: "Network of independent advertising agencies",
+    label: "Worldwide Partners (WPI) event",
     location: "Tokyo",
     photos: [
       "/images/Tokyo-corporate-event-photography1.jpg",
@@ -91,13 +98,13 @@ const photoEvents = [
       "/images/event_photography_tokyo_japan_10.jpg",
       "/images/event_photography_tokyo_japan_12.jpg",
       "/images/event_photography_tokyo_japan_13.jpg",
-      "/images/event_photography_tokyo_japan_16.jpg",
     ],
   },
   {
     label: "Red Bull esports gaming event",
     location: "Tokyo",
     photos: [
+      "/images/event_photography_tokyo_japan_16.jpg",
       "/images/tokyo-event-esports-photography_1.jpg",
       "/images/tokyo-event-esports-photography_2.jpg",
       "/images/tokyo-event-esports-photography_3.jpg",
@@ -171,6 +178,23 @@ const clients = ["Sony", "HP", "Canon", "NEC", "JLL", "Accenture", "Microsoft", 
 export default function EventVideoPage() {
   return (
     <div style={{ backgroundColor: "#fdf8f3" }}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            { "@type": "Question", "name": "What types of events do you cover in Japan?", "acceptedAnswer": { "@type": "Answer", "text": "Global summits, press conferences, multi-day multi-location conferences, product launches, awards ceremonies, corporate galas, government delegations, NGO events and private corporate gatherings. From 20 guests to 2,000." } },
+            { "@type": "Question", "name": "Can you provide both photography and video on the same day?", "acceptedAnswer": { "@type": "Answer", "text": "Yes — one coordinated bilingual team covers both stills and motion. This keeps costs down and ensures a consistent look and feel across all your event assets." } },
+            { "@type": "Question", "name": "Do you offer same-day editing for social media?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We can deliver a highlight reel and social cuts the same day — ideal for live social coverage or next-morning press distribution while the event is still trending." } },
+            { "@type": "Question", "name": "Can you handle multi-day or multi-location events?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We've covered events spanning multiple days and multiple venues across Tokyo and Japan, scaling crew and equipment to match." } },
+            { "@type": "Question", "name": "Can you support live streaming or hybrid events?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We support live streaming setups and hybrid events where remote attendees join in real time. Broadcast-quality feeds for internal and public-facing streams." } },
+            { "@type": "Question", "name": "How do you handle VIP protocol and NDAs?", "acceptedAnswer": { "@type": "Answer", "text": "We understand VIP protocol, confidentiality requirements and brand consistency. We're experienced at events involving government delegations, C-suite executives and high-profile international brands." } },
+            { "@type": "Question", "name": "How do you coordinate with Japanese venue AV teams?", "acceptedAnswer": { "@type": "Answer", "text": "Our bilingual crew liaises directly with Japanese venue and AV staff, removing the friction that slows down international production teams — particularly valuable for overseas clients managing events remotely." } },
+            { "@type": "Question", "name": "Can you film executive interviews at the event?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We set up dedicated interview spots at the venue for planned executive interviews and spontaneous attendee soundbites — adding depth to your event film and providing content for future campaigns." } }
+          ]
+        }) }}
+      />
 
       {/* Hero */}
       <section className="relative pt-32 pb-20 overflow-hidden" style={{ backgroundColor: "#0d0a07" }}>
@@ -240,7 +264,7 @@ export default function EventVideoPage() {
                 <span className="font-mono text-[10px] tracking-[0.35em] uppercase" style={{ color: "#e95228" }}>What we deliver</span>
               </div>
               <h2 className="text-3xl sm:text-4xl font-black mb-8 leading-tight" style={{ color: "#1c1208" }}>
-                Every moment captured.<br />Nothing missed<span style={{ color: "#e95228" }}>.</span>
+                Every moment captured.<br />With style<span style={{ color: "#e95228" }}>.</span>
               </h2>
               <p className="text-sm leading-relaxed mb-8" style={{ color: "rgba(28,18,8,0.6)" }}>
                 With deep experience covering events for international clients in Japan, we understand the importance
@@ -275,7 +299,7 @@ export default function EventVideoPage() {
               </div>
 
               {/* Side photos */}
-              <div className="grid grid-cols-2 gap-3 mb-16">
+              <div className="grid grid-cols-2 gap-3 mb-6">
                 <div className="relative overflow-hidden" style={{ aspectRatio: "3/4" }}>
                   <Image
                     src="/images/event_side1.jpeg"
@@ -294,6 +318,22 @@ export default function EventVideoPage() {
                     sizes="(max-width: 1024px) 50vw, 320px"
                   />
                 </div>
+              </div>
+
+              {/* IHIF attendee comments video */}
+              <div className="mb-16">
+                <div className="relative aspect-[16/9]" style={{ backgroundColor: "#0d0a07" }}>
+                  <iframe
+                    src="https://player.vimeo.com/video/1063107056?h=9932edce4c&title=0&byline=0&portrait=0"
+                    className="absolute inset-0 w-full h-full"
+                    allow="autoplay; fullscreen; picture-in-picture"
+                    allowFullScreen
+                    title="Event attendee comments — Filming in Japan"
+                  />
+                </div>
+                <p className="mt-3 text-sm font-black" style={{ color: "#1c1208" }}>
+                  Comments from event attendees taken during break time
+                </p>
               </div>
 
               {/* Project examples */}

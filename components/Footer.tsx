@@ -1,5 +1,7 @@
+"use client";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 
 interface FooterProps {
   lang?: "en" | "jp";
@@ -7,6 +9,26 @@ interface FooterProps {
 
 export default function Footer({ lang = "en" }: FooterProps) {
   const isJp = lang === "jp";
+  const pathname = usePathname();
+
+  // Path mappings where EN and JP URLs differ
+  const jpToEn: Record<string, string> = {
+    "/jp/corporate-video": "/corporate-branding-videos-japan",
+    "/jp/client-testimonials-video-production-tokyo-japan": "/client-testimonials-video-production-tokyo-japan",
+    "/jp/event-photo-video-japan": "/event-photo-video-japan",
+    "/jp/real-estate-photo-video-tokyo-japan": "/real-estate-photo-video-tokyo-japan",
+  };
+  const enToJp: Record<string, string> = {
+    "/corporate-branding-videos-japan": "/jp/corporate-video",
+    "/client-testimonials-video-production-tokyo-japan": "/jp/client-testimonials-video-production-tokyo-japan",
+    "/event-photo-video-japan": "/jp/event-photo-video-japan",
+    "/real-estate-photo-video-tokyo-japan": "/jp/real-estate-photo-video-tokyo-japan",
+  };
+
+  // Smart language toggle — mirrors the same logic as Navigation
+  const toggleHref = isJp
+    ? jpToEn[pathname] ?? (pathname.replace(/^\/jp/, "") || "/")
+    : enToJp[pathname] ?? `/jp${pathname === "/" ? "" : pathname}`;
 
   return (
     <footer className="bg-neutral-900 text-white pt-16 pb-8">
@@ -29,8 +51,8 @@ export default function Footer({ lang = "en" }: FooterProps) {
                 : "Corporate video and photo production in Japan for progressive global brands. Part of Move-ment Co. Ltd., Tokyo."}
             </p>
             <div className="flex gap-4 text-sm">
-              <a href="https://www.instagram.com/filminginjapan/" target="_blank" rel="noopener noreferrer" className="text-neutral-400 hover:text-[#e95228] transition-colors">Instagram</a>
-              <Link href={isJp ? "/" : "/jp"} className="text-neutral-400 hover:text-[#e95228] transition-colors">
+              <a href="https://www.instagram.com/move_ment.co.ltd" target="_blank" rel="noopener noreferrer" className="text-neutral-400 hover:text-[#e95228] transition-colors">Instagram</a>
+              <Link href={toggleHref} className="text-neutral-400 hover:text-[#e95228] transition-colors">
                 {isJp ? "English" : "日本語"}
               </Link>
               <Link href="https://www.move-ment.co" target="_blank" className="text-neutral-400 hover:text-[#e95228] transition-colors">move-ment.co</Link>

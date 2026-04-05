@@ -82,7 +82,7 @@ export default function HomePageJp() {
           </div>
 
           <h1
-            className="text-5xl sm:text-7xl lg:text-8xl xl:text-9xl font-black leading-[0.88] mb-10 max-w-4xl break-keep"
+            className="text-4xl sm:text-7xl lg:text-8xl xl:text-9xl font-black leading-[1.05] mb-10 max-w-4xl break-keep"
             style={{ color: "#fdf8f3" }}
           >
             企業向け映像制作<br />
@@ -90,7 +90,7 @@ export default function HomePageJp() {
             <span style={{ color: "#e95228" }}>。</span>
           </h1>
 
-          <p className="text-lg max-w-xl leading-relaxed mb-12 break-keep" style={{ color: "rgba(253,248,243,0.65)" }}>
+          <p className="text-lg max-w-xl leading-relaxed mb-12" style={{ color: "rgba(253,248,243,0.65)" }}>
             グローバルブランドのための日英バイリンガル映像制作。<br />
             Sony・Google・Microsoft・Canonなど国内外大手企業に信頼されています。
           </p>

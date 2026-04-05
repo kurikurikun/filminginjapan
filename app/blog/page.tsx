@@ -5,7 +5,7 @@ import Footer from "@/components/Footer";
 import { getBlogPosts } from "@/lib/webflow";
 
 export const metadata: Metadata = {
-  title: "Blog | Filming in Japan",
+  title: { absolute: "Video Production Blog Japan | Filming in Japan" },
   description: "Production insights, case studies and behind-the-scenes from our corporate video and photo projects across Japan.",
   alternates: { canonical: "https://www.filminginjapan.com/blog" },
 };
@@ -48,7 +48,7 @@ export default async function BlogPage() {
             </span>
           </div>
           <h1 className="text-5xl sm:text-6xl font-black leading-[0.9] mb-6" style={{ color: "#fdf8f3" }}>
-            Blog<span style={{ color: "#e95228" }}>.</span>
+            Production Blog<span style={{ color: "#e95228" }}>.</span>
           </h1>
           <p className="text-lg max-w-xl leading-relaxed" style={{ color: "rgba(253,248,243,0.6)" }}>
             Case studies, production insights and behind-the-scenes from our work across Japan.

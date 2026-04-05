@@ -14,11 +14,11 @@ const enLinks = [
 ];
 
 const jpLinks = [
-  { label: "企業動画", href: "/jp/corporate-video" },
-  { label: "お客様の声", href: "/jp/client-testimonial" },
+  { label: "インタビュー・採用", href: "/jp/corporate-video" },
+  { label: "カスタマーストーリー", href: "/jp/client-testimonial" },
   { label: "イベント", href: "/jp/event-photo-video" },
   { label: "不動産", href: "/jp/real-estate-photo-video" },
-  { label: "ブログ", href: "/jp/blog" },
+  { label: "ブログ", href: "/blog" },
   { label: "お問い合わせ", href: "/jp/contact" },
 ];
 
@@ -28,10 +28,24 @@ export default function Navigation() {
   const links = isJp ? jpLinks : enLinks;
   const [open, setOpen] = useState(false);
 
+  // Path mappings where EN and JP URLs differ
+  const jpToEn: Record<string, string> = {
+    "/jp/corporate-video": "/corporate-branding-videos-japan",
+    "/jp/client-testimonials-video-production-tokyo-japan": "/client-testimonials-video-production-tokyo-japan",
+    "/jp/event-photo-video-japan": "/event-photo-video-japan",
+    "/jp/real-estate-photo-video-tokyo-japan": "/real-estate-photo-video-tokyo-japan",
+  };
+  const enToJp: Record<string, string> = {
+    "/corporate-branding-videos-japan": "/jp/corporate-video",
+    "/client-testimonials-video-production-tokyo-japan": "/jp/client-testimonials-video-production-tokyo-japan",
+    "/event-photo-video-japan": "/jp/event-photo-video-japan",
+    "/real-estate-photo-video-tokyo-japan": "/jp/real-estate-photo-video-tokyo-japan",
+  };
+
   // Language toggle target
   const toggleHref = isJp
-    ? pathname.replace(/^\/jp/, "") || "/"
-    : `/jp${pathname === "/" ? "" : pathname}`;
+    ? jpToEn[pathname] ?? (pathname.replace(/^\/jp/, "") || "/")
+    : enToJp[pathname] ?? `/jp${pathname === "/" ? "" : pathname}`;
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-sm border-b" style={{ backgroundColor: "rgba(253,248,243,0.95)", borderColor: "#e8d9c8" }}>

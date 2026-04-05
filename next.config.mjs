@@ -8,6 +8,7 @@ const nextConfig = {
       { source: "/client-testimonial", destination: "/client-testimonials-video-production-tokyo-japan", permanent: true },
       { source: "/jp/event-photo-video", destination: "/jp/event-photo-video-japan", permanent: true },
       { source: "/jp/client-testimonial", destination: "/jp/client-testimonials-video-production-tokyo-japan", permanent: true },
+      { source: "/jp/real-estate-photo-video", destination: "/jp/real-estate-photo-video-tokyo-japan", permanent: true },
     ];
   },
   images: {

@@ -10,7 +10,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/event-photo-video-japan`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.8 },
     { url: `${base}/real-estate-photo-video-tokyo-japan`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.8 },
     { url: `${base}/client-testimonials-video-production-tokyo-japan`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.7 },
-    { url: `${base}/blog`, lastModified: new Date(), changeFrequency: "weekly", priority: 0.7 },
     { url: `${base}/contact`, lastModified: new Date(), changeFrequency: "yearly", priority: 0.6 },
     // Japanese pages
     { url: `${base}/jp`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.9 },

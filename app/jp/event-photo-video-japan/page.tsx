@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import LandingContactForm from "@/components/LandingContactForm";
 import GoogleReviews from "@/components/GoogleReviews";
 import PhotoGallery from "@/components/PhotoGallery";
+import EventSocialSectionJP from "@/components/EventSocialSectionJP";
 
 export const metadata: Metadata = {
   title: "企業イベント撮影・映像制作 東京・日本全国",
@@ -85,7 +86,6 @@ const photoEvents = [
       "/images/Tokyo-corporate-event-photography5.jpg",
       "/images/Tokyo-corporate-event-photography6.jpg",
       "/images/Tokyo-corporate-event-photography7.jpg",
-      "/images/Tokyo-corporate-event-photography8.jpg",
       "/images/Tokyo-corporate-event-photography9.jpg",
       "/images/Tokyo-corporate-event-photography10.jpg",
     ],
@@ -99,6 +99,8 @@ const photoEvents = [
       "/images/event_photography_tokyo_japan_12.jpg",
       "/images/event_photography_tokyo_japan_13.jpg",
       "/images/event_photography_tokyo_japan_16.jpg",
+      "/images/event_photography_tokyo_japan_17.jpg",
+      "/images/event_photography_tokyo_japan_18.jpg",
     ],
   },
   {
@@ -116,6 +118,7 @@ const photoEvents = [
     label: "International philanthropic organisation gathering",
     location: "東京",
     photos: [
+      "/images/tokyo_event_photography_happoen10.jpg",
       "/images/tokyo_event_photography_happoen1.jpg",
       "/images/tokyo_event_photography_happoen2.jpg",
       "/images/tokyo_event_photography_happoen3.jpg",
@@ -134,6 +137,11 @@ const photoEvents = [
       "/images/event_photography_tokyo_japan_5.jpg",
       "/images/event_photography_tokyo_japan_1.jpg",
       "/images/event_photography_tokyo_japan_3.jpg",
+      "/images/event_photography_tokyo_japan_20.jpg",
+      "/images/event_photography_tokyo_japan_21.jpg",
+      "/images/event_photography_tokyo_japan_22.jpg",
+      "/images/event_photography_tokyo_japan_23.jpg",
+      "/images/event_photography_tokyo_japan_24.jpg",
     ],
   },
 ];
@@ -227,6 +235,25 @@ export default function EventVideoPageJP() {
               </span>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Event Social Section */}
+      <EventSocialSectionJP />
+
+      {/* Transition to full production */}
+      <section className="py-16 border-t" style={{ borderColor: "#e8d9c8", backgroundColor: "#fdf8f3" }}>
+        <div className="max-w-5xl mx-auto px-6 sm:px-12">
+          <div className="flex items-center gap-4 mb-4">
+            <div className="h-px w-10" style={{ backgroundColor: "#e95228" }} />
+            <span className="font-mono text-[10px] tracking-[0.35em] uppercase" style={{ color: "#e95228" }}>フルイベント制作</span>
+          </div>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black leading-[1.05] mb-4 break-keep" style={{ color: "#1c1208" }}>
+            もっとカスタマイズした<br /><span style={{ color: "rgba(28,18,8,0.4)" }}>制作が必要ですか？</span>
+          </h2>
+          <p className="text-sm leading-relaxed max-w-xl" style={{ color: "rgba(28,18,8,0.55)" }}>
+            複数日撮影、ライブ配信、ハイブリッドイベント、役員インタビュー、グリーンスクリーン、マルチカメラのカンファレンス制作まで。フルカスタムのアプローチが必要なイベントにも対応しています。
+          </p>
         </div>
       </section>
 

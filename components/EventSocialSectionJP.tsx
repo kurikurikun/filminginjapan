@@ -2,10 +2,190 @@
 
 import { useState, useRef, useEffect } from "react";
 
+function SampleDeliverable({ src, poster, label, autoPlay = false }: { src: string; poster?: string; label: string; autoPlay?: boolean }) {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const posterRef = useRef<HTMLImageElement>(null);
+  const [inView, setInView] = useState(false);
+  const [userPlayed, setUserPlayed] = useState(false);
+  const [isMuted, setIsMuted] = useState(true);
+  const [isPaused, setIsPaused] = useState(true);
+  const [posterErrored, setPosterErrored] = useState(false);
+
+  const hasVideo = Boolean(src);
+  const videoMounted = hasVideo && ((autoPlay && inView) || userPlayed);
+
+  useEffect(() => {
+    if (!src || !containerRef.current) return;
+    const el = containerRef.current;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setInView(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: "200px" }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [src]);
+
+  useEffect(() => {
+    if (!poster) return;
+    const img = posterRef.current;
+    if (!img) return;
+    if (img.complete) {
+      if (img.naturalWidth === 0) setPosterErrored(true);
+      return;
+    }
+    const onErr = () => setPosterErrored(true);
+    img.addEventListener("error", onErr);
+    return () => img.removeEventListener("error", onErr);
+  }, [poster]);
+
+  useEffect(() => {
+    const v = videoRef.current;
+    if (!v) return;
+    const onPlay = () => setIsPaused(false);
+    const onPause = () => setIsPaused(true);
+    v.addEventListener("play", onPlay);
+    v.addEventListener("pause", onPause);
+    setIsPaused(v.paused);
+    return () => {
+      v.removeEventListener("play", onPlay);
+      v.removeEventListener("pause", onPause);
+    };
+  }, [videoMounted]);
+
+  useEffect(() => {
+    if (!userPlayed) return;
+    const v = videoRef.current;
+    if (!v) return;
+    v.play().catch(() => {});
+  }, [userPlayed]);
+
+  const toggleMute = () => {
+    if (!videoRef.current) return;
+    const next = !isMuted;
+    videoRef.current.muted = next;
+    setIsMuted(next);
+  };
+
+  const handleTileClick = () => {
+    if (!hasVideo) return;
+    if (!videoMounted) {
+      setUserPlayed(true);
+      return;
+    }
+    const v = videoRef.current;
+    if (!v) return;
+    if (v.paused) {
+      v.play().catch(() => {});
+    } else {
+      v.pause();
+    }
+  };
+
+  const showCenterPlay = hasVideo && (!videoMounted || isPaused);
+
+  return (
+    <div
+      ref={containerRef}
+      onClick={hasVideo ? handleTileClick : undefined}
+      className="relative overflow-hidden"
+      style={{
+        aspectRatio: "9/16",
+        backgroundColor: "#e8d9c8",
+        borderRadius: "12px",
+        cursor: hasVideo ? "pointer" : "default",
+      }}
+    >
+      {hasVideo && poster && !posterErrored && (
+        // eslint-disable-next-line @next/next/no-img-element
+        <img
+          ref={posterRef}
+          src={poster}
+          alt=""
+          aria-hidden="true"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+      )}
+      {videoMounted && (
+        <>
+          <video
+            ref={videoRef}
+            autoPlay={autoPlay}
+            muted
+            loop
+            playsInline
+            preload="auto"
+            poster={poster}
+            className="absolute inset-0 w-full h-full object-cover"
+          >
+            <source src={src} type="video/mp4" />
+          </video>
+          <button
+            type="button"
+            onClick={(e) => { e.stopPropagation(); toggleMute(); }}
+            aria-label={isMuted ? "ミュート解除" : "ミュート"}
+            className="absolute top-3 right-3 w-9 h-9 rounded-full flex items-center justify-center transition-opacity hover:opacity-100"
+            style={{ backgroundColor: "rgba(13,10,7,0.55)", color: "#fdf8f3", opacity: 0.85 }}
+          >
+            {isMuted ? (
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z" />
+              </svg>
+            ) : (
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z" />
+              </svg>
+            )}
+          </button>
+        </>
+      )}
+      {showCenterPlay && (
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+          <div
+            className="w-16 h-16 rounded-full flex items-center justify-center"
+            style={{ backgroundColor: "rgba(13,10,7,0.55)", color: "#fdf8f3" }}
+          >
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M8 5v14l11-7z" />
+            </svg>
+          </div>
+        </div>
+      )}
+      {!hasVideo && (
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="text-center">
+            <div className="w-10 h-10 rounded-full border flex items-center justify-center mx-auto mb-2" style={{ borderColor: "rgba(28,18,8,0.15)" }}>
+              <span style={{ color: "rgba(28,18,8,0.25)" }}>▶</span>
+            </div>
+            <span className="text-xs" style={{ color: "rgba(28,18,8,0.25)" }}>近日公開</span>
+          </div>
+        </div>
+      )}
+      <div className="absolute bottom-0 left-0 right-0 p-3 pointer-events-none">
+        <span
+          className="text-xs font-black"
+          style={
+            hasVideo
+              ? { color: "#fdf8f3", textShadow: "0 1px 6px rgba(0,0,0,0.55)" }
+              : { color: "rgba(28,18,8,0.4)" }
+          }
+        >
+          {label}
+        </span>
+      </div>
+    </div>
+  );
+}
+
 const basePrices: Record<string, Record<string, number>> = {
   essential: { half: 150000, full: 200000 },
-  standard: { half: 200000, full: 270000 },
-  pro: { half: 300000, full: 400000 },
+  standard: { half: 250000, full: 350000 },
+  pro: { half: 350000, full: 500000 },
 };
 
 const formatYen = (n: number) => `¥${n.toLocaleString()}`;
@@ -21,116 +201,101 @@ const tierLabels: Record<string, string> = { essential: "Essential", standard: "
 const durLabels: Record<string, string> = { half: "Half day", full: "Full day" };
 const durLabelsJP: Record<string, string> = { half: "半日", full: "終日" };
 
-type AddOn = {
-  id: string;
-  title: string;
-  detail: string;
-  price: number;
-  tiers: ("essential" | "standard" | "pro")[];
-};
-
-const addOns: AddOn[] = [
-  {
-    id: "extra-clip",
-    title: "縦型クリップ追加",
-    detail: "キャプション付き約30秒クリップ +1本",
-    price: 25000,
-    tiers: ["essential", "standard", "pro"],
-  },
-  {
-    id: "extra-photos",
-    title: "SNS用写真セレクト追加",
-    detail: "編集済み写真 +10枚 · 縦型・横型",
-    price: 15000,
-    tiers: ["standard", "pro"],
-  },
-  {
-    id: "extra-interview",
-    title: "インタビュークリップ追加",
-    detail: "インタビュー +1本 · 約30秒 · 日本語または英語 · Proのみ",
-    price: 30000,
-    tiers: ["pro"],
-  },
-];
+const EXTRA_INTERVIEW_PRICE = 30000;
 
 const tiers = [
   {
     id: "essential",
-    crew: "クリエイティブプロデューサー1名",
+    subtitle: "ソーシャルカバレッジ",
+    crew: "ビデオグラファー1名",
     deliverables: [
       {
         icon: "▶",
-        title: "縦型動画クリップ",
-        detail: "2本（半日）· 3本（終日）\n約30秒 · キャプション付 · カラーグレーディング",
-        badge: "24h",
+        title: "縦型動画",
+        detail: "ショートフォーム縦型動画 1本（半日）· 2本（終日）\n約30秒 · キャプション付 · カラーグレーディング",
+        badge: "next",
+      },
+      {
+        icon: "◼",
+        title: "SNS写真",
+        detail: "編集済み写真10〜20枚",
+        badge: "same",
       },
     ],
     prices: { half: "¥150,000", full: "¥200,000" },
   },
   {
     id: "standard",
-    crew: "クリエイティブプロデューサー1名",
+    subtitle: "フルイベントカバレッジ",
+    crew: "ビデオグラファー1名 + フォトグラファー1名",
     deliverables: [
       {
         icon: "▶",
-        title: "縦型動画クリップ",
-        detail: "3本（半日）· 5本（終日）\n約30秒 · キャプション付 · カラーグレーディング",
-        badge: "24h",
+        title: "縦型動画",
+        detail: "ショートフォーム縦型動画 3本\n約30秒 · キャプション付 · カラーグレーディング",
+        badge: "next",
       },
       {
         icon: "◼",
-        title: "SNS用写真セレクト",
-        detail: "編集済み写真15〜20枚 · 縦型・横型",
+        title: "SNS写真",
+        detail: "編集済み写真10〜20枚",
         badge: "same",
       },
+      {
+        icon: "◼",
+        title: "フォトアーカイブ",
+        detail: "編集済み写真300枚 · イベント全体の網羅撮影",
+        badge: "next",
+      },
     ],
-    prices: { half: "¥200,000", full: "¥270,000" },
+    prices: { half: "¥250,000", full: "¥350,000" },
   },
   {
     id: "pro",
-    crew: "クリエイティブプロデューサー2名",
+    subtitle: "イベントカバレッジ + インタビュー",
+    crew: "ビデオグラファー1名 + フォトグラファー1名",
     deliverables: [
       {
         icon: "▶",
-        title: "縦型動画クリップ",
-        detail: "3本（半日）· 5本（終日）\n約30秒 · キャプション付 · カラーグレーディング",
-        badge: "24h",
+        title: "縦型動画",
+        detail: "ショートフォーム縦型動画 3本\n約30秒 · キャプション付 · カラーグレーディング",
+        badge: "next",
       },
       {
         icon: "◼",
-        title: "SNS用写真セレクト",
-        detail: "編集済み写真15〜20枚 · 縦型・横型",
+        title: "SNS写真",
+        detail: "編集済み写真10〜20枚",
         badge: "same",
       },
       {
-        icon: "◉",
-        title: "インタビュークリップ",
-        detail: "3本 · 各約30秒 · 日本語または英語",
-        badge: "24h",
+        icon: "◼",
+        title: "フォトアーカイブ",
+        detail: "編集済み写真300枚 · イベント全体の網羅撮影",
+        badge: "next",
       },
       {
-        icon: "◼",
-        title: "フルフォトアーカイブ",
-        detail: "編集済み写真300枚 · イベント全体の網羅撮影",
-        badge: "24h",
+        icon: "◉",
+        title: "インタビュー動画",
+        detail: "3本 · 各約30秒 · 日本語または英語",
+        badge: "next",
       },
     ],
-    prices: { half: "¥300,000", full: "¥400,000" },
+    prices: { half: "¥350,000", full: "¥500,000" },
   },
 ];
 
 const steps = [
-  { text: "パッケージを選択。", detail: "プランと時間を選び、すべての費用をその場で確認。東京都内の交通費込み。都外は別途お問い合わせください。" },
-  { text: "フォームを送信。", detail: "イベントの日時・場所・種類をご記入ください。所要時間は2分、この時点でのお申込みは不要です。" },
-  { text: "空き状況を24時間以内に確認。", detail: "ご了承いただけましたら、簡単なブリーフィングフォーム（ハイライトシーン・登壇者・会場情報）をお送りします。" },
-  { text: "撮影当日。", detail: "何が重要かを理解したチームが現場に入り、確実に遂行します。" },
-  { text: "納品。", detail: "イベント終了から24時間以内にコンテンツをお届けします。" },
+  { text: "パッケージを選択", detail: "プランと時間を選び、すべての費用をその場で確認。東京都内の交通費込み。都外は別途お問い合わせください。" },
+  { text: "フォームを送信", detail: "イベントの日時・場所・種類をご入力ください。所要時間は2分、この時点でのお申込みは不要です。" },
+  { text: "空き状況を24時間以内に確認", detail: "ご了承いただけましたら、簡単なブリーフィングフォーム（ハイライトシーン・登壇者・会場情報）をお送りします。" },
+  { text: "撮影当日", detail: "イベント撮影に精通したチームが撮影します。" },
+  { text: "納品", detail: "翌日にコンテンツをお届けします。" },
 ];
 
 export default function EventSocialSectionJP() {
-  const [selectedTier, setSelectedTier] = useState("");
-  const [selectedDur, setSelectedDur] = useState("");
-  const [addOnQty, setAddOnQty] = useState<Record<string, number>>({});
+  const [selectedTier, setSelectedTier] = useState("standard");
+  const [selectedDur, setSelectedDur] = useState("half");
+  const [extraInterviews, setExtraInterviews] = useState(0);
   const [showSuccess, setShowSuccess] = useState(false);
   const [isAgency, setIsAgency] = useState(false);
   const [submitting, setSubmitting] = useState(false);
@@ -151,29 +316,12 @@ export default function EventSocialSectionJP() {
 
   const selectedPrice = selectedTier && selectedDur ? prices[selectedTier]?.[selectedDur] : "";
   const baseTotal = selectedTier && selectedDur ? basePrices[selectedTier]?.[selectedDur] ?? 0 : 0;
-  const addOnsTotal = addOns.reduce((sum, a) => sum + a.price * (addOnQty[a.id] || 0), 0);
-  const grandTotal = baseTotal + addOnsTotal;
-  const hasAnyAddOns = Object.values(addOnQty).some((q) => q > 0);
+  const interviewsTotal = selectedTier === "pro" ? extraInterviews * EXTRA_INTERVIEW_PRICE : 0;
+  const grandTotal = baseTotal + interviewsTotal;
 
   function pickTier(t: string) {
     setSelectedTier(t);
-    setAddOnQty((prev) => {
-      const next: Record<string, number> = {};
-      addOns.forEach((a) => {
-        if (a.tiers.includes(t as "essential" | "standard" | "pro") && prev[a.id]) {
-          next[a.id] = prev[a.id];
-        }
-      });
-      return next;
-    });
-  }
-
-  function bumpAddOn(id: string, delta: number) {
-    setAddOnQty((prev) => {
-      const cur = prev[id] || 0;
-      const next = Math.max(0, Math.min(3, cur + delta));
-      return { ...prev, [id]: next };
-    });
+    if (t !== "pro") setExtraInterviews(0);
   }
 
   async function handleSubmit() {
@@ -213,11 +361,9 @@ export default function EventSocialSectionJP() {
           tier: tierLabels[selectedTier],
           duration: durLabels[selectedDur],
           price: selectedPrice,
-          addOns: addOns
-            .filter((a) => (addOnQty[a.id] || 0) > 0)
-            .map((a) => ({ id: a.id, title: a.title, qty: addOnQty[a.id], unitPrice: a.price, lineTotal: a.price * addOnQty[a.id] })),
-          addOnsTotal: addOnsTotal || undefined,
-          grandTotal: hasAnyAddOns ? grandTotal : undefined,
+          extraInterviews: extraInterviews || undefined,
+          extraInterviewsTotal: interviewsTotal || undefined,
+          grandTotal: interviewsTotal ? grandTotal : undefined,
           eventDate: fields["es-event-date"],
           eventType: fields["es-event-type"],
           location: "Tokyo",
@@ -264,15 +410,7 @@ export default function EventSocialSectionJP() {
             <span style={{ color: "rgba(28,18,8,0.4)" }}>コンテンツエンジン</span><span style={{ color: "#e95228" }}>。</span>
           </h2>
           <p className="text-sm leading-relaxed max-w-xl" style={{ color: "rgba(28,18,8,0.55)" }}>
-            イベントは終わった後も成果を生み続けるべきです。東京の企業イベント向け、スコープ・料金固定のパッケージ。24時間以内に納品し、あらゆるSNS・チャネルへすぐに展開できます。
-          </p>
-        </div>
-
-        {/* REFRAME */}
-        <div className="pb-10 mb-10 border-b max-w-2xl" style={{ borderColor: "#e8d9c8" }}>
-          <p className="text-sm leading-relaxed" style={{ color: "rgba(28,18,8,0.55)" }}>
-            <strong className="font-black" style={{ color: "#1c1208" }}>従来のイベント動画は、別の時代に作られたものです。</strong>{" "}
-            私たちのソーシャルイベントパッケージは、短尺・キャプション付・各プラットフォーム対応のクリップと写真を納品します。投稿したその瞬間から機能し、その後も長く成果を出し続けます。
+            イベントは終わった後も成果を生み続けるべきです。一度投稿して終わる3分のハイライト動画ではなく、ショートフォーム縦型動画と写真を翌日納品、決まった内容・料金。あらゆるプラットフォームに即投稿でき、長期的に成果を出し続けます。
           </p>
         </div>
 
@@ -286,44 +424,25 @@ export default function EventSocialSectionJP() {
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
             {[
-              { src: "", label: "カンファレンスハイライト" },
-              { src: "", label: "登壇者コメント" },
-              { src: "", label: "ネットワーキングリキャップ" },
+              { src: "/videos/event-social-highlights3.mp4", poster: "/videos/event-social-highlights3-poster.jpg", label: "カンファレンスハイライト", autoPlay: true },
+              { src: "/videos/26_4_21_SNS%2030p_2_siteb.mp4", poster: "/videos/26_4_21_SNS%2030p_2_siteb.jpg", label: "ネットワーキングリキャップ" },
+              { src: "/videos/26_4_21_SNS%2030p_3_siteb.mp4", poster: "/videos/26_4_21_SNS%2030p_3_siteb.jpg", label: "ブレイクアウトセッションハイライト" },
             ].map((v, i) => (
-              <div key={i} className="relative overflow-hidden" style={{ aspectRatio: "9/16", backgroundColor: "#e8d9c8", borderRadius: "12px" }}>
-                {v.src ? (
-                  <video
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                    preload="none"
-                    className="absolute inset-0 w-full h-full object-cover"
-                  >
-                    <source src={v.src} type="video/mp4" />
-                  </video>
-                ) : (
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="text-center">
-                      <div className="w-10 h-10 rounded-full border flex items-center justify-center mx-auto mb-2" style={{ borderColor: "rgba(28,18,8,0.15)" }}>
-                        <span style={{ color: "rgba(28,18,8,0.25)" }}>▶</span>
-                      </div>
-                      <span className="text-xs" style={{ color: "rgba(28,18,8,0.25)" }}>近日公開</span>
-                    </div>
-                  </div>
-                )}
-                <div className="absolute bottom-0 left-0 right-0 p-3">
-                  <span className="text-xs font-black" style={{ color: "rgba(28,18,8,0.4)" }}>{v.label}</span>
-                </div>
-              </div>
+              <SampleDeliverable key={i} src={v.src} poster={v.poster} label={v.label} autoPlay={v.autoPlay} />
             ))}
           </div>
         </div>
 
         {/* PACKAGES — 3 across */}
         <div className="mb-16">
+          <div className="flex items-center gap-4 mb-4">
+            <div className="h-px w-10" style={{ backgroundColor: "#e95228" }} />
+            <span className="font-mono text-[10px] tracking-[0.35em] uppercase" style={{ color: "#e95228" }}>
+              Event Social
+            </span>
+          </div>
           <h3 className="text-xl sm:text-2xl font-black mb-10" style={{ color: "#1c1208" }}>
-            スコープ固定。料金固定。柔軟な活用<span style={{ color: "#e95228" }}>。</span>
+            決まった内容・料金、柔軟な活用<span style={{ color: "#e95228" }}>。</span>
           </h3>
 
           <div className="grid md:grid-cols-3 gap-4 mb-12">
@@ -343,18 +462,21 @@ export default function EventSocialSectionJP() {
                 >
                   {/* Header */}
                   <div
-                    className="flex items-baseline justify-between px-5 py-3"
+                    className="px-5 py-3"
                     style={{
                       backgroundColor: isSelected ? "#e95228" : "#0d0a07",
                       borderBottom: isSelected ? "2px solid #e95228" : "1px solid #e8d9c8",
                     }}
                   >
-                    <span className="text-sm font-black" style={{ color: "#fdf8f3" }}>{tierLabels[tier.id]}</span>
-                    <span className="font-mono text-[10px] tracking-wider" style={{ color: "rgba(253,248,243,0.5)" }}>{tier.crew}</span>
+                    <div className="text-sm font-black" style={{ color: "#fdf8f3" }}>{tierLabels[tier.id]}</div>
+                    <div className="font-mono text-[10px] tracking-wider mt-0.5" style={{ color: "rgba(253,248,243,0.5)" }}>{tier.crew}</div>
                   </div>
 
-                  {/* Deliverables */}
+                  {/* Subtitle + Deliverables */}
                   <div className="px-5 py-5 space-y-4 flex-1">
+                    {tier.subtitle && (
+                      <div className="text-xs font-black mb-1" style={{ color: "rgba(28,18,8,0.45)" }}>{tier.subtitle}</div>
+                    )}
                     {tier.deliverables.map((d, j) => (
                       <div key={j} className="flex gap-3 items-start">
                         <div
@@ -376,7 +498,7 @@ export default function EventSocialSectionJP() {
                                 : { backgroundColor: "#f5ede2", color: "rgba(28,18,8,0.55)" }
                             }
                           >
-                            {d.badge === "same" ? "当日納品" : "24時間以内"}
+                            {d.badge === "same" ? "当日納品" : "翌日納品"}
                           </span>
                         </div>
                       </div>
@@ -400,6 +522,22 @@ export default function EventSocialSectionJP() {
             })}
           </div>
           {errors.tier && <p className="text-xs mb-4 -mt-8" style={{ color: "#c0392b" }}>上記からプランを選択してください</p>}
+
+          {/* Not a fit notice */}
+          <div className="mb-12 p-5 sm:p-6" style={{ backgroundColor: "#f5ede2", border: "1px solid #e8d9c8" }}>
+            <p className="font-mono text-[10px] tracking-[0.35em] uppercase mb-3" style={{ color: "rgba(28,18,8,0.5)" }}>
+              Event Socialが合わない場合
+            </p>
+            <ul className="text-sm leading-relaxed mb-3 space-y-1" style={{ color: "rgba(28,18,8,0.7)" }}>
+              <li>・ 1分以上の横型ハイライト動画</li>
+              <li>・ 生データ・未編集素材の納品</li>
+              <li>・ ライブ配信・ハイブリッドイベント対応</li>
+              <li>・ 複数日撮影・完全オーダーメイドの納品物</li>
+            </ul>
+            <p className="text-sm font-black" style={{ color: "#1c1208" }}>
+              → 下記の<a href="#full-production" className="underline" style={{ color: "#e95228" }}>フル制作サービス</a>をご覧ください。
+            </p>
+          </div>
 
           {/* How it works */}
           <div className="grid md:grid-cols-5 gap-4 mb-12">
@@ -435,9 +573,9 @@ export default function EventSocialSectionJP() {
               </div>
             ) : (
               <div className="p-8 sm:p-10 lg:p-12 border" style={{ backgroundColor: "#fff", borderColor: "#e8d9c8" }}>
-                <h3 className="text-xl font-black mb-1" style={{ color: "#1c1208" }}>ソーシャルイベントパッケージのお問い合わせ</h3>
+                <h3 className="text-xl font-black mb-1" style={{ color: "#1c1208" }}>Event Socialのお問い合わせ</h3>
                 <p className="text-sm mb-10" style={{ color: "rgba(28,18,8,0.55)" }}>
-                  パッケージと時間を選択のうえ、下記の詳細をご入力ください。
+                  Event Socialのパッケージと時間を選択のうえ、下記の詳細をご入力ください。
                 </p>
 
                 {/* 01 — Package selection */}
@@ -448,7 +586,6 @@ export default function EventSocialSectionJP() {
                     </p>
                   </div>
                   <div>
-                    {/* Tier selector */}
                     <label className="block text-[13px] font-black mb-2" style={{ color: "#1c1208" }}>
                       プラン<span style={{ color: "#e95228" }}> *</span>
                     </label>
@@ -471,7 +608,6 @@ export default function EventSocialSectionJP() {
                     </div>
                     {errors.tier && <p className="text-xs mb-3" style={{ color: "#c0392b" }}>プランを選択してください</p>}
 
-                    {/* Duration selector */}
                     <label className="block text-[13px] font-black mb-2" style={{ color: "#1c1208" }}>
                       時間<span style={{ color: "#e95228" }}> *</span>
                     </label>
@@ -494,75 +630,55 @@ export default function EventSocialSectionJP() {
                     </div>
                     {errors.dur && <p className="text-xs mb-3" style={{ color: "#c0392b" }}>時間を選択してください</p>}
 
-                    {/* Add-ons */}
-                    {selectedTier && (
+                    {/* Extra interviews — Pro only */}
+                    {selectedTier === "pro" && (
                       <div className="mt-4 mb-4">
                         <label className="block text-[13px] font-black mb-2" style={{ color: "#1c1208" }}>
-                          オプション <span className="font-mono text-[10px] tracking-wider" style={{ color: "rgba(28,18,8,0.4)" }}>· 任意</span>
+                          インタビュー動画追加 <span className="font-normal text-xs" style={{ color: "rgba(28,18,8,0.35)" }}>任意</span>
                         </label>
-                        <div className="space-y-2">
-                          {addOns.map((a) => {
-                            const available = a.tiers.includes(selectedTier as "essential" | "standard" | "pro");
-                            const qty = addOnQty[a.id] || 0;
-                            return (
-                              <div
-                                key={a.id}
-                                className="flex items-center gap-3 p-3"
-                                style={{
-                                  border: qty > 0 ? "2px solid #e95228" : "1px solid #e8d9c8",
-                                  backgroundColor: qty > 0 ? "rgba(233,82,40,0.06)" : available ? "transparent" : "#f5ede2",
-                                  opacity: available ? 1 : 0.5,
-                                }}
-                              >
-                                <div className="flex-1 min-w-0">
-                                  <div className="flex items-baseline justify-between gap-2">
-                                    <div className="text-[13px] font-black" style={{ color: "#1c1208" }}>{a.title}</div>
-                                    <div className="text-[13px] font-black shrink-0" style={{ color: qty > 0 ? "#e95228" : "rgba(28,18,8,0.55)" }}>
-                                      +{formatYen(a.price)}
-                                    </div>
-                                  </div>
-                                  <div className="text-xs mt-0.5" style={{ color: "rgba(28,18,8,0.45)" }}>{a.detail}</div>
-                                </div>
-                                <div className="flex items-center gap-2 shrink-0">
-                                  <button
-                                    type="button"
-                                    disabled={!available || qty === 0}
-                                    onClick={() => bumpAddOn(a.id, -1)}
-                                    className="w-7 h-7 flex items-center justify-center text-sm font-black transition-colors"
-                                    style={{
-                                      border: "1px solid #e8d9c8",
-                                      backgroundColor: "#fff",
-                                      color: qty === 0 || !available ? "rgba(28,18,8,0.25)" : "#1c1208",
-                                      cursor: qty === 0 || !available ? "not-allowed" : "pointer",
-                                    }}
-                                    aria-label={`${a.title}を1つ減らす`}
-                                  >
-                                    −
-                                  </button>
-                                  <span className="text-sm font-black w-5 text-center tabular-nums" style={{ color: "#1c1208" }}>{qty}</span>
-                                  <button
-                                    type="button"
-                                    disabled={!available}
-                                    onClick={() => bumpAddOn(a.id, 1)}
-                                    className="w-7 h-7 flex items-center justify-center text-sm font-black transition-colors"
-                                    style={{
-                                      border: "1px solid #e8d9c8",
-                                      backgroundColor: "#fff",
-                                      color: !available ? "rgba(28,18,8,0.25)" : "#1c1208",
-                                      cursor: !available ? "not-allowed" : "pointer",
-                                    }}
-                                    aria-label={`${a.title}を1つ追加`}
-                                  >
-                                    +
-                                  </button>
-                                </div>
-                              </div>
-                            );
-                          })}
+                        <div
+                          className="flex items-center gap-3 p-3"
+                          style={{
+                            border: extraInterviews > 0 ? "2px solid #e95228" : "1px solid #e8d9c8",
+                            backgroundColor: extraInterviews > 0 ? "rgba(233,82,40,0.06)" : "transparent",
+                          }}
+                        >
+                          <div className="flex-1 min-w-0">
+                            <div className="text-xs" style={{ color: "rgba(28,18,8,0.45)" }}>
+                              +{formatYen(EXTRA_INTERVIEW_PRICE)} / 本 · 約30秒 · 日英対応
+                            </div>
+                          </div>
+                          <div className="flex items-center gap-2 shrink-0">
+                            <button
+                              type="button"
+                              disabled={extraInterviews === 0}
+                              onClick={() => setExtraInterviews((n) => Math.max(0, n - 1))}
+                              className="w-7 h-7 flex items-center justify-center text-sm font-black"
+                              style={{
+                                border: "1px solid #e8d9c8",
+                                backgroundColor: "#fff",
+                                color: extraInterviews === 0 ? "rgba(28,18,8,0.25)" : "#1c1208",
+                                cursor: extraInterviews === 0 ? "not-allowed" : "pointer",
+                              }}
+                            >
+                              −
+                            </button>
+                            <span className="text-sm font-black w-5 text-center tabular-nums" style={{ color: "#1c1208" }}>{extraInterviews}</span>
+                            <button
+                              type="button"
+                              onClick={() => setExtraInterviews((n) => Math.min(5, n + 1))}
+                              className="w-7 h-7 flex items-center justify-center text-sm font-black"
+                              style={{
+                                border: "1px solid #e8d9c8",
+                                backgroundColor: "#fff",
+                                color: "#1c1208",
+                                cursor: "pointer",
+                              }}
+                            >
+                              +
+                            </button>
+                          </div>
                         </div>
-                        <p className="text-[11px] mt-2" style={{ color: "rgba(28,18,8,0.4)" }}>
-                          オプションの数量は、空き状況とあわせて24時間以内に確定します。
-                        </p>
                       </div>
                     )}
 
@@ -573,21 +689,19 @@ export default function EventSocialSectionJP() {
                           <span className="text-sm font-black" style={{ color: "#1c1208" }}>{tierLabels[selectedTier]} · {durLabelsJP[selectedDur]}</span>
                           <span className="text-sm font-black" style={{ color: "rgba(28,18,8,0.55)" }}>{selectedPrice}</span>
                         </div>
-                        {hasAnyAddOns && (
+                        {interviewsTotal > 0 && (
                           <>
-                            {addOns.filter((a) => (addOnQty[a.id] || 0) > 0).map((a) => (
-                              <div key={a.id} className="flex items-baseline justify-between mt-1">
-                                <span className="text-xs" style={{ color: "rgba(28,18,8,0.55)" }}>{a.title} × {addOnQty[a.id]}</span>
-                                <span className="text-xs" style={{ color: "rgba(28,18,8,0.55)" }}>+{formatYen(a.price * addOnQty[a.id])}</span>
-                              </div>
-                            ))}
+                            <div className="flex items-baseline justify-between mt-1">
+                              <span className="text-xs" style={{ color: "rgba(28,18,8,0.55)" }}>インタビュー追加 × {extraInterviews}</span>
+                              <span className="text-xs" style={{ color: "rgba(28,18,8,0.55)" }}>+{formatYen(interviewsTotal)}</span>
+                            </div>
                             <div className="flex items-baseline justify-between mt-2 pt-2" style={{ borderTop: "1px solid rgba(233,82,40,0.2)" }}>
                               <span className="text-sm font-black" style={{ color: "#1c1208" }}>合計</span>
                               <span className="text-xl font-black" style={{ color: "#e95228" }}>{formatYen(grandTotal)}</span>
                             </div>
                           </>
                         )}
-                        {!hasAnyAddOns && (
+                        {interviewsTotal === 0 && (
                           <div className="flex items-baseline justify-end mt-1">
                             <span className="text-xl font-black" style={{ color: "#e95228" }}>{formatYen(grandTotal)}</span>
                           </div>
@@ -686,7 +800,7 @@ export default function EventSocialSectionJP() {
                     </div>
                     {isAgency && (
                       <div className="p-3 text-xs leading-relaxed mb-3" style={{ backgroundColor: "#f5ede2", color: "rgba(28,18,8,0.55)", border: "1px solid #e8d9c8" }}>
-                        撮影前にブランドを把握したいため、下記にクライアントのウェブサイトもご記入ください。
+                        撮影前にブランドを把握したいため、下記にクライアントのウェブサイトもご入力ください。
                       </div>
                     )}
                     <div className="grid grid-cols-2 gap-3 mb-3">

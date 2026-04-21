@@ -424,8 +424,8 @@ export default function EventSocialSection() {
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
             {[
               { src: "/videos/event-social-highlights3.mp4", poster: "/videos/event-social-highlights3-poster.jpg", label: "Conference highlights", autoPlay: true },
-              { src: "/videos/26_4_21_SNS%2030p_2_siteb.mp4", label: "Networking recap" },
-              { src: "/videos/26_4_21_SNS%2030p_3_siteb.mp4", label: "Breakout sessions highlights" },
+              { src: "/videos/26_4_21_SNS%2030p_2_siteb.mp4", poster: "/videos/26_4_21_SNS%2030p_2_siteb.jpg", label: "Networking recap" },
+              { src: "/videos/26_4_21_SNS%2030p_3_siteb.mp4", poster: "/videos/26_4_21_SNS%2030p_3_siteb.jpg", label: "Breakout sessions highlights" },
             ].map((v, i) => (
               <SampleDeliverable key={i} src={v.src} poster={v.poster} label={v.label} autoPlay={v.autoPlay} />
             ))}

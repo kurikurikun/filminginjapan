@@ -9,7 +9,6 @@ const enLinks = [
   { label: "Testimonials", href: "/client-testimonials-video-production-tokyo-japan" },
   { label: "Events", href: "/event-photo-video-japan" },
   { label: "Real Estate", href: "/real-estate-photo-video-tokyo-japan" },
-  { label: "Blog", href: "/blog" },
   { label: "Contact", href: "/contact" },
 ];
 
@@ -18,7 +17,6 @@ const jpLinks = [
   { label: "カスタマーストーリー", href: "/jp/client-testimonial" },
   { label: "イベント", href: "/jp/event-photo-video" },
   { label: "不動産", href: "/jp/real-estate-photo-video" },
-  { label: "ブログ", href: "/blog" },
   { label: "お問い合わせ", href: "/jp/contact" },
 ];
 

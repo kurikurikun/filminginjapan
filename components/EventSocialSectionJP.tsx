@@ -58,7 +58,6 @@ function SampleDeliverable({ src, poster, label, autoPlay = false }: { src: stri
     };
   }, [videoMounted]);
 
-  // When the user triggers play on a non-autoplay tile, kick off playback once video mounts
   useEffect(() => {
     if (!userPlayed) return;
     const v = videoRef.current;
@@ -129,7 +128,7 @@ function SampleDeliverable({ src, poster, label, autoPlay = false }: { src: stri
           <button
             type="button"
             onClick={(e) => { e.stopPropagation(); toggleMute(); }}
-            aria-label={isMuted ? "Unmute video" : "Mute video"}
+            aria-label={isMuted ? "ミュート解除" : "ミュート"}
             className="absolute top-3 right-3 w-9 h-9 rounded-full flex items-center justify-center transition-opacity hover:opacity-100"
             style={{ backgroundColor: "rgba(13,10,7,0.55)", color: "#fdf8f3", opacity: 0.85 }}
           >
@@ -163,7 +162,7 @@ function SampleDeliverable({ src, poster, label, autoPlay = false }: { src: stri
             <div className="w-10 h-10 rounded-full border flex items-center justify-center mx-auto mb-2" style={{ borderColor: "rgba(28,18,8,0.15)" }}>
               <span style={{ color: "rgba(28,18,8,0.25)" }}>▶</span>
             </div>
-            <span className="text-xs" style={{ color: "rgba(28,18,8,0.25)" }}>Coming soon</span>
+            <span className="text-xs" style={{ color: "rgba(28,18,8,0.25)" }}>近日公開</span>
           </div>
         </div>
       )}
@@ -198,26 +197,28 @@ const prices: Record<string, Record<string, string>> = {
 };
 
 const tierLabels: Record<string, string> = { essential: "Essential", standard: "Standard", pro: "Pro" };
+// Must match Notion Select options — keep English
 const durLabels: Record<string, string> = { half: "Half day", full: "Full day" };
+const durLabelsJP: Record<string, string> = { half: "半日", full: "終日" };
 
 const EXTRA_INTERVIEW_PRICE = 30000;
 
 const tiers = [
   {
     id: "essential",
-    subtitle: "Social coverage",
-    crew: "1 videographer",
+    subtitle: "ソーシャルカバレッジ",
+    crew: "ビデオグラファー1名",
     deliverables: [
       {
         icon: "▶",
-        title: "Vertical videos",
-        detail: "1 short-form video (half day) · 2 videos (full day)\n~30 sec · captioned · colour-graded",
+        title: "縦型動画",
+        detail: "ショートフォーム縦型動画 1本（半日）· 2本（終日）\n約30秒 · キャプション付 · カラーグレーディング",
         badge: "next",
       },
       {
         icon: "◼",
-        title: "SNS photos",
-        detail: "10–20 edited stills",
+        title: "SNS写真",
+        detail: "編集済み写真10〜20枚",
         badge: "same",
       },
     ],
@@ -225,25 +226,25 @@ const tiers = [
   },
   {
     id: "standard",
-    subtitle: "Full event coverage",
-    crew: "1 videographer + 1 photographer",
+    subtitle: "フルイベントカバレッジ",
+    crew: "ビデオグラファー1名 + フォトグラファー1名",
     deliverables: [
       {
         icon: "▶",
-        title: "Vertical videos",
-        detail: "3 short-form vertical videos\n~30 sec · captioned · colour-graded",
+        title: "縦型動画",
+        detail: "ショートフォーム縦型動画 3本\n約30秒 · キャプション付 · カラーグレーディング",
         badge: "next",
       },
       {
         icon: "◼",
-        title: "SNS photos",
-        detail: "10–20 edited stills",
+        title: "SNS写真",
+        detail: "編集済み写真10〜20枚",
         badge: "same",
       },
       {
         icon: "◼",
-        title: "Archive",
-        detail: "300 photos · complete event coverage",
+        title: "フォトアーカイブ",
+        detail: "編集済み写真300枚 · イベント全体の網羅撮影",
         badge: "next",
       },
     ],
@@ -251,31 +252,31 @@ const tiers = [
   },
   {
     id: "pro",
-    subtitle: "Event coverage + voices",
-    crew: "1 videographer + 1 photographer",
+    subtitle: "イベントカバレッジ + インタビュー",
+    crew: "ビデオグラファー1名 + フォトグラファー1名",
     deliverables: [
       {
         icon: "▶",
-        title: "Vertical videos",
-        detail: "3 short-form vertical videos\n~30 sec · captioned · colour-graded",
+        title: "縦型動画",
+        detail: "ショートフォーム縦型動画 3本\n約30秒 · キャプション付 · カラーグレーディング",
         badge: "next",
       },
       {
         icon: "◼",
-        title: "SNS photos",
-        detail: "10–20 edited stills",
+        title: "SNS写真",
+        detail: "編集済み写真10〜20枚",
         badge: "same",
       },
       {
         icon: "◼",
-        title: "Archive",
-        detail: "300 photos · complete event coverage",
+        title: "フォトアーカイブ",
+        detail: "編集済み写真300枚 · イベント全体の網羅撮影",
         badge: "next",
       },
       {
         icon: "◉",
-        title: "Interviews",
-        detail: "3 interview videos · ~30 sec each · English or Japanese",
+        title: "インタビュー動画",
+        detail: "3本 · 各約30秒 · 日本語または英語",
         badge: "next",
       },
     ],
@@ -284,14 +285,14 @@ const tiers = [
 ];
 
 const steps = [
-  { text: "Choose your package.", detail: "Select your tier and duration. See all costs now. Includes transport costs within Tokyo. Enquire for elsewhere." },
-  { text: "Submit the form.", detail: "Tell us your event date, location and type. Two minutes, no commitment required." },
-  { text: "We confirm availability", detail: "within 24 hours. Once you're happy to proceed, we send a short briefing form — key moments, speakers, venue details." },
-  { text: "Shoot day.", detail: "We're there, we know what matters, we get it done." },
-  { text: "Delivery.", detail: "Content in your hands next day." },
+  { text: "パッケージを選択", detail: "プランと時間を選び、すべての費用をその場で確認。東京都内の交通費込み。都外は別途お問い合わせください。" },
+  { text: "フォームを送信", detail: "イベントの日時・場所・種類をご入力ください。所要時間は2分、この時点でのお申込みは不要です。" },
+  { text: "空き状況を24時間以内に確認", detail: "ご了承いただけましたら、簡単なブリーフィングフォーム（ハイライトシーン・登壇者・会場情報）をお送りします。" },
+  { text: "撮影当日", detail: "イベント撮影に精通したチームが撮影します。" },
+  { text: "納品", detail: "翌日にコンテンツをお届けします。" },
 ];
 
-export default function EventSocialSection() {
+export default function EventSocialSectionJP() {
   const [selectedTier, setSelectedTier] = useState("standard");
   const [selectedDur, setSelectedDur] = useState("half");
   const [extraInterviews, setExtraInterviews] = useState(0);
@@ -375,12 +376,12 @@ export default function EventSocialSection() {
           gclid: trackingParams.gclid,
           campaign: trackingParams.campaign,
           source: trackingParams.source,
+          locale: "ja",
         }),
       });
       if (res.ok) {
-        (window as unknown as { gtag?: (...args: unknown[]) => void }).gtag?.("event", "form_submit", { event_category: "contact", event_label: "Event Social" });
+        (window as unknown as { gtag?: (...args: unknown[]) => void }).gtag?.("event", "form_submit", { event_category: "contact", event_label: "Event Social JP" });
         setShowSuccess(true);
-        // Defer until the success card has rendered, then scroll it into view
         setTimeout(() => {
           formRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
         }, 50);
@@ -404,12 +405,12 @@ export default function EventSocialSection() {
               Event Social by Filming in Japan
             </span>
           </div>
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black leading-[0.95] mb-6" style={{ color: "#1c1208" }}>
-            Not an event video.<br />
-            <span style={{ color: "rgba(28,18,8,0.4)" }}>A content engine</span><span style={{ color: "#e95228" }}>.</span>
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black leading-[1.05] mb-6 break-keep" style={{ color: "#1c1208" }}>
+            イベント動画ではなく、<br />
+            <span style={{ color: "rgba(28,18,8,0.4)" }}>コンテンツエンジン</span><span style={{ color: "#e95228" }}>。</span>
           </h2>
           <p className="text-sm leading-relaxed max-w-xl" style={{ color: "rgba(28,18,8,0.55)" }}>
-            Your event deserves content that keeps working after it ends — not a three-minute highlight you post once and forget. Short-form vertical video and photos, delivered next day, fixed-scope. Ready to post across every platform and channel, and keep working long after.
+            イベントは終わった後も成果を生み続けるべきです。一度投稿して終わる3分のハイライト動画ではなく、ショートフォーム縦型動画と写真を翌日納品、決まった内容・料金。あらゆるプラットフォームに即投稿でき、長期的に成果を出し続けます。
           </p>
         </div>
 
@@ -418,14 +419,14 @@ export default function EventSocialSection() {
           <div className="flex items-center gap-4 mb-6">
             <div className="h-px w-10" style={{ backgroundColor: "#e95228" }} />
             <span className="font-mono text-[10px] tracking-[0.35em] uppercase" style={{ color: "#e95228" }}>
-              Sample deliverables
+              納品物サンプル
             </span>
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
             {[
-              { src: "/videos/event-social-highlights3.mp4", poster: "/videos/event-social-highlights3-poster.jpg", label: "Conference highlights", autoPlay: true },
-              { src: "/videos/26_4_21_SNS%2030p_2_siteb.mp4", poster: "/videos/26_4_21_SNS%2030p_2_siteb.jpg", label: "Networking recap" },
-              { src: "/videos/26_4_21_SNS%2030p_3_siteb.mp4", poster: "/videos/26_4_21_SNS%2030p_3_siteb.jpg", label: "Breakout sessions highlights" },
+              { src: "/videos/event-social-highlights3.mp4", poster: "/videos/event-social-highlights3-poster.jpg", label: "カンファレンスハイライト", autoPlay: true },
+              { src: "/videos/26_4_21_SNS%2030p_2_siteb.mp4", poster: "/videos/26_4_21_SNS%2030p_2_siteb.jpg", label: "ネットワーキングリキャップ" },
+              { src: "/videos/26_4_21_SNS%2030p_3_siteb.mp4", poster: "/videos/26_4_21_SNS%2030p_3_siteb.jpg", label: "ブレイクアウトセッションハイライト" },
             ].map((v, i) => (
               <SampleDeliverable key={i} src={v.src} poster={v.poster} label={v.label} autoPlay={v.autoPlay} />
             ))}
@@ -441,7 +442,7 @@ export default function EventSocialSection() {
             </span>
           </div>
           <h3 className="text-xl sm:text-2xl font-black mb-10" style={{ color: "#1c1208" }}>
-            Fixed scope. Fixed price. Flexible use<span style={{ color: "#e95228" }}>.</span>
+            決まった内容・料金、柔軟な活用<span style={{ color: "#e95228" }}>。</span>
           </h3>
 
           <div className="grid md:grid-cols-3 gap-4 mb-12">
@@ -468,7 +469,7 @@ export default function EventSocialSection() {
                     }}
                   >
                     <div className="text-sm font-black" style={{ color: "#fdf8f3" }}>{tierLabels[tier.id]}</div>
-                    <div className="font-mono text-[10px] tracking-wider uppercase mt-0.5" style={{ color: "rgba(253,248,243,0.5)" }}>{tier.crew}</div>
+                    <div className="font-mono text-[10px] tracking-wider mt-0.5" style={{ color: "rgba(253,248,243,0.5)" }}>{tier.crew}</div>
                   </div>
 
                   {/* Subtitle + Deliverables */}
@@ -490,14 +491,14 @@ export default function EventSocialSection() {
                             {d.detail}
                           </div>
                           <span
-                            className="inline-block text-[10px] font-black tracking-wider uppercase px-2 py-0.5 rounded-full mt-1.5"
+                            className="inline-block text-[10px] font-black tracking-wider px-2 py-0.5 rounded-full mt-1.5"
                             style={
                               d.badge === "same"
                                 ? { backgroundColor: "#0d0a07", color: "#fdf8f3" }
                                 : { backgroundColor: "#f5ede2", color: "rgba(28,18,8,0.55)" }
                             }
                           >
-                            {d.badge === "same" ? "Same day" : "Next day"}
+                            {d.badge === "same" ? "当日納品" : "翌日納品"}
                           </span>
                         </div>
                       </div>
@@ -511,7 +512,7 @@ export default function EventSocialSection() {
                   >
                     {(["half", "full"] as const).map((dur) => (
                       <div key={dur} className="text-center">
-                        <div className="text-[11px]" style={{ color: "rgba(28,18,8,0.4)" }}>{dur === "half" ? "Half day" : "Full day"}</div>
+                        <div className="text-[11px]" style={{ color: "rgba(28,18,8,0.4)" }}>{dur === "half" ? "半日" : "終日"}</div>
                         <div className="text-sm font-black" style={{ color: isSelected ? "#e95228" : "#1c1208" }}>{tier.prices[dur]}</div>
                       </div>
                     ))}
@@ -520,21 +521,21 @@ export default function EventSocialSection() {
               );
             })}
           </div>
-          {errors.tier && <p className="text-xs mb-4 -mt-8" style={{ color: "#c0392b" }}>Please select a tier above</p>}
+          {errors.tier && <p className="text-xs mb-4 -mt-8" style={{ color: "#c0392b" }}>上記からプランを選択してください</p>}
 
           {/* Not a fit notice */}
           <div className="mb-12 p-5 sm:p-6" style={{ backgroundColor: "#f5ede2", border: "1px solid #e8d9c8" }}>
             <p className="font-mono text-[10px] tracking-[0.35em] uppercase mb-3" style={{ color: "rgba(28,18,8,0.5)" }}>
-              Event Social isn&apos;t a fit if you need
+              Event Socialが合わない場合
             </p>
             <ul className="text-sm leading-relaxed mb-3 space-y-1" style={{ color: "rgba(28,18,8,0.7)" }}>
-              <li>· Horizontal highlight films over 1 minute</li>
-              <li>· Raw footage or unedited files</li>
-              <li>· Live streaming or hybrid event support</li>
-              <li>· Multi-day coverage or fully custom deliverables</li>
+              <li>・ 1分以上の横型ハイライト動画</li>
+              <li>・ 生データ・未編集素材の納品</li>
+              <li>・ ライブ配信・ハイブリッドイベント対応</li>
+              <li>・ 複数日撮影・完全オーダーメイドの納品物</li>
             </ul>
             <p className="text-sm font-black" style={{ color: "#1c1208" }}>
-              → See our <a href="#full-production" className="underline" style={{ color: "#e95228" }}>full production service</a> below.
+              → 下記の<a href="#full-production" className="underline" style={{ color: "#e95228" }}>フル制作サービス</a>をご覧ください。
             </p>
           </div>
 
@@ -555,7 +556,7 @@ export default function EventSocialSection() {
             ))}
           </div>
 
-          {/* ENQUIRY FORM — two-column layout with side labels */}
+          {/* ENQUIRY FORM */}
           <div className="max-w-3xl mx-auto" ref={formRef}>
             {showSuccess ? (
               <div className="p-10 text-center border" style={{ borderColor: "#e8d9c8", backgroundColor: "#fff" }}>
@@ -565,29 +566,28 @@ export default function EventSocialSection() {
                 >
                   ✓
                 </div>
-                <h3 className="text-2xl font-black mb-3" style={{ color: "#1c1208" }}>Enquiry received</h3>
+                <h3 className="text-2xl font-black mb-3" style={{ color: "#1c1208" }}>お問い合わせを受け付けました</h3>
                 <p className="text-sm leading-relaxed" style={{ color: "rgba(28,18,8,0.55)" }}>
-                  Thank you. We&apos;ll review your details and confirm availability within 24 hours.
+                  ありがとうございます。内容を確認のうえ、24時間以内に空き状況をご連絡します。
                 </p>
               </div>
             ) : (
               <div className="p-8 sm:p-10 lg:p-12 border" style={{ backgroundColor: "#fff", borderColor: "#e8d9c8" }}>
-                <h3 className="text-xl font-black mb-1" style={{ color: "#1c1208" }}>Start your Event Social enquiry</h3>
+                <h3 className="text-xl font-black mb-1" style={{ color: "#1c1208" }}>Event Socialのお問い合わせ</h3>
                 <p className="text-sm mb-10" style={{ color: "rgba(28,18,8,0.55)" }}>
-                  Choose your Event Social package and duration, then fill in the details below.
+                  Event Socialのパッケージと時間を選択のうえ、下記の詳細をご入力ください。
                 </p>
 
                 {/* 01 — Package selection */}
                 <div className="grid sm:grid-cols-[160px_1fr] gap-x-8 gap-y-1 mb-10">
                   <div className="pt-1">
                     <p className="font-mono text-[10px] tracking-[0.35em] uppercase" style={{ color: "rgba(28,18,8,0.35)" }}>
-                      Your package
+                      パッケージ
                     </p>
                   </div>
                   <div>
-                    {/* Tier selector */}
                     <label className="block text-[13px] font-black mb-2" style={{ color: "#1c1208" }}>
-                      Plan<span style={{ color: "#e95228" }}> *</span>
+                      プラン<span style={{ color: "#e95228" }}> *</span>
                     </label>
                     <div className="grid grid-cols-3 gap-2 mb-4">
                       {(["essential", "standard", "pro"] as const).map((t) => (
@@ -606,11 +606,10 @@ export default function EventSocialSection() {
                         </button>
                       ))}
                     </div>
-                    {errors.tier && <p className="text-xs mb-3" style={{ color: "#c0392b" }}>Please select a plan</p>}
+                    {errors.tier && <p className="text-xs mb-3" style={{ color: "#c0392b" }}>プランを選択してください</p>}
 
-                    {/* Duration selector */}
                     <label className="block text-[13px] font-black mb-2" style={{ color: "#1c1208" }}>
-                      Duration<span style={{ color: "#e95228" }}> *</span>
+                      時間<span style={{ color: "#e95228" }}> *</span>
                     </label>
                     <div className="grid grid-cols-2 gap-2 mb-4">
                       {(["half", "full"] as const).map((d) => (
@@ -624,18 +623,18 @@ export default function EventSocialSection() {
                             backgroundColor: selectedDur === d ? "rgba(233,82,40,0.08)" : "transparent",
                           }}
                         >
-                          <div className="text-sm font-black" style={{ color: selectedDur === d ? "#e95228" : "#1c1208" }}>{d === "half" ? "Half day" : "Full day"}</div>
-                          <div className="text-xs" style={{ color: "rgba(28,18,8,0.45)" }}>{d === "half" ? "Up to 5 hours" : "Up to 8 hours"}</div>
+                          <div className="text-sm font-black" style={{ color: selectedDur === d ? "#e95228" : "#1c1208" }}>{d === "half" ? "半日" : "終日"}</div>
+                          <div className="text-xs" style={{ color: "rgba(28,18,8,0.45)" }}>{d === "half" ? "最大5時間" : "最大8時間"}</div>
                         </button>
                       ))}
                     </div>
-                    {errors.dur && <p className="text-xs mb-3" style={{ color: "#c0392b" }}>Please select a duration</p>}
+                    {errors.dur && <p className="text-xs mb-3" style={{ color: "#c0392b" }}>時間を選択してください</p>}
 
                     {/* Extra interviews — Pro only */}
                     {selectedTier === "pro" && (
                       <div className="mt-4 mb-4">
                         <label className="block text-[13px] font-black mb-2" style={{ color: "#1c1208" }}>
-                          Additional interview videos <span className="font-normal text-xs" style={{ color: "rgba(28,18,8,0.35)" }}>optional</span>
+                          インタビュー動画追加 <span className="font-normal text-xs" style={{ color: "rgba(28,18,8,0.35)" }}>任意</span>
                         </label>
                         <div
                           className="flex items-center gap-3 p-3"
@@ -646,7 +645,7 @@ export default function EventSocialSection() {
                         >
                           <div className="flex-1 min-w-0">
                             <div className="text-xs" style={{ color: "rgba(28,18,8,0.45)" }}>
-                              +{formatYen(EXTRA_INTERVIEW_PRICE)} per video · ~30 sec · EN or JP
+                              +{formatYen(EXTRA_INTERVIEW_PRICE)} / 本 · 約30秒 · 日英対応
                             </div>
                           </div>
                           <div className="flex items-center gap-2 shrink-0">
@@ -687,17 +686,17 @@ export default function EventSocialSection() {
                     {selectedPrice && (
                       <div className="p-4" style={{ backgroundColor: "rgba(233,82,40,0.06)", border: "1px solid rgba(233,82,40,0.2)" }}>
                         <div className="flex items-baseline justify-between">
-                          <span className="text-sm font-black" style={{ color: "#1c1208" }}>{tierLabels[selectedTier]} · {durLabels[selectedDur]}</span>
+                          <span className="text-sm font-black" style={{ color: "#1c1208" }}>{tierLabels[selectedTier]} · {durLabelsJP[selectedDur]}</span>
                           <span className="text-sm font-black" style={{ color: "rgba(28,18,8,0.55)" }}>{selectedPrice}</span>
                         </div>
                         {interviewsTotal > 0 && (
                           <>
                             <div className="flex items-baseline justify-between mt-1">
-                              <span className="text-xs" style={{ color: "rgba(28,18,8,0.55)" }}>Extra interviews × {extraInterviews}</span>
+                              <span className="text-xs" style={{ color: "rgba(28,18,8,0.55)" }}>インタビュー追加 × {extraInterviews}</span>
                               <span className="text-xs" style={{ color: "rgba(28,18,8,0.55)" }}>+{formatYen(interviewsTotal)}</span>
                             </div>
                             <div className="flex items-baseline justify-between mt-2 pt-2" style={{ borderTop: "1px solid rgba(233,82,40,0.2)" }}>
-                              <span className="text-sm font-black" style={{ color: "#1c1208" }}>Total</span>
+                              <span className="text-sm font-black" style={{ color: "#1c1208" }}>合計</span>
                               <span className="text-xl font-black" style={{ color: "#e95228" }}>{formatYen(grandTotal)}</span>
                             </div>
                           </>
@@ -712,7 +711,7 @@ export default function EventSocialSection() {
 
                     {selectedTier === "pro" && (
                       <div className="p-3 text-xs leading-relaxed mt-4" style={{ backgroundColor: "#f5ede2", color: "rgba(28,18,8,0.55)", border: "1px solid #e8d9c8" }}>
-                        Pro interviews are often conducted during pre-event arrival time and scheduled breaks — typically two to three windows of 15–20 minutes. Available in English or Japanese.
+                        Proのインタビューは、開演前の到着時間や休憩時間を活用して実施することが多く、通常15〜20分の枠を2〜3回設定します。日本語・英語に対応しています。
                       </div>
                     )}
                   </div>
@@ -722,53 +721,53 @@ export default function EventSocialSection() {
                 <div className="grid sm:grid-cols-[160px_1fr] gap-x-8 gap-y-1 mb-10">
                   <div className="pt-1">
                     <p className="font-mono text-[10px] tracking-[0.35em] uppercase" style={{ color: "rgba(28,18,8,0.35)" }}>
-                      Your event
+                      イベント概要
                     </p>
                   </div>
                   <div>
                     <div className="grid grid-cols-2 gap-3 mb-3">
                       <div>
                         <label htmlFor="es-event-date" className="block text-[13px] font-black mb-1.5" style={{ color: "#1c1208" }}>
-                          Event date<span style={{ color: "#e95228" }}> *</span>
+                          開催日<span style={{ color: "#e95228" }}> *</span>
                         </label>
                         <input type="date" id="es-event-date" className="w-full" style={inputStyle(errors["es-event-date"])} />
                       </div>
                       <div>
                         <label htmlFor="es-event-type" className="block text-[13px] font-black mb-1.5" style={{ color: "#1c1208" }}>
-                          Event type<span style={{ color: "#e95228" }}> *</span>
+                          イベント種類<span style={{ color: "#e95228" }}> *</span>
                         </label>
                         <select id="es-event-type" className="w-full" style={inputStyle(errors["es-event-type"])}>
-                          <option value="">Select...</option>
-                          <option>Conference</option>
-                          <option>Product launch</option>
-                          <option>Award ceremony</option>
-                          <option>Dinner / evening event</option>
-                          <option>Seminar / workshop</option>
-                          <option>Trade show / expo</option>
-                          <option>Other</option>
+                          <option value="">選択してください...</option>
+                          <option value="Conference">カンファレンス</option>
+                          <option value="Product launch">製品発表会</option>
+                          <option value="Award ceremony">アワードセレモニー</option>
+                          <option value="Dinner / evening event">ディナー・夜の会</option>
+                          <option value="Seminar / workshop">セミナー・ワークショップ</option>
+                          <option value="Trade show / expo">展示会・見本市</option>
+                          <option value="Other">その他</option>
                         </select>
                       </div>
                     </div>
                     <div className="mb-3">
                       <label htmlFor="es-attendees" className="block text-[13px] font-black mb-1.5" style={{ color: "#1c1208" }}>
-                        Expected attendees
+                        想定参加者数
                       </label>
                       <select id="es-attendees" className="w-full" style={inputStyle(false)}>
-                        <option value="">Select...</option>
-                        <option>Under 50</option>
-                        <option>50–150</option>
-                        <option>150–300</option>
-                        <option>300–500</option>
-                        <option>500+</option>
+                        <option value="">選択してください...</option>
+                        <option value="Under 50">50名未満</option>
+                        <option value="50–150">50〜150名</option>
+                        <option value="150–300">150〜300名</option>
+                        <option value="300–500">300〜500名</option>
+                        <option value="500+">500名以上</option>
                       </select>
                     </div>
                     <div>
                       <label htmlFor="es-moments" className="block text-[13px] font-black mb-1.5" style={{ color: "#1c1208" }}>
-                        Key moments to capture <span className="font-normal text-xs" style={{ color: "rgba(28,18,8,0.35)" }}>optional</span>
+                        撮影したい主なシーン <span className="font-normal text-xs" style={{ color: "rgba(28,18,8,0.35)" }}>任意</span>
                       </label>
                       <textarea
                         id="es-moments"
-                        placeholder="e.g. Opening keynote, product reveal, networking reception..."
+                        placeholder="例：オープニング基調講演、製品お披露目、ネットワーキングレセプションなど"
                         className="w-full"
                         style={{ ...inputStyle(false), minHeight: "70px", resize: "vertical" as const }}
                       />
@@ -780,13 +779,13 @@ export default function EventSocialSection() {
                 <div className="grid sm:grid-cols-[160px_1fr] gap-x-8 gap-y-1 mb-10">
                   <div className="pt-1">
                     <p className="font-mono text-[10px] tracking-[0.35em] uppercase" style={{ color: "rgba(28,18,8,0.35)" }}>
-                      About you
+                      お客様情報
                     </p>
                   </div>
                   <div>
                     <div className="mb-3">
                       <label htmlFor="es-enquiry-type" className="block text-[13px] font-black mb-1.5" style={{ color: "#1c1208" }}>
-                        You are enquiring as<span style={{ color: "#e95228" }}> *</span>
+                        お問い合わせ区分<span style={{ color: "#e95228" }}> *</span>
                       </label>
                       <select
                         id="es-enquiry-type"
@@ -794,70 +793,70 @@ export default function EventSocialSection() {
                         style={inputStyle(errors["es-enquiry-type"])}
                         onChange={(e) => setIsAgency(e.target.value === "agency")}
                       >
-                        <option value="">Select...</option>
-                        <option value="direct">The event organiser / client directly</option>
-                        <option value="agency">An event agency acting on behalf of a client</option>
+                        <option value="">選択してください...</option>
+                        <option value="direct">イベント主催者・クライアント本人</option>
+                        <option value="agency">クライアントの代理としてのイベント代理店</option>
                       </select>
                     </div>
                     {isAgency && (
                       <div className="p-3 text-xs leading-relaxed mb-3" style={{ backgroundColor: "#f5ede2", color: "rgba(28,18,8,0.55)", border: "1px solid #e8d9c8" }}>
-                        Please share your client&apos;s website below — it helps us understand their brand before the shoot.
+                        撮影前にブランドを把握したいため、下記にクライアントのウェブサイトもご入力ください。
                       </div>
                     )}
                     <div className="grid grid-cols-2 gap-3 mb-3">
                       <div>
                         <label htmlFor="es-name" className="block text-[13px] font-black mb-1.5" style={{ color: "#1c1208" }}>
-                          Your name<span style={{ color: "#e95228" }}> *</span>
+                          お名前<span style={{ color: "#e95228" }}> *</span>
                         </label>
-                        <input type="text" id="es-name" placeholder="Full name" className="w-full" style={inputStyle(errors["es-name"])} />
+                        <input type="text" id="es-name" placeholder="氏名" className="w-full" style={inputStyle(errors["es-name"])} />
                       </div>
                       <div>
                         <label htmlFor="es-company" className="block text-[13px] font-black mb-1.5" style={{ color: "#1c1208" }}>
-                          Your company<span style={{ color: "#e95228" }}> *</span>
+                          会社名<span style={{ color: "#e95228" }}> *</span>
                         </label>
-                        <input type="text" id="es-company" placeholder="Company name" className="w-full" style={inputStyle(errors["es-company"])} />
+                        <input type="text" id="es-company" placeholder="会社名" className="w-full" style={inputStyle(errors["es-company"])} />
                       </div>
                     </div>
                     <div className="mb-3">
                       <label htmlFor="es-website" className="block text-[13px] font-black mb-1.5" style={{ color: "#1c1208" }}>
-                        Company website<span style={{ color: "#e95228" }}> *</span>
+                        会社ウェブサイト<span style={{ color: "#e95228" }}> *</span>
                       </label>
                       <input type="text" id="es-website" placeholder="https://" className="w-full" style={inputStyle(errors["es-website"])} />
                     </div>
                     {isAgency && (
                       <div className="mb-3">
                         <label htmlFor="es-client-website" className="block text-[13px] font-black mb-1.5" style={{ color: "#1c1208" }}>
-                          End client website <span className="font-normal text-xs" style={{ color: "rgba(28,18,8,0.35)" }}>optional</span>
+                          エンドクライアントのウェブサイト <span className="font-normal text-xs" style={{ color: "rgba(28,18,8,0.35)" }}>任意</span>
                         </label>
                         <input type="text" id="es-client-website" placeholder="https://" className="w-full" style={inputStyle(false)} />
                       </div>
                     )}
                     <div className="mb-3">
                       <label htmlFor="es-email" className="block text-[13px] font-black mb-1.5" style={{ color: "#1c1208" }}>
-                        Email<span style={{ color: "#e95228" }}> *</span>
+                        メールアドレス<span style={{ color: "#e95228" }}> *</span>
                       </label>
                       <input type="email" id="es-email" placeholder="you@company.com" className="w-full" style={inputStyle(errors["es-email"])} />
                     </div>
                     <div className="mb-3">
                       <label htmlFor="es-referral" className="block text-[13px] font-black mb-1.5" style={{ color: "#1c1208" }}>
-                        How did you hear about us?
+                        当社をどちらでお知りになりましたか？
                       </label>
                       <select id="es-referral" className="w-full" style={inputStyle(false)}>
-                        <option value="">Select...</option>
-                        <option>Social media</option>
-                        <option>Referred by friend/colleague</option>
-                        <option>Google search</option>
-                        <option>AI search (e.g. ChatGPT)</option>
-                        <option>Other</option>
+                        <option value="">選択してください...</option>
+                        <option value="Social media">SNS</option>
+                        <option value="Referred by friend/colleague">知人・同僚からの紹介</option>
+                        <option value="Google search">Google検索</option>
+                        <option value="AI search">AI検索（ChatGPTなど）</option>
+                        <option value="Other">その他</option>
                       </select>
                     </div>
                     <div>
                       <label htmlFor="es-notes" className="block text-[13px] font-black mb-1.5" style={{ color: "#1c1208" }}>
-                        Anything else <span className="font-normal text-xs" style={{ color: "rgba(28,18,8,0.35)" }}>optional</span>
+                        その他 <span className="font-normal text-xs" style={{ color: "rgba(28,18,8,0.35)" }}>任意</span>
                       </label>
                       <textarea
                         id="es-notes"
-                        placeholder="Venue name, special requirements, questions..."
+                        placeholder="会場名、特別なご要望、ご質問など"
                         className="w-full"
                         style={{ ...inputStyle(false), minHeight: "60px", resize: "vertical" as const }}
                       />
@@ -872,10 +871,10 @@ export default function EventSocialSection() {
                   className="w-full font-black text-sm tracking-[0.15em] uppercase py-4 transition-opacity"
                   style={{ backgroundColor: "#e95228", color: "#fff", opacity: submitting ? 0.6 : 1 }}
                 >
-                  {submitting ? "Submitting..." : "Submit enquiry"}
+                  {submitting ? "送信中..." : "お問い合わせを送信"}
                 </button>
                 <p className="text-xs text-center mt-3 leading-relaxed" style={{ color: "rgba(28,18,8,0.35)" }}>
-                  We confirm availability within 24 hours.<br />No commitment required at this stage.
+                  24時間以内に空き状況をご連絡します。<br />この時点でのお申込みは不要です。
                 </p>
               </div>
             )}

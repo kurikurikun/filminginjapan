@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Footer from "@/components/Footer";
 import LandingContactForm from "@/components/LandingContactForm";
 
 export const metadata: Metadata = {
-  title: "Social Media Video Production Japan | Short-Form & Ad Content",
+  title: "Social Media Video Production Japan · Tokyo | Short-Form & Ad Content",
   description: "Social-first video production in Japan. Vertical, square and horizontal formats for Instagram, TikTok, YouTube and Google Ads. Fast turnaround. Bilingual crew.",
   robots: { index: false, follow: false },
   alternates: {
@@ -29,8 +30,8 @@ const differentiators = [
     desc: "Social content that's designed to stop the scroll. We understand pacing, supers, hook structure and platform behaviour — not just cinematography.",
   },
   {
-    title: "Localisation at scale",
-    desc: "We've produced social ad campaigns localised across 16 countries from a single Japan shoot — adapting captions, supers and messaging per market.",
+    title: "Localisation-ready production",
+    desc: "We produce social ad content with localisation in mind — clean audio, adaptable supers and flexible edit structure that makes versioning per market straightforward for your team.",
   },
   {
     title: "Bilingual production",
@@ -44,8 +45,8 @@ const faqs = [
     a: "We deliver vertical (9:16), square (1:1) and horizontal (16:9) from a single shoot — optimised for each platform's specs and aspect ratios.",
   },
   {
-    q: "Can you localise content for multiple markets?",
-    a: "Yes. We've produced social ad campaigns from a single Japan shoot, localised across 16 countries with adapted captions, supers and voiceover. We handle versioning in post.",
+    q: "Can you produce content ready for localisation across multiple markets?",
+    a: "Yes. We produce with localisation in mind — clean audio beds, adaptable supers and a flexible edit structure that makes it straightforward for your team to version per market.",
   },
   {
     q: "Do you produce spec ads?",
@@ -85,6 +86,17 @@ export default function SocialMediaVideoPage() {
 
       {/* Hero */}
       <section className="relative pt-32 pb-20 overflow-hidden" style={{ backgroundColor: "#0d0a07" }}>
+        <div className="absolute inset-0">
+          <Image
+            src="/images/filming_in_japan_social_media_google_ads.jpg"
+            alt=""
+            fill
+            priority
+            className="object-cover object-[center_30%]"
+            sizes="100vw"
+          />
+          <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(13,10,7,0.92) 0%, rgba(13,10,7,0.6) 50%, rgba(13,10,7,0.45) 100%)" }} />
+        </div>
         <div className="absolute top-8 left-8 pointer-events-none" style={{ zIndex: 1 }}>
           <div className="w-8 h-8 border-t border-l" style={{ borderColor: "rgba(233,82,40,0.4)" }} />
         </div>
@@ -132,86 +144,130 @@ export default function SocialMediaVideoPage() {
             {/* Left */}
             <div>
 
-              {/* Drop shipping campaign */}
+              {/* ZenMarket campaign */}
               <div className="flex items-center gap-4 mb-6">
                 <div className="h-px w-10" style={{ backgroundColor: "#e95228" }} />
-                <span className="font-mono text-[10px] tracking-[0.35em] uppercase" style={{ color: "#e95228" }}>Campaign work</span>
+                <span className="font-mono text-[10px] tracking-[0.35em] uppercase" style={{ color: "#e95228" }}>Campaign work · ZenMarket</span>
               </div>
               <h2 className="text-3xl sm:text-4xl font-black mb-4 leading-tight" style={{ color: "#1c1208" }}>
-                Google Ads campaign —<br />
-                <span style={{ color: "rgba(28,18,8,0.35)" }}>16 countries.</span>
+                Sushi Surprise<span style={{ color: "#e95228" }}>.</span><br />
+                <span style={{ color: "rgba(28,18,8,0.35)" }}>multi-format, one shoot.</span>
               </h2>
-              <p className="text-sm leading-relaxed mb-10" style={{ color: "rgba(28,18,8,0.55)" }}>
-                Social ad campaign produced in Japan for a drop shipping brand, localised and deployed
-                across 16 countries on Google Ads. 30-second and 15-second cuts delivered in vertical,
-                square and horizontal formats — all from a single shoot.
+              <p className="text-sm leading-relaxed mb-4" style={{ color: "rgba(28,18,8,0.55)" }}>
+                The brief: a humorous short-form ad for ZenMarket targeting a global audience, centred on their &lsquo;No Japanese needed!&rsquo; value proposition — making Japanese online shopping accessible to anyone, anywhere.
+              </p>
+              <p className="text-sm leading-relaxed mb-6" style={{ color: "rgba(28,18,8,0.55)" }}>
+                We proposed several concepts. The one selected: <em>Sushi Surprise</em>. 30-second and 15-second cuts delivered in vertical, square and horizontal formats — all from a single shoot, ready to deploy across markets.
+              </p>
+              <p className="text-sm italic mb-10" style={{ color: "rgba(28,18,8,0.6)" }}>
+                &ldquo;Not what you expected, but exactly what you wanted.&rdquo;
               </p>
 
-              {/* Horizontals — stacked */}
-              <p className="font-mono text-[10px] tracking-[0.3em] uppercase mb-4" style={{ color: "rgba(28,18,8,0.4)" }}>Horizontal 16:9</p>
-              <div className="space-y-2 mb-10">
-                {[
-                  { id: "1199938257", h: "b5961f06f8", title: "30 seconds" },
-                  { id: "1200897358", h: "da8cae8139", title: "15 seconds" },
-                ].map((v) => (
-                  <div key={v.id}>
-                    <div className="relative overflow-hidden" style={{ aspectRatio: "16/9", backgroundColor: "#0d0a07" }}>
-                      <iframe
-                        src={`https://player.vimeo.com/video/${v.id}?h=${v.h}&title=0&byline=0&portrait=0`}
-                        className="absolute inset-0 w-full h-full"
-                        allow="autoplay; fullscreen; picture-in-picture"
-                        allowFullScreen
-                        title={v.title}
-                      />
-                    </div>
-                    <p className="mt-1.5 text-xs font-black" style={{ color: "#1c1208" }}>{v.title}</p>
-                  </div>
-                ))}
+              {/* Hero video — 30sec horizontal */}
+              <div className="mb-6">
+                <div className="relative overflow-hidden" style={{ aspectRatio: "16/9", backgroundColor: "#0d0a07" }}>
+                  <iframe
+                    src="https://player.vimeo.com/video/1199938257?h=b5961f06f8&title=0&byline=0&portrait=0"
+                    className="absolute inset-0 w-full h-full"
+                    allow="autoplay; fullscreen; picture-in-picture"
+                    allowFullScreen
+                    title="30 second horizontal cut"
+                  />
+                </div>
+                <p className="mt-1.5 text-xs font-black" style={{ color: "#1c1208" }}>30 sec · 16:9 Horizontal</p>
               </div>
 
-              {/* Verticals — side by side */}
-              <p className="font-mono text-[10px] tracking-[0.3em] uppercase mb-4" style={{ color: "rgba(28,18,8,0.4)" }}>Vertical 9:16</p>
-              <div className="grid grid-cols-2 gap-3 mb-10">
-                {[
-                  { id: "1200318074", h: "75421f4a1a", title: "30 seconds" },
-                  { id: "1201694607", h: "599a431abd", title: "15 seconds" },
-                ].map((v) => (
-                  <div key={v.id}>
-                    <div className="relative overflow-hidden" style={{ aspectRatio: "9/16", backgroundColor: "#0d0a07" }}>
-                      <iframe
-                        src={`https://player.vimeo.com/video/${v.id}?h=${v.h}&title=0&byline=0&portrait=0`}
-                        className="absolute inset-0 w-full h-full"
-                        allow="autoplay; fullscreen; picture-in-picture"
-                        allowFullScreen
-                        title={v.title}
-                      />
-                    </div>
-                    <p className="mt-1.5 text-xs font-black" style={{ color: "#1c1208" }}>{v.title}</p>
+              {/* Square cuts side by side */}
+              <div className="grid grid-cols-2 gap-4 mb-2">
+                <div>
+                  <div className="relative overflow-hidden" style={{ aspectRatio: "1/1", backgroundColor: "#0d0a07" }}>
+                    <iframe
+                      src="https://player.vimeo.com/video/1201694607?h=599a431abd&title=0&byline=0&portrait=0"
+                      className="absolute inset-0 w-full h-full"
+                      allow="autoplay; fullscreen; picture-in-picture"
+                      allowFullScreen
+                      title="15 second vertical cut"
+                      style={{ border: 0 }}
+                    />
                   </div>
-                ))}
+                  <p className="mt-1.5 text-xs font-black" style={{ color: "#1c1208" }}>15 sec · 9:16 Vertical</p>
+                </div>
+                <div>
+                  <div className="relative overflow-hidden" style={{ aspectRatio: "1/1", backgroundColor: "#0d0a07" }}>
+                    <iframe
+                      src="https://player.vimeo.com/video/1200318073?h=52862dfd0e&title=0&byline=0&portrait=0"
+                      className="absolute inset-0 w-full h-full"
+                      allow="autoplay; fullscreen; picture-in-picture"
+                      allowFullScreen
+                      title="30 second square cut"
+                      style={{ border: 0 }}
+                    />
+                  </div>
+                  <p className="mt-1.5 text-xs font-black" style={{ color: "#1c1208" }}>30 sec · 1:1 Square</p>
+                </div>
               </div>
 
-              {/* Squares — stacked */}
-              <p className="font-mono text-[10px] tracking-[0.3em] uppercase mb-4" style={{ color: "rgba(28,18,8,0.4)" }}>Square 1:1</p>
-              <div className="space-y-2 mb-16">
-                {[
-                  { id: "1200318073", h: "52862dfd0e", title: "30 seconds" },
-                  { id: "1201694606", h: "c2a32b0245", title: "15 seconds" },
-                ].map((v) => (
-                  <div key={v.id}>
-                    <div className="relative overflow-hidden" style={{ aspectRatio: "1/1", backgroundColor: "#0d0a07" }}>
-                      <iframe
-                        src={`https://player.vimeo.com/video/${v.id}?h=${v.h}&title=0&byline=0&portrait=0`}
-                        className="absolute inset-0 w-full h-full"
-                        allow="autoplay; fullscreen; picture-in-picture"
-                        allowFullScreen
-                        title={v.title}
-                      />
+              {/* Deliverables matrix */}
+              <p className="text-xs uppercase mt-10 mb-5" style={{ color: "rgba(28,18,8,0.4)", letterSpacing: "0.1em" }}>All deliverables</p>
+              <div className="mb-16 border" style={{ borderColor: "#e8d9c8" }}>
+                {/* Column headers */}
+                <div className="grid grid-cols-[96px_1fr_1fr_1fr] border-b" style={{ borderColor: "#e8d9c8" }}>
+                  <div className="p-4" />
+                  {[
+                    { label: "16:9", sub: "Horizontal", shape: "landscape" },
+                    { label: "1:1", sub: "Square", shape: "square" },
+                    { label: "9:16", sub: "Vertical", shape: "portrait" },
+                  ].map((col) => (
+                    <div key={col.label} className="p-4 border-l flex flex-col items-center gap-3" style={{ borderColor: "#e8d9c8", backgroundColor: "#f5ede2" }}>
+                      {/* Aspect ratio shape */}
+                      <div className="flex items-center justify-center" style={{ height: "40px" }}>
+                        {col.shape === "landscape" && (
+                          <div style={{ width: "56px", height: "32px", backgroundColor: "#e95228", borderRadius: "2px" }} />
+                        )}
+                        {col.shape === "square" && (
+                          <div style={{ width: "32px", height: "32px", backgroundColor: "#e95228", borderRadius: "2px" }} />
+                        )}
+                        {col.shape === "portrait" && (
+                          <div style={{ width: "18px", height: "32px", backgroundColor: "#e95228", borderRadius: "2px" }} />
+                        )}
+                      </div>
+                      <div className="text-center">
+                        <p className="font-black text-base leading-none" style={{ color: "#1c1208" }}>{col.label}</p>
+                        <p className="text-[10px] uppercase mt-1" style={{ color: "rgba(28,18,8,0.4)", letterSpacing: "0.08em" }}>{col.sub}</p>
+                      </div>
                     </div>
-                    <p className="mt-1.5 text-xs font-black" style={{ color: "#1c1208" }}>{v.title}</p>
+                  ))}
+                </div>
+                {/* Rows */}
+                {["30 sec", "15 sec"].map((dur, ri) => (
+                  <div key={dur} className={`grid grid-cols-[96px_1fr_1fr_1fr]${ri === 0 ? " border-b" : ""}`} style={{ borderColor: "#e8d9c8" }}>
+                    <div className="p-4 flex items-center">
+                      <span className="text-sm font-black" style={{ color: "#e95228" }}>{dur}</span>
+                    </div>
+                    {[0, 1, 2].map((ci) => (
+                      <div key={ci} className="p-4 border-l flex items-center justify-center" style={{ borderColor: "#e8d9c8" }}>
+                        <svg className="w-5 h-5" viewBox="0 0 16 16" fill="none">
+                          <circle cx="8" cy="8" r="7" stroke="#e95228" strokeWidth="1.5" />
+                          <path d="M5 8l2 2 4-4" stroke="#e95228" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                        </svg>
+                      </div>
+                    ))}
                   </div>
                 ))}
+                <div className="px-5 py-3 border-t" style={{ borderColor: "#e8d9c8", backgroundColor: "#fdf8f3" }}>
+                  <p className="text-xs" style={{ color: "rgba(28,18,8,0.35)" }}>6 videos · one shoot</p>
+                </div>
               </div>
+
+              {/* Testimonial — Google Ads client */}
+              <blockquote className="pl-6 border-l-4 mb-16" style={{ borderColor: "#e95228" }}>
+                <p className="text-base italic leading-snug mb-4" style={{ color: "#1c1208" }}>
+                  &ldquo;Rather than seeing the restrictions as obstacles, the team consistently came to every meeting with fresh ideas, practical alternatives, and a very positive attitude. They also suggested additional creative concepts that helped strengthen our branding and messaging, adding value well beyond the initial scope.&rdquo;
+                </p>
+                <cite className="font-mono text-[10px] tracking-widest not-italic uppercase" style={{ color: "rgba(28,18,8,0.4)" }}>
+                  Client · Drop Shipping Brand · Google Ads Campaign
+                </cite>
+              </blockquote>
 
               {/* Spec ad */}
               <div className="flex items-center gap-4 mb-6">
@@ -222,7 +278,7 @@ export default function SocialMediaVideoPage() {
                 Spec social ad<span style={{ color: "#e95228" }}>.</span>
               </h2>
               <p className="text-sm leading-relaxed mb-8" style={{ color: "rgba(28,18,8,0.55)" }}>
-                Vertical-first spec ad produced for an automotive retail brand in Japan.
+                Vertical-first spec ad produced for an international automotive retail brand in Japan.
                 Shot and edited for social media performance.
               </p>
               <div className="flex justify-center mb-16">
@@ -237,6 +293,52 @@ export default function SocialMediaVideoPage() {
                     />
                   </div>
                   <p className="mt-3 text-sm font-black" style={{ color: "#1c1208" }}>Automotive retail · Vertical 9:16</p>
+                </div>
+              </div>
+
+              {/* NHK programme verticals */}
+              <div className="flex items-center gap-4 mb-6">
+                <div className="h-px w-10" style={{ backgroundColor: "#e95228" }} />
+                <span className="font-mono text-[10px] tracking-[0.35em] uppercase" style={{ color: "#e95228" }}>Programme Verticals · JIBTV</span>
+              </div>
+              <h2 className="text-3xl sm:text-4xl font-black mb-4 leading-tight" style={{ color: "#1c1208" }}>
+                Horizontal shoots.<br />
+                <span style={{ color: "rgba(28,18,8,0.35)" }}>Vertical reach.</span>
+              </h2>
+              <p className="text-sm leading-relaxed mb-4" style={{ color: "rgba(28,18,8,0.55)" }}>
+                We worked with JIBTV, part of the NHK Group, on two food programmes — <em>Shibuyummy</em> and <em>Currypedia</em> — produced in horizontal for Channel Oishii on the streaming service Amasian TV, and YouTube. We pushed for the vertical cuts.
+              </p>
+              <p className="text-sm leading-relaxed mb-10" style={{ color: "rgba(28,18,8,0.55)" }}>
+                The logic: YouTube Shorts in 9:16 hook new viewers and drive them into the full-length horizontals. One shoot, two formats, a much bigger audience. It&rsquo;s the kind of format thinking we bring to every production — even when it wasn&rsquo;t in the original brief.
+              </p>
+
+              {/* Two vertical placeholders side by side */}
+              <div className="grid grid-cols-2 gap-4 mb-16">
+                <div>
+                  <div className="relative overflow-hidden" style={{ aspectRatio: "9/16", backgroundColor: "#0d0a07" }}>
+                    <iframe
+                      src="https://player.vimeo.com/video/1116054357?h=32612f33c1&title=0&byline=0&portrait=0"
+                      className="absolute inset-0 w-full h-full"
+                      allow="autoplay; fullscreen; picture-in-picture"
+                      allowFullScreen
+                      title="Shibuyummy — vertical cut"
+                      style={{ border: 0 }}
+                    />
+                  </div>
+                  <p className="mt-1.5 text-xs font-black" style={{ color: "#1c1208" }}>Shibuyummy · JIBTV · YouTube Shorts</p>
+                </div>
+                <div>
+                  <div className="relative overflow-hidden" style={{ aspectRatio: "9/16", backgroundColor: "#0d0a07" }}>
+                    <iframe
+                      src="https://www.youtube.com/embed/SjMlPenmWao"
+                      className="absolute inset-0 w-full h-full"
+                      allow="autoplay; fullscreen; picture-in-picture"
+                      allowFullScreen
+                      title="Currypedia — YouTube Short"
+                      style={{ border: 0 }}
+                    />
+                  </div>
+                  <p className="mt-1.5 text-xs font-black" style={{ color: "#1c1208" }}>Currypedia · JIBTV · YouTube Shorts</p>
                 </div>
               </div>
 
@@ -263,12 +365,14 @@ export default function SocialMediaVideoPage() {
                 <div className="h-px w-10" style={{ backgroundColor: "#e95228" }} />
                 <span className="font-mono text-[10px] tracking-[0.35em] uppercase" style={{ color: "#e95228" }}>Why clients choose us</span>
               </div>
+              <h2 className="text-2xl font-black mb-8 leading-tight" style={{ color: "#1c1208" }}>
+                Social media video production in Japan —<br />
+                <span style={{ color: "rgba(28,18,8,0.4)" }}>built for performance, not just aesthetics.</span>
+              </h2>
               <div className="space-y-0 mb-16">
                 {differentiators.map((d, i) => (
-                  <div key={i} className="flex gap-6 py-6 border-b" style={{ borderColor: "#e8d9c8" }}>
-                    <span className="font-mono text-xs font-black shrink-0 mt-0.5" style={{ color: "#e95228" }}>
-                      {String(i + 1).padStart(2, "0")}
-                    </span>
+                  <div key={i} className="flex gap-4 py-6 border-b" style={{ borderColor: "#e8d9c8" }}>
+                    <span className="shrink-0 mt-2 w-1.5 h-1.5 rounded-full" style={{ backgroundColor: "#e95228" }} />
                     <div>
                       <h3 className="font-black mb-1 text-sm" style={{ color: "#1c1208" }}>{d.title}</h3>
                       <p className="text-sm leading-relaxed" style={{ color: "rgba(28,18,8,0.55)" }}>{d.desc}</p>
@@ -282,12 +386,38 @@ export default function SocialMediaVideoPage() {
                 <div className="h-px w-10" style={{ backgroundColor: "#e95228" }} />
                 <span className="font-mono text-[10px] tracking-[0.35em] uppercase" style={{ color: "#e95228" }}>FAQ</span>
               </div>
-              <div className="space-y-6">
+              <div className="space-y-6 mb-16">
                 {faqs.map((faq, i) => (
                   <div key={i} className="pb-6 border-b" style={{ borderColor: "#e8d9c8" }}>
                     <h4 className="font-black mb-2 text-sm" style={{ color: "#1c1208" }}>{faq.q}</h4>
                     <p className="text-sm leading-relaxed" style={{ color: "rgba(28,18,8,0.55)" }}>{faq.a}</p>
                   </div>
+                ))}
+              </div>
+
+              {/* Internal links */}
+              <div className="flex items-center gap-4 mb-6">
+                <div className="h-px w-10" style={{ backgroundColor: "#e95228" }} />
+                <span className="text-xs uppercase" style={{ color: "#e95228", letterSpacing: "0.08em" }}>Also from Filming in Japan</span>
+              </div>
+              <div className="space-y-3">
+                {[
+                  { label: "Corporate branding & interview video", href: "/corporate-branding-videos-japan" },
+                  { label: "Client testimonial video production", href: "/client-testimonials-video-production-tokyo-japan" },
+                  { label: "Event photo & video", href: "/event-photo-video-japan" },
+                  { label: "Real estate photo, video & 360°", href: "/real-estate-photo-video-tokyo-japan" },
+                ].map((link) => (
+                  <a
+                    key={link.href}
+                    href={link.href}
+                    className="flex items-center justify-between py-3 border-b group"
+                    style={{ borderColor: "#e8d9c8", color: "#1c1208" }}
+                  >
+                    <span className="text-sm">{link.label}</span>
+                    <span className="text-xs transition-colors" style={{ color: "#e95228" }}>
+                      View →
+                    </span>
+                  </a>
                 ))}
               </div>
             </div>

@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import VideoLightbox from "@/components/VideoLightbox";
 import PeopleCarousel from "@/components/PeopleCarousel";
 import ServiceGrid from "@/components/ServiceGrid";
+import GoogleReviews from "@/components/GoogleReviews";
 import InstagramFeed from "@/components/InstagramFeed";
 
 export const metadata: Metadata = {
@@ -215,6 +216,7 @@ export default function HomePage() {
 
           {/* Service cards */}
           <ServiceGrid />
+
         </div>
       </section>
 
@@ -269,6 +271,19 @@ export default function HomePage() {
       {/* ── People Carousel ── */}
       <PeopleCarousel />
 
+      {/* ── Google Reviews ── */}
+      <section className="py-20 border-t" style={{ backgroundColor: "#f5ede2", borderColor: "#e8d9c8" }}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12">
+          <div className="flex items-center gap-4 mb-10">
+            <div className="h-px w-12" style={{ backgroundColor: "#e95228" }} />
+            <span className="font-mono text-[10px] tracking-[0.35em] uppercase" style={{ color: "#e95228" }}>
+              Google Reviews
+            </span>
+          </div>
+          <GoogleReviews appId="94fa8f98-15eb-4b6a-8318-c0d4579384d8" />
+        </div>
+      </section>
+
       {/* ── Workflow ── */}
       <section className="py-32" style={{ backgroundColor: "#fdf8f3" }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12">
@@ -289,11 +304,8 @@ export default function HomePage() {
                 className="p-8 lg:p-10"
                 style={{ borderColor: "#e8d9c8", borderRight: i < workflow.length - 1 ? "1px solid #e8d9c8" : undefined }}
               >
-                <span
-                  className="font-mono text-4xl font-black leading-none block mb-6"
-                  style={{ color: "#e95228" }}
-                >
-                  {w.step}
+                <span className="text-4xl font-black leading-none block mb-6" style={{ color: "#e95228" }}>
+                  {i + 1}
                 </span>
                 <h3 className="font-black mb-3" style={{ color: "#1c1208" }}>{w.title}</h3>
                 <p className="text-sm leading-relaxed" style={{ color: "rgba(28,18,8,0.5)" }}>{w.desc}</p>
@@ -323,8 +335,8 @@ export default function HomePage() {
                 style={{ borderColor: "#e8d9c8", borderLeft: "3px solid #e95228" }}
               >
                 <h3 className="font-black mb-3 flex items-start gap-4" style={{ color: "#1c1208" }}>
-                  <span className="font-mono text-xs tracking-widest mt-0.5 shrink-0 font-black" style={{ color: "#e95228" }}>
-                    {String(i + 1).padStart(2, "0")}
+                  <span className="text-xs font-black mt-0.5 shrink-0" style={{ color: "#e95228" }}>
+                    {i + 1}.
                   </span>
                   {faq.q}
                 </h3>

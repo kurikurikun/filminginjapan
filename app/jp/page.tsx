@@ -223,8 +223,8 @@ export default function HomePageJp() {
                 className="p-8 lg:p-10"
                 style={{ borderColor: "#e8d9c8", borderRight: i < workflow.length - 1 ? "1px solid #e8d9c8" : undefined }}
               >
-                <span className="font-mono text-4xl font-black leading-none block mb-6" style={{ color: "#e95228" }}>
-                  {w.step}
+                <span className="text-4xl font-black leading-none block mb-6" style={{ color: "#e95228" }}>
+                  {i + 1}
                 </span>
                 <h3 className="font-black mb-3" style={{ color: "#1c1208" }}>{w.title}</h3>
                 <p className="text-sm leading-relaxed" style={{ color: "rgba(28,18,8,0.5)" }}>{w.desc}</p>
@@ -254,8 +254,8 @@ export default function HomePageJp() {
                 style={{ borderColor: "#e8d9c8", borderLeft: "3px solid #e95228" }}
               >
                 <h3 className="font-black mb-3 flex items-start gap-4" style={{ color: "#1c1208" }}>
-                  <span className="font-mono text-xs tracking-widest mt-0.5 shrink-0 font-black" style={{ color: "#e95228" }}>
-                    {String(i + 1).padStart(2, "0")}
+                  <span className="text-xs font-black mt-0.5 shrink-0" style={{ color: "#e95228" }}>
+                    {i + 1}.
                   </span>
                   {faq.q}
                 </h3>

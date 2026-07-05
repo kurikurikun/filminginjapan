@@ -6,7 +6,7 @@ interface Service {
   num: string;
   title: string;
   titleJp: string;
-  enLabel: string;   // EN subtitle shown in JP mode
+  enLabel: string;
   desc: string;
   descJp: string;
   href: string;
@@ -79,6 +79,7 @@ function embedUrl(s: Service) {
 export default function ServiceGrid({ lang = "en" }: { lang?: "en" | "jp" }) {
   const isJp = lang === "jp";
   const [active, setActive] = useState<Service | null>(null);
+  const [vimeoThumbs, setVimeoThumbs] = useState<Record<string, string>>({});
 
   useEffect(() => {
     if (!active) return;
@@ -87,53 +88,101 @@ export default function ServiceGrid({ lang = "en" }: { lang?: "en" | "jp" }) {
     return () => window.removeEventListener("keydown", handler);
   }, [active]);
 
+  useEffect(() => {
+    const vimeoServices = services.filter(s => s.videoType === "vimeo");
+    Promise.all(
+      vimeoServices.map(async (s) => {
+        try {
+          const vimeoUrl = s.videoHash
+            ? `https://vimeo.com/${s.videoId}/${s.videoHash}`
+            : `https://vimeo.com/${s.videoId}`;
+          const res = await fetch(`https://vimeo.com/api/oembed.json?url=${encodeURIComponent(vimeoUrl)}&width=1280`);
+          const data = await res.json();
+          return [s.videoId, data.thumbnail_url as string] as const;
+        } catch {
+          return [s.videoId, ""] as const;
+        }
+      })
+    ).then(entries => setVimeoThumbs(Object.fromEntries(entries)));
+  }, []);
+
+  function getThumb(s: Service): string {
+    if (s.videoType === "youtube") {
+      return `https://img.youtube.com/vi/${s.videoId}/maxresdefault.jpg`;
+    }
+    return vimeoThumbs[s.videoId] || "";
+  }
+
   return (
     <>
       <div className="grid md:grid-cols-2 gap-px" style={{ backgroundColor: "#e8d9c8" }}>
-        {services.map((s) => (
-          <div key={s.num} className="service-card flex flex-col">
-            {/* Text portion — navigates to service page */}
-            <Link href={isJp ? s.hrefJp : s.href} className="p-10 lg:p-12 flex flex-col flex-1">
-              <div className="flex items-start justify-between mb-8">
-                <span className="service-num font-mono text-[10px] tracking-[0.3em]" style={{ color: "#e95228" }}>
-                  {s.num}
-                </span>
-                <span className="service-learn font-mono text-[10px] tracking-[0.2em] uppercase" style={{ color: "#e95228" }}>
-                  {isJp ? "詳しく見る →" : "Learn more →"}
-                </span>
-              </div>
-              <h3 className="service-title text-xl lg:text-2xl font-black leading-tight mb-1" style={{ color: "#1c1208" }}>
-                {isJp ? s.titleJp : s.title}
-              </h3>
-              <p className="service-jp text-xs font-jp mb-5" style={{ color: "#e95228" }}>
-                {isJp ? s.enLabel : s.titleJp}
-              </p>
-              <p className="service-desc text-sm leading-relaxed mt-auto" style={{ color: "rgba(28,18,8,0.5)" }}>
-                {isJp ? s.descJp : s.desc}
-              </p>
-            </Link>
+        {services.map((s) => {
+          const thumb = getThumb(s);
+          return (
+            <div key={s.num} className="service-card flex flex-col">
+              {/* Text portion — navigates to service page */}
+              <Link href={isJp ? s.hrefJp : s.href} className="p-10 lg:p-12 flex flex-col flex-1">
+                <div className="flex items-start justify-between mb-8">
+                  <span className="service-num text-xs font-black" style={{ color: "#e95228" }}>
+                    {s.num}
+                  </span>
+                  <span className="service-learn font-mono text-[10px] tracking-[0.2em] uppercase" style={{ color: "#e95228" }}>
+                    {isJp ? "詳しく見る →" : "Learn more →"}
+                  </span>
+                </div>
+                <h3 className="service-title text-xl lg:text-2xl font-black leading-tight mb-1" style={{ color: "#1c1208" }}>
+                  {isJp ? s.titleJp : s.title}
+                </h3>
+                <p className="service-jp text-xs font-jp mb-5" style={{ color: "#e95228" }}>
+                  {isJp ? s.enLabel : s.titleJp}
+                </p>
+                <p className="service-desc text-sm leading-relaxed mt-auto" style={{ color: "rgba(28,18,8,0.5)" }}>
+                  {isJp ? s.descJp : s.desc}
+                </p>
+              </Link>
 
-            {/* Video strip */}
-            <button
-              onClick={() => setActive(s)}
-              className="flex items-center gap-3 px-10 lg:px-12 py-4 border-t transition-colors group/play"
-              style={{ borderColor: "#e8d9c8", backgroundColor: "transparent" }}
-              aria-label={isJp ? `${s.titleJp}の動画を見る` : `Watch ${s.title} example`}
-            >
-              <span
-                className="flex items-center justify-center w-7 h-7 rounded-full border transition-colors group-hover/play:bg-[#e95228] group-hover/play:border-[#e95228]"
-                style={{ borderColor: "#e95228" }}
+              {/* Thumbnail — clicks to open lightbox */}
+              <button
+                onClick={() => setActive(s)}
+                className="relative w-full overflow-hidden group/thumb"
+                style={{ aspectRatio: "16/9", backgroundColor: "#0d0a07" }}
+                aria-label={isJp ? `${s.titleJp}の動画を見る` : `Watch ${s.title} example`}
               >
-                <svg className="w-3 h-3 ml-0.5" viewBox="0 0 10 10" fill="currentColor" style={{ color: "#e95228" }}>
-                  <polygon points="2,1 9,5 2,9" className="group-hover/play:fill-white" />
-                </svg>
-              </span>
-              <span className="font-mono text-[10px] tracking-[0.2em] uppercase transition-colors" style={{ color: "rgba(28,18,8,0.45)" }}>
-                {isJp ? "動画を見る" : "Watch example"}
-              </span>
-            </button>
-          </div>
-        ))}
+                {thumb && (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img
+                    src={thumb}
+                    alt=""
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover/thumb:scale-105"
+                    style={{ opacity: 0.85 }}
+                  />
+                )}
+                {/* Overlay */}
+                <div
+                  className="absolute inset-0 transition-opacity duration-300 group-hover/thumb:opacity-60"
+                  style={{ background: "linear-gradient(to top, rgba(13,10,7,0.6) 0%, rgba(13,10,7,0.1) 60%)" }}
+                />
+                {/* Play button */}
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <span
+                    className="flex items-center justify-center w-12 h-12 rounded-full border-2 transition-all duration-200 group-hover/thumb:bg-[#e95228] group-hover/thumb:border-[#e95228]"
+                    style={{ borderColor: "rgba(255,255,255,0.8)", backgroundColor: "rgba(0,0,0,0.3)" }}
+                  >
+                    <svg className="w-5 h-5 ml-0.5" viewBox="0 0 10 10" fill="white">
+                      <polygon points="2,1 9,5 2,9" />
+                    </svg>
+                  </span>
+                </div>
+                {/* Watch label */}
+                <div className="absolute bottom-3 left-0 right-0 flex justify-center">
+                  <span className="font-mono text-[10px] tracking-[0.2em] uppercase" style={{ color: "rgba(255,255,255,0.6)" }}>
+                    {isJp ? "動画を見る" : "Watch example"}
+                  </span>
+                </div>
+              </button>
+            </div>
+          );
+        })}
       </div>
 
       {/* Video lightbox */}

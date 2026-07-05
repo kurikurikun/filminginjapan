@@ -19,6 +19,13 @@ npm run build    # Production build
 
 Dev server is configured in `.claude/launch.json` as `filminginjapan-dev` on port 3001.
 
+## Deployment
+
+- **`git push` to `origin` (kurikurikun/filminginjapan) is the ONLY deploy path** — Vercel auto-builds production from every push to main.
+- Never use `vercel` CLI deploys (uninstalled deliberately) — untracked files reaching production this way caused the events page to silently lose its videos in June 2026.
+- All assets referenced by pages (including `public/videos/`) must be committed to git.
+- Git auth: repo-local credential helper uses `gh` (logged in as kurikurikun).
+
 ## Design System
 
 - **Background**: `#fdf8f3` (warm cream)
@@ -86,5 +93,4 @@ Conversion tracking: Google Ads page-visit conversion on `/thank-you`.
 - [ ] WorkCarousel: replace picsum placeholder images with real production stills
 - [ ] Blog pages (separate Notion database)
 - [ ] `/contact` page
-- [ ] Push to GitHub + connect Vercel
 - [ ] Real photography/video assets when ready

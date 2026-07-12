@@ -6,7 +6,6 @@ import LandingContactForm from "@/components/LandingContactForm";
 export const metadata: Metadata = {
   title: "Social Media Video Production Japan · Tokyo | Short-Form & Ad Content",
   description: "Social-first video production in Japan. Vertical, square and horizontal formats for Instagram, TikTok, YouTube and Google Ads. Fast turnaround. Bilingual crew.",
-  robots: { index: false, follow: false },
   alternates: {
     canonical: "https://www.filminginjapan.com/social-media-video-japan",
   },

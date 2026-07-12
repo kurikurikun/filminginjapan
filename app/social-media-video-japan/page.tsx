@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 const services = [
   "Vertical (9:16), square (1:1) and horizontal (16:9) formats in a single shoot",
   "Platform-ready edits for Instagram Reels, TikTok, YouTube Shorts and Google Ads",
-  "Localised versions — captions, supers and voiceover adapted per market",
+  "Localised versions: captions, supers and voiceover adapted per market",
   "Spec ads and brand content for Japanese and international audiences",
   "Product and lifestyle shoots designed to perform, not just look good",
 ];
@@ -22,34 +22,34 @@ const services = [
 const differentiators = [
   {
     title: "Multi-format from one shoot",
-    desc: "We plan and frame every shoot to deliver vertical, square and horizontal cuts without compromise — one production budget, every platform covered.",
+    desc: "We plan and frame every shoot to deliver vertical, square and horizontal cuts without compromise. One production budget, every platform covered.",
   },
   {
     title: "Built for performance",
-    desc: "Social content that's designed to stop the scroll. We understand pacing, supers, hook structure and platform behaviour — not just cinematography.",
+    desc: "Social content that's designed to stop the scroll. We understand pacing, supers, hook structure and platform behaviour, not just cinematography.",
   },
   {
     title: "Localisation-ready production",
-    desc: "We produce social ad content with localisation in mind — clean audio, adaptable supers and flexible edit structure that makes versioning per market straightforward for your team.",
+    desc: "We produce social ad content with localisation in mind: clean audio, adaptable supers and flexible edit structure that makes versioning per market straightforward for your team.",
   },
   {
     title: "Bilingual production",
-    desc: "Our bilingual crew works seamlessly with Japanese talent, locations and brands — and communicates clearly with international clients and ad agencies.",
+    desc: "Our bilingual crew works seamlessly with Japanese talent, locations and brands, and communicates clearly with international clients and ad agencies.",
   },
 ];
 
 const faqs = [
   {
     q: "What formats do you deliver?",
-    a: "We deliver vertical (9:16), square (1:1) and horizontal (16:9) from a single shoot — optimised for each platform's specs and aspect ratios.",
+    a: "We deliver vertical (9:16), square (1:1) and horizontal (16:9) from a single shoot, optimised for each platform's specs and aspect ratios.",
   },
   {
     q: "Can you produce content ready for localisation across multiple markets?",
-    a: "Yes. We produce with localisation in mind — clean audio beds, adaptable supers and a flexible edit structure that makes it straightforward for your team to version per market.",
+    a: "Yes. We produce with localisation in mind: clean audio beds, adaptable supers and a flexible edit structure that makes it straightforward for your team to version per market.",
   },
   {
     q: "Do you produce spec ads?",
-    a: "Yes — we produce spec ads for brands who want to demonstrate a concept before committing to a full campaign budget. A great way to test creative before going to market.",
+    a: "Yes, we produce spec ads for brands who want to demonstrate a concept before committing to a full campaign budget. A great way to test creative before going to market.",
   },
   {
     q: "Can you shoot in Japanese locations and with Japanese talent?",
@@ -61,7 +61,7 @@ const faqs = [
   },
   {
     q: "What's your minimum engagement?",
-    a: "We work on projects of all sizes — from a single social cut to a full multi-format campaign. Get in touch and we'll scope something that fits your needs and budget.",
+    a: "We work on projects of all sizes, from a single social cut to a full multi-format campaign. Get in touch and we'll scope something that fits your needs and budget.",
   },
 ];
 
@@ -115,7 +115,7 @@ export default function SocialMediaVideoPage() {
           </h1>
           <p className="text-lg max-w-2xl leading-relaxed" style={{ color: "rgba(253,248,243,0.6)" }}>
             Short-form content built for performance. Vertical, square and horizontal formats
-            from a single shoot — platform-ready for Instagram, TikTok, YouTube and Google Ads.
+            from a single shoot, platform-ready for Instagram, TikTok, YouTube and Google Ads.
           </p>
         </div>
       </section>
@@ -153,10 +153,10 @@ export default function SocialMediaVideoPage() {
                 <span style={{ color: "rgba(28,18,8,0.35)" }}>multi-format, one shoot.</span>
               </h2>
               <p className="text-sm leading-relaxed mb-4" style={{ color: "rgba(28,18,8,0.55)" }}>
-                The brief: a humorous short-form ad for ZenMarket targeting a global audience, centred on their &lsquo;No Japanese needed!&rsquo; value proposition — making Japanese online shopping accessible to anyone, anywhere.
+                The brief: a humorous short-form ad for ZenMarket targeting a global audience, centred on their &lsquo;No Japanese needed!&rsquo; value proposition. Making Japanese online shopping accessible to anyone, anywhere.
               </p>
               <p className="text-sm leading-relaxed mb-6" style={{ color: "rgba(28,18,8,0.55)" }}>
-                We proposed several concepts. The one selected: <em>Sushi Surprise</em>. 30-second and 15-second cuts delivered in vertical, square and horizontal formats — all from a single shoot, ready to deploy across markets.
+                We proposed several concepts. The one selected: <em>Sushi Surprise</em>. 30-second and 15-second cuts delivered in vertical, square and horizontal formats, all from a single shoot, ready to deploy across markets.
               </p>
               <p className="text-sm italic mb-10" style={{ color: "rgba(28,18,8,0.6)" }}>
                 &ldquo;Not what you expected, but exactly what you wanted.&rdquo;
@@ -305,10 +305,10 @@ export default function SocialMediaVideoPage() {
                 <span style={{ color: "rgba(28,18,8,0.35)" }}>Vertical reach.</span>
               </h2>
               <p className="text-sm leading-relaxed mb-4" style={{ color: "rgba(28,18,8,0.55)" }}>
-                We worked with JIBTV, part of the NHK Group, on two food programmes — <em>Shibuyummy</em> and <em>Currypedia</em> — produced in horizontal for Channel Oishii on the streaming service Amasian TV, and YouTube. We pushed for the vertical cuts.
+                We worked with JIBTV, part of the NHK Group, on two food programmes: <em>Shibuyummy</em> and <em>Currypedia</em>, produced in horizontal for Channel Oishii on the streaming service Amasian TV, and YouTube. We pushed for the vertical cuts.
               </p>
               <p className="text-sm leading-relaxed mb-10" style={{ color: "rgba(28,18,8,0.55)" }}>
-                The logic: YouTube Shorts in 9:16 hook new viewers and drive them into the full-length horizontals. One shoot, two formats, a much bigger audience. It&rsquo;s the kind of format thinking we bring to every production — even when it wasn&rsquo;t in the original brief.
+                The logic: YouTube Shorts in 9:16 hook new viewers and drive them into the full-length horizontals. One shoot, two formats, a much bigger audience. It&rsquo;s the kind of format thinking we bring to every production, even when it wasn&rsquo;t in the original brief.
               </p>
 
               {/* Two vertical placeholders side by side */}
@@ -365,8 +365,8 @@ export default function SocialMediaVideoPage() {
                 <span className="font-mono text-[10px] tracking-[0.35em] uppercase" style={{ color: "#e95228" }}>Why clients choose us</span>
               </div>
               <h2 className="text-2xl font-black mb-8 leading-tight" style={{ color: "#1c1208" }}>
-                Social media video production in Japan —<br />
-                <span style={{ color: "rgba(28,18,8,0.4)" }}>built for performance, not just aesthetics.</span>
+                Social media video production in Japan.<br />
+                <span style={{ color: "rgba(28,18,8,0.4)" }}>Built for performance, not just aesthetics.</span>
               </h2>
               <div className="space-y-0 mb-16">
                 {differentiators.map((d, i) => (
@@ -440,7 +440,7 @@ export default function SocialMediaVideoPage() {
         <div className="max-w-7xl mx-auto px-6 sm:px-12 lg:px-16 flex flex-col sm:flex-row items-center justify-between gap-6">
           <div>
             <p className="font-mono text-[10px] tracking-[0.3em] uppercase mb-2" style={{ color: "#e95228" }}>Prefer to talk?</p>
-            <p className="font-black text-lg" style={{ color: "#1c1208" }}>WhatsApp or email — we reply fast.</p>
+            <p className="font-black text-lg" style={{ color: "#1c1208" }}>WhatsApp or email. We reply fast.</p>
           </div>
           <div className="flex gap-4">
             <a href="https://wa.me/819038800895" className="btn-warm font-black text-sm tracking-[0.15em] uppercase px-6 py-3">

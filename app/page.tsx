@@ -216,33 +216,6 @@ export default function HomePage() {
 
           {/* Service cards */}
           <ServiceGrid />
-
-          {/* Social media banner */}
-          <a
-            href="/social-media-video-japan"
-            className="flex items-center justify-between px-10 py-6 mt-8 group"
-            style={{ backgroundColor: "#0d0a07" }}
-          >
-            <div className="flex items-center gap-4">
-              <div className="h-px w-8 shrink-0" style={{ backgroundColor: "#e95228" }} />
-              <span className="text-lg font-black" style={{ color: "#fdf8f3" }}>
-                Social Media Video &amp; Ad Content
-              </span>
-            </div>
-            {/* Format shapes — white + orange */}
-            <div className="hidden sm:flex items-end gap-3 mx-8">
-              <div style={{ width: "36px", height: "20px", backgroundColor: "rgba(253,248,243,0.7)", borderRadius: "2px" }} />
-              <div style={{ width: "20px", height: "20px", backgroundColor: "rgba(253,248,243,0.7)", borderRadius: "2px" }} />
-              <div style={{ width: "11px", height: "20px", backgroundColor: "rgba(253,248,243,0.7)", borderRadius: "2px" }} />
-              <div className="w-px mx-1 self-stretch" style={{ backgroundColor: "rgba(253,248,243,0.1)" }} />
-              <div style={{ width: "36px", height: "20px", backgroundColor: "rgba(233,82,40,0.5)", borderRadius: "2px" }} />
-              <div style={{ width: "20px", height: "20px", backgroundColor: "rgba(233,82,40,0.7)", borderRadius: "2px" }} />
-              <div style={{ width: "11px", height: "20px", backgroundColor: "#e95228", borderRadius: "2px" }} />
-            </div>
-            <span className="text-sm font-black" style={{ color: "#e95228" }}>
-              View →
-            </span>
-          </a>
         </div>
       </section>
 

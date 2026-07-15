@@ -2,6 +2,12 @@
   "version": "0.0.1",
   "configurations": [
     {
+      "name": "grade-preview",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": ["-m", "http.server", "8901", "--directory", "/Users/21_10_m_m/Library/CloudStorage/GoogleDrive-chris@move-ment.co/共有ドライブ/move-ment/transfers/26_7_12_terajima_comas/grade_options"],
+      "port": 8901
+    },
+    {
       "name": "filminginjapan-dev",
       "runtimeExecutable": "/Users/21_10_m_m/.local/node/bin/npm",
       "runtimeArgs": ["run", "dev"],

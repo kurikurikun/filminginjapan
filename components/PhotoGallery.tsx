@@ -9,7 +9,7 @@ interface Event {
 }
 
 export default function PhotoGallery({ events }: { events: Event[] }) {
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const [openIndex, setOpenIndex] = useState<number | null>(0);
   const [lightbox, setLightbox] = useState<{ eventIdx: number; photoIdx: number } | null>(null);
 
   function openLightbox(eventIdx: number, photoIdx: number, e: React.MouseEvent) {

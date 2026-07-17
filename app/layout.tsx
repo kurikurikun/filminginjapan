@@ -20,6 +20,59 @@ export const metadata: Metadata = {
   twitter: { card: "summary_large_image" },
 };
 
+const businessSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": ["ProfessionalService", "LocalBusiness"],
+      "@id": "https://www.filminginjapan.com/#business",
+      "name": "Filming in Japan",
+      "url": "https://www.filminginjapan.com",
+      "image": "https://www.filminginjapan.com/images/fij.png",
+      "logo": "https://www.filminginjapan.com/images/fij.png",
+      "description":
+        "Bilingual (English/Japanese) corporate video production and event photography in Tokyo and across Japan — branding films, client testimonials, event coverage, and real estate.",
+      "email": "filminginjapan@move-ment.co",
+      "telephone": "+81-50-1724-6517",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "1-18-5-503 Higashi Gotanda",
+        "addressLocality": "Shinagawa-ku",
+        "addressRegion": "Tokyo",
+        "postalCode": "141-0022",
+        "addressCountry": "JP",
+      },
+      "areaServed": { "@type": "Country", "name": "Japan" },
+      "knowsLanguage": ["en", "ja"],
+      "parentOrganization": {
+        "@type": "Organization",
+        "name": "Move-ment Co., Ltd.",
+        "url": "https://www.move-ment.co",
+      },
+      "sameAs": [
+        "https://www.move-ment.co",
+        "https://www.instagram.com/move_ment.co.ltd/",
+      ],
+    },
+    {
+      "@type": "LocalBusiness",
+      "@id": "https://www.filminginjapan.com/#hiroshima",
+      "name": "Filming in Japan — Hiroshima Office",
+      "branchOf": { "@id": "https://www.filminginjapan.com/#business" },
+      "url": "https://www.filminginjapan.com",
+      "email": "filminginjapan@move-ment.co",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "1-13-4 Ushita Minami",
+        "addressLocality": "Higashi-ku",
+        "addressRegion": "Hiroshima",
+        "addressCountry": "JP",
+      },
+      "areaServed": { "@type": "Country", "name": "Japan" },
+    },
+  ],
+};
+
 export default function RootLayout({
   children,
 }: {
@@ -35,6 +88,10 @@ export default function RootLayout({
           gtag('js', new Date());
           gtag('config', 'G-HRSC1F9YKM');
         `}</Script>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(businessSchema) }}
+        />
       </head>
       <body className="antialiased">
         <Navigation />

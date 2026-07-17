@@ -21,6 +21,7 @@ export const metadata: Metadata = {
 
 const services = [
   "Corporate event photography and highlight films",
+  "Photography-only coverage — video not required",
   "Multi-camera coverage for conferences and panels",
   "Executive interviews and keynote documentation",
   "Same-day social media edits and recap videos",
@@ -161,6 +162,10 @@ const faqs = [
   {
     q: "Can you provide both photography and video on the same day?",
     a: "Yes — one coordinated bilingual team covers both stills and motion. This keeps costs down and ensures a consistent look and feel across all your event assets.",
+  },
+  {
+    q: "Do you offer photography only, without video?",
+    a: "Yes. Many clients book photo and video together, but photography-only coverage is just as welcome — from a single photographer to a multi-photographer team for larger events. You still get same-day social selects and a full edited archive on the same fast timeline. Just tell us in your enquiry and we'll quote photography on its own.",
   },
   {
     q: "Can you handle multi-day or multi-location events?",

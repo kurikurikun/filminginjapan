@@ -350,7 +350,7 @@ export default function EventVideoPage() {
               {/* Why us */}
               <div className="flex items-center gap-4 mb-6">
                 <div className="h-px w-10" style={{ backgroundColor: "#e95228" }} />
-                <span className="font-mono text-[10px] tracking-[0.35em] uppercase" style={{ color: "#e95228" }}>Why clients choose us</span>
+                <h2 className="font-mono text-[10px] tracking-[0.35em] uppercase" style={{ color: "#e95228" }}>Why clients choose us</h2>
               </div>
               <div className="space-y-0 mb-16">
                 {differentiators.map((d, i) => (
@@ -407,7 +407,7 @@ export default function EventVideoPage() {
               {/* Project examples */}
               <div className="flex items-center gap-4 mb-6">
                 <div className="h-px w-10" style={{ backgroundColor: "#e95228" }} />
-                <span className="font-mono text-[10px] tracking-[0.35em] uppercase" style={{ color: "#e95228" }}>Recent projects</span>
+                <h2 className="font-mono text-[10px] tracking-[0.35em] uppercase" style={{ color: "#e95228" }}>Recent projects</h2>
               </div>
               <div className="space-y-8 mb-16">
                 {projects.map((p, i) => (
@@ -445,7 +445,7 @@ export default function EventVideoPage() {
               {/* Photo events */}
               <div className="flex items-center gap-4 mb-6">
                 <div className="h-px w-10" style={{ backgroundColor: "#e95228" }} />
-                <span className="font-mono text-[10px] tracking-[0.35em] uppercase" style={{ color: "#e95228" }}>Photography events</span>
+                <h2 className="font-mono text-[10px] tracking-[0.35em] uppercase" style={{ color: "#e95228" }}>Photography events</h2>
               </div>
               <div className="mb-16">
                 <PhotoGallery events={photoEvents} />
@@ -455,7 +455,7 @@ export default function EventVideoPage() {
               <div className="mb-16">
                 <div className="flex items-center gap-4 mb-8">
                   <div className="h-px w-10" style={{ backgroundColor: "#e95228" }} />
-                  <span className="font-mono text-[10px] tracking-[0.35em] uppercase" style={{ color: "#e95228" }}>Google reviews</span>
+                  <h2 className="font-mono text-[10px] tracking-[0.35em] uppercase" style={{ color: "#e95228" }}>Google reviews</h2>
                 </div>
                 <GoogleReviews appId="94fa8f98-15eb-4b6a-8318-c0d4579384d8" />
               </div>
@@ -464,7 +464,7 @@ export default function EventVideoPage() {
               <div className="space-y-6 mb-16">
                 <div className="flex items-center gap-4 mb-6">
                   <div className="h-px w-10" style={{ backgroundColor: "#e95228" }} />
-                  <span className="font-mono text-[10px] tracking-[0.35em] uppercase" style={{ color: "#e95228" }}>Client feedback</span>
+                  <h2 className="font-mono text-[10px] tracking-[0.35em] uppercase" style={{ color: "#e95228" }}>Client feedback</h2>
                 </div>
                 <blockquote className="pl-6 border-l-4" style={{ borderColor: "#e95228" }}>
                   <p className="text-base font-black italic leading-snug mb-3" style={{ color: "#1c1208" }}>
@@ -488,7 +488,7 @@ export default function EventVideoPage() {
               <div>
                 <div className="flex items-center gap-4 mb-8">
                   <div className="h-px w-10" style={{ backgroundColor: "#e95228" }} />
-                  <span className="font-mono text-[10px] tracking-[0.35em] uppercase" style={{ color: "#e95228" }}>FAQ</span>
+                  <h2 className="font-mono text-[10px] tracking-[0.35em] uppercase" style={{ color: "#e95228" }}>FAQ</h2>
                 </div>
                 <div className="space-y-6">
                   {faqs.map((faq, i) => (

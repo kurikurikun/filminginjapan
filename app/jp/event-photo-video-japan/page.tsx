@@ -224,6 +224,18 @@ const clients = ["Sony", "HP", "Canon", "NEC", "JLL", "Accenture", "Microsoft", 
 export default function EventVideoPageJP() {
   return (
     <div style={{ backgroundColor: "#fdf8f3" }}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": faqs.map((faq) => ({
+            "@type": "Question",
+            "name": faq.q,
+            "acceptedAnswer": { "@type": "Answer", "text": faq.a }
+          }))
+        }) }}
+      />
 
       {/* Hero */}
       <section className="relative pt-32 pb-20 overflow-hidden" style={{ backgroundColor: "#0d0a07" }}>
@@ -326,7 +338,7 @@ export default function EventVideoPageJP() {
               {/* Why us */}
               <div className="flex items-center gap-4 mb-6">
                 <div className="h-px w-10" style={{ backgroundColor: "#e95228" }} />
-                <span className="font-mono text-[10px] tracking-[0.35em] uppercase" style={{ color: "#e95228" }}>選ばれる理由</span>
+                <h2 className="font-mono text-[10px] tracking-[0.35em] uppercase" style={{ color: "#e95228" }}>選ばれる理由</h2>
               </div>
               <div className="space-y-0 mb-16">
                 {differentiators.map((d, i) => (
@@ -367,7 +379,7 @@ export default function EventVideoPageJP() {
               {/* Project examples */}
               <div className="flex items-center gap-4 mb-6">
                 <div className="h-px w-10" style={{ backgroundColor: "#e95228" }} />
-                <span className="font-mono text-[10px] tracking-[0.35em] uppercase" style={{ color: "#e95228" }}>制作事例</span>
+                <h2 className="font-mono text-[10px] tracking-[0.35em] uppercase" style={{ color: "#e95228" }}>制作事例</h2>
               </div>
               <div className="space-y-8 mb-16">
                 {projects.map((p, i) => (
@@ -405,7 +417,7 @@ export default function EventVideoPageJP() {
               {/* Photo events */}
               <div className="flex items-center gap-4 mb-6">
                 <div className="h-px w-10" style={{ backgroundColor: "#e95228" }} />
-                <span className="font-mono text-[10px] tracking-[0.35em] uppercase" style={{ color: "#e95228" }}>写真撮影実績</span>
+                <h2 className="font-mono text-[10px] tracking-[0.35em] uppercase" style={{ color: "#e95228" }}>写真撮影実績</h2>
               </div>
               <div className="mb-16">
                 <PhotoGallery events={photoEvents} />
@@ -415,7 +427,7 @@ export default function EventVideoPageJP() {
               <div className="mb-16">
                 <div className="flex items-center gap-4 mb-8">
                   <div className="h-px w-10" style={{ backgroundColor: "#e95228" }} />
-                  <span className="font-mono text-[10px] tracking-[0.35em] uppercase" style={{ color: "#e95228" }}>Googleレビュー</span>
+                  <h2 className="font-mono text-[10px] tracking-[0.35em] uppercase" style={{ color: "#e95228" }}>Googleレビュー</h2>
                 </div>
                 <GoogleReviews appId="94fa8f98-15eb-4b6a-8318-c0d4579384d8" />
               </div>
@@ -424,7 +436,7 @@ export default function EventVideoPageJP() {
               <div className="space-y-6 mb-16">
                 <div className="flex items-center gap-4 mb-6">
                   <div className="h-px w-10" style={{ backgroundColor: "#e95228" }} />
-                  <span className="font-mono text-[10px] tracking-[0.35em] uppercase" style={{ color: "#e95228" }}>クライアントの声</span>
+                  <h2 className="font-mono text-[10px] tracking-[0.35em] uppercase" style={{ color: "#e95228" }}>クライアントの声</h2>
                 </div>
                 <blockquote className="pl-6 border-l-4" style={{ borderColor: "#e95228" }}>
                   <p className="text-base font-black italic leading-snug mb-3" style={{ color: "#1c1208" }}>
@@ -448,7 +460,7 @@ export default function EventVideoPageJP() {
               <div>
                 <div className="flex items-center gap-4 mb-8">
                   <div className="h-px w-10" style={{ backgroundColor: "#e95228" }} />
-                  <span className="font-mono text-[10px] tracking-[0.35em] uppercase" style={{ color: "#e95228" }}>よくある質問</span>
+                  <h2 className="font-mono text-[10px] tracking-[0.35em] uppercase" style={{ color: "#e95228" }}>よくある質問</h2>
                 </div>
                 <div className="space-y-6">
                   {faqs.map((faq, i) => (

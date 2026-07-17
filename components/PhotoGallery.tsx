@@ -84,7 +84,7 @@ export default function PhotoGallery({ events }: { events: Event[] }) {
                         className="relative aspect-[4/3] overflow-hidden group"
                         onClick={(ev) => openLightbox(i, j, ev)}
                       >
-                        <Image src={src} alt={`${e.label} — photo ${j + 1}`} fill className="object-cover transition-transform duration-300 group-hover:scale-105" sizes="(max-width:640px) 50vw, 33vw" />
+                        <Image src={src} alt={`${e.label} — corporate event photography in Tokyo, Japan`} fill className="object-cover transition-transform duration-300 group-hover:scale-105" sizes="(max-width:640px) 50vw, 33vw" />
                         <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200" style={{ backgroundColor: "rgba(0,0,0,0.35)" }}>
                           <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-4.35-4.35M17 11A6 6 0 1 1 5 11a6 6 0 0 1 12 0zm0 0l4 4" />
@@ -142,7 +142,7 @@ export default function PhotoGallery({ events }: { events: Event[] }) {
               <Image
                 key={photos[photoIdx]}
                 src={photos[photoIdx]}
-                alt={`${events[eventIdx].label} — photo ${photoIdx + 1}`}
+                alt={`${events[eventIdx].label} — corporate event photography in Tokyo, Japan`}
                 width={1400}
                 height={940}
                 className="object-contain w-full h-full"

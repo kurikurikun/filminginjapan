@@ -95,6 +95,7 @@ const photoEvents = [
     label: "Government trade delegation from Ireland",
     location: "Tokyo",
     photos: [
+      "/images/event_photography_tokyo_japan_17.jpg",
       "/images/event_photography_tokyo_japan_11.jpg",
       "/images/event_photography_tokyo_japan_10.jpg",
       "/images/event_photography_tokyo_japan_12.jpg",
@@ -106,6 +107,7 @@ const photoEvents = [
     location: "Tokyo",
     photos: [
       "/images/event_photography_tokyo_japan_16.jpg",
+      "/images/event_photography_tokyo_japan_8.jpg",
       "/images/tokyo-event-esports-photography_1.jpg",
       "/images/tokyo-event-esports-photography_2.jpg",
       "/images/tokyo-event-esports-photography_3.jpg",

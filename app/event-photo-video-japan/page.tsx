@@ -148,6 +148,21 @@ const photoEvents = [
       "/images/events/oman/event_photography_tokyo_japan_jice_14.jpg",
     ],
   },
+  {
+    label: "London Mayor at British Chamber of Commerce Japan event",
+    location: "Tokyo",
+    photos: [
+      "/images/events/bccj/tokyo_event_photo_BCCJ_london_3.jpg",
+      "/images/events/bccj/tokyo_event_photo_BCCJ_london_4.jpg",
+      "/images/events/bccj/tokyo_event_photo_BCCJ_london_5.jpg",
+      "/images/events/bccj/tokyo_event_photo_BCCJ_london_6.jpg",
+      "/images/events/bccj/tokyo_event_photo_BCCJ_london_7.jpg",
+      "/images/events/bccj/tokyo_event_photo_BCCJ_london_8.jpg",
+      "/images/events/bccj/tokyo_event_photo_BCCJ_london_9.jpg",
+      "/images/events/bccj/tokyo_event_photo_BCCJ_london_1.jpg",
+      "/images/events/bccj/tokyo_event_photo_BCCJ_london_2.jpg",
+    ],
+  },
 ];
 
 const faqs = [

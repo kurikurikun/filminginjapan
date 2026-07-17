@@ -163,6 +163,21 @@ const photoEvents = [
       "/images/events/bccj/tokyo_event_photo_BCCJ_london_2.jpg",
     ],
   },
+  {
+    label: "University of Michigan alumni event",
+    location: "東京",
+    photos: [
+      "/images/events/michigan/tokyo_event_photo_University_Michigan_1.jpg",
+      "/images/events/michigan/tokyo_event_photo_University_Michigan_2.jpg",
+      "/images/events/michigan/tokyo_event_photo_University_Michigan_3.jpg",
+      "/images/events/michigan/tokyo_event_photo_University_Michigan_4.jpg",
+      "/images/events/michigan/tokyo_event_photo_University_Michigan_5.jpg",
+      "/images/events/michigan/tokyo_event_photo_University_Michigan_6.jpg",
+      "/images/events/michigan/tokyo_event_photo_University_Michigan_7.jpg",
+      "/images/events/michigan/tokyo_event_photo_University_Michigan_8.jpg",
+      "/images/events/michigan/tokyo_event_photo_University_Michigan_9.jpg",
+    ],
+  },
 ];
 
 const faqs = [

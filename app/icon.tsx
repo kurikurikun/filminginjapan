@@ -9,9 +9,14 @@ export const contentType = 'image/png';
 // `background` changes, so the family reads as one but the tabs stay tellable
 // apart.
 //
-//   move-ment.co       #1a1a1a  (near-black — the brand's own dark palette)
-//   tesutemo.co        #e95228  (TesuTemo orange)
-//   filminginjapan.com #ff0000  (the sun dot from the FIJ logo)  ← this file
+//   move-ment.co       #1a1a1a on white  (near-black — the brand's dark palette)
+//   tesutemo.co        #e95228 on white  (TesuTemo orange)
+//   filminginjapan.com #fdf8f3 on #0d0a07  ← this file
+//
+// FIJ is the one inverted tile: its site ground is the warm cream #fdf8f3 with
+// #0d0a07 text (app/globals.css), so the mark goes dark-on-light here. That also
+// buys the clearest three-way separation — near-black / orange / cream — which
+// red did not, sitting too close to TesuTemo's orange at tab size.
 export default function Icon() {
   return new ImageResponse(
     (
@@ -22,7 +27,7 @@ export default function Icon() {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          background: '#ff0000',
+          background: '#fdf8f3',
           borderRadius: '14px',
           fontFamily: 'sans-serif',
         }}
@@ -32,7 +37,7 @@ export default function Icon() {
             display: 'flex',
             alignItems: 'center',
             gap: '2px',
-            color: '#ffffff',
+            color: '#0d0a07',
             fontSize: '25px',
             fontWeight: 700,
             letterSpacing: '-0.5px',
@@ -45,7 +50,7 @@ export default function Icon() {
               display: 'flex',
               width: '7px',
               height: '4px',
-              background: '#ffffff',
+              background: '#0d0a07',
               borderRadius: '1px',
             }}
           />

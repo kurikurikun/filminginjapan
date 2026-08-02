@@ -50,6 +50,14 @@ const differentiators = [
 
 const projects = [
   {
+    title: "Esports Tournament Recap",
+    venue: "Tokyo",
+    desc: "Recap video for a fighting game tournament in Tokyo, edited to carry the scale of the venue, the atmosphere on the competition floor and the reaction of the crowd.",
+    vimeoId: "1212259773",
+    vimeoHash: "e3a9d1a2ff",
+    img: null,
+  },
+  {
     title: "International Hospitality Investment Forum",
     venue: "Kimpton Hotel, Shinjuku, Tokyo · 2025",
     desc: "Event highlight video, full photography coverage, and standalone attendee testimonial-style recap videos for the IHIF conference — all delivered from a single coordinated shoot.",

@@ -50,6 +50,14 @@ const differentiators = [
 
 const projects = [
   {
+    title: "eスポーツ大会 リキャップ映像",
+    venue: "東京",
+    desc: "東京で開催された対戦格闘ゲーム大会のリキャップ映像。会場のスケール感、競技フロアの熱気、観客の反応を1本の映像にまとめました。",
+    vimeoId: "1212259773",
+    vimeoHash: "e3a9d1a2ff",
+    img: null,
+  },
+  {
     title: "International Hospitality Investment Forum (IHIF）",
     venue: "キンプトンホテル 新宿・東京 · 2025",
     desc: "IHIFカンファレンスのイベントハイライト映像・写真撮影全般・参加者インタビュー形式のリキャップ動画を、ひとつの統合撮影チームで一括納品。",

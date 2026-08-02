@@ -177,18 +177,20 @@ export default function SocialMediaVideoPage() {
                 <p className="mt-1.5 text-xs font-black" style={{ color: "#1c1208" }}>30 sec · 16:9 Horizontal</p>
               </div>
 
-              {/* Square cuts side by side */}
+              {/* Vertical + square cuts side by side — 9:16 is width-constrained so both columns match height */}
               <div className="grid grid-cols-2 gap-4 mb-2">
                 <div>
-                  <div className="relative overflow-hidden" style={{ aspectRatio: "1/1", backgroundColor: "#0d0a07" }}>
-                    <iframe
-                      src="https://player.vimeo.com/video/1201694607?h=599a431abd&title=0&byline=0&portrait=0"
-                      className="absolute inset-0 w-full h-full"
-                      allow="autoplay; fullscreen; picture-in-picture"
-                      allowFullScreen
-                      title="15 second vertical cut"
-                      style={{ border: 0 }}
-                    />
+                  <div className="w-[56.25%] mx-auto">
+                    <div className="relative overflow-hidden" style={{ aspectRatio: "9/16", backgroundColor: "#0d0a07" }}>
+                      <iframe
+                        src="https://player.vimeo.com/video/1201694607?h=599a431abd&title=0&byline=0&portrait=0"
+                        className="absolute inset-0 w-full h-full"
+                        allow="autoplay; fullscreen; picture-in-picture"
+                        allowFullScreen
+                        title="15 second vertical cut"
+                        style={{ border: 0 }}
+                      />
+                    </div>
                   </div>
                   <p className="mt-1.5 text-xs font-black" style={{ color: "#1c1208" }}>15 sec · 9:16 Vertical</p>
                 </div>
@@ -339,6 +341,49 @@ export default function SocialMediaVideoPage() {
                     />
                   </div>
                   <p className="mt-1.5 text-xs font-black" style={{ color: "#1c1208" }}>Currypedia · JIBTV · YouTube Shorts</p>
+                </div>
+              </div>
+
+              {/* Inbound verticals */}
+              <div className="flex items-center gap-4 mb-6">
+                <div className="h-px w-10" style={{ backgroundColor: "#e95228" }} />
+                <span className="font-mono text-[10px] tracking-[0.35em] uppercase" style={{ color: "#e95228" }}>Inbound · Setouchi DMO</span>
+              </div>
+              <h2 className="text-3xl sm:text-4xl font-black mb-4 leading-tight" style={{ color: "#1c1208" }}>
+                Made for inbound<span style={{ color: "#e95228" }}>.</span><br />
+                <span style={{ color: "rgba(28,18,8,0.35)" }}>Filmed alongside the main shoot.</span>
+              </h2>
+              <p className="text-sm leading-relaxed mb-10" style={{ color: "rgba(28,18,8,0.55)" }}>
+                Vertical content for the inbound market, produced for Setouchi DMO alongside their main horizontal
+                production. Same locations, same crew, delivered as native 9:16 for social.
+              </p>
+
+              <div className="grid grid-cols-2 gap-4 mb-16">
+                <div>
+                  <div className="relative overflow-hidden" style={{ aspectRatio: "9/16", backgroundColor: "#0d0a07" }}>
+                    <iframe
+                      src="https://player.vimeo.com/video/1030964766?h=89413e0077&title=0&byline=0&portrait=0"
+                      className="absolute inset-0 w-full h-full"
+                      allow="autoplay; fullscreen; picture-in-picture"
+                      allowFullScreen
+                      title="Setouchi DMO — inbound vertical cut, 17 seconds"
+                      style={{ border: 0 }}
+                    />
+                  </div>
+                  <p className="mt-1.5 text-xs font-black" style={{ color: "#1c1208" }}>Setouchi DMO · 17 sec · 9:16 Vertical</p>
+                </div>
+                <div>
+                  <div className="relative overflow-hidden" style={{ aspectRatio: "9/16", backgroundColor: "#0d0a07" }}>
+                    <iframe
+                      src="https://player.vimeo.com/video/1030964803?h=587a005217&title=0&byline=0&portrait=0"
+                      className="absolute inset-0 w-full h-full"
+                      allow="autoplay; fullscreen; picture-in-picture"
+                      allowFullScreen
+                      title="Setouchi DMO — inbound vertical cut, 19 seconds"
+                      style={{ border: 0 }}
+                    />
+                  </div>
+                  <p className="mt-1.5 text-xs font-black" style={{ color: "#1c1208" }}>Setouchi DMO · 19 sec · 9:16 Vertical</p>
                 </div>
               </div>
 

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
+import { getTrackingParams, getTrackingSource } from "@/lib/tracking";
 
 function SampleDeliverable({ src, poster, label, autoPlay = false }: { src: string; poster?: string; label: string; autoPlay?: boolean }) {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -303,14 +304,8 @@ export default function EventSocialSection() {
   const [trackingParams, setTrackingParams] = useState<{ gclid?: string; campaign?: string; source?: string }>({});
 
   useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
-    const gclid = params.get("gclid") || undefined;
-    const campaign = params.get("utm_campaign") || undefined;
-    const utmSource = params.get("utm_source") || undefined;
-    let source: string | undefined;
-    if (gclid) source = "Google Ads";
-    else if (utmSource) source = utmSource;
-    setTrackingParams({ gclid, campaign, source });
+    const t = getTrackingParams();
+    setTrackingParams({ gclid: t.gclid, campaign: t.utm_campaign, source: getTrackingSource(t) });
   }, []);
 
   const selectedPrice = selectedTier && selectedDur ? prices[selectedTier]?.[selectedDur] : "";

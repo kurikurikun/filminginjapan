@@ -1,31 +1,13 @@
 "use client";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
+import { getTrackingParams, type TrackingParams } from "@/lib/tracking";
 
 declare global {
   interface Window {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     gtag?: (...args: any[]) => void;
   }
-}
-
-const UTM_KEYS = ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term", "gclid"];
-
-function getTrackingParams(): Record<string, string> {
-  if (typeof window === "undefined") return {};
-  const params = new URLSearchParams(window.location.search);
-  const result: Record<string, string> = {};
-  // Read from URL first, fall back to sessionStorage
-  UTM_KEYS.forEach((key) => {
-    const val = params.get(key) || sessionStorage.getItem(key) || "";
-    if (val) result[key] = val;
-  });
-  // Persist any new values to sessionStorage
-  UTM_KEYS.forEach((key) => {
-    const val = params.get(key);
-    if (val) sessionStorage.setItem(key, val);
-  });
-  return result;
 }
 
 interface Props {
@@ -35,7 +17,7 @@ interface Props {
 export default function LandingContactForm({ service }: Props) {
   const router = useRouter();
   const [status, setStatus] = useState<"idle" | "sending" | "error">("idle");
-  const [tracking, setTracking] = useState<Record<string, string>>({});
+  const [tracking, setTracking] = useState<TrackingParams>({});
 
   useEffect(() => {
     setTracking(getTrackingParams());
@@ -61,6 +43,8 @@ export default function LandingContactForm({ service }: Props) {
           message: String(data.get("message") || ""),
           source: `${window.location.pathname}${tracking.gclid ? " (Google Ads)" : ""}${tracking.utm_source ? ` (${tracking.utm_source})` : ""}`,
           tags: [service.toLowerCase().replace(/\s+/g, "-")],
+          gclid: tracking.gclid,
+          campaign: tracking.utm_campaign,
         }),
       });
       if (res.ok) {

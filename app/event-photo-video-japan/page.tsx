@@ -307,27 +307,8 @@ export default function EventVideoPage() {
         </div>
       </section>
 
-      {/* Event Social Section */}
-      <EventSocialSection />
-
-      {/* Transition to full production */}
-      <section className="py-16 border-t" style={{ borderColor: "#e8d9c8", backgroundColor: "#fdf8f3" }}>
-        <div className="max-w-5xl mx-auto px-6 sm:px-12">
-          <div className="flex items-center gap-4 mb-4">
-            <div className="h-px w-10" style={{ backgroundColor: "#e95228" }} />
-            <span className="font-mono text-[10px] tracking-[0.35em] uppercase" style={{ color: "#e95228" }}>Full event production</span>
-          </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black leading-[0.95] mb-4" style={{ color: "#1c1208" }}>
-            Need something<br /><span style={{ color: "rgba(28,18,8,0.4)" }}>more bespoke?</span>
-          </h2>
-          <p className="text-sm leading-relaxed max-w-xl" style={{ color: "rgba(28,18,8,0.55)" }}>
-            Multi-day coverage, live streaming, hybrid events, executive interviews, green screen, multi-camera conference production — for events that need a fully custom approach, we do that too.
-          </p>
-        </div>
-      </section>
-
       {/* Main content + form */}
-      <section className="py-24">
+      <section id="full-production" className="py-24">
         <div className="max-w-7xl mx-auto px-6 sm:px-12 lg:px-16">
           <div className="grid lg:grid-cols-[1fr_480px] gap-16 lg:gap-24">
 
@@ -492,21 +473,6 @@ export default function EventVideoPage() {
                 </blockquote>
               </div>
 
-              {/* FAQ */}
-              <div>
-                <div className="flex items-center gap-4 mb-8">
-                  <div className="h-px w-10" style={{ backgroundColor: "#e95228" }} />
-                  <h2 className="font-mono text-[10px] tracking-[0.35em] uppercase" style={{ color: "#e95228" }}>FAQ</h2>
-                </div>
-                <div className="space-y-6">
-                  {faqs.map((faq, i) => (
-                    <div key={i} className="pb-6 border-b" style={{ borderColor: "#e8d9c8" }}>
-                      <h4 className="font-black mb-2 text-sm" style={{ color: "#1c1208" }}>{faq.q}</h4>
-                      <p className="text-sm leading-relaxed" style={{ color: "rgba(28,18,8,0.55)" }}>{faq.a}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
             </div>
 
             {/* Right — sticky form */}
@@ -519,6 +485,43 @@ export default function EventVideoPage() {
                 <LandingContactForm service="Event Photo & Video Japan" />
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Transition to Event Social */}
+      <section className="py-16 border-t" style={{ borderColor: "#e8d9c8", backgroundColor: "#fdf8f3" }}>
+        <div className="max-w-5xl mx-auto px-6 sm:px-12">
+          <div className="flex items-center gap-4 mb-4">
+            <div className="h-px w-10" style={{ backgroundColor: "#e95228" }} />
+            <span className="font-mono text-[10px] tracking-[0.35em] uppercase" style={{ color: "#e95228" }}>Event Social</span>
+          </div>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black leading-[0.95] mb-4" style={{ color: "#1c1208" }}>
+            Or need it fast<br /><span style={{ color: "rgba(28,18,8,0.4)" }}>and fixed-price?</span>
+          </h2>
+          <p className="text-sm leading-relaxed max-w-xl" style={{ color: "rgba(28,18,8,0.55)" }}>
+            Short-form vertical video and edited photos on a fixed scope and a fixed price, delivered next day — built for social and internal channels. Packages, pricing and a separate enquiry form below.
+          </p>
+        </div>
+      </section>
+
+      {/* Event Social Section */}
+      <EventSocialSection />
+
+      {/* FAQ */}
+      <section className="py-20 border-t" style={{ borderColor: "#e8d9c8", backgroundColor: "#fdf8f3" }}>
+        <div className="max-w-5xl mx-auto px-6 sm:px-12">
+          <div className="flex items-center gap-4 mb-8">
+            <div className="h-px w-10" style={{ backgroundColor: "#e95228" }} />
+            <h2 className="font-mono text-[10px] tracking-[0.35em] uppercase" style={{ color: "#e95228" }}>FAQ</h2>
+          </div>
+          <div className="space-y-6">
+            {faqs.map((faq, i) => (
+              <div key={i} className="pb-6 border-b" style={{ borderColor: "#e8d9c8" }}>
+                <h4 className="font-black mb-2 text-sm" style={{ color: "#1c1208" }}>{faq.q}</h4>
+                <p className="text-sm leading-relaxed" style={{ color: "rgba(28,18,8,0.55)" }}>{faq.a}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>

@@ -534,7 +534,7 @@ export default function EventSocialSection() {
               <li>· Multi-day coverage or fully custom deliverables</li>
             </ul>
             <p className="text-sm font-black" style={{ color: "#1c1208" }}>
-              → See our <a href="#full-production" className="underline" style={{ color: "#e95228" }}>full production service</a> below.
+              → See our <a href="#full-production" className="underline" style={{ color: "#e95228" }}>full production service</a> above.
             </p>
           </div>
 

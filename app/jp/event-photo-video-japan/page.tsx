@@ -296,27 +296,8 @@ export default function EventVideoPageJP() {
         </div>
       </section>
 
-      {/* Event Social Section */}
-      <EventSocialSectionJP />
-
-      {/* Transition to full production */}
-      <section className="py-16 border-t" style={{ borderColor: "#e8d9c8", backgroundColor: "#fdf8f3" }}>
-        <div className="max-w-5xl mx-auto px-6 sm:px-12">
-          <div className="flex items-center gap-4 mb-4">
-            <div className="h-px w-10" style={{ backgroundColor: "#e95228" }} />
-            <span className="font-mono text-[10px] tracking-[0.35em] uppercase" style={{ color: "#e95228" }}>フルイベント制作</span>
-          </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black leading-[1.05] mb-4 break-keep" style={{ color: "#1c1208" }}>
-            もっとカスタマイズした<br /><span style={{ color: "rgba(28,18,8,0.4)" }}>制作が必要ですか？</span>
-          </h2>
-          <p className="text-sm leading-relaxed max-w-xl" style={{ color: "rgba(28,18,8,0.55)" }}>
-            複数日撮影、ライブ配信、ハイブリッドイベント、役員インタビュー、グリーンスクリーン、マルチカメラのカンファレンス制作まで。フルカスタムのアプローチが必要なイベントにも対応しています。
-          </p>
-        </div>
-      </section>
-
       {/* Main content + form */}
-      <section className="py-24">
+      <section id="full-production" className="py-24">
         <div className="max-w-7xl mx-auto px-6 sm:px-12 lg:px-16">
           <div className="grid lg:grid-cols-[1fr_480px] gap-16 lg:gap-24">
 
@@ -464,21 +445,6 @@ export default function EventVideoPageJP() {
                 </blockquote>
               </div>
 
-              {/* FAQ */}
-              <div>
-                <div className="flex items-center gap-4 mb-8">
-                  <div className="h-px w-10" style={{ backgroundColor: "#e95228" }} />
-                  <h2 className="font-mono text-[10px] tracking-[0.35em] uppercase" style={{ color: "#e95228" }}>よくある質問</h2>
-                </div>
-                <div className="space-y-6">
-                  {faqs.map((faq, i) => (
-                    <div key={i} className="pb-6 border-b" style={{ borderColor: "#e8d9c8" }}>
-                      <h4 className="font-black mb-2 text-sm" style={{ color: "#1c1208" }}>{faq.q}</h4>
-                      <p className="text-sm leading-relaxed" style={{ color: "rgba(28,18,8,0.55)" }}>{faq.a}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
             </div>
 
             {/* Right — sticky form */}
@@ -491,6 +457,43 @@ export default function EventVideoPageJP() {
                 <LandingContactForm service="Event Photo & Video JP" />
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Transition to Event Social */}
+      <section className="py-16 border-t" style={{ borderColor: "#e8d9c8", backgroundColor: "#fdf8f3" }}>
+        <div className="max-w-5xl mx-auto px-6 sm:px-12">
+          <div className="flex items-center gap-4 mb-4">
+            <div className="h-px w-10" style={{ backgroundColor: "#e95228" }} />
+            <span className="font-mono text-[10px] tracking-[0.35em] uppercase" style={{ color: "#e95228" }}>Event Social</span>
+          </div>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black leading-[1.05] mb-4 break-keep" style={{ color: "#1c1208" }}>
+            スピードと明朗会計を<br /><span style={{ color: "rgba(28,18,8,0.4)" }}>優先したい方へ。</span>
+          </h2>
+          <p className="text-sm leading-relaxed max-w-xl" style={{ color: "rgba(28,18,8,0.55)" }}>
+            縦型ショート動画と編集済み写真を、固定スコープ・固定価格で翌日納品。SNSや社内チャンネル向けのパッケージです。プラン内容・料金・専用のお問い合わせフォームは以下をご覧ください。
+          </p>
+        </div>
+      </section>
+
+      {/* Event Social Section */}
+      <EventSocialSectionJP />
+
+      {/* FAQ */}
+      <section className="py-20 border-t" style={{ borderColor: "#e8d9c8", backgroundColor: "#fdf8f3" }}>
+        <div className="max-w-5xl mx-auto px-6 sm:px-12">
+          <div className="flex items-center gap-4 mb-8">
+            <div className="h-px w-10" style={{ backgroundColor: "#e95228" }} />
+            <h2 className="font-mono text-[10px] tracking-[0.35em] uppercase" style={{ color: "#e95228" }}>よくある質問</h2>
+          </div>
+          <div className="space-y-6">
+            {faqs.map((faq, i) => (
+              <div key={i} className="pb-6 border-b" style={{ borderColor: "#e8d9c8" }}>
+                <h4 className="font-black mb-2 text-sm" style={{ color: "#1c1208" }}>{faq.q}</h4>
+                <p className="text-sm leading-relaxed" style={{ color: "rgba(28,18,8,0.55)" }}>{faq.a}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>

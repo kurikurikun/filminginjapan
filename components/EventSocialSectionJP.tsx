@@ -535,7 +535,7 @@ export default function EventSocialSectionJP() {
               <li>・ 複数日撮影・完全オーダーメイドの納品物</li>
             </ul>
             <p className="text-sm font-black" style={{ color: "#1c1208" }}>
-              → 下記の<a href="#full-production" className="underline" style={{ color: "#e95228" }}>フル制作サービス</a>をご覧ください。
+              → 上記の<a href="#full-production" className="underline" style={{ color: "#e95228" }}>フル制作サービス</a>をご覧ください。
             </p>
           </div>
 

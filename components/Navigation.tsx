@@ -2,29 +2,45 @@
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
-
-const enLinks = [
-  { label: "Corporate Video", href: "/corporate-branding-videos-japan" },
-  { label: "Testimonials", href: "/client-testimonials-video-production-tokyo-japan" },
-  { label: "Events", href: "/event-photo-video-japan" },
-  { label: "Real Estate", href: "/real-estate-photo-video-tokyo-japan" },
-  { label: "Contact", href: "/contact" },
-];
-
-const jpLinks = [
-  { label: "インタビュー・採用", href: "/jp/corporate-video" },
-  { label: "カスタマーストーリー", href: "/jp/client-testimonial" },
-  { label: "イベント", href: "/jp/event-photo-video" },
-  { label: "不動産", href: "/jp/real-estate-photo-video" },
-  { label: "お問い合わせ", href: "/jp/contact" },
-];
+import { useEffect, useRef, useState } from "react";
+import {
+  enServices,
+  jpServices,
+  enSocialGroup,
+  jpSocialGroup,
+  liveChildren,
+} from "@/lib/services";
 
 export default function Navigation() {
   const pathname = usePathname();
   const isJp = pathname.startsWith("/jp");
-  const links = isJp ? jpLinks : enLinks;
+  const links = isJp ? jpServices : enServices;
+  const group = isJp ? jpSocialGroup : enSocialGroup;
+  const groupLinks = liveChildren(group);
+  const contact = isJp
+    ? { label: "お問い合わせ", href: "/jp/contact" }
+    : { label: "Contact", href: "/contact" };
   const [open, setOpen] = useState(false);
+  const [groupOpen, setGroupOpen] = useState(false);
+  const groupRef = useRef<HTMLDivElement>(null);
+
+  // Close the dropdown on Escape or a click outside it
+  useEffect(() => {
+    if (!groupOpen) return;
+    const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") setGroupOpen(false); };
+    const onClick = (e: MouseEvent) => {
+      if (groupRef.current && !groupRef.current.contains(e.target as Node)) setGroupOpen(false);
+    };
+    window.addEventListener("keydown", onKey);
+    document.addEventListener("mousedown", onClick);
+    return () => {
+      window.removeEventListener("keydown", onKey);
+      document.removeEventListener("mousedown", onClick);
+    };
+  }, [groupOpen]);
+
+  // Close the dropdown when navigating
+  useEffect(() => { setGroupOpen(false); }, [pathname]);
 
   // Path mappings where EN and JP URLs differ
   const jpToEn: Record<string, string> = {
@@ -32,12 +48,14 @@ export default function Navigation() {
     "/jp/client-testimonials-video-production-tokyo-japan": "/client-testimonials-video-production-tokyo-japan",
     "/jp/event-photo-video-japan": "/event-photo-video-japan",
     "/jp/real-estate-photo-video-tokyo-japan": "/real-estate-photo-video-tokyo-japan",
+    "/jp/managed-youtube": "/managed-youtube-japan",
   };
   const enToJp: Record<string, string> = {
     "/corporate-branding-videos-japan": "/jp/corporate-video",
     "/client-testimonials-video-production-tokyo-japan": "/jp/client-testimonials-video-production-tokyo-japan",
     "/event-photo-video-japan": "/jp/event-photo-video-japan",
     "/real-estate-photo-video-tokyo-japan": "/jp/real-estate-photo-video-tokyo-japan",
+    "/managed-youtube-japan": "/jp/managed-youtube",
   };
 
   // Language toggle target
@@ -74,6 +92,73 @@ export default function Navigation() {
                 {link.label}
               </Link>
             ))}
+
+            {/* Social + YouTube — flat link while only one page is live, dropdown once both are */}
+            {groupLinks.length === 1 && (
+              <Link
+                href={groupLinks[0].href}
+                className={`text-sm font-medium transition-colors hover:text-[#e95228] ${
+                  pathname === groupLinks[0].href ? "text-[#e95228]" : "text-neutral-600"
+                }`}
+              >
+                {groupLinks[0].label}
+              </Link>
+            )}
+            {groupLinks.length > 1 && (
+              <div
+                ref={groupRef}
+                className="relative"
+                onMouseEnter={() => setGroupOpen(true)}
+                onMouseLeave={() => setGroupOpen(false)}
+              >
+                <button
+                  onClick={() => setGroupOpen(!groupOpen)}
+                  aria-expanded={groupOpen}
+                  aria-haspopup="true"
+                  className={`flex items-center gap-1.5 text-sm font-medium transition-colors hover:text-[#e95228] ${
+                    groupLinks.some((c) => c.href === pathname) ? "text-[#e95228]" : "text-neutral-600"
+                  }`}
+                >
+                  {group.label}
+                  <svg
+                    className={`w-3 h-3 transition-transform ${groupOpen ? "rotate-180" : ""}`}
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
+                {groupOpen && (
+                  <div
+                    className="absolute left-0 top-full pt-3 min-w-[220px]"
+                  >
+                    <div className="border py-2" style={{ backgroundColor: "#fdf8f3", borderColor: "#e8d9c8" }}>
+                      {groupLinks.map((child) => (
+                        <Link
+                          key={child.href}
+                          href={child.href}
+                          className={`block px-4 py-2 text-sm font-medium transition-colors hover:text-[#e95228] ${
+                            pathname === child.href ? "text-[#e95228]" : "text-neutral-600"
+                          }`}
+                        >
+                          {child.label}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+            )}
+
+            <Link
+              href={contact.href}
+              className={`text-sm font-medium transition-colors hover:text-[#e95228] ${
+                pathname === contact.href ? "text-[#e95228]" : "text-neutral-600"
+              }`}
+            >
+              {contact.label}
+            </Link>
           </nav>
 
           <div className="flex items-center gap-3">
@@ -122,6 +207,42 @@ export default function Navigation() {
               {link.label}
             </Link>
           ))}
+
+          {/* Social + YouTube — flat while only one page is live, grouped once both are */}
+          {groupLinks.length === 1 && (
+            <Link
+              href={groupLinks[0].href}
+              onClick={() => setOpen(false)}
+              className="block text-sm font-medium text-neutral-700 hover:text-[#e95228] py-1"
+            >
+              {groupLinks[0].label}
+            </Link>
+          )}
+          {groupLinks.length > 1 && (
+            <div className="space-y-2">
+              <span className="block font-mono text-[10px] tracking-[0.2em] uppercase pt-1" style={{ color: "#e95228" }}>
+                {group.label}
+              </span>
+              {groupLinks.map((child) => (
+                <Link
+                  key={child.href}
+                  href={child.href}
+                  onClick={() => setOpen(false)}
+                  className="block pl-4 text-sm font-medium text-neutral-700 hover:text-[#e95228] py-1"
+                >
+                  {child.label}
+                </Link>
+              ))}
+            </div>
+          )}
+
+          <Link
+            href={contact.href}
+            onClick={() => setOpen(false)}
+            className="block text-sm font-medium text-neutral-700 hover:text-[#e95228] py-1"
+          >
+            {contact.label}
+          </Link>
         </div>
       )}
     </header>

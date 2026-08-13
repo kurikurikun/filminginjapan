@@ -205,7 +205,7 @@ export default function HomePage() {
                 </span>
               </div>
               <h2 className="text-4xl sm:text-6xl font-black leading-[0.9]" style={{ color: "#1c1208" }}>
-                Four ways we<br />
+                Five ways we<br />
                 <em className="not-italic" style={{ color: "#e95228" }}>tell your story.</em>
               </h2>
             </div>

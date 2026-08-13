@@ -2,6 +2,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
+import { allLiveServices } from "@/lib/services";
 
 interface FooterProps {
   lang?: "en" | "jp";
@@ -17,12 +18,14 @@ export default function Footer({ lang = "en" }: FooterProps) {
     "/jp/client-testimonials-video-production-tokyo-japan": "/client-testimonials-video-production-tokyo-japan",
     "/jp/event-photo-video-japan": "/event-photo-video-japan",
     "/jp/real-estate-photo-video-tokyo-japan": "/real-estate-photo-video-tokyo-japan",
+    "/jp/managed-youtube": "/managed-youtube-japan",
   };
   const enToJp: Record<string, string> = {
     "/corporate-branding-videos-japan": "/jp/corporate-video",
     "/client-testimonials-video-production-tokyo-japan": "/jp/client-testimonials-video-production-tokyo-japan",
     "/event-photo-video-japan": "/jp/event-photo-video-japan",
     "/real-estate-photo-video-tokyo-japan": "/jp/real-estate-photo-video-tokyo-japan",
+    "/managed-youtube-japan": "/jp/managed-youtube",
   };
 
   // Smart language toggle — mirrors the same logic as Navigation
@@ -33,7 +36,7 @@ export default function Footer({ lang = "en" }: FooterProps) {
   return (
     <footer className="bg-neutral-900 text-white pt-16 pb-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid md:grid-cols-4 gap-10 pb-12 border-b border-white/10">
+        <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-white/10">
           {/* Brand */}
           <div className="md:col-span-2">
             <div className="mb-4 inline-block px-3 py-2 bg-white">
@@ -57,6 +60,22 @@ export default function Footer({ lang = "en" }: FooterProps) {
               </Link>
               <Link href="https://www.move-ment.co" target="_blank" className="text-neutral-400 hover:text-[#e95228] transition-colors">move-ment.co</Link>
             </div>
+          </div>
+
+          {/* Services */}
+          <div>
+            <h4 className="font-mono text-xs tracking-[0.2em] text-[#e95228] uppercase mb-4">
+              {isJp ? "サービス" : "Services"}
+            </h4>
+            <ul className="space-y-2">
+              {allLiveServices(isJp ? "jp" : "en").map((s) => (
+                <li key={s.href}>
+                  <Link href={s.href} className="text-neutral-400 text-sm hover:text-[#e95228] transition-colors">
+                    {s.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
 
           {/* Tokyo */}

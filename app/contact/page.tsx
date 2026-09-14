@@ -83,6 +83,15 @@ export default function ContactPage() {
                   <p className="text-lg font-black" style={{ color: "#1c1208" }}>Tokyo &amp; Hiroshima, Japan</p>
                   <p className="text-sm mt-1" style={{ color: "rgba(28,18,8,0.5)" }}>Available nationwide</p>
                 </div>
+                <div>
+                  <div className="flex items-center gap-3 mb-3">
+                    <Image src="/images/ds-mark.svg" alt="DS designated store mark" width={40} height={32} unoptimized />
+                    <p className="font-mono text-[10px] tracking-[0.3em] uppercase" style={{ color: "#e95228" }}>Diplomatic missions</p>
+                  </div>
+                  <p className="text-sm leading-relaxed max-w-md" style={{ color: "rgba(28,18,8,0.6)" }}>
+                    Move-ment is designated by Japan&apos;s Ministry of Foreign Affairs as a store for consumption tax exemption for foreign diplomatic missions and international organisations (designated September 2026). Embassies, consulates and UN agencies holding a MOFA tax exemption card can procure our services free of Japanese consumption tax.
+                  </p>
+                </div>
               </div>
             </div>
 

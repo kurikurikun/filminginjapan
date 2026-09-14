@@ -46,6 +46,11 @@ const differentiators = [
     title: "国内外大手企業との実績",
     desc: "政府代表団・国際NGO・多国籍企業の東京イベントに多数対応。ハイプロファイルなイベントで求められる品質・対応力を備えています。",
   },
+  {
+    title: "外国公館・国際機関",
+    dsMark: true,
+    desc: "外務省『外国公館等に対する消費税免除指定店舗』（2026年9月指定）。大使館・領事館・国際機関のお客様は、免税カードのご提示により消費税抜き価格でご利用いただけます。",
+  },
 ];
 
 const projects = [
@@ -336,7 +341,10 @@ export default function EventVideoPageJP() {
                       {String(i + 1).padStart(2, "0")}
                     </span>
                     <div>
-                      <h3 className="font-black mb-1 text-sm" style={{ color: "#1c1208" }}>{d.title}</h3>
+                      <h3 className="font-black mb-1 text-sm flex items-center gap-2" style={{ color: "#1c1208" }}>
+                        {d.title}
+                        {d.dsMark && <Image src="/images/ds-mark.svg" alt="DS 消費税免除指定店舗標識" width={25} height={20} unoptimized />}
+                      </h3>
                       <p className="text-sm leading-relaxed" style={{ color: "rgba(28,18,8,0.55)" }}>{d.desc}</p>
                     </div>
                   </div>

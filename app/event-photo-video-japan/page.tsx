@@ -46,6 +46,11 @@ const differentiators = [
     title: "Trusted by global brands",
     desc: "Our clients include government delegations, international NGOs, and multinational companies hosting events in Tokyo. We know what's expected at high-profile events.",
   },
+  {
+    title: "Diplomatic missions",
+    dsMark: true,
+    desc: "Move-ment is designated by Japan's Ministry of Foreign Affairs as a store for consumption tax exemption for foreign diplomatic missions and international organisations (designated September 2026). Embassies, consulates and UN agencies holding a MOFA tax exemption card can procure our services free of Japanese consumption tax.",
+  },
 ];
 
 const projects = [
@@ -348,7 +353,10 @@ export default function EventVideoPage() {
                       {String(i + 1).padStart(2, "0")}
                     </span>
                     <div>
-                      <h3 className="font-black mb-1 text-sm" style={{ color: "#1c1208" }}>{d.title}</h3>
+                      <h3 className="font-black mb-1 text-sm flex items-center gap-2" style={{ color: "#1c1208" }}>
+                        {d.title}
+                        {d.dsMark && <Image src="/images/ds-mark.svg" alt="DS designated store mark" width={25} height={20} unoptimized />}
+                      </h3>
                       <p className="text-sm leading-relaxed" style={{ color: "rgba(28,18,8,0.55)" }}>{d.desc}</p>
                     </div>
                   </div>

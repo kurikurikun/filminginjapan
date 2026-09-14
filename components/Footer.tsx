@@ -110,6 +110,21 @@ export default function Footer({ lang = "en" }: FooterProps) {
           </div>
         </div>
 
+        {/* MOFA consumption tax exemption designation */}
+        <div className="py-6 border-b border-white/10 flex items-start gap-4">
+          <Image src="/images/ds-mark.svg" alt="DS designated store mark" width={50} height={40} className="shrink-0 mt-0.5" unoptimized />
+          <div>
+            <h4 className="font-mono text-xs tracking-[0.2em] text-[#e95228] uppercase mb-2">
+              {isJp ? "指定" : "Designation"}
+            </h4>
+            <p className="text-neutral-400 text-xs leading-relaxed max-w-3xl">
+              {isJp
+                ? "外務省『外国公館等に対する消費税免除指定店舗』（2026年9月指定）。大使館・領事館・国際機関のお客様は、免税カードのご提示により消費税抜き価格でご利用いただけます。"
+                : "Move-ment is designated by Japan's Ministry of Foreign Affairs as a store for consumption tax exemption for foreign diplomatic missions and international organisations (designated September 2026). Embassies, consulates and UN agencies holding a MOFA tax exemption card can procure our services free of Japanese consumption tax."}
+            </p>
+          </div>
+        </div>
+
         <div className="mt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
           <p className="text-neutral-500 text-xs font-mono tracking-wider">
             &copy; {new Date().getFullYear()} Move-ment Co. Ltd. / 株式会社ムーブメント

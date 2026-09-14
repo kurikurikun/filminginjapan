@@ -83,6 +83,15 @@ export default function ContactPageJp() {
                   <p className="text-lg font-black" style={{ color: "#1c1208" }}>東京・広島</p>
                   <p className="text-sm mt-1" style={{ color: "rgba(28,18,8,0.5)" }}>全国対応</p>
                 </div>
+                <div>
+                  <div className="flex items-center gap-3 mb-3">
+                    <Image src="/images/ds-mark.svg" alt="DS 消費税免除指定店舗標識" width={40} height={32} unoptimized />
+                    <p className="font-mono text-[10px] tracking-[0.3em] uppercase" style={{ color: "#e95228" }}>外国公館・国際機関</p>
+                  </div>
+                  <p className="text-sm leading-relaxed max-w-md" style={{ color: "rgba(28,18,8,0.6)" }}>
+                    外務省『外国公館等に対する消費税免除指定店舗』（2026年9月指定）。大使館・領事館・国際機関のお客様は、免税カードのご提示により消費税抜き価格でご利用いただけます。
+                  </p>
+                </div>
               </div>
             </div>
 

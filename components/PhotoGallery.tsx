@@ -8,7 +8,11 @@ interface Event {
   photos: string[];
 }
 
-export default function PhotoGallery({ events }: { events: Event[] }) {
+export default function PhotoGallery({ events, lang = "en" }: { events: Event[]; lang?: "en" | "jp" }) {
+  const altFor = (e: Event, n?: number) =>
+    lang === "jp"
+      ? `${e.label}（${e.location}）企業イベント写真撮影${n ? ` ${n}` : ""}`
+      : `${e.label} at ${e.location} — corporate event photography in Japan${n ? ` (${n})` : ""}`;
   const [openIndex, setOpenIndex] = useState<number | null>(0);
   const [lightbox, setLightbox] = useState<{ eventIdx: number; photoIdx: number } | null>(null);
 
@@ -37,7 +41,7 @@ export default function PhotoGallery({ events }: { events: Event[] }) {
     <>
       <div style={{ backgroundColor: "#0d0a07" }}>
         <p className="text-sm px-8 pt-8 pb-4" style={{ color: "rgba(253,248,243,0.5)" }}>
-          A selection of recent event photography clients:
+          {lang === "jp" ? "最近のイベント写真撮影の実績：" : "A selection of recent event photography clients:"}
         </p>
         <div>
           {events.map((e, i) => {
@@ -54,7 +58,7 @@ export default function PhotoGallery({ events }: { events: Event[] }) {
                     <div className="flex -space-x-2 shrink-0">
                       {e.photos.slice(0, 3).map((src, j) => (
                         <div key={j} className="relative w-8 h-8 rounded overflow-hidden ring-1 ring-[#0d0a07]">
-                          <Image src={src} alt="" fill className="object-cover" sizes="32px" />
+                          <Image src={src} alt={altFor(e, j + 1)} fill className="object-cover" sizes="32px" />
                         </div>
                       ))}
                     </div>
@@ -63,7 +67,7 @@ export default function PhotoGallery({ events }: { events: Event[] }) {
                   <div className="flex items-center gap-3 ml-4 shrink-0">
                     <span className="font-mono text-[10px] tracking-[0.2em] uppercase hidden sm:block" style={{ color: "rgba(233,82,40,0.8)" }}>{e.location}</span>
                     <span className="font-mono text-[9px] tracking-widest uppercase px-2 py-1 rounded" style={{ color: "rgba(233,82,40,0.9)", backgroundColor: "rgba(233,82,40,0.1)" }}>
-                      {e.photos.length} photos
+                      {e.photos.length} {lang === "jp" ? "枚" : "photos"}
                     </span>
                     <svg
                       className="w-3 h-3 shrink-0 transition-transform duration-200"
@@ -84,7 +88,7 @@ export default function PhotoGallery({ events }: { events: Event[] }) {
                         className="relative aspect-[4/3] overflow-hidden group"
                         onClick={(ev) => openLightbox(i, j, ev)}
                       >
-                        <Image src={src} alt={`${e.label} — corporate event photography in Tokyo, Japan`} fill className="object-cover transition-transform duration-300 group-hover:scale-105" sizes="(max-width:640px) 50vw, 33vw" />
+                        <Image src={src} alt={altFor(e, j + 1)} fill className="object-cover transition-transform duration-300 group-hover:scale-105" sizes="(max-width:640px) 50vw, 33vw" />
                         <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200" style={{ backgroundColor: "rgba(0,0,0,0.35)" }}>
                           <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-4.35-4.35M17 11A6 6 0 1 1 5 11a6 6 0 0 1 12 0zm0 0l4 4" />
@@ -142,7 +146,7 @@ export default function PhotoGallery({ events }: { events: Event[] }) {
               <Image
                 key={photos[photoIdx]}
                 src={photos[photoIdx]}
-                alt={`${events[eventIdx].label} — corporate event photography in Tokyo, Japan`}
+                alt={altFor(events[eventIdx], photoIdx + 1)}
                 width={1400}
                 height={940}
                 className="object-contain w-full h-full"

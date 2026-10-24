@@ -56,16 +56,16 @@ const differentiators = [
 
 const projects = [
   {
-    title: "eスポーツ大会 リキャップ映像",
-    venue: "東京",
+    title: "EVO Japan 2024（Riot Games「2XKO」発表）",
+    venue: "有明GYM-EX・東京 · 2024",
     desc: "東京で開催された対戦格闘ゲーム大会のリキャップ映像。会場のスケール感、競技フロアの熱気、観客の反応を1本の映像にまとめました。",
     vimeoId: "1212259773",
     vimeoHash: "e3a9d1a2ff",
     img: null,
   },
   {
-    title: "International Hospitality Investment Forum (IHIF）",
-    venue: "キンプトンホテル 新宿・東京 · 2025",
+    title: "IHIF Asia（International Hospitality Investment Forum）",
+    venue: "キンプトン新宿東京 · 2025",
     desc: "IHIFカンファレンスのイベントハイライト映像・写真撮影全般・参加者インタビュー形式のリキャップ動画を、ひとつの統合撮影チームで一括納品。",
     vimeoId: "1063107227",
     vimeoHash: "c0bc991380",
@@ -73,7 +73,7 @@ const projects = [
   },
   {
     title: "CITC CLSA Tokyo Forum",
-    venue: "東京 · 2024 · 3日間イベント",
+    venue: "グランド ハイアット 東京 · 2024 · 3日間イベント",
     desc: "スタッフ・参加者・登壇者のコメントを3日間かけて収録したプロモーション動画。イベントの雰囲気を伝えるロケーションを選定し、日英字幕付きで編集。参加者の映り込み要件にも細心の注意を払いました。",
     vimeoId: "959287158",
     vimeoHash: "1368289498",
@@ -91,8 +91,8 @@ const projects = [
 
 const photoEvents = [
   {
-    label: "Worldwide Partners (WPI) event",
-    location: "東京",
+    label: "WPI グローバルサミット2025（Worldwide Partners）",
+    location: "キンプトン新宿東京",
     photos: [
       "/images/events/wpi/Tokyo-corporate-event-photography1.jpg",
       "/images/events/wpi/Tokyo-corporate-event-photography4.jpg",
@@ -106,8 +106,8 @@ const photoEvents = [
     ],
   },
   {
-    label: "Government trade delegation from Ireland",
-    location: "東京",
+    label: "アイルランド政府貿易代表団（Bord Bia）",
+    location: "ホテルニューオータニ東京",
     photos: [
       "/images/events/ireland/event_photography_tokyo_japan_17.jpg",
       "/images/events/ireland/event_photography_tokyo_japan_11.jpg",
@@ -118,8 +118,8 @@ const photoEvents = [
     ],
   },
   {
-    label: "Red Bull esports gaming event",
-    location: "東京",
+    label: "Red Bull eスポーツイベント",
+    location: "Red Bull Gaming Sphere Tokyo",
     photos: [
       "/images/events/esports/event_photography_tokyo_japan_16.jpg",
       "/images/events/esports/event_photography_tokyo_japan_8.jpg",
@@ -133,8 +133,8 @@ const photoEvents = [
     ],
   },
   {
-    label: "International philanthropic organisation gathering",
-    location: "東京",
+    label: "AVPN アジア・フィランソロピー委員会",
+    location: "八芳園",
     photos: [
       "/images/events/philanthropic/tokyo_event_photography_happoen1.jpg",
       "/images/events/philanthropic/tokyo_event_photography_happoen2.jpg",
@@ -148,8 +148,8 @@ const photoEvents = [
     ],
   },
   {
-    label: "JICE government trade delegation from Oman",
-    location: "東京",
+    label: "オマーン政府貿易代表団（JICE）",
+    location: "江戸東京博物館・各省庁",
     photos: [
       "/images/events/oman/event_photography_tokyo_japan_1.jpg",
       "/images/events/oman/event_photography_tokyo_japan_3.jpg",
@@ -163,8 +163,8 @@ const photoEvents = [
     ],
   },
   {
-    label: "London Mayor at British Chamber of Commerce Japan event",
-    location: "東京",
+    label: "ロンドン市長来日（在日英国商業会議所）",
+    location: "英国大使館・チームラボボーダレス",
     photos: [
       "/images/events/bccj/tokyo_event_photo_BCCJ_london_3.jpg",
       "/images/events/bccj/tokyo_event_photo_BCCJ_london_4.jpg",
@@ -178,8 +178,8 @@ const photoEvents = [
     ],
   },
   {
-    label: "University of Michigan alumni event",
-    location: "東京",
+    label: "ミシガン大学 同窓会イベント",
+    location: "ANAインターコンチネンタルホテル東京",
     photos: [
       "/images/events/michigan/tokyo_event_photo_University_Michigan_1.jpg",
       "/images/events/michigan/tokyo_event_photo_University_Michigan_2.jpg",
@@ -256,7 +256,7 @@ export default function EventVideoPageJP() {
         <div className="absolute inset-0">
           <Image
             src="/images/event_top.jpg"
-            alt=""
+            alt="東京のカンファレンスでの企業イベント写真・映像撮影"
             fill
             priority
             className="object-cover"
@@ -418,7 +418,7 @@ export default function EventVideoPageJP() {
                 <h2 className="font-mono text-[10px] tracking-[0.35em] uppercase" style={{ color: "#e95228" }}>写真撮影実績</h2>
               </div>
               <div className="mb-16">
-                <PhotoGallery events={photoEvents} />
+                <PhotoGallery events={photoEvents} lang="jp" />
               </div>
 
               {/* Google Reviews */}

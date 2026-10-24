@@ -8,7 +8,7 @@ import GoogleReviews from "@/components/GoogleReviews";
 import PhotoGallery from "@/components/PhotoGallery";
 
 export const metadata: Metadata = {
-  title: "Corporate Event Photography & Video Tokyo Japan",
+  title: "Corporate Event Photography & Video Tokyo",
   description: "Bilingual corporate event photography and video in Tokyo and across Japan. Conferences, summits, product launches, galas. Same-day edits. Trusted by global brands.",
   alternates: {
     canonical: "https://www.filminginjapan.com/event-photo-video-japan",
@@ -56,16 +56,16 @@ const differentiators = [
 
 const projects = [
   {
-    title: "Esports Tournament Recap",
-    venue: "Tokyo",
+    title: "EVO Japan 2024 – Riot Games 2XKO Reveal",
+    venue: "Ariake GYM-EX, Tokyo · 2024",
     desc: "Recap video for a fighting game tournament in Tokyo, edited to carry the scale of the venue, the atmosphere on the competition floor and the reaction of the crowd.",
     vimeoId: "1212259773",
     vimeoHash: "e3a9d1a2ff",
     img: null,
   },
   {
-    title: "International Hospitality Investment Forum",
-    venue: "Kimpton Hotel, Shinjuku, Tokyo · 2025",
+    title: "IHIF Asia – International Hospitality Investment Forum",
+    venue: "Kimpton Shinjuku Tokyo · 2025",
     desc: "Event highlight video, full photography coverage, and standalone attendee testimonial-style recap videos for the IHIF conference — all delivered from a single coordinated shoot.",
     vimeoId: "1063107227",
     vimeoHash: "c0bc991380",
@@ -73,7 +73,7 @@ const projects = [
   },
   {
     title: "CITC CLSA Tokyo Forum",
-    venue: "Tokyo · 2024 · 3-day event",
+    venue: "Grand Hyatt Tokyo · 2024 · 3-day event",
     desc: "Promotional video filmed over 3 days with comments from staff, attendees and speakers at locations selected to convey the event atmosphere. Edited with Japanese and English subtitles, with careful attention to attendee visibility requirements.",
     vimeoId: "959287158",
     vimeoHash: "1368289498",
@@ -91,8 +91,8 @@ const projects = [
 
 const photoEvents = [
   {
-    label: "Worldwide Partners (WPI) event",
-    location: "Tokyo",
+    label: "WPI Global Summit 2025 (Worldwide Partners)",
+    location: "Kimpton Shinjuku Tokyo",
     photos: [
       "/images/events/wpi/Tokyo-corporate-event-photography1.jpg",
       "/images/events/wpi/Tokyo-corporate-event-photography4.jpg",
@@ -106,8 +106,8 @@ const photoEvents = [
     ],
   },
   {
-    label: "Government trade delegation from Ireland",
-    location: "Tokyo",
+    label: "Irish government trade delegation (Bord Bia)",
+    location: "Hotel New Otani Tokyo",
     photos: [
       "/images/events/ireland/event_photography_tokyo_japan_17.jpg",
       "/images/events/ireland/event_photography_tokyo_japan_11.jpg",
@@ -119,7 +119,7 @@ const photoEvents = [
   },
   {
     label: "Red Bull esports gaming event",
-    location: "Tokyo",
+    location: "Red Bull Gaming Sphere Tokyo",
     photos: [
       "/images/events/esports/event_photography_tokyo_japan_16.jpg",
       "/images/events/esports/event_photography_tokyo_japan_8.jpg",
@@ -133,8 +133,8 @@ const photoEvents = [
     ],
   },
   {
-    label: "International philanthropic organisation gathering",
-    location: "Tokyo",
+    label: "AVPN Commission on Asian Philanthropy",
+    location: "Happo-en, Tokyo",
     photos: [
       "/images/events/philanthropic/tokyo_event_photography_happoen1.jpg",
       "/images/events/philanthropic/tokyo_event_photography_happoen2.jpg",
@@ -149,7 +149,7 @@ const photoEvents = [
   },
   {
     label: "JICE government trade delegation from Oman",
-    location: "Tokyo",
+    location: "Edo-Tokyo Museum & ministries",
     photos: [
       "/images/events/oman/event_photography_tokyo_japan_1.jpg",
       "/images/events/oman/event_photography_tokyo_japan_3.jpg",
@@ -163,8 +163,8 @@ const photoEvents = [
     ],
   },
   {
-    label: "London Mayor at British Chamber of Commerce Japan event",
-    location: "Tokyo",
+    label: "London Mayor visit with the British Chamber of Commerce Japan",
+    location: "British Embassy & teamLab Borderless",
     photos: [
       "/images/events/bccj/tokyo_event_photo_BCCJ_london_3.jpg",
       "/images/events/bccj/tokyo_event_photo_BCCJ_london_4.jpg",
@@ -178,8 +178,8 @@ const photoEvents = [
     ],
   },
   {
-    label: "University of Michigan alumni event",
-    location: "Tokyo",
+    label: "University of Michigan Alumni Association event",
+    location: "ANA InterContinental Tokyo",
     photos: [
       "/images/events/michigan/tokyo_event_photo_University_Michigan_1.jpg",
       "/images/events/michigan/tokyo_event_photo_University_Michigan_2.jpg",
@@ -257,7 +257,7 @@ export default function EventVideoPage() {
         <div className="absolute inset-0">
           <Image
             src="/images/event_top.jpg"
-            alt=""
+            alt="Corporate event photography and video coverage at a conference in Tokyo, Japan"
             fill
             priority
             className="object-cover"
@@ -438,7 +438,7 @@ export default function EventVideoPage() {
                 <h2 className="font-mono text-[10px] tracking-[0.35em] uppercase" style={{ color: "#e95228" }}>Photography events</h2>
               </div>
               <div className="mb-16">
-                <PhotoGallery events={photoEvents} />
+                <PhotoGallery events={photoEvents} lang="en" />
               </div>
 
               {/* Google Reviews */}

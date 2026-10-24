@@ -53,7 +53,7 @@ export default function PhotoGallery({ events, lang = "en" }: { events: Event[];
                   className="w-full flex items-center justify-between px-8 py-4 text-left"
                   onClick={() => setOpenIndex(isOpen ? null : i)}
                 >
-                  <div className="flex items-center gap-3">
+                  <div className="flex items-center gap-3 min-w-0 flex-1">
                     {/* Thumbnail strip preview */}
                     <div className="flex -space-x-2 shrink-0">
                       {e.photos.slice(0, 3).map((src, j) => (
@@ -62,10 +62,12 @@ export default function PhotoGallery({ events, lang = "en" }: { events: Event[];
                         </div>
                       ))}
                     </div>
-                    <span className="text-sm font-black" style={{ color: "#fdf8f3" }}>{e.label}</span>
+                    <span className="min-w-0">
+                      <span className="block text-sm font-black leading-snug" style={{ color: "#fdf8f3" }}>{e.label}</span>
+                      <span className="block font-mono text-[10px] tracking-[0.15em] uppercase mt-1" style={{ color: "rgba(233,82,40,0.8)" }}>{e.location}</span>
+                    </span>
                   </div>
                   <div className="flex items-center gap-3 ml-4 shrink-0">
-                    <span className="font-mono text-[10px] tracking-[0.2em] uppercase hidden sm:block" style={{ color: "rgba(233,82,40,0.8)" }}>{e.location}</span>
                     <span className="font-mono text-[9px] tracking-widest uppercase px-2 py-1 rounded" style={{ color: "rgba(233,82,40,0.9)", backgroundColor: "rgba(233,82,40,0.1)" }}>
                       {e.photos.length} {lang === "jp" ? "枚" : "photos"}
                     </span>

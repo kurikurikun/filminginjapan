@@ -80,8 +80,8 @@ const projects = [
     img: null,
   },
   {
-    title: "Data Centre Opening Ceremony",
-    venue: "Saitama · Japan",
+    title: "Princeton Digital Group – Data Centre Opening, Saitama",
+    venue: "PDG data centre, Saitama · 2025",
     desc: "Digest video of the opening ceremony, plus photo coverage with a fast-turnaround social media photo selection delivered shortly after the event finished.",
     vimeoId: "1079354745",
     vimeoHash: "17c53b18eb",

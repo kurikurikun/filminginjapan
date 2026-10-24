@@ -80,8 +80,8 @@ const projects = [
     img: null,
   },
   {
-    title: "データセンター開所式",
-    venue: "埼玉 · 日本",
+    title: "Princeton Digital Group データセンター開所式（埼玉）",
+    venue: "PDG データセンター・埼玉 · 2025",
     desc: "開所式のダイジェスト映像制作と写真撮影。イベント終了後すぐにSNS向け写真セレクションを高速納品しました。",
     vimeoId: "1079354745",
     vimeoHash: "17c53b18eb",

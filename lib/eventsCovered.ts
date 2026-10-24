@@ -60,6 +60,12 @@ export const coveredEvents: CoveredEvent[] = [
     photo: true,
   },
   {
+    name: "Princeton Digital Group – Data Centre Opening, Saitama", nameJa: "Princeton Digital Group データセンター開所式（埼玉）", client: "Princeton Digital Group",
+    kind: "Opening ceremony", kindJa: "開所式",
+    venue: "PDG data centre", venueJa: "PDG データセンター", city: "Saitama", cityJa: "埼玉",
+    photo: true, highlight: true, extras: ["Same-day social photo selects"], extrasJa: ["当日SNS用写真セレクト"],
+  },
+  {
     name: "IHIF Asia Advisory Board Meeting", client: "Questex",
     kind: "Investment conference", kindJa: "投資カンファレンス",
     venue: "Kimpton Shinjuku Tokyo", venueJa: "キンプトン新宿東京", city: "Tokyo", cityJa: "東京",

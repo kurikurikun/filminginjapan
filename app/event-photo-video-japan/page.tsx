@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
+import EventsCovered from "@/components/EventsCovered";
+import VerticalVideoTile from "@/components/VerticalVideoTile";
 import Image from "next/image";
 import Footer from "@/components/Footer";
 import LandingContactForm from "@/components/LandingContactForm";
 import GoogleReviews from "@/components/GoogleReviews";
 import PhotoGallery from "@/components/PhotoGallery";
-import EventSocialSection from "@/components/EventSocialSection";
 
 export const metadata: Metadata = {
   title: "Corporate Event Photography & Video Tokyo Japan",
@@ -195,19 +196,11 @@ const photoEvents = [
 
 const faqs = [
   {
-    q: "What is Event Social?",
-    a: "Event Social is our fixed-scope, fixed-price event content service. We deliver short, captioned, platform-ready video clips and edited photos within 24 hours of your event — content designed to perform on social media and internal channels immediately.",
-  },
-  {
-    q: "What's the difference between Event Social and full production?",
-    a: "Event Social is a standardised package with fixed deliverables and pricing — ideal for events that need fast, social-first content. Full production is bespoke: multi-camera setups, highlight films, live streaming, executive interviews, and custom editing for events that need a fully tailored approach.",
-  },
-  {
     q: "What types of events do you cover in Japan?",
     a: "Global summits, press conferences, multi-day multi-location conferences, product launches, awards ceremonies, corporate galas, government delegations, NGO events and private corporate gatherings. From 20 guests to 2,000.",
   },
   {
-    q: "How quickly do you deliver Event Social content?",
+    q: "How quickly do you deliver?",
     a: "SNS photo selects are delivered same day. Video clips, interview clips and full photo archives are delivered within 24 hours of the event.",
   },
   {
@@ -220,11 +213,11 @@ const faqs = [
   },
   {
     q: "Can you handle multi-day or multi-location events?",
-    a: "Yes. We've covered events spanning multiple days and multiple venues across Tokyo and Japan, scaling crew and equipment to match. For multi-day events, Event Social packages apply per day.",
+    a: "Yes. We've covered events spanning multiple days and multiple venues across Tokyo and Japan, scaling crew and equipment to match.",
   },
   {
     q: "Can you support live streaming or hybrid events?",
-    a: "Yes. We support live streaming setups and hybrid events where remote attendees join in real time. Broadcast-quality feeds for internal and public-facing streams. This falls under full production — contact us via the full production enquiry form below.",
+    a: "Yes. We support live streaming setups and hybrid events where remote attendees join in real time. Broadcast-quality feeds for internal and public-facing streams. Just mention it in your enquiry.",
   },
   {
     q: "How do you handle VIP protocol and NDAs?",
@@ -236,7 +229,7 @@ const faqs = [
   },
   {
     q: "Can you film executive interviews at the event?",
-    a: "Yes. The Event Social Pro package includes 3 interview clips. For more extensive interview setups, our full production service covers dedicated interview spots at the venue for planned executive interviews and spontaneous attendee soundbites.",
+    a: "Yes. We set up dedicated interview spots at the venue for planned executive interviews and spontaneous attendee soundbites — adding depth to your event coverage and giving you material for future campaigns.",
   },
 ];
 
@@ -485,8 +478,8 @@ export default function EventVideoPage() {
 
             {/* Right — sticky form */}
             <div>
-              <div className="p-8 lg:p-10 sticky top-24" style={{ backgroundColor: "#fff", border: "1px solid #e8d9c8" }}>
-                <h3 className="text-xl font-black mb-2" style={{ color: "#1c1208" }}>Enquire about full production</h3>
+              <div id="enquire" className="p-8 lg:p-10 sticky top-24 scroll-mt-24" style={{ backgroundColor: "#fff", border: "1px solid #e8d9c8" }}>
+                <h3 className="text-xl font-black mb-2" style={{ color: "#1c1208" }}>Enquire about your event</h3>
                 <p className="text-sm mb-6" style={{ color: "rgba(28,18,8,0.5)" }}>
                   Tell us about your event. We reply within 24 hours.
                 </p>
@@ -497,24 +490,33 @@ export default function EventVideoPage() {
         </div>
       </section>
 
-      {/* Transition to Event Social */}
-      <section className="py-16 border-t" style={{ borderColor: "#e8d9c8", backgroundColor: "#fdf8f3" }}>
+      {/* Events we've covered — searchable venue list */}
+      <EventsCovered lang="en" />
+
+      {/* Vertical social clips */}
+      <section className="py-20 border-t" style={{ borderColor: "#e8d9c8", backgroundColor: "#fdf8f3" }}>
         <div className="max-w-5xl mx-auto px-6 sm:px-12">
           <div className="flex items-center gap-4 mb-4">
             <div className="h-px w-10" style={{ backgroundColor: "#e95228" }} />
-            <span className="font-mono text-[10px] tracking-[0.35em] uppercase" style={{ color: "#e95228" }}>Event Social</span>
+            <span className="font-mono text-[10px] tracking-[0.35em] uppercase" style={{ color: "#e95228" }}>Social clips</span>
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black leading-[0.95] mb-4" style={{ color: "#1c1208" }}>
-            Or need it fast<br /><span style={{ color: "rgba(28,18,8,0.4)" }}>and fixed-price?</span>
+            Vertical edits,<br /><span style={{ color: "rgba(28,18,8,0.4)" }}>ready to post.</span>
           </h2>
-          <p className="text-sm leading-relaxed max-w-xl" style={{ color: "rgba(28,18,8,0.55)" }}>
-            Short-form vertical video and edited photos on a fixed scope and a fixed price, delivered next day — built for social and internal channels. Packages, pricing and a separate enquiry form below.
+          <p className="text-sm leading-relaxed max-w-xl mb-10" style={{ color: "rgba(28,18,8,0.55)" }}>
+            Alongside your main event coverage, we can cut short vertical clips — captioned and colour-graded, ready for Instagram, LinkedIn and internal channels. Just mention it in your enquiry.
           </p>
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+            {[
+              { src: "/videos/event-social-highlights3.mp4", poster: "/videos/event-social-highlights3-poster.jpg", label: "Conference highlights", autoPlay: true },
+              { src: "/videos/26_4_21_SNS%2030p_2_siteb.mp4", poster: "/videos/26_4_21_SNS%2030p_2_siteb.jpg", label: "Networking recap" },
+              { src: "/videos/26_4_21_SNS%2030p_3_siteb.mp4", poster: "/videos/26_4_21_SNS%2030p_3_siteb.jpg", label: "Breakout sessions highlights" },
+            ].map((v, i) => (
+              <VerticalVideoTile key={i} src={v.src} poster={v.poster} label={v.label} autoPlay={v.autoPlay} />
+            ))}
+          </div>
         </div>
       </section>
-
-      {/* Event Social Section */}
-      <EventSocialSection />
 
       {/* FAQ */}
       <section className="py-20 border-t" style={{ borderColor: "#e8d9c8", backgroundColor: "#fdf8f3" }}>

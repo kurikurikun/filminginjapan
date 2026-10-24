@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
+import EventsCovered from "@/components/EventsCovered";
+import VerticalVideoTile from "@/components/VerticalVideoTile";
 import Image from "next/image";
 import Footer from "@/components/Footer";
 import LandingContactForm from "@/components/LandingContactForm";
 import GoogleReviews from "@/components/GoogleReviews";
 import PhotoGallery from "@/components/PhotoGallery";
-import EventSocialSectionJP from "@/components/EventSocialSectionJP";
 
 export const metadata: Metadata = {
   title: "企業イベント撮影・映像制作 東京・日本全国",
@@ -457,7 +458,7 @@ export default function EventVideoPageJP() {
 
             {/* Right — sticky form */}
             <div>
-              <div className="p-8 lg:p-10 sticky top-24" style={{ backgroundColor: "#fff", border: "1px solid #e8d9c8" }}>
+              <div id="enquire" className="p-8 lg:p-10 sticky top-24 scroll-mt-24" style={{ backgroundColor: "#fff", border: "1px solid #e8d9c8" }}>
                 <h3 className="text-xl font-black mb-2" style={{ color: "#1c1208" }}>無料見積もりを依頼する</h3>
                 <p className="text-sm mb-6" style={{ color: "rgba(28,18,8,0.5)" }}>
                   プロジェクトについてお聞かせください。24時間以内にご返信します。
@@ -469,24 +470,33 @@ export default function EventVideoPageJP() {
         </div>
       </section>
 
-      {/* Transition to Event Social */}
-      <section className="py-16 border-t" style={{ borderColor: "#e8d9c8", backgroundColor: "#fdf8f3" }}>
+      {/* Events we've covered — searchable venue list */}
+      <EventsCovered lang="jp" />
+
+      {/* Vertical social clips */}
+      <section className="py-20 border-t" style={{ borderColor: "#e8d9c8", backgroundColor: "#fdf8f3" }}>
         <div className="max-w-5xl mx-auto px-6 sm:px-12">
           <div className="flex items-center gap-4 mb-4">
             <div className="h-px w-10" style={{ backgroundColor: "#e95228" }} />
-            <span className="font-mono text-[10px] tracking-[0.35em] uppercase" style={{ color: "#e95228" }}>Event Social</span>
+            <span className="font-mono text-[10px] tracking-[0.35em] uppercase" style={{ color: "#e95228" }}>SNSクリップ</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black leading-[1.05] mb-4 break-keep" style={{ color: "#1c1208" }}>
-            スピードと明朗会計を<br /><span style={{ color: "rgba(28,18,8,0.4)" }}>優先したい方へ。</span>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black leading-[0.95] mb-4" style={{ color: "#1c1208" }}>
+            縦型ショート動画も<br /><span style={{ color: "rgba(28,18,8,0.4)" }}>すぐに投稿可能。</span>
           </h2>
-          <p className="text-sm leading-relaxed max-w-xl" style={{ color: "rgba(28,18,8,0.55)" }}>
-            縦型ショート動画と編集済み写真を、固定スコープ・固定価格で翌日納品。SNSや社内チャンネル向けのパッケージです。プラン内容・料金・専用のお問い合わせフォームは以下をご覧ください。
+          <p className="text-sm leading-relaxed max-w-xl mb-10" style={{ color: "rgba(28,18,8,0.55)" }}>
+            メインのイベント撮影に加えて、字幕・カラーグレーディング済みの縦型ショート動画も制作できます。Instagram、LinkedIn、社内チャンネルにそのまま使えます。お問い合わせの際にお知らせください。
           </p>
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+            {[
+              { src: "/videos/event-social-highlights3.mp4", poster: "/videos/event-social-highlights3-poster.jpg", label: "カンファレンスハイライト", autoPlay: true },
+              { src: "/videos/26_4_21_SNS%2030p_2_siteb.mp4", poster: "/videos/26_4_21_SNS%2030p_2_siteb.jpg", label: "ネットワーキングリキャップ" },
+              { src: "/videos/26_4_21_SNS%2030p_3_siteb.mp4", poster: "/videos/26_4_21_SNS%2030p_3_siteb.jpg", label: "ブレイクアウトセッションハイライト" },
+            ].map((v, i) => (
+              <VerticalVideoTile key={i} src={v.src} poster={v.poster} label={v.label} autoPlay={v.autoPlay} />
+            ))}
+          </div>
         </div>
       </section>
-
-      {/* Event Social Section */}
-      <EventSocialSectionJP />
 
       {/* FAQ */}
       <section className="py-20 border-t" style={{ borderColor: "#e8d9c8", backgroundColor: "#fdf8f3" }}>

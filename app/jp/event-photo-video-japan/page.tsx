@@ -8,8 +8,8 @@ import GoogleReviews from "@/components/GoogleReviews";
 import PhotoGallery from "@/components/PhotoGallery";
 
 export const metadata: Metadata = {
-  title: "企業イベント撮影・映像制作 東京・日本全国",
-  description: "東京・全国対応のバイリンガル企業イベント写真・映像制作。カンファレンス、サミット、製品発表会、ガラ。当日納品にも対応。国内外大手企業に信頼されています。",
+  title: "東京のイベント撮影｜バイリンガルのカメラマン・映像制作",
+  description: "東京のイベント撮影なら英語対応のバイリンガルチームへ。カンファレンス、ガラ、製品発表会の写真撮影とハイライト動画を制作。当日の写真納品にも対応。PwC、Riot Games、Celonisなど実績多数。",
   alternates: {
     canonical: "https://www.filminginjapan.com/jp/event-photo-video-japan",
     languages: {

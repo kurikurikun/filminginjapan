@@ -8,8 +8,8 @@ import GoogleReviews from "@/components/GoogleReviews";
 import PhotoGallery from "@/components/PhotoGallery";
 
 export const metadata: Metadata = {
-  title: "Corporate Event Photography & Video Tokyo",
-  description: "Bilingual corporate event photography and video in Tokyo and across Japan. Conferences, summits, product launches, galas. Same-day edits. Trusted by global brands.",
+  title: "Tokyo Event Photographer & Videographer",
+  description: "Bilingual Tokyo event photographer and videographer for conferences, galas and launches. Same-day photos, highlight videos. Trusted by PwC, Riot Games, Celonis.",
   alternates: {
     canonical: "https://www.filminginjapan.com/event-photo-video-japan",
     languages: {

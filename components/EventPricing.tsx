@@ -10,7 +10,7 @@ const copy = {
     eyebrow: "Typical costs",
     h1: "Clear prices,",
     h2: "tailored quotes.",
-    lede: "Every event is different, so we quote each one. These are our standard rates to help you plan.",
+    lede: "Every event is different, so we quote each one. Here's a typical day to help you plan.",
     exampleTag: "Typical one-day event",
     exampleTitle: "Photo + video team, with a highlight film",
     exampleItems: [
@@ -20,17 +20,8 @@ const copy = {
     ] as [string, number][],
     total: "Total",
     plusTax: "+ tax",
-    startTitle: "Starting prices",
-    halfDay: "Half day · 4 hrs",
-    fullDay: "Full day · 8 hrs",
-    rows: [
-      ["Photographer, edited photos within 48 hrs", 100000, 150000],
-      ["Videographer, including audio", 115000, 180000],
-    ] as [string, number, number][],
-    highlightRows: [
-      ["Highlight video, 1–1.5 min", 150000],
-      ["Highlight video, 2–3 min", 180000],
-    ] as [string, number][],
+    smallerTitle: "Smaller events",
+    smaller: "Smaller events start from ¥100,000 for a half-day photographer. Every quote is tailored to your event.",
     small: "All prices exclude 10% consumption tax. Travel within Tokyo is included. Diplomatic missions with a MOFA tax exemption card pay no consumption tax.",
     cta: "Get a quote for your event",
   },
@@ -38,7 +29,7 @@ const copy = {
     eyebrow: "料金の目安",
     h1: "明確な料金、",
     h2: "イベントごとのお見積もり。",
-    lede: "イベントの内容に合わせて個別にお見積もりします。ご検討の目安として、標準料金をご紹介します。",
+    lede: "イベントの内容に合わせて個別にお見積もりします。ご検討の目安として、1日イベントの一例をご紹介します。",
     exampleTag: "1日イベントの一例",
     exampleTitle: "写真・映像チームとハイライト映像",
     exampleItems: [
@@ -48,17 +39,8 @@ const copy = {
     ] as [string, number][],
     total: "合計",
     plusTax: "（税別）",
-    startTitle: "基本料金",
-    halfDay: "半日・4時間",
-    fullDay: "1日・8時間",
-    rows: [
-      ["フォトグラファー（レタッチ済み写真・48時間以内納品）", 100000, 150000],
-      ["ビデオグラファー（音声込み）", 115000, 180000],
-    ] as [string, number, number][],
-    highlightRows: [
-      ["ハイライト動画（1〜1.5分）", 150000],
-      ["ハイライト動画（2〜3分）", 180000],
-    ] as [string, number][],
+    smallerTitle: "小規模なイベント",
+    smaller: "小規模なイベントは、フォトグラファー半日 ¥100,000〜承ります。お見積もりはイベントごとに個別にご案内します。",
     small: "表示価格はすべて税別です。東京都内の移動費は含まれます。外務省の免税カードをお持ちの外国公館は消費税が免除されます。",
     cta: "お見積もりを依頼する",
   },
@@ -68,10 +50,9 @@ export default function EventPricing({ lang = "en" }: { lang?: Lang }) {
   const t = copy[lang];
   const total = t.exampleItems.reduce((s, [, p]) => s + p, 0);
   const muted = "rgba(28,18,8,0.55)";
-  const line = "#e8d9c8";
 
   return (
-    <section className="py-20 border-t" style={{ borderColor: line, backgroundColor: "#f5ede2" }} aria-labelledby="event-pricing-heading">
+    <section className="py-20 border-t" style={{ borderColor: "#e8d9c8", backgroundColor: "#f5ede2" }} aria-labelledby="event-pricing-heading">
       <div className="max-w-6xl mx-auto px-6 sm:px-12">
         <div className="flex items-center gap-4 mb-4">
           <div className="h-px w-10" style={{ backgroundColor: "#e95228" }} />
@@ -82,7 +63,7 @@ export default function EventPricing({ lang = "en" }: { lang?: Lang }) {
         </h2>
         <p className="text-sm leading-relaxed max-w-2xl mb-10" style={{ color: muted }}>{t.lede}</p>
 
-        <div className="grid lg:grid-cols-[1.1fr_1fr] gap-8 items-start">
+        <div className="grid lg:grid-cols-[1.1fr_1fr] gap-8 lg:gap-12 items-start">
           {/* Worked example */}
           <div className="p-8" style={{ backgroundColor: "#0d0a07", color: "#fdf8f3" }}>
             <span className="font-mono text-[10px] tracking-[0.3em] uppercase" style={{ color: "#e95228" }}>{t.exampleTag}</span>
@@ -104,38 +85,13 @@ export default function EventPricing({ lang = "en" }: { lang?: Lang }) {
             <a href="#enquire" className="btn-warm inline-block mt-8 font-black text-xs tracking-[0.15em] uppercase px-6 py-3">{t.cta} →</a>
           </div>
 
-          {/* Starting prices + add-ons */}
-          <div className="space-y-8">
+          {/* Smaller events + small print */}
+          <div className="space-y-6 lg:pt-8">
             <div>
-              <h3 className="font-mono text-[10px] tracking-[0.3em] uppercase mb-3" style={{ color: "#e95228" }}>{t.startTitle}</h3>
-              <div className="overflow-x-auto">
-                <table className="w-full text-sm" style={{ color: "#1c1208" }}>
-                  <thead>
-                    <tr>
-                      <th />
-                      <th className="text-right font-mono text-[9px] tracking-[0.12em] uppercase font-normal pb-2 pl-3" style={{ color: muted }}>{t.halfDay}</th>
-                      <th className="text-right font-mono text-[9px] tracking-[0.12em] uppercase font-normal pb-2 pl-3" style={{ color: muted }}>{t.fullDay}</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {t.rows.map(([label, half, full]) => (
-                      <tr key={label} className="border-t" style={{ borderColor: line }}>
-                        <td className="py-3 pr-3">{label}</td>
-                        <td className="py-3 pl-3 text-right font-mono tabular-nums whitespace-nowrap">{yen(half)}</td>
-                        <td className="py-3 pl-3 text-right font-mono tabular-nums whitespace-nowrap">{yen(full)}</td>
-                      </tr>
-                    ))}
-                    {t.highlightRows.map(([label, price]) => (
-                      <tr key={label} className="border-t" style={{ borderColor: line }}>
-                        <td className="py-3 pr-3">{label}</td>
-                        <td colSpan={2} className="py-3 pl-3 text-right font-mono tabular-nums whitespace-nowrap">{yen(price)}</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
+              <h3 className="font-mono text-[10px] tracking-[0.3em] uppercase mb-3" style={{ color: "#e95228" }}>{t.smallerTitle}</h3>
+              <p className="text-lg leading-relaxed font-medium" style={{ color: "#1c1208" }}>{t.smaller}</p>
             </div>
-            <p className="text-xs leading-relaxed" style={{ color: muted }}>{t.small}</p>
+            <p className="text-xs leading-relaxed pt-6 border-t" style={{ color: muted, borderColor: "#e8d9c8" }}>{t.small}</p>
           </div>
         </div>
       </div>

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import EventPricing from "@/components/EventPricing";
 import EventsCovered from "@/components/EventsCovered";
 import VerticalVideoTile from "@/components/VerticalVideoTile";
 import Image from "next/image";
@@ -21,7 +22,8 @@ export const metadata: Metadata = {
 };
 
 const services = [
-  "Corporate event photography and highlight films",
+  "Corporate event photography",
+  "Story-led highlight films, edited by our corporate video team",
   "Photography-only coverage — video not required",
   "Multi-camera coverage for conferences and panels",
   "Executive interviews and keynote documentation",
@@ -30,7 +32,12 @@ const services = [
   "Sound bite comments to camera from attendees",
 ];
 
-const differentiators = [
+const differentiators: { title: string; desc: string; dsMark?: boolean; link?: { href: string; label: string } }[] = [
+  {
+    title: "Filmmakers, not just camera operators",
+    desc: "Our crew makes corporate films and broadcast documentaries. We bring that eye for story, light and sound to your event — interviews that sound good, edits with a structure, and photos that are composed, not just captured.",
+    link: { href: "https://www.move-ment.co", label: "See our documentary and broadcast work" },
+  },
   {
     title: "Bilingual crew",
     desc: "We communicate smoothly in English and Japanese — coordinating directly with venues, local AV teams, and staff. No friction, no delays on the day.",
@@ -283,9 +290,8 @@ export default function EventVideoPage() {
             Photo &amp; Video in <em className="not-italic" style={{ color: "#e95228" }}>Japan.</em>
           </h1>
           <p className="text-lg max-w-2xl leading-relaxed" style={{ color: "rgba(253,248,243,0.6)" }}>
-            Our bilingual Tokyo-based team photographs and films corporate events — from global summits
-            and press conferences to multi-day conferences and corporate galas. Visual stories that
-            showcase your brand&apos;s energy, people and purpose.
+            Event coverage by a corporate and documentary film team. Our bilingual Tokyo crew photographs
+            and films summits, conferences and galas — and edits highlight videos with a story, not just a recap.
           </p>
         </div>
       </section>
@@ -351,6 +357,9 @@ export default function EventVideoPage() {
                         {d.dsMark && <Image src="/images/ds-mark.svg" alt="DS designated store mark" width={25} height={20} unoptimized />}
                       </h3>
                       <p className="text-sm leading-relaxed" style={{ color: "rgba(28,18,8,0.55)" }}>{d.desc}</p>
+                      {d.link && (
+                        <a href={d.link.href} target="_blank" rel="noopener" className="inline-block mt-2 font-mono text-[10px] tracking-[0.2em] uppercase border-b" style={{ color: "#e95228", borderColor: "#e95228" }}>{d.link.label} →</a>
+                      )}
                     </div>
                   </div>
                 ))}
@@ -492,6 +501,9 @@ export default function EventVideoPage() {
 
       {/* Events we've covered — searchable venue list */}
       <EventsCovered lang="en" />
+
+      {/* Typical costs */}
+      <EventPricing lang="en" />
 
       {/* Vertical social clips */}
       <section className="py-20 border-t" style={{ borderColor: "#e8d9c8", backgroundColor: "#fdf8f3" }}>

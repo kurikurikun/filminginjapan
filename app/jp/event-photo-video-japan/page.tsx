@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import EventPricing from "@/components/EventPricing";
 import EventsCovered from "@/components/EventsCovered";
 import VerticalVideoTile from "@/components/VerticalVideoTile";
 import Image from "next/image";
@@ -21,7 +22,8 @@ export const metadata: Metadata = {
 };
 
 const services = [
-  "企業イベント写真撮影・ハイライト映像制作",
+  "企業イベント写真撮影",
+  "企業映像チームが編集する、ストーリーのあるハイライト映像",
   "写真撮影のみの対応（動画なし）",
   "カンファレンス・パネルディスカッションのマルチカメラ収録",
   "役員インタビュー・基調講演の映像記録",
@@ -30,7 +32,12 @@ const services = [
   "参加者・登壇者のコメント撮影",
 ];
 
-const differentiators = [
+const differentiators: { title: string; desc: string; dsMark?: boolean; link?: { href: string; label: string } }[] = [
+  {
+    title: "カメラマンではなく、映像制作者",
+    desc: "企業映像やテレビ向けドキュメンタリーを制作するチームが撮影します。ストーリー、光、音へのこだわりをイベント撮影にも。聞き取りやすいインタビュー、構成のある編集、ただ記録するだけでなく構図にこだわった写真をお届けします。",
+    link: { href: "https://www.move-ment.co", label: "ドキュメンタリー・放送作品を見る" },
+  },
   {
     title: "バイリンガルクルー",
     desc: "日英両語でスムーズにコミュニケーション。会場スタッフ・現地AVチームと直接連携するため、当日のロスタイムや連絡ミスが発生しません。",
@@ -282,7 +289,7 @@ export default function EventVideoPageJP() {
             写真・映像制作 <em className="not-italic" style={{ color: "#e95228" }}>全国対応。</em>
           </h1>
           <p className="text-lg max-w-2xl leading-relaxed" style={{ color: "rgba(253,248,243,0.6)" }}>
-            東京拠点のバイリンガルチームが、グローバルサミットや記者会見から複数日カンファレンス・企業ガラまで、あらゆる企業イベントの写真・映像を担当します。ブランドのエネルギー、人、目的を伝えるビジュアルストーリーを制作します。
+            企業映像・ドキュメンタリーの制作チームによるイベント撮影。東京拠点のバイリンガルクルーが、サミット、カンファレンス、ガラの写真・映像を担当し、ただの記録ではなくストーリーのあるハイライト映像に仕上げます。
           </p>
         </div>
       </section>
@@ -347,6 +354,9 @@ export default function EventVideoPageJP() {
                         {d.dsMark && <Image src="/images/ds-mark.svg" alt="DS 消費税免除指定店舗標識" width={25} height={20} unoptimized />}
                       </h3>
                       <p className="text-sm leading-relaxed" style={{ color: "rgba(28,18,8,0.55)" }}>{d.desc}</p>
+                      {d.link && (
+                        <a href={d.link.href} target="_blank" rel="noopener" className="inline-block mt-2 font-mono text-[10px] tracking-[0.2em] uppercase border-b" style={{ color: "#e95228", borderColor: "#e95228" }}>{d.link.label} →</a>
+                      )}
                     </div>
                   </div>
                 ))}
@@ -472,6 +482,9 @@ export default function EventVideoPageJP() {
 
       {/* Events we've covered — searchable venue list */}
       <EventsCovered lang="jp" />
+
+      {/* Typical costs */}
+      <EventPricing lang="jp" />
 
       {/* Vertical social clips */}
       <section className="py-20 border-t" style={{ borderColor: "#e8d9c8", backgroundColor: "#fdf8f3" }}>

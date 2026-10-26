@@ -5,7 +5,7 @@ import VideoLightbox from "@/components/VideoLightbox";
 import PeopleCarousel from "@/components/PeopleCarousel";
 import ServiceGrid from "@/components/ServiceGrid";
 import InstagramFeed from "@/components/InstagramFeed";
-import { Section, Kicker, TrustedBy } from "@/components/editorial";
+import { Section, Title, Kicker, TrustedBy } from "@/components/editorial";
 
 export const metadata: Metadata = {
   title: { absolute: "企業向け映像制作・東京 | Filming in Japan" },
@@ -40,11 +40,6 @@ const faqs = [
   { q: "小規模・クリエイティブ系のプロジェクトにも対応できますか？", a: "もちろんです。人間のストーリーがあるものであれば基本的に喜んでお引き受けします。最近の例：桜の下での三味線奏者、プロ女子プロレスラー、山頂でのクラシックバイオリニストなど。" },
 ];
 
-/** Japanese headlines keep their 。 — set in the accent colour (cream on the orange section). */
-function JpDot({ onOrange = false }: { onOrange?: boolean }) {
-  return <span style={{ color: onOrange ? "#fdf8f3" : "#e95228" }}>。</span>;
-}
-
 export default function HomePageJp() {
   return (
     <div lang="ja" style={{ backgroundColor: "#fdf8f3" }}>
@@ -55,10 +50,10 @@ export default function HomePageJp() {
           <div className="flex-[7_1_560px] min-w-0 pt-16 pb-12 lg:pt-24 lg:pb-14 flex flex-col justify-between gap-12">
             <div>
               <p className="text-sm font-medium mb-8" style={{ color: "#6b5a48" }}>東京 · 広島 · 日本全国</p>
-              <h1 className="fij-h1 break-keep text-[clamp(36px,5.6vw,88px)]">
+              <Title as="h1" stop="。" className="fij-h1">
                 企業向け映像制作<br />
-                日本全国<JpDot />
-              </h1>
+                日本全国
+              </Title>
             </div>
             <div className="flex flex-wrap items-end gap-x-12 gap-y-8">
               <p className="flex-[1_1_340px] fij-lede" style={{ color: "#4a3a2a" }}>
@@ -112,10 +107,10 @@ export default function HomePageJp() {
         <div className="flex flex-wrap items-end justify-between gap-x-16 gap-y-6 mb-14">
           <div>
             <Kicker>サービス内容</Kicker>
-            <h2 id="services-heading" className="fij-h2">
+            <Title id="services-heading" stop="。" className="fij-h2">
               4つのサービスで<br />
-              ストーリーを届ける<JpDot />
-            </h2>
+              ストーリーを届ける
+            </Title>
           </div>
           <p className="text-base leading-relaxed max-w-xs" style={{ color: "#6b5a48" }}>
             東京から地方まで、日本全国で展開するバイリンガル企業映像制作。
@@ -130,7 +125,7 @@ export default function HomePageJp() {
           <VideoLightbox vimeoId="900727297" vimeoHash="a9dbbfbac5" title="Chris Moore — Filming in Japan" />
           <div className="flex flex-col justify-center">
             <Kicker tone="orange">代表について</Kicker>
-            <h2 id="about-heading" className="fij-h2 mb-8">はじめまして、クリスです<JpDot onOrange /></h2>
+            <Title id="about-heading" tone="orange" stop="。" className="fij-h2 mb-8">はじめまして、クリスです</Title>
             <p className="fij-lede mb-5" style={{ color: "#0d0a07" }}>
               ニュージーランド出身。長年にわたり日本各地で撮影を続け、グローバルブランドと日本のストーリーをつなぐ事業を築いてきました。日英バイリンガルで、日本語・英語どちらの現場にも対応しています。
             </p>
@@ -159,7 +154,7 @@ export default function HomePageJp() {
       {/* 04 Process */}
       <Section num="04" label="Process" labelLang="en" aria-labelledby="process-heading">
         <Kicker>ご依頼の流れ</Kicker>
-        <h2 id="process-heading" className="fij-h2 mb-14">制作の進め方<JpDot /></h2>
+        <Title id="process-heading" stop="。" className="fij-h2 mb-14">制作の進め方</Title>
         <ol className="grid sm:grid-cols-2 lg:grid-cols-5 gap-x-8 gap-y-12">
           {workflow.map((w) => (
             <li key={w.step} className="border-t-2 pt-5" style={{ borderColor: "#1c1208" }}>
@@ -176,7 +171,7 @@ export default function HomePageJp() {
         <div className="flex flex-wrap gap-x-16 gap-y-10">
           <div className="flex-[1_1_240px]">
             <Kicker>よくある質問</Kicker>
-            <h2 id="faq-heading" className="fij-h2">FAQ<JpDot /></h2>
+            <Title id="faq-heading" stop="。" className="fij-h2">FAQ</Title>
           </div>
           <div className="flex-[3_1_520px] min-w-0 border-t-2" style={{ borderColor: "#1c1208" }}>
             {faqs.map((faq, i) => (
@@ -197,11 +192,11 @@ export default function HomePageJp() {
         <div className="flex flex-wrap items-end justify-between gap-x-16 gap-y-14">
           <div className="flex-[1.4_1_420px] min-w-0">
             <Kicker tone="ink">まずはご相談ください</Kicker>
-            <h2 id="cta-heading" className="fij-h2 mb-8">
+            <Title id="cta-heading" tone="ink" stop="。" className="fij-h2 mb-8">
               日本でのプロジェクトを<br />
               一緒に<br />
-              実現しましょう<JpDot />
-            </h2>
+              実現しましょう
+            </Title>
             <p className="fij-lede mb-10 max-w-lg" style={{ color: "rgba(253,248,243,0.78)" }}>
               24時間以内にご返信します。フォーム・メール・WhatsAppでお気軽にどうぞ。
             </p>

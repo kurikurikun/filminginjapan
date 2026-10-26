@@ -129,37 +129,6 @@
     background-color: #c43d10;
   }
 
-  /* Service card hover */
-  .service-card {
-    background-color: #fdf8f3;
-    transition: background-color 0.35s ease;
-  }
-  .service-card:hover {
-    background-color: #e95228;
-  }
-  .service-card:hover .service-num {
-    color: rgba(13,10,7,0.5);
-  }
-  .service-card:hover .service-learn {
-    color: #0d0a07;
-  }
-  .service-card:hover .service-title {
-    color: #0d0a07;
-  }
-  .service-card:hover .service-jp {
-    color: rgba(13,10,7,0.6);
-  }
-  .service-card:hover .service-desc {
-    color: rgba(13,10,7,0.6);
-  }
-  .service-learn {
-    opacity: 0;
-    transition: opacity 0.3s ease;
-  }
-  .service-card:hover .service-learn {
-    opacity: 1;
-  }
-
   /* Blog post body (Webflow rich text) */
   .prose-fij {
     color: #1c1208;
@@ -230,20 +199,6 @@
   .people-scroll-left:hover,
   .people-scroll-right:hover {
     animation-play-state: paused;
-  }
-
-  /* Film grain overlay */
-  .grain::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.08'/%3E%3C/svg%3E");
-    background-repeat: repeat;
-    background-size: 128px 128px;
-    pointer-events: none;
-    opacity: 0.35;
-    mix-blend-mode: overlay;
-    z-index: 1;
   }
 }
 

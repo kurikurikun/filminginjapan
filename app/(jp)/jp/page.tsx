@@ -8,9 +8,9 @@ import InstagramFeed from "@/components/InstagramFeed";
 import { Section, Title, Kicker, TrustedBy } from "@/components/editorial";
 
 export const metadata: Metadata = {
-  title: { absolute: "企業向け映像制作・東京 | Filming in Japan" },
+  title: { absolute: "企業向け映像制作会社（東京・日英対応）| Filming in Japan" },
   description:
-    "日本全国対応の企業向け映像制作。日英バイリンガルチーム、東京・広島拠点。Sony、Google、Microsoft、Canonなど国内外大手企業に信頼されています。",
+    "東京・広島拠点の映像制作会社。企業インタビュー、ブランド動画、採用動画、イベント撮影まで日英バイリンガルで対応。Sony、Google、Microsoft、Canonなど国内外の企業に選ばれています。",
   alternates: {
     canonical: "https://www.filminginjapan.com/jp",
     languages: {

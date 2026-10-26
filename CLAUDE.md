@@ -26,19 +26,23 @@ Dev server is configured in `.claude/launch.json` as `filminginjapan-dev` on por
 - All assets referenced by pages (including `public/videos/`) must be committed to git.
 - Git auth: repo-local credential helper uses `gh` (logged in as kurikurikun).
 
-## Design System
+## Design System — "bilingual editorial" (Oct 2026)
 
-- **Background**: `#fdf8f3` (warm cream)
-- **Accent / primary**: `#e95228` (orange)
-- **Accent hover**: `#c43d10` (dark orange)
-- **Dark sections**: `#0d0a07` (near-black)
-- **Body text**: `#1c1208`
-- **Borders**: `#e8d9c8`
-- **Light section bg**: `#f5ede2`
-- **Font**: System sans, `font-black` for headings, `font-mono` for labels/eyebrows
-- Eyebrow labels: `font-mono text-[10px] tracking-[0.35em] uppercase`
-- Frame corners: `w-8 h-8 border-t border-l/r` at `rgba(233,82,40,0.4)` on dark sections
-- CSS utility classes in `app/globals.css`: `.btn-warm`, `.service-card`
+- **Colours**: cream `#fdf8f3` (bg), sand `#f5ede2`, ink `#1c1208` (text, rules), night `#0d0a07` (dark sections),
+  rust `#e95228` (accent), rust-dark `#c43d10` (hover / small accent text), muted `#6b5a48`, body `#4a3a2a`.
+  Tailwind tokens: `cream`, `sand`, `ink`, `night`, `rust`, `rust-dark`, `muted`, `body`, `rule`.
+- **Fonts**: Inter Tight (`font-sans`) + Noto Sans JP (`font-jp`), loaded via `next/font` in `app/layout.tsx`.
+  No mono, no serif, no italics.
+- **Headlines**: `.fij-h1` / `.fij-h2` / `.fij-h3` (weight 600, tight tracking). Every headline ends with an orange
+  full stop — use `<Title>` from `components/editorial.tsx` (cream dot on orange sections). No dot after "?" or "!".
+- **Signature**: each main section is a `<Section num="01" label="撮影内容">` — a number plus a vertical (縦書き) label in
+  the *other* language: Japanese on EN pages, English (`labelLang="en"`) on JP pages. Number sections down the page.
+- Strong ink rules (1–2px) instead of beige dividers; square corners; no shadows, corner brackets, grain or gradients
+  used as decoration. Small labels are plain `text-sm font-medium` in muted (`<Kicker>`), not tracked uppercase.
+- Orange (`tone="orange"`) at most once per page; `night` for video/project sections; `ink` for the closing CTA band.
+- Buttons: `.fij-btn` (dark), `.fij-btn-orange`, `.fij-btn-outline`; text links `.fij-link`. Sentence case.
+- JP pages: `lang="ja"` on the page wrapper, `LandingContactForm lang="jp"`, `Footer lang="jp"`.
+- Reference implementation: `app/event-photo-video-japan/page.tsx`.
 
 ## Structure
 
@@ -65,7 +69,7 @@ public/
 
 - **No onMouseEnter/onMouseLeave in Server Components** — use CSS classes in `globals.css` instead
 - `next/image` requires external hostnames in `next.config.mjs` remotePatterns (picsum.photos is configured)
-- Landing pages use a two-column layout: `lg:grid-cols-[1fr_480px]` — service content left, sticky form right
+- Landing pages keep a two-column region `lg:grid-cols-[minmax(0,1fr)_420px]` — opening content left, sticky form (`#enquire`) right
 - All landing pages share `LandingContactForm` — the `service` prop pre-fills the email subject line
 
 ## Contact / Forms

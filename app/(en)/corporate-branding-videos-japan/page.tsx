@@ -6,7 +6,7 @@ import LandingContactForm from "@/components/LandingContactForm";
 
 import LazyIframe from "@/components/LazyIframe";
 export const metadata: Metadata = {
-  title: "Corporate Video Production Japan",
+  title: "Corporate Video & Interview Filming Japan",
   description: "Professional corporate interview, brand film and recruitment video production in Japan. Bilingual EN/JP team. Trusted by Sony, Google, Microsoft, HP, EY, Canon.",
   alternates: {
     canonical: "https://www.filminginjapan.com/corporate-branding-videos-japan",

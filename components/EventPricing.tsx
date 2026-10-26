@@ -16,8 +16,8 @@ const copy = {
     exampleTag: "Typical one-day event",
     exampleTitle: "Photo + video team, with a highlight film",
     exampleItems: [
-      ["Photographer, full day — about 250 edited photos within 48 hours", 150000],
-      ["Videographer with audio, full day — including short comments from attendees", 180000],
+      ["Photographer, full day: about 250 edited photos within 48 hours", 150000],
+      ["Videographer with audio, full day, including short comments from attendees", 180000],
       ["Highlight video, 1–1.5 minutes", 150000],
     ] as [string, number][],
     total: "Total",

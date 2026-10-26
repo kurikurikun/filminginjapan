@@ -144,7 +144,7 @@ export default function LandingContactForm({ service, tone = "light", lang = "en
           name="message"
           required
           rows={5}
-          placeholder={jp ? "撮影日・場所・納品物・ご予算など、わかる範囲でお書きください" : "Tell us about your project — shoot dates, location, deliverables, budget range..."}
+          placeholder={jp ? "撮影日・場所・納品物・ご予算など、わかる範囲でお書きください" : "Tell us about your project: shoot dates, location, deliverables, budget range..."}
           className={fieldCls}
             style={fieldStyle}
         />

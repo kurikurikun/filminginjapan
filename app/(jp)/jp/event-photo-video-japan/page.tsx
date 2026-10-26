@@ -413,7 +413,7 @@ export default function EventVideoPageJP() {
         <h2 id="feedback-heading" className="sr-only">クライアントの声</h2>
         <figure lang="en" className="mb-16">
           <blockquote className="text-[30px] sm:text-[40px] lg:text-[52px] leading-[1.12] font-semibold tracking-[-0.035em] mb-7">
-            <span style={{ color: "#e95228" }}>&ldquo;</span>Chris delivered exceptional photography and video coverage across our entire 3-day event. Beyond the visuals, he also helped bridge language gaps with local venue staff and AV teams — something that proved invaluable to our onsite execution.<span style={{ color: "#e95228" }}>&rdquo;</span>
+            <span style={{ color: "#e95228" }}>&ldquo;</span>Chris delivered exceptional photography and video coverage across our entire 3-day event. Beyond the visuals, he also helped bridge language gaps with local venue staff and AV teams, something that proved invaluable to our onsite execution.<span style={{ color: "#e95228" }}>&rdquo;</span>
           </blockquote>
           <figcaption className="text-[15px]" style={{ color: "#6b5a48" }}>Events Director · Global Advertising Organisation · Tokyo</figcaption>
         </figure>

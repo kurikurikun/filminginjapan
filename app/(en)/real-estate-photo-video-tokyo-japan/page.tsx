@@ -23,9 +23,9 @@ const services = [
   {
     num: "01",
     title: "Commercial real estate photos",
-    desc: "Interior and exterior stills for listings, brochures and press — office completions, before/after renovations, shop interiors, commercial property sales photography and Tokyo cityscapes. We work from a floor plan to decide the best angles and time of day, or collaborate directly with your marketing or renovation team. HDR-merged, colour-graded and retouched.",
+    desc: "Interior and exterior stills for listings, brochures and press: office completions, before/after renovations, shop interiors, commercial property sales photography and Tokyo cityscapes. We work from a floor plan to decide the best angles and time of day, or collaborate directly with your marketing or renovation team. HDR-merged, colour-graded and retouched.",
     projects: [
-      "Yoyogi luxury residence — architectural photography and print production",
+      "Yoyogi luxury residence: architectural photography and print production",
       "Tokyo office completions for JLL and CBRE",
     ],
     leadImage: { src: "/images/re_photo_1.jpg", alt: "Commercial real estate interior photography, Tokyo" },
@@ -45,11 +45,11 @@ const services = [
   {
     num: "02",
     title: "Real estate drone photos and video",
-    desc: "High-rise buildings, hotels and large commercial complexes photographed and filmed from the air — for promotions, listings, construction records or renovation documentation. By combining drone aerials with ground photography on the same day, we deliver a consistent look at lower total cost with a single crew.",
+    desc: "High-rise buildings, hotels and large commercial complexes photographed and filmed from the air, for promotions, listings, construction records or renovation documentation. By combining drone aerials with ground photography on the same day, we deliver a consistent look at lower total cost with a single crew.",
     projects: [
-      "Yokohama Bay — high-rise office fly-through",
-      "Hines distribution centre — aerial and ground footage plus completion photography",
-      "Fukuoka Hilton — drone video for sale promotion",
+      "Yokohama Bay: high-rise office fly-through",
+      "Hines distribution centre: aerial and ground footage plus completion photography",
+      "Fukuoka Hilton: drone video for sale promotion",
     ],
     leadImage: { src: "/images/re_drone_1.jpg", alt: "Drone aerial photography of commercial building, Japan" },
     gridImages: [
@@ -59,19 +59,19 @@ const services = [
       { src: "/images/re_drone_6.jpg", alt: "High-rise drone photography Japan" },
     ],
     videos: [
-      { id: "873209362", hash: "092fe43e56", caption: "Fukuoka Hilton — drone video for sale promotion" },
-      { id: "952995962", hash: "541869b193", caption: "Distribution center — drone footage" },
+      { id: "873209362", hash: "092fe43e56", caption: "Fukuoka Hilton: drone video for sale promotion" },
+      { id: "952995962", hash: "541869b193", caption: "Distribution center: drone footage" },
     ],
     matterport: null,
   },
   {
     num: "03",
     title: "360° VR and Matterport building tours",
-    desc: "Matterport Pro 3 tours let overseas buyers and tenants explore every room from anywhere in the world, via browser or VR headset (Meta Quest). We also produce 360° tours using the Insta360 Pro 2, Insta360 1-inch, or stitched full-frame mirrorless images for maximum quality — covering offices, warehouses, distribution centres and outdoor spaces.",
+    desc: "Matterport Pro 3 tours let overseas buyers and tenants explore every room from anywhere in the world, via browser or VR headset (Meta Quest). We also produce 360° tours using the Insta360 Pro 2, Insta360 1-inch, or stitched full-frame mirrorless images for maximum quality, covering offices, warehouses, distribution centres and outdoor spaces.",
     projects: [
       "Warehouse and distribution centre 360° tour",
-      "Hiroshima Peace Memorial Park — 360° virtual experience",
-      "Yoyogi luxury residence — Matterport tour for overseas buyers",
+      "Hiroshima Peace Memorial Park: 360° virtual experience",
+      "Yoyogi luxury residence: Matterport tour for overseas buyers",
     ],
     leadImage: null,
     gridImages: [],
@@ -81,9 +81,9 @@ const services = [
   {
     num: "04",
     title: "Building, residence and facilities videos",
-    desc: "Cinematic promotion and completion videos for data centres, hotels, warehouses, office buildings, residences and shopping centres. We combine interview, b-roll and aerial footage into compelling promotional films — and can package photography, drone and Matterport into a single multi-day shoot for maximum efficiency. Photos delivered within 24 hours; video and virtual tours within 72 hours.",
+    desc: "Cinematic promotion and completion videos for data centres, hotels, warehouses, office buildings, residences and shopping centres. We combine interview, b-roll and aerial footage into compelling promotional films, and can package photography, drone and Matterport into a single multi-day shoot for maximum efficiency. Photos delivered within 24 hours; video and virtual tours within 72 hours.",
     projects: [
-      "Hines distribution centre — promotion video",
+      "Hines distribution centre: promotion video",
       "Data centre completion videos in Tokyo",
       "Hotel and shopping centre facility films across Japan",
     ],
@@ -110,7 +110,7 @@ const faqs = [
   },
   {
     q: "Can you combine photography, drone, video and Matterport in one shoot?",
-    a: "Yes — this is one of our key strengths. We combine ground photography, drone photography and video, and Matterport virtual tours in a single multi-day shoot. One crew, one consistent look, lower total cost.",
+    a: "Yes, this is one of our key strengths. We combine ground photography, drone photography and video, and Matterport virtual tours in a single multi-day shoot. One crew, one consistent look, lower total cost.",
   },
   {
     q: "What Matterport equipment do you use?",
@@ -130,11 +130,11 @@ const faqs = [
   },
   {
     q: "Do you produce videos for data centres and industrial facilities?",
-    a: "Yes. We have produced promotion and completion videos for data centres, warehouses, distribution centres, office buildings and shopping centres in Tokyo and throughout Japan — including projects for Hines.",
+    a: "Yes. We have produced promotion and completion videos for data centres, warehouses, distribution centres, office buildings and shopping centres in Tokyo and throughout Japan, including projects for Hines.",
   },
   {
     q: "Can you produce content for luxury residential properties?",
-    a: "Yes. We produce cinematic walkthroughs, architect interview films and comprehensive media packages for luxury residences — combining photography, video and Matterport tours with bilingual text and print production if required.",
+    a: "Yes. We produce cinematic walkthroughs, architect interview films and comprehensive media packages for luxury residences, combining photography, video and Matterport tours with bilingual text and print production if required.",
   },
   {
     q: "How do you handle shoot access and building management in Japan?",
@@ -154,13 +154,13 @@ export default function RealEstatePage() {
           "@type": "FAQPage",
           "mainEntity": [
             { "@type": "Question", "name": "What types of commercial real estate do you cover in Japan?", "acceptedAnswer": { "@type": "Answer", "text": "Hotels, shopping malls, data centres, warehouses, office buildings, high-rise towers, residential developments and retail interiors. We've worked for JLL, CBRE, Cushman & Wakefield, Hines and Savills across a wide range of asset types throughout Japan." } },
-            { "@type": "Question", "name": "Can you combine photography, drone, video and Matterport in one shoot?", "acceptedAnswer": { "@type": "Answer", "text": "Yes — this is one of our key strengths. We combine ground photography, drone photography and video, and Matterport virtual tours in a single multi-day shoot. One crew, one consistent look, lower total cost." } },
+            { "@type": "Question", "name": "Can you combine photography, drone, video and Matterport in one shoot?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, this is one of our key strengths. We combine ground photography, drone photography and video, and Matterport virtual tours in a single multi-day shoot. One crew, one consistent look, lower total cost." } },
             { "@type": "Question", "name": "What Matterport equipment do you use?", "acceptedAnswer": { "@type": "Answer", "text": "We use the Matterport Pro 3 camera for high-quality interior scanning, including large and outdoor spaces. For 360° tours we use the Insta360 Pro 2, Insta360 1-inch, or stitched full-frame mirrorless images for maximum quality." } },
             { "@type": "Question", "name": "Can overseas buyers view virtual tours remotely?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Matterport tours and 360° virtual experiences are accessible via any web browser or VR headset (Meta Quest). Overseas buyers and tenants can explore the property in full detail without visiting Japan." } },
             { "@type": "Question", "name": "Do you film drone video of buildings in Japan?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We have extensive experience filming high-rise buildings, hotels and large commercial complexes from the air across Japan. We handle all permits and coordinate with building management." } },
             { "@type": "Question", "name": "What are your turnaround times?", "acceptedAnswer": { "@type": "Answer", "text": "Photos are delivered within 24 hours of the shoot. Video edits and Matterport tours within 72 hours. Rush delivery is available on request for time-sensitive projects." } },
-            { "@type": "Question", "name": "Do you produce videos for data centres and industrial facilities?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We have produced promotion and completion videos for data centres, warehouses, distribution centres, office buildings and shopping centres in Tokyo and throughout Japan — including projects for Hines." } },
-            { "@type": "Question", "name": "Can you produce content for luxury residential properties?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We produce cinematic walkthroughs, architect interview films and comprehensive media packages for luxury residences — combining photography, video and Matterport tours with bilingual text and print production if required." } },
+            { "@type": "Question", "name": "Do you produce videos for data centres and industrial facilities?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We have produced promotion and completion videos for data centres, warehouses, distribution centres, office buildings and shopping centres in Tokyo and throughout Japan, including projects for Hines." } },
+            { "@type": "Question", "name": "Can you produce content for luxury residential properties?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We produce cinematic walkthroughs, architect interview films and comprehensive media packages for luxury residences, combining photography, video and Matterport tours with bilingual text and print production if required." } },
             { "@type": "Question", "name": "How do you handle shoot access and building management in Japan?", "acceptedAnswer": { "@type": "Answer", "text": "Our bilingual team liaises directly with building management, facility teams and local staff in Japanese. This removes the logistical friction that often delays overseas-coordinated shoots." } }
           ]
         }) }}
@@ -251,7 +251,7 @@ export default function RealEstatePage() {
                                 style={{ border: 0 }}
                               />
                             </div>
-                            <figcaption className="mt-3 text-[15px] font-semibold">360° Matterport virtual tour — explore in your browser or VR headset</figcaption>
+                            <figcaption className="mt-3 text-[15px] font-semibold">360° Matterport virtual tour: explore in your browser or VR headset</figcaption>
                           </figure>
                         )}
 
@@ -331,7 +331,7 @@ export default function RealEstatePage() {
         <div className="flex flex-wrap items-end justify-between gap-x-16 gap-y-8">
           <div>
             <h2 id="talk-heading" className="fij-h2 mb-4">Prefer to talk?</h2>
-            <p className="fij-lede" style={{ color: "rgba(253,248,243,0.78)" }}>WhatsApp or email — we reply fast.</p>
+            <p className="fij-lede" style={{ color: "rgba(253,248,243,0.78)" }}>WhatsApp or email. We reply fast.</p>
           </div>
           <div className="flex flex-wrap gap-3">
             <a href="https://wa.me/819038800895" className="fij-btn-orange">WhatsApp us</a>

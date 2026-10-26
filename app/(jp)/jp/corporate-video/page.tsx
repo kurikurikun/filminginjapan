@@ -124,23 +124,23 @@ const recruitmentVideos = [
   {
     src: "https://www.youtube.com/embed/UbkuSD-ht1U?rel=0",
     title: "Google Japan 採用動画 — Filming in Japan",
-    caption: "Google Japan — 採用動画",
+    caption: "Google Japan：採用動画",
     desc: "東京近郊の稲西データセンターで働くGoogle Japan社員へのインタビューを中心とした採用動画。",
   },
   {
     src: "https://www.youtube.com/embed/ZDKXfIE_b1Y?rel=0",
     title: "EY 社員プロフィール映像 — Filming in Japan",
-    caption: "EY — 社員プロフィールシリーズ",
+    caption: "EY：社員プロフィールシリーズ",
     desc: "EYの採用・社員プロフィール動画シリーズ全6本。職場の枠を超え、仕事と人生への情熱を掘り下げた内容。",
   },
 ];
 
 const brandFilms = [
-  { src: "https://www.youtube.com/embed/t-VSxoBQlRA?rel=0", title: "コーポレートブランディング映像 — Filming in Japan", caption: "ブランドフィルム — Japan" },
-  { src: "https://www.youtube.com/embed/m1KV1UTpSzU?rel=0", title: "HP Asian Influencer Series — Filming in Japan", caption: "HP — Asian Influencer Series" },
-  { src: "https://player.vimeo.com/video/836766996?h=ccb3b1ab04", title: "White Express brand film — Filming in Japan", caption: "White Express — Brand Film" },
-  { src: "https://player.vimeo.com/video/517509247", title: "クラフトブルワリー＆蒸留所 ブランドフィルム — Japan", caption: "クラフトブルワリー＆蒸留所 — Brand Film" },
-  { src: "https://player.vimeo.com/video/888141337?h=7f88a78ba3", title: "手作りナイフ会社 ブランドフィルム — Japan", caption: "手作りナイフ会社 — Brand Film" },
+  { src: "https://www.youtube.com/embed/t-VSxoBQlRA?rel=0", title: "コーポレートブランディング映像：Filming in Japan", caption: "ブランドフィルム：Japan" },
+  { src: "https://www.youtube.com/embed/m1KV1UTpSzU?rel=0", title: "HP Asian Influencer Series: Filming in Japan", caption: "HP: Asian Influencer Series" },
+  { src: "https://player.vimeo.com/video/836766996?h=ccb3b1ab04", title: "White Express brand film: Filming in Japan", caption: "White Express: Brand Film" },
+  { src: "https://player.vimeo.com/video/517509247", title: "クラフトブルワリー＆蒸留所 ブランドフィルム：Japan", caption: "クラフトブルワリー＆蒸留所：Brand Film" },
+  { src: "https://player.vimeo.com/video/888141337?h=7f88a78ba3", title: "手作りナイフ会社 ブランドフィルム：Japan", caption: "手作りナイフ会社：Brand Film" },
 ];
 
 /** Japanese headline ending in the coloured 。 (the Japanese full stop). */
@@ -327,7 +327,7 @@ export default function JpCorporateVideoPage() {
               src="https://player.vimeo.com/video/561655197?h=d1ca57fb5c"
               title="コーポレートインタビュー映像サンプル — Filming in Japan"
             />
-            <figcaption className="mt-3 text-[15px] font-semibold">コーポレートインタビュー映像集 — 東京</figcaption>
+            <figcaption className="mt-3 text-[15px] font-semibold">コーポレートインタビュー映像集：東京</figcaption>
           </figure>
         </div>
       </Section>

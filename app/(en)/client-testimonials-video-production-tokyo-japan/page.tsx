@@ -4,8 +4,9 @@ import { Section, SectionLabel, Title, TrustedBy } from "@/components/editorial"
 import Footer from "@/components/Footer";
 import LandingContactForm from "@/components/LandingContactForm";
 
+import LazyIframe from "@/components/LazyIframe";
 export const metadata: Metadata = {
-  title: "Client Testimonial Video Production Tokyo Japan",
+  title: "Testimonial Video Production Tokyo",
   description: "Professional client testimonial and case study video production in Tokyo and across Japan. Bilingual EN/JP team. Trusted by JLL, Microsoft, SAP, HP, Canon.",
   alternates: {
     canonical: "https://www.filminginjapan.com/client-testimonials-video-production-tokyo-japan",
@@ -153,7 +154,7 @@ export default function TestimonialsPage() {
           <div className="relative flex-[5_1_380px] min-h-[420px] lg:min-h-[640px] -mx-[clamp(20px,4vw,48px)] lg:ml-0 overflow-hidden" style={{ backgroundColor: "#0d0a07" }}>
             <Image
               src="/images/customer_testimonial_office_tokyo.jpeg"
-              alt=""
+              alt="Crew filming a client testimonial interview in a Tokyo office"
               fill
               priority
               className="object-cover"
@@ -187,7 +188,7 @@ export default function TestimonialsPage() {
                 <div>
                   {points.map((p, i) => (
                     <div key={p.num} className={`flex gap-6 py-6 border-t ${i === points.length - 1 ? "border-b" : ""}`} style={{ borderColor: "#1c1208" }}>
-                      <span className="w-8 shrink-0 pt-1.5 text-[13px] font-semibold tabular-nums" style={{ color: "#e95228" }}>{p.num}</span>
+                      <span className="w-8 shrink-0 pt-1.5 text-[13px] font-semibold tabular-nums" style={{ color: "var(--fij-num)" }}>{p.num}</span>
                       <div>
                         <h3 className="fij-h3 mb-2">{p.title}</h3>
                         <p className="text-[15px] leading-relaxed" style={{ color: "#4a3a2a" }}>{p.desc}</p>
@@ -222,7 +223,7 @@ export default function TestimonialsPage() {
             style={{ borderColor: "rgba(253,248,243,0.25)" }}
           >
             <div className="relative flex-[1.6_1_440px] min-w-0 aspect-[16/9]" style={{ backgroundColor: "#241a12" }}>
-              <iframe
+              <LazyIframe
                 src={v.src}
                 title={v.title}
                 allow={v.allow}

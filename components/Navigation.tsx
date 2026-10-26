@@ -61,7 +61,7 @@ export default function Navigation() {
   // Language toggle target
   const toggleHref = isJp
     ? jpToEn[pathname] ?? (pathname.replace(/^\/jp/, "") || "/")
-    : enToJp[pathname] ?? `/jp${pathname === "/" ? "" : pathname}`;
+    : enToJp[pathname] ?? (pathname === "/" || pathname === "/contact" ? `/jp${pathname === "/" ? "" : pathname}` : "/jp"); // pages with no Japanese version go to the JP home
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-sm border-b" style={{ backgroundColor: "rgba(253,248,243,0.95)", borderColor: "#1c1208" }}>

@@ -31,7 +31,7 @@ export default function Footer({ lang = "en" }: FooterProps) {
   // Smart language toggle — mirrors the same logic as Navigation
   const toggleHref = isJp
     ? jpToEn[pathname] ?? (pathname.replace(/^\/jp/, "") || "/")
-    : enToJp[pathname] ?? `/jp${pathname === "/" ? "" : pathname}`;
+    : enToJp[pathname] ?? (pathname === "/" || pathname === "/contact" ? `/jp${pathname === "/" ? "" : pathname}` : "/jp"); // pages with no Japanese version go to the JP home
 
   return (
     <footer className="pt-20 pb-9" style={{ backgroundColor: "#0d0a07", color: "rgba(253,248,243,0.75)" }}>
@@ -64,9 +64,9 @@ export default function Footer({ lang = "en" }: FooterProps) {
 
           {/* Services */}
           <div>
-            <h4 className="text-[13px] font-semibold text-[#f07a52] mb-4">
+            <h2 className="text-[13px] font-semibold text-[#f07a52] mb-4">
               {isJp ? "サービス" : "Services"}
-            </h4>
+            </h2>
             <ul className="space-y-2">
               {allLiveServices(isJp ? "jp" : "en").map((s) => (
                 <li key={s.href}>
@@ -80,19 +80,19 @@ export default function Footer({ lang = "en" }: FooterProps) {
 
           {/* Tokyo */}
           <div>
-            <h4 className="text-[13px] font-semibold text-[#f07a52] mb-4">
+            <h2 className="text-[13px] font-semibold text-[#f07a52] mb-4">
               {isJp ? "本社（東京）" : "Tokyo Office"}
-            </h4>
+            </h2>
             <p className="text-sm leading-relaxed">
               {isJp ? "東京都品川区東五反田1-18-5-503" : "1-18-5-503 Higashi Gotanda"}<br />
               {isJp ? "" : "Shinagawa, Tokyo 141-0022"}<br />
               050.1724.6517
             </p>
             <p className="text-sm mt-3 leading-relaxed">
-              <a href="mailto:filminginjapan@move-ment.co" className="text-[rgba(253,248,243,0.8)] hover:text-[#f07a52] transition-colors">
+              <a href="mailto:filminginjapan@move-ment.co" className="inline-block py-1 text-[rgba(253,248,243,0.8)] hover:text-[#f07a52] transition-colors">
                 filminginjapan@move-ment.co
               </a><br />
-              <a href="https://wa.me/819038800895" target="_blank" rel="noopener noreferrer" className="text-[rgba(253,248,243,0.8)] hover:text-[#f07a52] transition-colors">
+              <a href="https://wa.me/819038800895" target="_blank" rel="noopener noreferrer" className="inline-block py-1 text-[rgba(253,248,243,0.8)] hover:text-[#f07a52] transition-colors">
                 +81 90 3880 0895 (WhatsApp)
               </a>
             </p>
@@ -100,9 +100,9 @@ export default function Footer({ lang = "en" }: FooterProps) {
 
           {/* Hiroshima */}
           <div>
-            <h4 className="text-[13px] font-semibold text-[#f07a52] mb-4">
+            <h2 className="text-[13px] font-semibold text-[#f07a52] mb-4">
               {isJp ? "広島支店" : "Hiroshima Office"}
-            </h4>
+            </h2>
             <p className="text-sm leading-relaxed">
               {isJp ? "広島市東区南牛田1-13-4" : "1-13-4 Ushita Minami"}<br />
               {isJp ? "" : "Higashi-ku, Hiroshima"}
@@ -114,9 +114,9 @@ export default function Footer({ lang = "en" }: FooterProps) {
         <div className="py-8 border-b border-white/15 flex items-start gap-4">
           <Image src="/images/ds-mark.svg" alt="DS designated store mark" width={50} height={40} className="shrink-0 mt-0.5" unoptimized />
           <div>
-            <h4 className="text-[13px] font-semibold text-[#f07a52] mb-2">
+            <h2 className="text-[13px] font-semibold text-[#f07a52] mb-2">
               {isJp ? "指定" : "Designation"}
-            </h4>
+            </h2>
             <p className="text-[13px] leading-relaxed max-w-3xl">
               {isJp
                 ? "外務省『外国公館等に対する消費税免除指定店舗』（2026年9月指定）。大使館・領事館・国際機関のお客様は、免税カードのご提示により消費税抜き価格でご利用いただけます。"

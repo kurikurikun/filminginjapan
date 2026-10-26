@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
+import LazyIframe from "@/components/LazyIframe";
 
 interface VideoLightboxProps {
   vimeoId: string;
@@ -24,7 +25,7 @@ export default function VideoLightbox({ vimeoId, vimeoHash, title }: VideoLightb
     <>
       {/* Panel video — fills container, cropped L/R */}
       <div className="relative overflow-hidden min-h-[320px] lg:min-h-[560px]" style={{ backgroundColor: "#0d0a07" }}>
-        <iframe
+        <LazyIframe
           src={`https://player.vimeo.com/video/${vimeoId}?h=${vimeoHash}`}
           title={title}
           allow="autoplay; fullscreen; picture-in-picture"

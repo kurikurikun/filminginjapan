@@ -5,8 +5,9 @@ import { Section, SectionLabel, TrustedBy } from "@/components/editorial";
 import Footer from "@/components/Footer";
 import LandingContactForm from "@/components/LandingContactForm";
 
+import LazyIframe from "@/components/LazyIframe";
 export const metadata: Metadata = {
-  title: "コーポレートインタビュー・採用動画制作 東京・日本全国",
+  title: "採用動画・インタビュー動画制作",
   description:
     "日本全国対応のコーポレートインタビュー、ブランドフィルム、採用動画制作。日英バイリンガルチーム。Sony・Google・Microsoft・HP・EY・Canonなど多数の実績。",
   alternates: {
@@ -155,7 +156,7 @@ function JTitle({ as: Tag = "h2", className = "fij-h2", id, children }: { as?: "
 function VideoEmbed({ src, title, dark = false }: { src: string; title: string; dark?: boolean }) {
   return (
     <div className="relative w-full aspect-[16/9]" style={{ backgroundColor: dark ? "#241a12" : "#0d0a07" }}>
-      <iframe
+      <LazyIframe
         src={src}
         title={title}
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
@@ -171,6 +172,19 @@ function VideoEmbed({ src, title, dark = false }: { src: string; title: string; 
 export default function JpCorporateVideoPage() {
   return (
     <div lang="ja" style={{ backgroundColor: "#fdf8f3" }}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "inLanguage": "ja",
+          "mainEntity": faqs.map((faq) => ({
+            "@type": "Question",
+            "name": faq.q,
+            "acceptedAnswer": { "@type": "Answer", "text": faq.a },
+          })),
+        }) }}
+      />
 
       {/* Hero: headline on cream, tall photo with vertical English on the right */}
       <section className="border-b" style={{ borderColor: "#1c1208" }}>
@@ -179,7 +193,7 @@ export default function JpCorporateVideoPage() {
             <div>
               <p lang="en" className="text-sm font-medium mb-8" style={{ color: "#6b5a48" }}>Corporate Video · Tokyo · Japan</p>
               <h1 className="fij-h1 [line-break:strict] [word-break:auto-phrase] text-[length:clamp(32px,8.4vw,64px)] lg:text-[length:clamp(44px,4.8vw,72px)]">
-                採用動画<span style={{ color: "#e95228" }}>。</span><br />
+                採用動画<span style={{ color: "#e95228" }}>。</span>{" "}<br />
                 インタビュー動画<span style={{ color: "#e95228" }}>。</span>
               </h1>
             </div>
@@ -194,7 +208,7 @@ export default function JpCorporateVideoPage() {
           <div className="relative flex-[5_1_380px] min-h-[420px] lg:min-h-[640px] -mx-[clamp(20px,4vw,48px)] lg:ml-0 overflow-hidden" style={{ backgroundColor: "#0d0a07" }}>
             <Image
               src="/images/corporate_video_tokyo.jpeg"
-              alt=""
+              alt="秋の東京の街並みの空撮"
               fill
               priority
               className="object-cover object-[center_20%]"
@@ -350,7 +364,7 @@ export default function JpCorporateVideoPage() {
           <ol className="flex-[3_1_520px] border-t-2" style={{ borderColor: "#1c1208" }}>
             {workflow.map((w, i) => (
               <li key={w.step} className="flex gap-6 py-7 border-b" style={{ borderColor: "#1c1208" }}>
-                <span className="w-8 shrink-0 pt-1.5 text-[13px] font-semibold tabular-nums" style={{ color: "#e95228" }}>
+                <span className="w-8 shrink-0 pt-1.5 text-[13px] font-semibold tabular-nums" style={{ color: "var(--fij-num)" }}>
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <div>
@@ -396,7 +410,7 @@ export default function JpCorporateVideoPage() {
           <ul className="flex-[1.5_1_420px] fij-cells self-start" style={{ gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 240px), 1fr))" }}>
             {equipment.map((item, i) => (
               <li key={item} className="p-5 sm:p-6 flex flex-col gap-5">
-                <span className="text-[13px] font-semibold tabular-nums" style={{ color: "#e95228" }}>{String(i + 1).padStart(2, "0")}</span>
+                <span className="text-[13px] font-semibold tabular-nums" style={{ color: "var(--fij-num)" }}>{String(i + 1).padStart(2, "0")}</span>
                 <span className="text-base sm:text-[18px] leading-snug font-semibold">{item}</span>
               </li>
             ))}

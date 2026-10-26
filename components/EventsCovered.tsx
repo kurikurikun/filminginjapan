@@ -77,7 +77,7 @@ export default function EventsCovered({ lang = "en", num }: { lang?: Lang; num?:
   return (
     <Section num={num} label={t.label} labelLang={lang === "jp" ? "en" : "ja"} aria-labelledby="events-covered-heading">
         <Kicker>{t.eyebrow}</Kicker>
-        <Title id="events-covered-heading" className="fij-h2 mb-10">{t.title}</Title>
+        <Title stop={lang === "jp" ? "。" : "."} id="events-covered-heading" className="fij-h2 mb-10">{t.title}</Title>
         <p className="mb-10 text-[26px] sm:text-[34px] lg:text-[42px] leading-[1.2] font-semibold tracking-[-0.03em]" style={{ color: "#a8937a" }} aria-hidden="true">
           {t.wall.map((v, i) => (
             <span key={v}>
@@ -192,7 +192,7 @@ export default function EventsCovered({ lang = "en", num }: { lang?: Lang; num?:
         .ec-table :global(.ec-extras) { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 6px; }
         .ec-table :global(.ec-extras span) { font-size: 12px; color: #4a3a2a; background: #f5ede2; padding: 3px 7px; }
         .ec-table :global(.ec-dot) { display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: #e95228; }
-        .ec-table :global(.ec-no) { color: #c9b49c; }
+        .ec-table :global(.ec-no) { color: #8a7660; }
         .ec-table :global(.ec-lbl) { display: none; }
         .ec-table :global(tbody tr:hover td) { background: #f5ede2; }
         .ec-table :global(tr.ec-hidden) { display: none; }

@@ -46,7 +46,6 @@ export default function PhotoGallery({ events, lang = "en" }: { events: Event[];
             type="button"
             onClick={(ev) => openLightbox(i, 0, ev)}
             className={`fij-zoom group text-left flex flex-col justify-start ${i === 0 ? "sm:col-span-2 lg:row-span-2" : ""}`}
-            aria-label={lang === "jp" ? `${e.label}の写真を見る（${e.photos.length}枚）` : `View ${e.photos.length} photos from ${e.label}`}
           >
             <span className={`relative block overflow-hidden mb-3 ${i === 0 ? "aspect-[3/2] lg:aspect-auto lg:flex-1 lg:min-h-[360px]" : "aspect-[3/2]"}`} style={{ backgroundColor: "#e8d9c8" }}>
               <Image

@@ -52,7 +52,7 @@ export default function HomePage() {
           "@graph": [
             {
               "@type": ["LocalBusiness", "ProfessionalService"],
-              "@id": "https://www.filminginjapan.com/#organization",
+              "@id": "https://www.filminginjapan.com/#business",
               "name": "Filming in Japan",
               "alternateName": "Move-ment Co. Ltd.",
               "url": "https://www.filminginjapan.com",
@@ -222,7 +222,7 @@ export default function HomePage() {
         <ol className="grid sm:grid-cols-2 lg:grid-cols-5 gap-x-8 gap-y-12">
           {workflow.map((w) => (
             <li key={w.step} className="border-t-2 pt-5" style={{ borderColor: "#1c1208" }}>
-              <span className="block text-[13px] font-semibold tabular-nums mb-8" style={{ color: "#e95228" }}>{w.step}</span>
+              <span className="block text-[13px] font-semibold tabular-nums mb-8" style={{ color: "var(--fij-num)" }}>{w.step}</span>
               <h3 className="text-[20px] leading-snug font-semibold tracking-[-0.015em] mb-3">{w.title}</h3>
               <p className="text-[15px] leading-relaxed" style={{ color: "#4a3a2a" }}>{w.desc}</p>
             </li>

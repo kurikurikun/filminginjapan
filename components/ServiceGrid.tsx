@@ -127,7 +127,7 @@ export default function ServiceGrid({ lang = "en" }: { lang?: "en" | "jp" }) {
                 onClick={() => setActive(s)}
                 className="fij-zoom relative w-full overflow-hidden"
                 style={{ aspectRatio: "16/9", backgroundColor: "#0d0a07" }}
-                aria-label={isJp ? `${s.titleJp}の動画を見る` : `Watch ${s.title} example`}
+                aria-label={isJp ? `動画を見る：${s.titleJp}` : `Watch example: ${s.title}`}
               >
                 {thumb && (
                   // eslint-disable-next-line @next/next/no-img-element
@@ -147,7 +147,7 @@ export default function ServiceGrid({ lang = "en" }: { lang?: "en" | "jp" }) {
                 className="group flex flex-col flex-1 pt-6 mt-6 border-t-2"
                 style={{ borderColor: "#1c1208", color: "#1c1208" }}
               >
-                <span className="text-[13px] font-semibold tabular-nums mb-4" style={{ color: "#e95228" }}>
+                <span className="text-[13px] font-semibold tabular-nums mb-4" style={{ color: "var(--fij-num)" }}>
                   {s.num}
                 </span>
                 <h3 className="fij-h3 mb-2">{isJp ? s.titleJp : s.title}</h3>

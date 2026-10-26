@@ -9,6 +9,7 @@ import LandingContactForm from "@/components/LandingContactForm";
 import GoogleReviews from "@/components/GoogleReviews";
 import PhotoGallery from "@/components/PhotoGallery";
 
+import LazyIframe from "@/components/LazyIframe";
 export const metadata: Metadata = {
   title: "Tokyo Event Photographer & Videographer",
   description: "Bilingual Tokyo event photographer and videographer for conferences, galas and launches. Same-day photos, highlight videos. Trusted by PwC, Riot Games, Celonis.",
@@ -319,7 +320,7 @@ export default function EventVideoPage() {
                 <ol className="fij-cells" style={{ gridTemplateColumns: "repeat(auto-fit, minmax(min(50%, 220px), 1fr))" }}>
                   {services.map((s, i) => (
                     <li key={i} className="p-4 pb-6 sm:p-6 sm:pb-8 flex flex-col gap-5 sm:gap-7 sm:min-h-[150px]">
-                      <span className="text-[13px] font-semibold tabular-nums" style={{ color: "#e95228" }}>{String(i + 1).padStart(2, "0")}</span>
+                      <span className="text-[13px] font-semibold tabular-nums" style={{ color: "var(--fij-num)" }}>{String(i + 1).padStart(2, "0")}</span>
                       <span className="text-base sm:text-[19px] leading-snug font-semibold tracking-[-0.015em]">{s}</span>
                     </li>
                   ))}
@@ -335,7 +336,7 @@ export default function EventVideoPage() {
                 <div>
                   {differentiators.map((d, i) => (
                     <div key={i} className={`flex gap-6 py-6 border-t ${i === differentiators.length - 1 ? "border-b" : ""}`} style={{ borderColor: "#1c1208" }}>
-                      <span className="w-8 shrink-0 pt-1.5 text-[13px] font-semibold tabular-nums" style={{ color: "#e95228" }}>
+                      <span className="w-8 shrink-0 pt-1.5 text-[13px] font-semibold tabular-nums" style={{ color: "var(--fij-num)" }}>
                         {String(i + 1).padStart(2, "0")}
                       </span>
                       <div>
@@ -363,7 +364,7 @@ export default function EventVideoPage() {
                 </div>
                 <figure className="mt-4">
                   <div className="relative aspect-[16/9]" style={{ backgroundColor: "#0d0a07" }}>
-                    <iframe
+                    <LazyIframe
                       src="https://player.vimeo.com/video/1063107056?h=9932edce4c&title=0&byline=0&portrait=0"
                       className="absolute inset-0 w-full h-full"
                       allow="autoplay; fullscreen; picture-in-picture"
@@ -400,7 +401,7 @@ export default function EventVideoPage() {
             style={{ borderColor: "rgba(253,248,243,0.25)" }}
           >
             <div className="relative flex-[1.25_1_440px] aspect-[16/9]" style={{ backgroundColor: "#241a12" }}>
-              <iframe
+              <LazyIframe
                 src={`https://player.vimeo.com/video/${p.vimeoId}?h=${p.vimeoHash}&title=0&byline=0&portrait=0`}
                 className="absolute inset-0 w-full h-full"
                 allow="autoplay; fullscreen; picture-in-picture"

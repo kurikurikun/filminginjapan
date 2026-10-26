@@ -5,8 +5,9 @@ import LandingContactForm from "@/components/LandingContactForm";
 import PhotoGrid from "@/components/PhotoGrid";
 import { Section, SectionLabel, Title, TrustedBy } from "@/components/editorial";
 
+import LazyIframe from "@/components/LazyIframe";
 export const metadata: Metadata = {
-  title: "Commercial Real Estate Photography, Video & Virtual Tours Japan",
+  title: "Real Estate Photo, Video & Virtual Tours Japan",
   description: "Commercial real estate photos, drone video and 360° Matterport virtual tours across Japan. Trusted by JLL, CBRE, Cushman & Wakefield, Hines and Savills.",
   alternates: {
     canonical: "https://www.filminginjapan.com/real-estate-photo-video-tokyo-japan",
@@ -184,7 +185,7 @@ export default function RealEstatePage() {
           <div className="relative flex-[5_1_380px] min-h-[420px] lg:min-h-[640px] -mx-[clamp(20px,4vw,48px)] lg:ml-0 overflow-hidden" style={{ backgroundColor: "#0d0a07" }}>
             <Image
               src="/images/tokyo-real-estate-drone-photo1.jpg"
-              alt=""
+              alt="Drone photo of a modern office building and landscaped plaza in Tokyo"
               fill
               priority
               className="object-cover"
@@ -219,7 +220,7 @@ export default function RealEstatePage() {
                   return (
                     <article key={s.num} className="py-10 border-t" style={{ borderColor: "#1c1208" }}>
                       <div className="flex gap-6 mb-8">
-                        <span className="w-8 shrink-0 pt-1.5 text-[13px] font-semibold tabular-nums" style={{ color: "#e95228" }}>{s.num}</span>
+                        <span className="w-8 shrink-0 pt-1.5 text-[13px] font-semibold tabular-nums" style={{ color: "var(--fij-num)" }}>{s.num}</span>
                         <div className="min-w-0">
                           <h3 className="fij-h3 mb-3">{s.title}</h3>
                           <p className="text-[15px] leading-relaxed mb-5" style={{ color: "#4a3a2a" }}>{s.desc}</p>
@@ -241,7 +242,7 @@ export default function RealEstatePage() {
                         {s.matterport && (
                           <figure>
                             <div className="relative w-full aspect-[16/9]" style={{ backgroundColor: "#0d0a07" }}>
-                              <iframe
+                              <LazyIframe
                                 src={`https://my.matterport.com/show/?m=${s.matterport}`}
                                 title="Matterport 360° virtual tour"
                                 allow="vr; xr; accelerometer; magnetometer; gyroscope; autoplay"
@@ -260,7 +261,7 @@ export default function RealEstatePage() {
                             {s.videos.map((v, i) => (
                               <figure key={v.id} className={s.videos.length % 2 === 1 && i === 0 ? "sm:col-span-2" : ""}>
                                 <div className="relative w-full aspect-[16/9]" style={{ backgroundColor: "#0d0a07" }}>
-                                  <iframe
+                                  <LazyIframe
                                     src={`https://player.vimeo.com/video/${v.id}${v.hash ? `?h=${v.hash}` : ""}`}
                                     title={v.caption}
                                     allow="autoplay; fullscreen; picture-in-picture"

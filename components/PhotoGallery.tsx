@@ -13,8 +13,7 @@ export default function PhotoGallery({ events, lang = "en" }: { events: Event[];
     lang === "jp"
       ? `${e.label}（${e.location}）企業イベント写真撮影${n ? ` ${n}` : ""}`
       : `${e.label} at ${e.location} — corporate event photography in Japan${n ? ` (${n})` : ""}`;
-  const [openIndex, setOpenIndex] = useState<number | null>(0);
-  const [lightbox, setLightbox] = useState<{ eventIdx: number; photoIdx: number } | null>(null);
+    const [lightbox, setLightbox] = useState<{ eventIdx: number; photoIdx: number } | null>(null);
 
   function openLightbox(eventIdx: number, photoIdx: number, e: React.MouseEvent) {
     e.stopPropagation();
@@ -39,72 +38,34 @@ export default function PhotoGallery({ events, lang = "en" }: { events: Event[];
 
   return (
     <>
-      <div style={{ backgroundColor: "#0d0a07" }}>
-        <p className="text-sm px-8 pt-8 pb-4" style={{ color: "rgba(253,248,243,0.5)" }}>
-          {lang === "jp" ? "最近のイベント写真撮影の実績：" : "A selection of recent event photography clients:"}
-        </p>
-        <div>
-          {events.map((e, i) => {
-            const isOpen = openIndex === i;
-            return (
-              <div key={i} className="border-t" style={{ borderColor: "rgba(255,255,255,0.07)" }}>
-                {/* Header row */}
-                <button
-                  className="w-full flex items-center justify-between px-8 py-4 text-left"
-                  onClick={() => setOpenIndex(isOpen ? null : i)}
-                >
-                  <div className="flex items-center gap-3 min-w-0 flex-1">
-                    {/* Thumbnail strip preview */}
-                    <div className="flex -space-x-2 shrink-0">
-                      {e.photos.slice(0, 3).map((src, j) => (
-                        <div key={j} className="relative w-8 h-8 rounded overflow-hidden ring-1 ring-[#0d0a07]">
-                          <Image src={src} alt={altFor(e, j + 1)} fill className="object-cover" sizes="32px" />
-                        </div>
-                      ))}
-                    </div>
-                    <span className="min-w-0">
-                      <span className="block text-sm font-black leading-snug" style={{ color: "#fdf8f3" }}>{e.label}</span>
-                      <span className="block font-mono text-[10px] tracking-[0.15em] uppercase mt-1" style={{ color: "rgba(233,82,40,0.8)" }}>{e.location}</span>
-                    </span>
-                  </div>
-                  <div className="flex items-center gap-3 ml-4 shrink-0">
-                    <span className="font-mono text-[9px] tracking-widest uppercase px-2 py-1 rounded" style={{ color: "rgba(233,82,40,0.9)", backgroundColor: "rgba(233,82,40,0.1)" }}>
-                      {e.photos.length} {lang === "jp" ? "枚" : "photos"}
-                    </span>
-                    <svg
-                      className="w-3 h-3 shrink-0 transition-transform duration-200"
-                      style={{ color: "rgba(253,248,243,0.4)", transform: isOpen ? "rotate(180deg)" : "rotate(0deg)" }}
-                      viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="2"
-                    >
-                      <path d="M2 4l4 4 4-4" />
-                    </svg>
-                  </div>
-                </button>
-
-                {/* Photo grid */}
-                {isOpen && (
-                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-1 px-8 pb-6 pt-1">
-                    {e.photos.map((src, j) => (
-                      <button
-                        key={j}
-                        className="relative aspect-[4/3] overflow-hidden group"
-                        onClick={(ev) => openLightbox(i, j, ev)}
-                      >
-                        <Image src={src} alt={altFor(e, j + 1)} fill className="object-cover transition-transform duration-300 group-hover:scale-105" sizes="(max-width:640px) 50vw, 33vw" />
-                        <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200" style={{ backgroundColor: "rgba(0,0,0,0.35)" }}>
-                          <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-4.35-4.35M17 11A6 6 0 1 1 5 11a6 6 0 0 1 12 0zm0 0l4 4" />
-                          </svg>
-                        </div>
-                      </button>
-                    ))}
-                  </div>
-                )}
-              </div>
-            );
-          })}
-          <div className="border-t" style={{ borderColor: "rgba(255,255,255,0.07)" }} />
-        </div>
+      {/* Album mosaic: the first album leads large, the rest follow as cards */}
+      <div className="grid gap-x-5 gap-y-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4" style={{ gridAutoFlow: "dense" }}>
+        {events.map((e, i) => (
+          <button
+            key={e.label}
+            type="button"
+            onClick={(ev) => openLightbox(i, 0, ev)}
+            className={`fij-zoom group text-left flex flex-col justify-start ${i === 0 ? "sm:col-span-2 lg:row-span-2" : ""}`}
+            aria-label={lang === "jp" ? `${e.label}の写真を見る（${e.photos.length}枚）` : `View ${e.photos.length} photos from ${e.label}`}
+          >
+            <span className={`relative block overflow-hidden mb-3 ${i === 0 ? "aspect-[3/2] lg:aspect-auto lg:flex-1 lg:min-h-[360px]" : "aspect-[3/2]"}`} style={{ backgroundColor: "#e8d9c8" }}>
+              <Image
+                src={e.photos[0]}
+                alt={altFor(e)}
+                fill
+                className="object-cover"
+                sizes={i === 0 ? "(max-width: 640px) 100vw, 50vw" : "(max-width: 640px) 100vw, 25vw"}
+              />
+            </span>
+            <span className={`block font-semibold tracking-[-0.015em] leading-snug mb-1 group-hover:text-[#c43d10] transition-colors ${i === 0 ? "text-[22px]" : "text-base"}`} style={{ color: "#1c1208" }}>
+              {e.label}
+            </span>
+            <span className="flex justify-between gap-3 text-[13px]" style={{ color: "#6b5a48" }}>
+              <span>{e.location}</span>
+              <span className="whitespace-nowrap">{e.photos.length} {lang === "jp" ? "枚" : "photos"}</span>
+            </span>
+          </button>
+        ))}
       </div>
 
       {/* Lightbox */}
@@ -118,14 +79,14 @@ export default function PhotoGallery({ events, lang = "en" }: { events: Event[];
             onClick={closeLightbox}
           >
             {/* Close */}
-            <button className="absolute top-4 right-4 text-white opacity-70 hover:opacity-100 z-10" onClick={closeLightbox}>
+            <button className="absolute top-4 right-4 text-white opacity-70 hover:opacity-100 z-10 p-2" onClick={closeLightbox} aria-label={lang === "jp" ? "閉じる" : "Close"}>
               <svg className="w-7 h-7" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
               </svg>
             </button>
 
             {/* Counter */}
-            <div className="absolute top-4 left-1/2 -translate-x-1/2 font-mono text-[11px] tracking-widest uppercase" style={{ color: "rgba(255,255,255,0.5)" }}>
+            <div className="absolute top-5 left-1/2 -translate-x-1/2 text-[13px] tabular-nums" style={{ color: "rgba(255,255,255,0.7)" }}>
               {photoIdx + 1} / {photos.length}
             </div>
 
@@ -133,6 +94,7 @@ export default function PhotoGallery({ events, lang = "en" }: { events: Event[];
             <button
               className="absolute left-3 sm:left-6 text-white opacity-60 hover:opacity-100 z-10 p-2"
               onClick={(e) => { e.stopPropagation(); prevPhoto(); }}
+              aria-label={lang === "jp" ? "前の写真" : "Previous photo"}
             >
               <svg className="w-8 h-8" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
@@ -160,6 +122,7 @@ export default function PhotoGallery({ events, lang = "en" }: { events: Event[];
             <button
               className="absolute right-3 sm:right-6 text-white opacity-60 hover:opacity-100 z-10 p-2"
               onClick={(e) => { e.stopPropagation(); nextPhoto(); }}
+              aria-label={lang === "jp" ? "次の写真" : "Next photo"}
             >
               <svg className="w-8 h-8" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
@@ -168,7 +131,7 @@ export default function PhotoGallery({ events, lang = "en" }: { events: Event[];
 
             {/* Event label */}
             <div className="absolute bottom-4 left-1/2 -translate-x-1/2 text-center px-4">
-              <p className="font-mono text-[10px] tracking-widest uppercase" style={{ color: "rgba(255,255,255,0.4)" }}>{events[eventIdx].label}</p>
+              <p className="text-[13px]" style={{ color: "rgba(255,255,255,0.7)" }}>{events[eventIdx].label}</p>
             </div>
           </div>
         );

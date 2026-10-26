@@ -1,6 +1,8 @@
 // Typical costs for event coverage. Prices come from the Crew Book rate card (crew_rates, Oct 2026).
 // All prices exclude 10% consumption tax.
 
+import { Section, Title } from "@/components/editorial";
+
 type Lang = "en" | "jp";
 
 const yen = (n: number) => `¥${n.toLocaleString("en-US")}`;
@@ -8,8 +10,8 @@ const yen = (n: number) => `¥${n.toLocaleString("en-US")}`;
 const copy = {
   en: {
     eyebrow: "Typical costs",
-    h1: "Clear prices,",
-    h2: "tailored quotes.",
+    title: "Clear prices, tailored quotes",
+    label: "料金の目安",
     lede: "Every event is different, so we quote each one. Here's a typical day to help you plan.",
     exampleTag: "Typical one-day event",
     exampleTitle: "Photo + video team, with a highlight film",
@@ -27,8 +29,8 @@ const copy = {
   },
   jp: {
     eyebrow: "料金の目安",
-    h1: "明確な料金、",
-    h2: "イベントごとのお見積もり。",
+    title: "明確な料金、イベントごとのお見積もり",
+    label: "Pricing",
     lede: "イベントの内容に合わせて個別にお見積もりします。ご検討の目安として、1日イベントの一例をご紹介します。",
     exampleTag: "1日イベントの一例",
     exampleTitle: "写真・映像チームとハイライト映像",
@@ -46,55 +48,50 @@ const copy = {
   },
 } as const;
 
-export default function EventPricing({ lang = "en" }: { lang?: Lang }) {
+export default function EventPricing({ lang = "en", num }: { lang?: Lang; num?: string }) {
   const t = copy[lang];
   const total = t.exampleItems.reduce((s, [, p]) => s + p, 0);
-  const muted = "rgba(28,18,8,0.55)";
 
   return (
-    <section className="py-20 border-t" style={{ borderColor: "#e8d9c8", backgroundColor: "#f5ede2" }} aria-labelledby="event-pricing-heading">
-      <div className="max-w-6xl mx-auto px-6 sm:px-12">
-        <div className="flex items-center gap-4 mb-4">
-          <div className="h-px w-10" style={{ backgroundColor: "#e95228" }} />
-          <span className="font-mono text-[10px] tracking-[0.35em] uppercase" style={{ color: "#e95228" }}>{t.eyebrow}</span>
+    <Section num={num} label={t.label} labelLang={lang === "jp" ? "en" : "ja"} tone="orange" aria-labelledby="event-pricing-heading">
+      <p className="text-sm font-medium mb-5">{t.eyebrow}</p>
+      <div className="flex flex-wrap items-end gap-x-16 gap-y-6 mb-14">
+        <Title id="event-pricing-heading" tone="orange" className="fij-h2 flex-[1_1_480px]">{t.title}</Title>
+        <p className="fij-lede flex-[1_1_300px]">{t.lede}</p>
+      </div>
+
+      <div className="border-t-2 pt-8 flex flex-wrap gap-x-16 gap-y-10" style={{ borderColor: "#0d0a07" }}>
+        {/* Worked example: the total is the hero */}
+        <div className="flex-[1.4_1_480px] min-w-0">
+          <p className="text-sm font-medium mb-1">{t.exampleTag}</p>
+          <h3 className="text-[22px] font-semibold tracking-[-0.02em] mb-2">{t.exampleTitle}</h3>
+          <p className="text-[64px] sm:text-[104px] lg:text-[148px] leading-[0.9] font-semibold tracking-[-0.06em] tabular-nums mb-8">
+            <span className="sr-only">{t.total}: </span>
+            {yen(total)}
+            <span className="text-lg sm:text-xl font-medium tracking-normal ml-3">{t.plusTax}</span>
+          </p>
+          <ul className="mb-9">
+            {t.exampleItems.map(([label, price], i) => (
+              <li
+                key={label}
+                className={`flex justify-between gap-6 py-4 border-t ${i === t.exampleItems.length - 1 ? "border-b" : ""}`}
+                style={{ borderColor: "rgba(13,10,7,0.4)" }}
+              >
+                <span>{label}</span>
+                <span className="font-semibold tabular-nums whitespace-nowrap">{yen(price)}</span>
+              </li>
+            ))}
+          </ul>
+          <a href="#enquire" className="fij-btn" style={{ backgroundColor: "#0d0a07" }}>{t.cta}</a>
         </div>
-        <h2 id="event-pricing-heading" className="text-3xl sm:text-4xl lg:text-5xl font-black leading-[0.95] mb-4" style={{ color: "#1c1208" }}>
-          {t.h1}<br /><span style={{ color: "rgba(28,18,8,0.4)" }}>{t.h2}</span>
-        </h2>
-        <p className="text-sm leading-relaxed max-w-2xl mb-10" style={{ color: muted }}>{t.lede}</p>
 
-        <div className="grid lg:grid-cols-[1.1fr_1fr] gap-8 lg:gap-12 items-start">
-          {/* Worked example */}
-          <div className="p-8" style={{ backgroundColor: "#0d0a07", color: "#fdf8f3" }}>
-            <span className="font-mono text-[10px] tracking-[0.3em] uppercase" style={{ color: "#e95228" }}>{t.exampleTag}</span>
-            <h3 className="text-xl font-black mt-2 mb-6">{t.exampleTitle}</h3>
-            <ul>
-              {t.exampleItems.map(([label, price]) => (
-                <li key={label} className="flex justify-between gap-6 py-3 border-t text-sm" style={{ borderColor: "rgba(253,248,243,0.12)" }}>
-                  <span style={{ color: "rgba(253,248,243,0.75)" }}>{label}</span>
-                  <span className="font-mono shrink-0 tabular-nums">{yen(price)}</span>
-                </li>
-              ))}
-            </ul>
-            <div className="flex justify-between items-baseline gap-6 pt-4 mt-1 border-t" style={{ borderColor: "#e95228" }}>
-              <span className="font-mono text-[11px] tracking-[0.2em] uppercase whitespace-nowrap" style={{ color: "rgba(253,248,243,0.6)" }}>{t.total}</span>
-              <span className="text-3xl font-black tabular-nums text-right whitespace-nowrap">
-                {yen(total)} <span className="text-sm font-normal whitespace-nowrap" style={{ color: "rgba(253,248,243,0.55)" }}>{t.plusTax}</span>
-              </span>
-            </div>
-            <a href="#enquire" className="btn-warm inline-block mt-8 font-black text-xs tracking-[0.15em] uppercase px-6 py-3">{t.cta} →</a>
-          </div>
-
-          {/* Smaller events + small print */}
-          <div className="space-y-6 lg:pt-8">
-            <div>
-              <h3 className="font-mono text-[10px] tracking-[0.3em] uppercase mb-3" style={{ color: "#e95228" }}>{t.smallerTitle}</h3>
-              <p className="text-lg leading-relaxed font-medium" style={{ color: "#1c1208" }}>{t.smaller}</p>
-            </div>
-            <p className="text-xs leading-relaxed pt-6 border-t" style={{ color: muted, borderColor: "#e8d9c8" }}>{t.small}</p>
-          </div>
+        {/* Smaller events + small print */}
+        <div className="flex-[1_1_280px] self-end">
+          <h3 className="text-lg font-semibold mb-2.5">{t.smallerTitle}</h3>
+          <p className="text-[15px] leading-relaxed mb-4">{t.smaller}</p>
+          <p className="text-[15px] leading-relaxed">{t.small}</p>
         </div>
       </div>
-    </section>
+    </Section>
   );
 }

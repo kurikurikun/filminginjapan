@@ -169,7 +169,7 @@ export default function VerticalVideoTile({ src, poster, label, autoPlay = false
       )}
       <div className="absolute bottom-0 left-0 right-0 p-3 pointer-events-none">
         <span
-          className="text-xs font-black"
+          className="text-sm font-semibold"
           style={
             hasVideo
               ? { color: "#fdf8f3", textShadow: "0 1px 6px rgba(0,0,0,0.55)" }

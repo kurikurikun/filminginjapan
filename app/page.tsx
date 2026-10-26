@@ -6,6 +6,7 @@ import PeopleCarousel from "@/components/PeopleCarousel";
 import ServiceGrid from "@/components/ServiceGrid";
 import GoogleReviews from "@/components/GoogleReviews";
 import InstagramFeed from "@/components/InstagramFeed";
+import { Section, Title, Kicker, TrustedBy } from "@/components/editorial";
 
 export const metadata: Metadata = {
   title: { absolute: "Filming in Japan | Corporate Video Production Tokyo" },
@@ -92,370 +93,193 @@ export default function HomePage() {
         }) }}
       />
 
-      {/* ── Hero — autoplay video ── */}
-      <section className="relative min-h-screen flex flex-col justify-end overflow-hidden">
-        {/* Vimeo background video */}
-        <div className="absolute inset-0" style={{ zIndex: 0 }}>
-          <iframe
-            src="https://player.vimeo.com/video/533378669?background=1&autoplay=1&loop=1&muted=1&autopause=0"
-            className="absolute"
-            style={{
-              top: "50%", left: "50%",
-              transform: "translate(-50%, -50%)",
-              width: "max(100%, calc(100vh * 16 / 9))",
-              height: "max(100%, calc(100vw * 9 / 16))",
-              pointerEvents: "none",
-            }}
-            allow="autoplay; fullscreen"
-            title="Hero video"
-          />
-        </div>
-
-        {/* Dark gradient overlay */}
-        <div
-          className="absolute inset-0"
-          style={{ background: "linear-gradient(to top, rgba(13,10,7,0.92) 0%, rgba(13,10,7,0.5) 50%, rgba(13,10,7,0.3) 100%)", zIndex: 1 }}
-        />
-
-        {/* Fallback dark bg if video not loaded */}
-        <div className="absolute inset-0" style={{ backgroundColor: "#0d0a07", zIndex: -1 }} />
-
-        {/* Frame corners */}
-        <div className="absolute top-8 left-8 lg:top-12 lg:left-12 pointer-events-none" style={{ zIndex: 2 }} aria-hidden="true">
-          <div className="w-8 h-8 border-t border-l" style={{ borderColor: "rgba(233,82,40,0.4)" }} />
-        </div>
-        <div className="absolute top-8 right-8 lg:top-12 lg:right-12 pointer-events-none" style={{ zIndex: 2 }} aria-hidden="true">
-          <div className="w-8 h-8 border-t border-r" style={{ borderColor: "rgba(233,82,40,0.4)" }} />
-        </div>
-
-        {/* Content */}
-        <div className="relative px-8 sm:px-14 lg:px-20 pb-20 pt-40 max-w-7xl" style={{ zIndex: 2 }}>
-          <div className="flex items-center gap-4 mb-10">
-            <div className="h-px w-12" style={{ backgroundColor: "#e95228" }} />
-            <span className="font-mono text-xs tracking-[0.35em] uppercase" style={{ color: "#e95228" }}>
-              Tokyo · Hiroshima · All Japan
-            </span>
-          </div>
-
-          <h1
-            className="text-5xl sm:text-7xl lg:text-8xl xl:text-9xl font-black leading-[0.88] mb-10 max-w-4xl"
-            style={{ color: "#fdf8f3" }}
-          >
-            Bilingual<br />
-            Video<br />
-            <em className="not-italic" style={{ color: "#e95228" }}>Production</em><br />
-            in Japan
-            <span style={{ color: "#e95228" }}>.</span>
-          </h1>
-
-          <p className="text-lg max-w-xl leading-relaxed mb-12" style={{ color: "rgba(253,248,243,0.65)" }}>
-            Full-service bilingual production for progressive global brands.<br />
-            Trusted by Sony, Google, Microsoft, Canon and many more.
-          </p>
-
-          <div className="flex flex-wrap gap-4 items-center">
-            <Link href="/contact" className="btn-warm font-black text-sm tracking-[0.18em] uppercase px-8 py-4">
-              Start Your Project
-            </Link>
-            <Link
-              href="/corporate-branding-videos-japan"
-              className="font-mono text-xs tracking-[0.25em] uppercase"
-              style={{ color: "rgba(253,248,243,0.5)" }}
-            >
-              See Our Work →
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* ── Clients — warm orange band ── */}
-      <section className="py-7" style={{ backgroundColor: "#e95228" }}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12">
-          <div className="flex flex-wrap items-center gap-x-2 gap-y-3">
-            <span className="font-mono text-[10px] tracking-[0.35em] uppercase mr-6" style={{ color: "rgba(13,10,7,0.5)" }}>
-              Trusted by
-            </span>
-            {clients.map((c, i) => (
-              <span key={c} className="flex items-center gap-2">
-                <span
-                  className="text-sm font-black tracking-wide cursor-default"
-                  style={{ color: "rgba(13,10,7,0.7)" }}
-                >
-                  {c}
-                </span>
-                {i < clients.length - 1 && (
-                  <span className="text-xs" style={{ color: "rgba(13,10,7,0.3)" }}>·</span>
-                )}
-              </span>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── Services ── */}
-      <section className="py-32" style={{ backgroundColor: "#fdf8f3" }}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12">
-          {/* Section header */}
-          <div className="grid lg:grid-cols-[1fr_auto] items-end gap-8 mb-16">
+      {/* Hero: headline on cream, background video in a tall panel with vertical Japanese on the right */}
+      <section className="border-b" style={{ borderColor: "#1c1208" }}>
+        <div className="fij-wrap flex flex-wrap lg:flex-nowrap gap-x-12">
+          <div className="flex-[7_1_560px] min-w-0 pt-16 pb-12 lg:pt-24 lg:pb-14 flex flex-col justify-between gap-12">
             <div>
-              <div className="flex items-center gap-4 mb-6">
-                <div className="h-px w-12" style={{ backgroundColor: "#e95228" }} />
-                <span className="font-mono text-[10px] tracking-[0.35em] uppercase" style={{ color: "#e95228" }}>
-                  What we do
-                </span>
-              </div>
-              <h2 className="text-4xl sm:text-6xl font-black leading-[0.9]" style={{ color: "#1c1208" }}>
-                Four ways we<br />
-                <em className="not-italic" style={{ color: "#e95228" }}>tell your story.</em>
-              </h2>
+              <p className="text-sm font-medium mb-8" style={{ color: "#6b5a48" }}>Tokyo · Hiroshima · All Japan</p>
+              <Title as="h1" className="fij-h1">Bilingual Video Production in Japan</Title>
             </div>
-            <p className="text-sm leading-relaxed max-w-xs lg:text-right" style={{ color: "rgba(28,18,8,0.45)" }}>
-              Bilingual corporate video production across Japan, from Tokyo to the regions.
-            </p>
+            <div className="flex flex-wrap items-end gap-x-12 gap-y-8">
+              <p className="flex-[1_1_340px] fij-lede" style={{ color: "#4a3a2a" }}>
+                Full-service bilingual production for progressive global brands.<br />
+                Trusted by Sony, Google, Microsoft, Canon and many more.
+              </p>
+              <div className="flex flex-wrap items-center gap-x-8 gap-y-5 shrink-0">
+                <Link href="/contact" className="fij-btn">Start your project</Link>
+                <Link href="/corporate-branding-videos-japan" className="fij-link text-[15px]">See our work</Link>
+              </div>
+            </div>
           </div>
-
-          {/* Service cards */}
-          <ServiceGrid />
-
-          {/* Social media banner */}
-          <a
-            href="/social-media-video-japan-2"
-            className="flex items-center justify-between px-10 py-6 mt-8 group"
+          <div
+            className="relative flex-[5_1_380px] min-h-[420px] lg:min-h-[680px] -mx-[clamp(20px,4vw,48px)] lg:ml-0 overflow-hidden"
             style={{ backgroundColor: "#0d0a07" }}
           >
-            <div className="flex items-center gap-4">
-              <div className="h-px w-8 shrink-0" style={{ backgroundColor: "#e95228" }} />
-              <span className="text-lg font-black" style={{ color: "#fdf8f3" }}>
-                Social Media Video &amp; Ad Content
-              </span>
-            </div>
-            {/* Format shapes — white + orange */}
-            <div className="hidden sm:flex items-end gap-3 mx-8">
-              <div style={{ width: "36px", height: "20px", backgroundColor: "rgba(253,248,243,0.7)", borderRadius: "2px" }} />
-              <div style={{ width: "20px", height: "20px", backgroundColor: "rgba(253,248,243,0.7)", borderRadius: "2px" }} />
-              <div style={{ width: "11px", height: "20px", backgroundColor: "rgba(253,248,243,0.7)", borderRadius: "2px" }} />
-              <div className="w-px mx-1 self-stretch" style={{ backgroundColor: "rgba(253,248,243,0.1)" }} />
-              <div style={{ width: "36px", height: "20px", backgroundColor: "rgba(233,82,40,0.5)", borderRadius: "2px" }} />
-              <div style={{ width: "20px", height: "20px", backgroundColor: "rgba(233,82,40,0.7)", borderRadius: "2px" }} />
-              <div style={{ width: "11px", height: "20px", backgroundColor: "#e95228", borderRadius: "2px" }} />
-            </div>
-            <span className="text-sm font-black" style={{ color: "#e95228" }}>
-              View →
-            </span>
-          </a>
-        </div>
-      </section>
-
-      {/* ── About Chris — warm orange split ── */}
-      <section className="relative overflow-hidden">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-[1fr_1fr]">
-            <VideoLightbox vimeoId="900727297" vimeoHash="a9dbbfbac5" title="Chris Moore — Filming in Japan" />
-
-            {/* Content — orange background */}
-            <div className="p-12 lg:p-16 xl:p-20 flex flex-col justify-center" style={{ backgroundColor: "#e95228" }}>
-              <div className="flex items-center gap-4 mb-8">
-                <div className="h-px w-10" style={{ backgroundColor: "rgba(13,10,7,0.3)" }} />
-                <span className="font-mono text-[10px] tracking-[0.35em] uppercase" style={{ color: "rgba(13,10,7,0.5)" }}>
-                  About
-                </span>
-              </div>
-              <h2 className="text-4xl lg:text-5xl font-black leading-tight mb-8" style={{ color: "#0d0a07" }}>
-                Hi, I&apos;m Chris<span style={{ color: "#fdf8f3" }}>.</span>
-              </h2>
-              <p className="leading-relaxed mb-5 text-base" style={{ color: "rgba(13,10,7,0.7)" }}>
-                Originally from New Zealand, I&apos;ve spent many years filming across Japan, building a business
-                that connects global brands to Japanese stories. Bilingual, and comfortable in both English
-                and Japanese work environments.
-              </p>
-              <p className="leading-relaxed mb-10 text-base" style={{ color: "rgba(13,10,7,0.7)" }}>
-                From Tokyo boardrooms to mountain summits — we make corporate video feel genuinely human.
-              </p>
-              <div className="flex flex-wrap gap-4">
-                <Link
-                  href="/contact"
-                  className="font-black text-sm tracking-[0.15em] uppercase px-6 py-3 transition-colors"
-                  style={{ backgroundColor: "#0d0a07", color: "#fdf8f3" }}
-                >
-                  Get in Touch
-                </Link>
-                <a
-                  href="https://www.instagram.com/chrism_visuals/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="font-mono text-xs tracking-[0.2em] uppercase px-6 py-3 border transition-colors"
-                  style={{ borderColor: "rgba(13,10,7,0.25)", color: "rgba(13,10,7,0.6)" }}
-                >
-                  Instagram
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── People Carousel ── */}
-      <PeopleCarousel />
-
-      {/* ── Google Reviews ── */}
-      <section className="py-20 border-t" style={{ backgroundColor: "#f5ede2", borderColor: "#e8d9c8" }}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12">
-          <div className="flex items-center gap-4 mb-10">
-            <div className="h-px w-12" style={{ backgroundColor: "#e95228" }} />
-            <span className="font-mono text-[10px] tracking-[0.35em] uppercase" style={{ color: "#e95228" }}>
-              Google Reviews
-            </span>
-          </div>
-          <GoogleReviews appId="94fa8f98-15eb-4b6a-8318-c0d4579384d8" />
-        </div>
-      </section>
-
-      {/* ── Workflow ── */}
-      <section className="py-32" style={{ backgroundColor: "#fdf8f3" }}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12">
-          <div className="flex items-center gap-4 mb-6">
-            <div className="h-px w-12" style={{ backgroundColor: "#e95228" }} />
-            <span className="font-mono text-[10px] tracking-[0.35em] uppercase" style={{ color: "#e95228" }}>
-              Process
-            </span>
-          </div>
-          <h2 className="text-4xl sm:text-5xl font-black leading-none mb-16" style={{ color: "#1c1208" }}>
-            How we work<span style={{ color: "#e95228" }}>.</span>
-          </h2>
-
-          <div className="grid sm:grid-cols-2 lg:grid-cols-5 divide-y sm:divide-y-0 sm:divide-x" style={{ borderColor: "#e8d9c8", border: "1px solid #e8d9c8" }}>
-            {workflow.map((w, i) => (
-              <div
-                key={w.step}
-                className="p-8 lg:p-10"
-                style={{ borderColor: "#e8d9c8", borderRight: i < workflow.length - 1 ? "1px solid #e8d9c8" : undefined }}
-              >
-                <span className="text-4xl font-black leading-none block mb-6" style={{ color: "#e95228" }}>
-                  {i + 1}
-                </span>
-                <h3 className="font-black mb-3" style={{ color: "#1c1208" }}>{w.title}</h3>
-                <p className="text-sm leading-relaxed" style={{ color: "rgba(28,18,8,0.5)" }}>{w.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── FAQs ── */}
-      <section className="py-32 border-t" style={{ backgroundColor: "#f5ede2", borderColor: "#e8d9c8" }}>
-        <div className="max-w-3xl mx-auto px-4 sm:px-8 lg:px-12">
-          <div className="flex items-center gap-4 mb-6">
-            <div className="h-px w-12" style={{ backgroundColor: "#e95228" }} />
-            <span className="font-mono text-[10px] tracking-[0.35em] uppercase" style={{ color: "#e95228" }}>
-              FAQ
-            </span>
-          </div>
-          <h2 className="text-4xl sm:text-5xl font-black leading-none mb-16" style={{ color: "#1c1208" }}>
-            Common questions<span style={{ color: "#e95228" }}>.</span>
-          </h2>
-          <div>
-            {faqs.map((faq, i) => (
-              <div
-                key={i}
-                className="py-8 border-b pl-5"
-                style={{ borderColor: "#e8d9c8", borderLeft: "3px solid #e95228" }}
-              >
-                <h3 className="font-black mb-3 flex items-start gap-4" style={{ color: "#1c1208" }}>
-                  <span className="text-xs font-black mt-0.5 shrink-0" style={{ color: "#e95228" }}>
-                    {i + 1}.
-                  </span>
-                  {faq.q}
-                </h3>
-                <p className="text-sm leading-relaxed pl-9" style={{ color: "rgba(28,18,8,0.55)" }}>
-                  {faq.a}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── CTA — cinematic dark ── */}
-      <section
-        className="relative py-32 overflow-hidden grain"
-        style={{ backgroundColor: "#0d0a07" }}
-      >
-        {/* Frame corners */}
-        <div className="absolute top-8 left-8 pointer-events-none" aria-hidden="true">
-          <div className="w-8 h-8 border-t border-l" style={{ borderColor: "rgba(196,168,130,0.3)" }} />
-        </div>
-        <div className="absolute top-8 right-8 pointer-events-none" aria-hidden="true">
-          <div className="w-8 h-8 border-t border-r" style={{ borderColor: "rgba(196,168,130,0.3)" }} />
-        </div>
-        <div className="absolute bottom-8 left-8 pointer-events-none" aria-hidden="true">
-          <div className="w-8 h-8 border-b border-l" style={{ borderColor: "rgba(196,168,130,0.3)" }} />
-        </div>
-        <div className="absolute bottom-8 right-8 pointer-events-none" aria-hidden="true">
-          <div className="w-8 h-8 border-b border-r" style={{ borderColor: "rgba(196,168,130,0.3)" }} />
-        </div>
-
-        <div className="relative z-10 max-w-7xl mx-auto px-8 sm:px-14 lg:px-20">
-          <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
-            <div>
-              <div className="flex items-center gap-4 mb-8">
-                <div className="h-px w-12" style={{ backgroundColor: "#e95228" }} />
-                <span className="font-mono text-[10px] tracking-[0.35em] uppercase" style={{ color: "#e95228" }}>
-                  Ready to start?
-                </span>
-              </div>
-              <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black leading-tight mb-8" style={{ color: "#fdf8f3" }}>
-                Let&apos;s make your<br />
-                Japan project<br />
-                <em className="not-italic" style={{ color: "#e95228" }}>happen.</em>
-              </h2>
-              <p className="leading-relaxed mb-10" style={{ color: "rgba(253,248,243,0.5)" }}>
-                We aim to reply within 24 hours. Contact us by form, email or WhatsApp.
-              </p>
-              <Link
-                href="/contact"
-                className="btn-warm inline-block font-black text-sm tracking-[0.18em] uppercase px-8 py-4 transition-colors"
+            {/* Vimeo background video, cropped to cover the panel */}
+            <iframe
+              src="https://player.vimeo.com/video/533378669?background=1&autoplay=1&loop=1&muted=1&autopause=0"
+              className="absolute"
+              style={{
+                top: "50%", left: "50%",
+                transform: "translate(-50%, -50%)",
+                height: "100%",
+                minWidth: "100%",
+                aspectRatio: "16 / 9",
+                pointerEvents: "none",
+                border: 0,
+              }}
+              allow="autoplay; fullscreen"
+              title="Hero video"
+              tabIndex={-1}
+            />
+            <div aria-hidden="true" className="absolute inset-y-0 right-0 w-40" style={{ background: "linear-gradient(to left, rgba(13,10,7,0.45), rgba(13,10,7,0))" }} />
+            <p
+              lang="ja"
+              aria-hidden="true"
+              className="absolute top-8 right-6 font-jp font-bold text-[26px] lg:text-[30px] tracking-[0.18em]"
+              style={{ writingMode: "vertical-rl", color: "#fdf8f3", textShadow: "0 1px 12px rgba(0,0,0,0.35)" }}
             >
-                Start the Conversation
-              </Link>
-            </div>
-
-            <div className="border-l pl-12 lg:pl-16" style={{ borderColor: "rgba(196,168,130,0.15)" }}>
-              <div className="space-y-7">
-                <div>
-                  <p className="font-mono text-[10px] tracking-[0.3em] uppercase mb-2" style={{ color: "rgba(196,168,130,0.5)" }}>Email</p>
-                  <a
-                    href="mailto:filminginjapan@move-ment.co"
-                    className="font-black text-base transition-colors"
-                    style={{ color: "#fdf8f3" }}
-                  >
-                    filminginjapan@move-ment.co
-                  </a>
-                </div>
-                <div>
-                  <p className="font-mono text-[10px] tracking-[0.3em] uppercase mb-2" style={{ color: "rgba(196,168,130,0.5)" }}>WhatsApp</p>
-                  <a
-                    href="https://wa.me/819038800895"
-                    className="font-black text-base transition-colors"
-                    style={{ color: "#fdf8f3" }}
-                  >
-                    +81 90 3880 0895
-                  </a>
-                </div>
-                <div>
-                  <p className="font-mono text-[10px] tracking-[0.3em] uppercase mb-2" style={{ color: "rgba(196,168,130,0.5)" }}>Tokyo</p>
-                  <p className="text-sm" style={{ color: "rgba(253,248,243,0.45)" }}>1-18-5-503 Higashi Gotanda, Shinagawa</p>
-                </div>
-                <div>
-                  <p className="font-mono text-[10px] tracking-[0.3em] uppercase mb-2" style={{ color: "rgba(196,168,130,0.5)" }}>Hiroshima</p>
-                  <p className="text-sm" style={{ color: "rgba(253,248,243,0.45)" }}>1-13-4 Ushita Minami, Higashi-ku</p>
-                </div>
-              </div>
-            </div>
+              日英バイリンガルの映像制作
+            </p>
           </div>
         </div>
       </section>
 
-      <InstagramFeed />
+      <TrustedBy clients={clients} />
+
+      {/* 01 Services */}
+      <Section num="01" label="サービス内容" aria-labelledby="services-heading">
+        <div className="flex flex-wrap items-end justify-between gap-x-16 gap-y-6 mb-14">
+          <div>
+            <Kicker>What we do</Kicker>
+            <Title id="services-heading" className="fij-h2">Four ways we tell your story</Title>
+          </div>
+          <p className="text-base leading-relaxed max-w-xs" style={{ color: "#6b5a48" }}>
+            Bilingual corporate video production across Japan, from Tokyo to the regions.
+          </p>
+        </div>
+
+        <ServiceGrid />
+
+        {/* Social media strip */}
+        <a
+          href="/social-media-video-japan-2"
+          className="group flex flex-wrap items-center justify-between gap-x-8 gap-y-3 mt-16 py-7 border-y-2"
+          style={{ borderColor: "#1c1208", color: "#1c1208" }}
+        >
+          <span className="text-[22px] sm:text-[28px] leading-tight font-semibold tracking-[-0.025em]">
+            Social Media Video &amp; Ad Content
+          </span>
+          <span className="fij-link text-[15px] group-hover:text-[#c43d10]">View</span>
+        </a>
+      </Section>
+
+      {/* 02 About Chris — the page's one orange section */}
+      <Section num="02" label="代表について" tone="orange" aria-labelledby="about-heading">
+        <div className="grid lg:grid-cols-2 gap-10 lg:gap-14 items-stretch">
+          <VideoLightbox vimeoId="900727297" vimeoHash="a9dbbfbac5" title="Chris Moore — Filming in Japan" />
+          <div className="flex flex-col justify-center">
+            <Kicker tone="orange">About</Kicker>
+            <Title id="about-heading" tone="orange" className="fij-h2 mb-8">Hi, I&apos;m Chris</Title>
+            <p className="fij-lede mb-5" style={{ color: "#0d0a07" }}>
+              Originally from New Zealand, I&apos;ve spent many years filming across Japan, building a business
+              that connects global brands to Japanese stories. Bilingual, and comfortable in both English
+              and Japanese work environments.
+            </p>
+            <p className="fij-lede mb-10" style={{ color: "#0d0a07" }}>
+              From Tokyo boardrooms to mountain summits — we make corporate video feel genuinely human.
+            </p>
+            <div className="flex flex-wrap gap-3">
+              <Link href="/contact" className="fij-btn">Get in touch</Link>
+              <a
+                href="https://www.instagram.com/chrism_visuals/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="fij-btn-outline hover:bg-[#0d0a07] hover:text-[#fdf8f3]"
+                style={{ color: "#0d0a07" }}
+              >
+                Instagram
+              </a>
+            </div>
+          </div>
+        </div>
+      </Section>
+
+      {/* 03 People carousel */}
+      <PeopleCarousel num="03" label="撮影した人たち" />
+
+      {/* 04 Google reviews */}
+      <Section num="04" label="お客様の声" tone="sand" aria-labelledby="reviews-heading">
+        <Title id="reviews-heading" className="fij-h2 mb-12">Google Reviews</Title>
+        <GoogleReviews appId="94fa8f98-15eb-4b6a-8318-c0d4579384d8" />
+      </Section>
+
+      {/* 05 Process */}
+      <Section num="05" label="制作の流れ" aria-labelledby="process-heading">
+        <Kicker>Process</Kicker>
+        <Title id="process-heading" className="fij-h2 mb-14">How we work</Title>
+        <ol className="grid sm:grid-cols-2 lg:grid-cols-5 gap-x-8 gap-y-12">
+          {workflow.map((w) => (
+            <li key={w.step} className="border-t-2 pt-5" style={{ borderColor: "#1c1208" }}>
+              <span className="block text-[13px] font-semibold tabular-nums mb-8" style={{ color: "#e95228" }}>{w.step}</span>
+              <h3 className="text-[20px] leading-snug font-semibold tracking-[-0.015em] mb-3">{w.title}</h3>
+              <p className="text-[15px] leading-relaxed" style={{ color: "#4a3a2a" }}>{w.desc}</p>
+            </li>
+          ))}
+        </ol>
+      </Section>
+
+      {/* 06 FAQ */}
+      <Section num="06" label="よくある質問" bordered aria-labelledby="faq-heading">
+        <div className="flex flex-wrap gap-x-16 gap-y-10">
+          <div className="flex-[1_1_240px]">
+            <Kicker>FAQ</Kicker>
+            <Title id="faq-heading" className="fij-h2">Common questions</Title>
+          </div>
+          <div className="flex-[3_1_520px] min-w-0 border-t-2" style={{ borderColor: "#1c1208" }}>
+            {faqs.map((faq, i) => (
+              <details key={i} className="fij-faq border-b" style={{ borderColor: "#1c1208" }} open={i === 0}>
+                <summary className="flex justify-between items-center gap-6 py-[22px] text-[19px] font-semibold tracking-[-0.015em]">
+                  <h3>{faq.q}</h3>
+                  <span aria-hidden="true" className="fij-faq-icon shrink-0 text-2xl font-normal leading-none" style={{ color: "#e95228" }}>+</span>
+                </summary>
+                <p className="pb-6 max-w-2xl text-base leading-relaxed" style={{ color: "#4a3a2a" }}>{faq.a}</p>
+              </details>
+            ))}
+          </div>
+        </div>
+      </Section>
+
+      {/* 07 Contact CTA */}
+      <Section num="07" label="お問い合わせ" tone="ink" aria-labelledby="cta-heading">
+        <div className="flex flex-wrap items-end justify-between gap-x-16 gap-y-14">
+          <div className="flex-[1.4_1_420px] min-w-0">
+            <Kicker tone="ink">Ready to start?</Kicker>
+            <Title id="cta-heading" tone="ink" className="fij-h2 mb-8">Let&apos;s make your Japan project happen</Title>
+            <p className="fij-lede mb-10 max-w-lg" style={{ color: "rgba(253,248,243,0.78)" }}>
+              We aim to reply within 24 hours. Contact us by form, email or WhatsApp.
+            </p>
+            <Link href="/contact" className="fij-btn-orange">Start the conversation</Link>
+          </div>
+          <dl className="flex-[1_1_300px] min-w-0 border-t" style={{ borderColor: "rgba(253,248,243,0.25)" }}>
+            {[
+              { k: "Email", v: <a href="mailto:filminginjapan@move-ment.co" className="hover:text-[#f07a52] transition-colors break-all">filminginjapan@move-ment.co</a> },
+              { k: "WhatsApp", v: <a href="https://wa.me/819038800895" className="hover:text-[#f07a52] transition-colors">+81 90 3880 0895</a> },
+              { k: "Tokyo", v: "1-18-5-503 Higashi Gotanda, Shinagawa", small: true },
+              { k: "Hiroshima", v: "1-13-4 Ushita Minami, Higashi-ku", small: true },
+            ].map((row) => (
+              <div key={row.k} className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1 py-4 border-b" style={{ borderColor: "rgba(253,248,243,0.25)" }}>
+                <dt className="text-sm font-medium" style={{ color: "rgba(253,248,243,0.75)" }}>{row.k}</dt>
+                <dd className={row.small ? "text-[15px]" : "text-lg font-semibold tracking-[-0.01em]"} style={{ color: "#fdf8f3" }}>{row.v}</dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+      </Section>
+
+      {/* 08 Instagram */}
+      <InstagramFeed num="08" label="インスタグラム" />
       <Footer lang="en" />
     </div>
   );

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import { Section, SectionLabel, Title, TrustedBy } from "@/components/editorial";
 import Footer from "@/components/Footer";
 import LandingContactForm from "@/components/LandingContactForm";
 
@@ -79,14 +80,53 @@ const equipment = [
 
 const clients = ["Sony", "HP", "Canon", "EY", "NEC", "Accenture", "Microsoft", "Google"];
 
-function VideoEmbed({ src, title }: { src: string; title: string }) {
+const workflow = [
+  {
+    step: "The Plan",
+    desc: "We location scout video interview locations beforehand, take photos, then work together on a call to discuss the best options. We align on message, length, tone and where the video will be used — website, SNS, trade shows.",
+  },
+  {
+    step: "The Shoot",
+    desc: "On the day we ask the questions in Japanese or English, ensuring the interviewee is relaxed and comfortable. Or we set up a remote feed for a producer or director based overseas to monitor the shoot or ask questions directly.",
+  },
+  {
+    step: "The Edit",
+    desc: "Native Japanese and English editors cut to your house style or to a pre-agreed script. We deliver in all formats — 16:9 for YouTube and websites, 9:16 for social — via Google Drive, Dropbox, MASV, Frame.io, or hard disk by courier.",
+  },
+];
+
+const brandFilms = [
+  { src: "https://www.youtube.com/embed/t-VSxoBQlRA?rel=0", title: "Corporate branding video — Filming in Japan", caption: "Brand film — Japan" },
+  { src: "https://www.youtube.com/embed/m1KV1UTpSzU?rel=0", title: "HP Asian Influencer Series — Filming in Japan", caption: "HP — Asian Influencer Series" },
+  { src: "https://player.vimeo.com/video/836766996?h=ccb3b1ab04", title: "White Express brand film — Filming in Japan", caption: "White Express — Brand Film" },
+  { src: "https://player.vimeo.com/video/517509247", title: "Craft brewery and distillery brand film — Japan", caption: "Craft Brewery & Distillery — Brand Film" },
+  { src: "https://player.vimeo.com/video/888141337?h=7f88a78ba3", title: "Handmade knife company brand film — Japan", caption: "Handmade Knife Company — Brand Film" },
+];
+
+const recruitment = [
+  {
+    src: "https://www.youtube.com/embed/UbkuSD-ht1U?rel=0",
+    title: "Google Japan recruitment video — Filming in Japan",
+    caption: "Google Japan — Recruitment Video",
+    desc: "Recruitment video for Google Japan, hearing from employees at their Inzai data centre near Tokyo about why they think Google is the right place for them.",
+  },
+  {
+    src: "https://www.youtube.com/embed/ZDKXfIE_b1Y?rel=0",
+    title: "EY employee profile video — Filming in Japan",
+    caption: "EY — Employee Profile Series",
+    desc: "Part of a series of six recruit and employee profile videos for EY — going beyond the workplace to discover the passion that drives their life and work.",
+  },
+];
+
+function VideoEmbed({ src, title, dark = false }: { src: string; title: string; dark?: boolean }) {
   return (
-    <div className="relative w-full" style={{ paddingBottom: "56.25%" }}>
+    <div className="relative w-full aspect-[16/9]" style={{ backgroundColor: dark ? "#241a12" : "#0d0a07" }}>
       <iframe
         src={src}
         title={title}
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
         allowFullScreen
+        loading="lazy"
         className="absolute inset-0 w-full h-full"
         style={{ border: 0 }}
       />
@@ -116,300 +156,220 @@ export default function CorporateBrandingPage() {
         }) }}
       />
 
-      {/* Hero */}
-      <section className="relative pt-32 pb-20 overflow-hidden" style={{ backgroundColor: "#0d0a07" }}>
-        <div className="absolute inset-0">
-          <Image
-            src="/images/corporate_video_tokyo.jpeg"
-            alt=""
-            fill
-            priority
-            className="object-cover object-[center_20%]"
-            sizes="100vw"
-          />
-          <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(13,10,7,0.92) 0%, rgba(13,10,7,0.6) 50%, rgba(13,10,7,0.45) 100%)" }} />
-        </div>
-        <div className="absolute top-8 left-8 pointer-events-none" style={{ zIndex: 1 }}>
-          <div className="w-8 h-8 border-t border-l" style={{ borderColor: "rgba(233,82,40,0.4)" }} />
-        </div>
-        <div className="absolute top-8 right-8 pointer-events-none" style={{ zIndex: 1 }}>
-          <div className="w-8 h-8 border-t border-r" style={{ borderColor: "rgba(233,82,40,0.4)" }} />
-        </div>
-        <div className="relative max-w-7xl mx-auto px-6 sm:px-12 lg:px-16" style={{ zIndex: 1 }}>
-          <div className="flex items-center gap-4 mb-8">
-            <div className="h-px w-10" style={{ backgroundColor: "#e95228" }} />
-            <span className="font-mono text-[10px] tracking-[0.35em] uppercase" style={{ color: "#e95228" }}>
-              Corporate Video · Tokyo · Japan
-            </span>
+      {/* Hero: headline on cream, tall photo with vertical Japanese on the right */}
+      <section className="border-b" style={{ borderColor: "#1c1208" }}>
+        <div className="fij-wrap flex flex-wrap lg:flex-nowrap gap-x-12">
+          <div className="flex-[7_1_560px] pt-16 pb-12 lg:pt-24 lg:pb-14 flex flex-col justify-between gap-12">
+            <div>
+              <p className="text-sm font-medium mb-8" style={{ color: "#6b5a48" }}>Corporate Video · Tokyo · Japan</p>
+              <Title as="h1" className="fij-h1">Corporate Video Production in Japan</Title>
+            </div>
+            <div className="flex flex-wrap items-end gap-x-12 gap-y-8">
+              <p className="fij-lede flex-[1_1_340px]" style={{ color: "#4a3a2a" }}>
+                Corporate interviews, brand films and recruitment videos for global companies operating in Japan.
+                Bilingual team, broadcast-quality results.
+              </p>
+              <a href="#enquire" className="fij-btn shrink-0">Get a free quote</a>
+            </div>
           </div>
-          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black leading-[0.9] mb-8 max-w-4xl" style={{ color: "#fdf8f3" }}>
-            Corporate Video<br />
-            Production in <em className="not-italic" style={{ color: "#e95228" }}>Japan.</em>
-          </h1>
-          <p className="text-lg max-w-2xl leading-relaxed" style={{ color: "rgba(253,248,243,0.6)" }}>
-            Corporate interviews, brand films and recruitment videos for global companies operating in Japan.
-            Bilingual team, broadcast-quality results.
-          </p>
+          <div className="relative flex-[5_1_380px] min-h-[420px] lg:min-h-[640px] -mx-[clamp(20px,4vw,48px)] lg:ml-0 overflow-hidden" style={{ backgroundColor: "#0d0a07" }}>
+            <Image
+              src="/images/corporate_video_tokyo.jpeg"
+              alt=""
+              fill
+              priority
+              className="object-cover object-[center_20%]"
+              sizes="(max-width: 1024px) 100vw, 40vw"
+            />
+            <div aria-hidden="true" className="absolute inset-y-0 right-0 w-40" style={{ background: "linear-gradient(to left, rgba(13,10,7,0.45), rgba(13,10,7,0))" }} />
+            <p
+              lang="ja"
+              aria-hidden="true"
+              className="absolute top-8 right-6 font-jp font-bold text-[26px] lg:text-[30px] tracking-[0.18em]"
+              style={{ writingMode: "vertical-rl", color: "#fdf8f3", textShadow: "0 1px 12px rgba(0,0,0,0.35)" }}
+            >
+              日本の企業映像制作
+            </p>
+          </div>
         </div>
       </section>
 
-      {/* Clients */}
-      <section className="py-6" style={{ backgroundColor: "#e95228" }}>
-        <div className="max-w-7xl mx-auto px-6 sm:px-12 lg:px-16">
-          <div className="flex flex-wrap items-center gap-x-2 gap-y-2">
-            <span className="font-mono text-[10px] tracking-[0.3em] uppercase mr-4" style={{ color: "rgba(13,10,7,0.5)" }}>Trusted by</span>
-            {clients.map((c, i) => (
-              <span key={c} className="flex items-center gap-2">
-                <span className="text-sm font-black" style={{ color: "rgba(13,10,7,0.75)" }}>{c}</span>
-                {i < clients.length - 1 && <span style={{ color: "rgba(13,10,7,0.3)" }}>·</span>}
-              </span>
+      <TrustedBy clients={clients} />
+
+      {/* Corporate interviews + how it works, beside the sticky enquiry form */}
+      <section className="border-b" style={{ borderColor: "#1c1208" }}>
+        <div className="fij-wrap py-20 md:py-28 grid lg:grid-cols-[minmax(0,1fr)_420px] gap-14 xl:gap-20">
+          <div className="min-w-0 space-y-24">
+            {/* 01 Corporate Interviews */}
+            <div className="flex flex-col md:flex-row gap-6 md:gap-14">
+              <SectionLabel num="01" label="企業インタビュー" />
+              <div className="flex-1 min-w-0">
+                <Title className="fij-h2 mb-8">Corporate Interviews</Title>
+                <p className="fij-lede max-w-2xl mb-5" style={{ color: "#4a3a2a" }}>
+                  CEO interviews, exec profiles, thought leadership pieces and case study interviews — filmed at your client&apos;s office, a studio, or anywhere in Japan. Our Japanese and English bilingual crew ensure the interviewee is relaxed and delivers genuine, on-message answers.
+                </p>
+                <p className="fij-lede max-w-2xl mb-12" style={{ color: "#4a3a2a" }}>
+                  We can link overseas producers or directors to the set via remote video, enabling them to observe, give feedback or ask questions directly. Small crew to keep your subjects comfortable.
+                </p>
+                <figure>
+                  <VideoEmbed
+                    src="https://player.vimeo.com/video/561655197?h=d1ca57fb5c"
+                    title="Corporate interview video samples — Filming in Japan"
+                  />
+                  <figcaption className="mt-3 text-[15px] font-semibold">Selected corporate interview clips — Tokyo</figcaption>
+                </figure>
+              </div>
+            </div>
+
+            {/* 02 How it works */}
+            <div className="flex flex-col md:flex-row gap-6 md:gap-14">
+              <SectionLabel num="02" label="制作の流れ" />
+              <div className="flex-1 min-w-0">
+                <Title className="fij-h2 mb-12">How it works</Title>
+                <ol>
+                  {workflow.map((w, i) => (
+                    <li key={w.step} className={`flex gap-6 py-6 border-t ${i === workflow.length - 1 ? "border-b" : ""}`} style={{ borderColor: "#1c1208" }}>
+                      <span className="w-8 shrink-0 pt-1.5 text-[13px] font-semibold tabular-nums" style={{ color: "#e95228" }}>
+                        {String(i + 1).padStart(2, "0")}
+                      </span>
+                      <div>
+                        <h3 className="fij-h3 mb-2">{w.step}</h3>
+                        <p className="text-[15px] leading-relaxed" style={{ color: "#4a3a2a" }}>{w.desc}</p>
+                      </div>
+                    </li>
+                  ))}
+                </ol>
+              </div>
+            </div>
+          </div>
+
+          {/* Sticky enquiry form */}
+          <aside>
+            <div id="enquire" className="sticky top-24 scroll-mt-24 border p-8 lg:p-10" style={{ backgroundColor: "#fff", borderColor: "#1c1208" }}>
+              <Title as="h2" className="text-[28px] leading-tight font-semibold tracking-[-0.03em] mb-2">Get a free quote</Title>
+              <p className="text-[15px] mb-6" style={{ color: "#4a3a2a" }}>
+                Tell us about your project. We reply within 24 hours.
+              </p>
+              <LandingContactForm service="Corporate Video Japan" />
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      {/* 03 Brand Films — dark alternating rows */}
+      <Section num="03" label="ブランド映像" tone="night" aria-labelledby="brand-films-heading">
+        <div className="flex flex-wrap items-end justify-between gap-x-16 gap-y-6 mb-16">
+          <Title id="brand-films-heading" tone="night" className="fij-h2 flex-[1_1_320px]">Brand Films</Title>
+          <p className="fij-lede flex-[1.4_1_420px] max-w-2xl" style={{ color: "rgba(253,248,243,0.78)" }}>
+            Brand films, product launches, influencer series and commercial content for global brands operating in Japan. We use a documentary approach — finding the authentic story behind the brand — rather than scripted advertising. Trusted by HP, Canon, Google and others to connect with Japanese and international audiences.
+          </p>
+        </div>
+        {brandFilms.map((v, i) => (
+          <article
+            key={v.src}
+            className={`flex flex-wrap items-center gap-x-14 gap-y-6 py-12 border-t ${i % 2 ? "flex-row-reverse" : ""}`}
+            style={{ borderColor: "rgba(253,248,243,0.25)" }}
+          >
+            <div className="flex-[1.6_1_440px] min-w-0">
+              <VideoEmbed src={v.src} title={v.title} dark />
+            </div>
+            <div className="flex-[1_1_260px]">
+              <p className="text-[13px] font-semibold tabular-nums mb-4" style={{ color: "#f07a52" }}>{String(i + 1).padStart(2, "0")}</p>
+              <h3 className="text-[26px] lg:text-[36px] leading-[1.1] font-semibold tracking-[-0.03em]">{v.caption}</h3>
+            </div>
+          </article>
+        ))}
+      </Section>
+
+      {/* 04 Recruitment & Employee Profiles — image-first cards */}
+      <Section num="04" label="採用・社員紹介" aria-labelledby="recruitment-heading">
+        <Title id="recruitment-heading" className="fij-h2 mb-8">Recruitment &amp; Employee Profiles</Title>
+        <p className="fij-lede max-w-2xl mb-14" style={{ color: "#4a3a2a" }}>
+          Our documentary style ditches the teleprompters and set phrases for genuine comments from your employees on your company values, what motivates them and what makes your company the place to work.
+        </p>
+        <div className="grid md:grid-cols-2 gap-x-10 gap-y-14">
+          {recruitment.map((v) => (
+            <article key={v.src} className="border-t-2 pt-6" style={{ borderColor: "#1c1208" }}>
+              <VideoEmbed src={v.src} title={v.title} />
+              <h3 className="fij-h3 mt-6 mb-3">{v.caption}</h3>
+              <p className="text-[15px] leading-relaxed" style={{ color: "#4a3a2a" }}>{v.desc}</p>
+            </article>
+          ))}
+        </div>
+      </Section>
+
+      {/* 05 Client feedback */}
+      <Section num="05" label="お客様の声" bordered aria-labelledby="feedback-heading">
+        <h2 id="feedback-heading" className="sr-only">Client feedback</h2>
+        <figure className="mb-16">
+          <blockquote className="text-[28px] sm:text-[38px] lg:text-[48px] leading-[1.12] font-semibold tracking-[-0.035em] mb-7">
+            <span style={{ color: "#e95228" }}>&ldquo;</span>{testimonials[0].quote}<span style={{ color: "#e95228" }}>&rdquo;</span>
+          </blockquote>
+          <figcaption className="text-[15px]" style={{ color: "#6b5a48" }}>{testimonials[0].credit}</figcaption>
+        </figure>
+        <div className="flex flex-wrap gap-x-16 gap-y-10 pt-8 border-t" style={{ borderColor: "#1c1208" }}>
+          {testimonials.slice(1).map((t) => (
+            <figure key={t.credit} className="flex-[1_1_320px]">
+              <blockquote className="text-[22px] leading-snug font-semibold tracking-[-0.02em] mb-3">
+                &ldquo;{t.quote}&rdquo;
+              </blockquote>
+              <figcaption className="text-sm" style={{ color: "#6b5a48" }}>{t.credit}</figcaption>
+            </figure>
+          ))}
+        </div>
+      </Section>
+
+      {/* 06 Our equipment */}
+      <Section num="06" label="使用機材" tone="sand" aria-labelledby="equipment-heading">
+        <div className="flex flex-wrap gap-x-16 gap-y-10">
+          <div className="flex-[1_1_300px]">
+            <Title id="equipment-heading" className="fij-h2 mb-6">Our equipment</Title>
+            <p className="fij-lede max-w-md" style={{ color: "#4a3a2a" }}>
+              We shoot on professional cinema cameras and are happy to work with a specific camera you require. Our in-house kit includes:
+            </p>
+          </div>
+          <ul className="flex-[1.5_1_420px] fij-cells self-start" style={{ gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 240px), 1fr))" }}>
+            {equipment.map((item, i) => (
+              <li key={item} className="p-5 sm:p-6 flex flex-col gap-5">
+                <span className="text-[13px] font-semibold tabular-nums" style={{ color: "#e95228" }}>{String(i + 1).padStart(2, "0")}</span>
+                <span className="text-base sm:text-[19px] leading-snug font-semibold tracking-[-0.015em]">{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </Section>
+
+      {/* 07 FAQ */}
+      <Section num="07" label="よくある質問" aria-labelledby="faq-heading">
+        <div className="flex flex-wrap gap-x-16 gap-y-10">
+          <Title id="faq-heading" className="fij-h2 flex-[1_1_240px]">FAQ</Title>
+          <div className="flex-[3_1_520px] border-t-2" style={{ borderColor: "#1c1208" }}>
+            {faqs.map((faq, i) => (
+              <details key={i} className="fij-faq border-b" style={{ borderColor: "#1c1208" }} open={i === 0}>
+                <summary className="flex justify-between items-center gap-6 py-[22px] text-[19px] font-semibold tracking-[-0.015em]">
+                  <h3>{faq.q}</h3>
+                  <span aria-hidden="true" className="fij-faq-icon shrink-0 text-2xl font-normal leading-none" style={{ color: "#e95228" }}>+</span>
+                </summary>
+                <p className="pb-6 max-w-2xl text-base leading-relaxed" style={{ color: "#4a3a2a" }}>{faq.a}</p>
+              </details>
             ))}
           </div>
         </div>
-      </section>
+      </Section>
 
-      {/* Main content + form */}
-      <section className="py-24">
-        <div className="max-w-7xl mx-auto px-6 sm:px-12 lg:px-16">
-          <div className="grid lg:grid-cols-[1fr_480px] gap-16 lg:gap-24">
-
-            {/* Left — service detail */}
-            <div>
-
-              {/* ── Section 1: Corporate Interviews ── */}
-              <div className="mb-20">
-                <div className="flex items-center gap-4 mb-4">
-                  <div className="h-px w-10" style={{ backgroundColor: "#e95228" }} />
-                  <span className="font-mono text-[10px] tracking-[0.35em] uppercase" style={{ color: "#e95228" }}>01</span>
-                </div>
-                <h2 className="text-3xl sm:text-4xl font-black mb-6 leading-tight" style={{ color: "#1c1208" }}>
-                  Corporate Interviews<span style={{ color: "#e95228" }}>.</span>
-                </h2>
-                <p className="text-sm leading-relaxed mb-4" style={{ color: "rgba(28,18,8,0.6)" }}>
-                  CEO interviews, exec profiles, thought leadership pieces and case study interviews — filmed at your client&apos;s office, a studio, or anywhere in Japan. Our Japanese and English bilingual crew ensure the interviewee is relaxed and delivers genuine, on-message answers.
-                </p>
-                <p className="text-sm leading-relaxed mb-8" style={{ color: "rgba(28,18,8,0.6)" }}>
-                  We can link overseas producers or directors to the set via remote video, enabling them to observe, give feedback or ask questions directly. Small crew to keep your subjects comfortable.
-                </p>
-                <VideoEmbed
-                  src="https://player.vimeo.com/video/561655197?h=d1ca57fb5c"
-                  title="Corporate interview video samples — Filming in Japan"
-                />
-                <p className="mt-3 text-sm font-black" style={{ color: "#1c1208" }}>
-                  Selected corporate interview clips — Tokyo
-                </p>
-              </div>
-
-              <div className="h-px mb-20" style={{ backgroundColor: "#e8d9c8" }} />
-
-              {/* ── Section 2: Brand Films ── */}
-              <div className="mb-20">
-                <div className="flex items-center gap-4 mb-4">
-                  <div className="h-px w-10" style={{ backgroundColor: "#e95228" }} />
-                  <span className="font-mono text-[10px] tracking-[0.35em] uppercase" style={{ color: "#e95228" }}>02</span>
-                </div>
-                <h2 className="text-3xl sm:text-4xl font-black mb-6 leading-tight" style={{ color: "#1c1208" }}>
-                  Brand Films<span style={{ color: "#e95228" }}>.</span>
-                </h2>
-                <p className="text-sm leading-relaxed mb-8" style={{ color: "rgba(28,18,8,0.6)" }}>
-                  Brand films, product launches, influencer series and commercial content for global brands operating in Japan. We use a documentary approach — finding the authentic story behind the brand — rather than scripted advertising. Trusted by HP, Canon, Google and others to connect with Japanese and international audiences.
-                </p>
-
-                <div className="space-y-8">
-                  <div>
-                    <VideoEmbed
-                      src="https://www.youtube.com/embed/t-VSxoBQlRA?rel=0"
-                      title="Corporate branding video — Filming in Japan"
-                    />
-                    <p className="mt-3 text-sm font-black" style={{ color: "#1c1208" }}>Brand film — Japan</p>
-                  </div>
-                  <div>
-                    <VideoEmbed
-                      src="https://www.youtube.com/embed/m1KV1UTpSzU?rel=0"
-                      title="HP Asian Influencer Series — Filming in Japan"
-                    />
-                    <p className="mt-3 text-sm font-black" style={{ color: "#1c1208" }}>HP — Asian Influencer Series</p>
-                  </div>
-                  <div>
-                    <VideoEmbed
-                      src="https://player.vimeo.com/video/836766996?h=ccb3b1ab04"
-                      title="White Express brand film — Filming in Japan"
-                    />
-                    <p className="mt-3 text-sm font-black" style={{ color: "#1c1208" }}>White Express — Brand Film</p>
-                  </div>
-                  <div>
-                    <VideoEmbed
-                      src="https://player.vimeo.com/video/517509247"
-                      title="Craft brewery and distillery brand film — Japan"
-                    />
-                    <p className="mt-3 text-sm font-black" style={{ color: "#1c1208" }}>Craft Brewery & Distillery — Brand Film</p>
-                  </div>
-                  <div>
-                    <VideoEmbed
-                      src="https://player.vimeo.com/video/888141337?h=7f88a78ba3"
-                      title="Handmade knife company brand film — Japan"
-                    />
-                    <p className="mt-3 text-sm font-black" style={{ color: "#1c1208" }}>Handmade Knife Company — Brand Film</p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="h-px mb-20" style={{ backgroundColor: "#e8d9c8" }} />
-
-              {/* ── Section 3: Recruitment & Employee Profiles ── */}
-              <div className="mb-20">
-                <div className="flex items-center gap-4 mb-4">
-                  <div className="h-px w-10" style={{ backgroundColor: "#e95228" }} />
-                  <span className="font-mono text-[10px] tracking-[0.35em] uppercase" style={{ color: "#e95228" }}>03</span>
-                </div>
-                <h2 className="text-3xl sm:text-4xl font-black mb-6 leading-tight" style={{ color: "#1c1208" }}>
-                  Recruitment &amp; Employee Profiles<span style={{ color: "#e95228" }}>.</span>
-                </h2>
-                <p className="text-sm leading-relaxed mb-8" style={{ color: "rgba(28,18,8,0.6)" }}>
-                  Our documentary style ditches the teleprompters and set phrases for genuine comments from your employees on your company values, what motivates them and what makes your company the place to work.
-                </p>
-
-                <div className="space-y-8">
-                  <div>
-                    <VideoEmbed
-                      src="https://www.youtube.com/embed/UbkuSD-ht1U?rel=0"
-                      title="Google Japan recruitment video — Filming in Japan"
-                    />
-                    <p className="mt-3 text-sm font-black" style={{ color: "#1c1208" }}>Google Japan — Recruitment Video</p>
-                    <p className="mt-2 text-sm leading-relaxed" style={{ color: "rgba(28,18,8,0.55)" }}>Recruitment video for Google Japan, hearing from employees at their Inzai data centre near Tokyo about why they think Google is the right place for them.</p>
-                  </div>
-                  <div>
-                    <VideoEmbed
-                      src="https://www.youtube.com/embed/ZDKXfIE_b1Y?rel=0"
-                      title="EY employee profile video — Filming in Japan"
-                    />
-                    <p className="mt-3 text-sm font-black" style={{ color: "#1c1208" }}>EY — Employee Profile Series</p>
-                    <p className="mt-2 text-sm leading-relaxed" style={{ color: "rgba(28,18,8,0.55)" }}>Part of a series of six recruit and employee profile videos for EY — going beyond the workplace to discover the passion that drives their life and work.</p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="h-px mb-20" style={{ backgroundColor: "#e8d9c8" }} />
-
-              {/* Workflow */}
-              <div className="mb-16 p-8" style={{ backgroundColor: "#0d0a07" }}>
-                <div className="flex items-center gap-4 mb-8">
-                  <div className="h-px w-10" style={{ backgroundColor: "#e95228" }} />
-                  <span className="font-mono text-[10px] tracking-[0.35em] uppercase" style={{ color: "#e95228" }}>How it works</span>
-                </div>
-                <div className="space-y-6">
-                  {[
-                    {
-                      step: "The Plan",
-                      desc: "We location scout video interview locations beforehand, take photos, then work together on a call to discuss the best options. We align on message, length, tone and where the video will be used — website, SNS, trade shows.",
-                    },
-                    {
-                      step: "The Shoot",
-                      desc: "On the day we ask the questions in Japanese or English, ensuring the interviewee is relaxed and comfortable. Or we set up a remote feed for a producer or director based overseas to monitor the shoot or ask questions directly.",
-                    },
-                    {
-                      step: "The Edit",
-                      desc: "Native Japanese and English editors cut to your house style or to a pre-agreed script. We deliver in all formats — 16:9 for YouTube and websites, 9:16 for social — via Google Drive, Dropbox, MASV, Frame.io, or hard disk by courier.",
-                    },
-                  ].map((w, i) => (
-                    <div key={i} className="flex gap-6 pb-6 border-b last:border-0 last:pb-0" style={{ borderColor: "rgba(255,255,255,0.08)" }}>
-                      <span className="font-mono text-xs font-black shrink-0 mt-0.5 w-20" style={{ color: "#e95228" }}>{w.step}</span>
-                      <p className="text-sm leading-relaxed" style={{ color: "rgba(253,248,243,0.6)" }}>{w.desc}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Testimonials */}
-              <div className="space-y-6 mb-16">
-                <div className="flex items-center gap-4 mb-6">
-                  <div className="h-px w-10" style={{ backgroundColor: "#e95228" }} />
-                  <span className="font-mono text-[10px] tracking-[0.35em] uppercase" style={{ color: "#e95228" }}>Client feedback</span>
-                </div>
-                {testimonials.map((t, i) => (
-                  <blockquote key={i} className="pl-6 border-l-4" style={{ borderColor: i === 0 ? "#e95228" : "#e8d9c8" }}>
-                    <p className="text-base font-black italic leading-snug mb-3" style={{ color: "#1c1208" }}>
-                      &ldquo;{t.quote}&rdquo;
-                    </p>
-                    <cite className="font-mono text-[10px] tracking-widest not-italic uppercase" style={{ color: "rgba(28,18,8,0.4)" }}>
-                      {t.credit}
-                    </cite>
-                  </blockquote>
-                ))}
-              </div>
-
-              {/* Equipment */}
-              <div className="mb-16 p-8 border" style={{ borderColor: "#e8d9c8" }}>
-                <div className="flex items-center gap-4 mb-6">
-                  <div className="h-px w-10" style={{ backgroundColor: "#e95228" }} />
-                  <span className="font-mono text-[10px] tracking-[0.35em] uppercase" style={{ color: "#e95228" }}>Our equipment</span>
-                </div>
-                <p className="text-sm leading-relaxed mb-4" style={{ color: "rgba(28,18,8,0.6)" }}>
-                  We shoot on professional cinema cameras and are happy to work with a specific camera you require. Our in-house kit includes:
-                </p>
-                <ul className="space-y-2">
-                  {equipment.map((item, i) => (
-                    <li key={i} className="flex items-center gap-3 text-sm" style={{ color: "rgba(28,18,8,0.7)" }}>
-                      <span style={{ color: "#e95228" }}>—</span>
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              {/* FAQ */}
-              <div>
-                <div className="flex items-center gap-4 mb-8">
-                  <div className="h-px w-10" style={{ backgroundColor: "#e95228" }} />
-                  <span className="font-mono text-[10px] tracking-[0.35em] uppercase" style={{ color: "#e95228" }}>FAQ</span>
-                </div>
-                <div className="space-y-6">
-                  {faqs.map((faq, i) => (
-                    <div key={i} className="pb-6 border-b" style={{ borderColor: "#e8d9c8" }}>
-                      <h4 className="font-black mb-2 text-sm" style={{ color: "#1c1208" }}>{faq.q}</h4>
-                      <p className="text-sm leading-relaxed" style={{ color: "rgba(28,18,8,0.55)" }}>{faq.a}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-
-            {/* Right — form */}
-            <div>
-              <div
-                className="p-8 lg:p-10 sticky top-24"
-                style={{ backgroundColor: "#fff", border: "1px solid #e8d9c8" }}
-              >
-                <h3 className="text-xl font-black mb-2" style={{ color: "#1c1208" }}>
-                  Get a free quote
-                </h3>
-                <p className="text-sm mb-6" style={{ color: "rgba(28,18,8,0.5)" }}>
-                  Tell us about your project. We reply within 24 hours.
-                </p>
-                <LandingContactForm service="Corporate Video Japan" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Bottom CTA */}
-      <section className="py-16 border-t" style={{ borderColor: "#e8d9c8", backgroundColor: "#f5ede2" }}>
-        <div className="max-w-7xl mx-auto px-6 sm:px-12 lg:px-16 flex flex-col sm:flex-row items-center justify-between gap-6">
+      {/* 08 Prefer to talk? */}
+      <Section num="08" label="お問い合わせ" tone="ink" aria-labelledby="talk-heading">
+        <div className="flex flex-wrap items-end justify-between gap-x-16 gap-y-8">
           <div>
-            <p className="font-mono text-[10px] tracking-[0.3em] uppercase mb-2" style={{ color: "#e95228" }}>Prefer to talk?</p>
-            <p className="font-black text-lg" style={{ color: "#1c1208" }}>WhatsApp or email — we reply fast.</p>
+            <h2 id="talk-heading" className="fij-h2 mb-4">Prefer to talk?</h2>
+            <p className="fij-lede" style={{ color: "rgba(253,248,243,0.78)" }}>WhatsApp or email — we reply fast.</p>
           </div>
-          <div className="flex gap-4">
-            <a href="https://wa.me/819038800895" className="btn-warm font-black text-sm tracking-[0.15em] uppercase px-6 py-3">
-              WhatsApp Us
-            </a>
-            <a href="mailto:filminginjapan@move-ment.co" className="font-black text-sm tracking-[0.15em] uppercase px-6 py-3 border" style={{ borderColor: "#1c1208", color: "#1c1208" }}>
-              Email Us
-            </a>
+          <div className="flex flex-wrap gap-3">
+            <a href="https://wa.me/819038800895" className="fij-btn-orange">WhatsApp us</a>
+            <a href="mailto:filminginjapan@move-ment.co" className="fij-btn-outline" style={{ color: "#fdf8f3" }}>Email us</a>
           </div>
         </div>
-      </section>
+      </Section>
 
       <Footer lang="en" />
     </div>

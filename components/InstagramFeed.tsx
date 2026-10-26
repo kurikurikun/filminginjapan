@@ -1,28 +1,27 @@
 "use client";
 import Script from "next/script";
+import { Section, Title, Kicker } from "@/components/editorial";
 
-export default function InstagramFeed() {
+export default function InstagramFeed({
+  num,
+  label,
+  lang = "en",
+}: { num?: string; label?: string; lang?: "en" | "jp" } = {}) {
+  const isJp = lang === "jp";
   return (
-    <section className="py-20 lg:py-28" style={{ backgroundColor: "#fdf8f3" }}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12">
-        <div className="flex items-center gap-4 mb-6">
-          <div className="h-px w-12" style={{ backgroundColor: "#e95228" }} />
-          <span className="font-mono text-[10px] tracking-[0.35em] uppercase" style={{ color: "#e95228" }}>
-            Instagram
-          </span>
-        </div>
-        <div className="flex items-end justify-between mb-12">
-          <h2 className="text-4xl sm:text-5xl font-black leading-none" style={{ color: "#1c1208" }}>
-            Follow the work<span style={{ color: "#e95228" }}>.</span>
-          </h2>
+    <Section num={num} label={label} labelLang={isJp ? "en" : "ja"} aria-labelledby="instagram-heading">
+        <div className="flex flex-wrap items-end justify-between gap-x-12 gap-y-5 mb-12">
+          <div>
+            <Kicker>Instagram</Kicker>
+            <Title id="instagram-heading" className="fij-h2">Follow the work</Title>
+          </div>
           <a
             href="https://www.instagram.com/move_ment.co.ltd/"
             target="_blank"
             rel="noopener noreferrer"
-            className="font-mono text-[10px] tracking-[0.2em] uppercase hidden sm:block"
-            style={{ color: "rgba(28,18,8,0.45)" }}
+            className="fij-link text-[15px]"
           >
-            @move_ment.co.ltd →
+            @move_ment.co.ltd
           </a>
         </div>
 
@@ -31,7 +30,6 @@ export default function InstagramFeed() {
           className="elfsight-app-6e9766ec-6c97-4556-b049-6be8eb5a7967"
           data-elfsight-app-lazy
         />
-      </div>
-    </section>
+    </Section>
   );
 }

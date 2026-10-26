@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { SectionLabel, Title, Kicker } from "@/components/editorial";
 
 const BASE = "https://cdn.prod.website-files.com/65c60819f2a21ac92eda0d4d/";
 
@@ -38,30 +39,31 @@ const people = [
 const row1 = people.slice(0, 15);
 const row2 = people.slice(15);
 
-export default function PeopleCarousel() {
+export default function PeopleCarousel({
+  num,
+  label = "私たちの日本",
+  labelLang = "ja",
+}: { num?: string; label?: string; labelLang?: "ja" | "en" } = {}) {
   return (
-    <section style={{ backgroundColor: "#0d0a07", overflow: "hidden" }} className="py-20 lg:py-28">
+    <section
+      aria-labelledby="people-heading"
+      className="pt-20 pb-20 md:pt-28 md:pb-28 overflow-hidden"
+      style={{ backgroundColor: "#0d0a07", color: "#fdf8f3" }}
+    >
       {/* Header */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 mb-14">
-        <div className="flex items-center gap-4 mb-6">
-          <div className="h-px w-12" style={{ backgroundColor: "#e95228" }} />
-          <span className="font-mono text-[10px] tracking-[0.35em] uppercase" style={{ color: "#e95228" }}>
-            The people we film
-          </span>
+      <div className="fij-wrap flex flex-col md:flex-row gap-6 md:gap-14 mb-14">
+        <SectionLabel num={num} label={label} labelLang={labelLang} tone="night" />
+        <div className="flex-1 min-w-0">
+          <Kicker tone="night">The people we film</Kicker>
+          <Title id="people-heading" tone="night" className="fij-h2">This is our Japan</Title>
         </div>
-        <h2 className="text-4xl sm:text-5xl font-black leading-none" style={{ color: "#fdf8f3" }}>
-          This is our Japan<span style={{ color: "#e95228" }}>.</span>
-        </h2>
       </div>
 
       {/* Row 1 — scrolls left */}
-      <div
-        className="relative mb-3"
-        style={{ maskImage: "linear-gradient(to right, transparent, black 8%, black 92%, transparent)", WebkitMaskImage: "linear-gradient(to right, transparent, black 8%, black 92%, transparent)" }}
-      >
+      <div className="mb-3">
         <div className="flex people-scroll-left" style={{ width: "max-content", gap: "12px" }}>
           {[...row1, ...row1].map((filename, i) => (
-            <div key={i} className="relative shrink-0" style={{ width: "280px", height: "158px" }}>
+            <div key={i} className="relative shrink-0 w-[220px] h-[124px] sm:w-[280px] sm:h-[158px]">
               <Image
                 src={`${BASE}${filename}`}
                 alt="Filming in Japan — person filmed"
@@ -76,13 +78,10 @@ export default function PeopleCarousel() {
       </div>
 
       {/* Row 2 — scrolls right */}
-      <div
-        className="relative"
-        style={{ maskImage: "linear-gradient(to right, transparent, black 8%, black 92%, transparent)", WebkitMaskImage: "linear-gradient(to right, transparent, black 8%, black 92%, transparent)" }}
-      >
+      <div>
         <div className="flex people-scroll-right" style={{ width: "max-content", gap: "12px" }}>
           {[...row2, ...row2].map((filename, i) => (
-            <div key={i} className="relative shrink-0" style={{ width: "280px", height: "158px" }}>
+            <div key={i} className="relative shrink-0 w-[220px] h-[124px] sm:w-[280px] sm:h-[158px]">
               <Image
                 src={`${BASE}${filename}`}
                 alt="Filming in Japan — person filmed"

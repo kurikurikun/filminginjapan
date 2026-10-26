@@ -55,7 +55,7 @@ export default function HomePageJp() {
           <div className="flex-[7_1_560px] min-w-0 pt-16 pb-12 lg:pt-24 lg:pb-14 flex flex-col justify-between gap-12">
             <div>
               <p className="text-sm font-medium mb-8" style={{ color: "#6b5a48" }}>東京 · 広島 · 日本全国</p>
-              <h1 className="fij-h1 break-keep">
+              <h1 className="fij-h1 break-keep text-[clamp(36px,5.6vw,88px)]">
                 企業向け映像制作<br />
                 日本全国<JpDot />
               </h1>
@@ -96,7 +96,7 @@ export default function HomePageJp() {
             <p
               lang="en"
               aria-hidden="true"
-              className="absolute top-8 right-6 text-[24px] lg:text-[28px] font-semibold tracking-[0.04em]"
+              className="absolute top-8 right-6 whitespace-nowrap text-[20px] sm:text-[24px] lg:text-[28px] font-semibold tracking-[0.04em]"
               style={{ writingMode: "vertical-rl", color: "#fdf8f3", textShadow: "0 1px 12px rgba(0,0,0,0.35)" }}
             >
               Bilingual video production

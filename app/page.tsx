@@ -137,7 +137,7 @@ export default function HomePage() {
             <p
               lang="ja"
               aria-hidden="true"
-              className="absolute top-8 right-6 font-jp font-bold text-[26px] lg:text-[30px] tracking-[0.18em]"
+              className="absolute top-8 right-6 whitespace-nowrap font-jp font-bold text-[20px] sm:text-[26px] lg:text-[30px] tracking-[0.18em]"
               style={{ writingMode: "vertical-rl", color: "#fdf8f3", textShadow: "0 1px 12px rgba(0,0,0,0.35)" }}
             >
               日英バイリンガルの映像制作

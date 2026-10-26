@@ -68,7 +68,7 @@ export default function EventPricing({ lang = "en", num }: { lang?: Lang; num?: 
           <p className="text-[64px] sm:text-[104px] lg:text-[148px] leading-[0.9] font-semibold tracking-[-0.06em] tabular-nums mb-8">
             <span className="sr-only">{t.total}: </span>
             {yen(total)}
-            <span className="text-lg sm:text-xl font-medium tracking-normal ml-3">{t.plusTax}</span>
+            <span className="text-lg sm:text-xl font-medium tracking-normal ml-3 whitespace-nowrap">{t.plusTax}</span>
           </p>
           <ul className="mb-9">
             {t.exampleItems.map(([label, price], i) => (

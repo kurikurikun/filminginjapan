@@ -13,7 +13,7 @@ export default function ThankYouPage() {
       <div className="fij-wrap w-full pt-32 pb-24">
         <div className="max-w-3xl border-t-2 pt-10" style={{ borderColor: "#1c1208" }}>
           <p className="text-sm font-medium mb-8" style={{ color: "#6b5a48" }}>Enquiry received</p>
-          <Title as="h1" className="fij-h1 mb-8">Thank you — we&apos;ll be in touch soon</Title>
+          <Title as="h1" className="fij-h1 mb-8">Thank you. We&apos;ll be in touch soon</Title>
           <p className="fij-lede max-w-xl mb-12" style={{ color: "#4a3a2a" }}>
             We reply to all enquiries within 24 hours. In the meantime, feel free to browse our recent work.
           </p>

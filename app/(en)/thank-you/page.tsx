@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Title } from "@/components/editorial";
 
 export const metadata: Metadata = {
-  title: "Thank You | Filming in Japan",
+  title: "Thank You",
   robots: { index: false, follow: false },
 };
 

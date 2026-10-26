@@ -10,6 +10,10 @@
     color: #1c1208;
     background-color: #fdf8f3;
   }
+:root {
+    /* small orange numbers: dark orange on light grounds (contrast), bright orange on dark sections */
+    --fij-num: #b5370d;
+  }
   :focus-visible {
     outline: 2px solid #e95228;
     outline-offset: 3px;

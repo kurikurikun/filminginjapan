@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import "./globals.css";
+import "../globals.css";
 import Navigation from "@/components/Navigation";
 import ClickTracker from "@/components/ClickTracker";
 import Script from "next/script";
@@ -85,7 +85,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${sans.variable} ${jp.variable}`}>
       <head>
-        <Script src="https://www.googletagmanager.com/gtag/js?id=G-HRSC1F9YKM" strategy="afterInteractive" />
+        <Script src="https://www.googletagmanager.com/gtag/js?id=G-HRSC1F9YKM" strategy="lazyOnload" />
         <Script id="ga4-init" strategy="afterInteractive">{`
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}

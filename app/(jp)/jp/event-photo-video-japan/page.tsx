@@ -9,8 +9,9 @@ import LandingContactForm from "@/components/LandingContactForm";
 import GoogleReviews from "@/components/GoogleReviews";
 import PhotoGallery from "@/components/PhotoGallery";
 
+import LazyIframe from "@/components/LazyIframe";
 export const metadata: Metadata = {
-  title: "東京のイベント撮影｜バイリンガルのカメラマン・映像制作",
+  title: "東京のイベント撮影・映像制作（英語対応）",
   description: "東京のイベント撮影なら英語対応のバイリンガルチームへ。カンファレンス、ガラ、製品発表会の写真撮影とハイライト動画を制作。当日の写真納品にも対応。PwC、Riot Games、Celonisなど実績多数。",
   alternates: {
     canonical: "https://www.filminginjapan.com/jp/event-photo-video-japan",
@@ -265,7 +266,7 @@ export default function EventVideoPageJP() {
           <div className="flex-[7_1_560px] pt-16 pb-12 lg:pt-24 lg:pb-14 flex flex-col justify-between gap-12">
             <div>
               <p className="text-sm font-medium mb-8" style={{ color: "#6b5a48" }}>イベント撮影 · 東京 · 日本全国</p>
-              <Title stop="。" as="h1" className="fij-h1 break-keep">企業イベント<br />写真・映像制作 全国対応</Title>
+              <Title stop="。" as="h1" className="fij-h1 break-keep">企業イベント{" "}<br />写真・映像制作 全国対応</Title>
             </div>
             <div className="flex flex-wrap items-end gap-x-12 gap-y-8">
               <p className="fij-lede flex-[1_1_340px]" style={{ color: "#4a3a2a" }}>
@@ -307,14 +308,14 @@ export default function EventVideoPageJP() {
               <SectionLabel num="01" label="Services" labelLang="en" />
               <div className="flex-1 min-w-0">
                 <Kicker>サービス内容</Kicker>
-                <Title stop="。" className="fij-h2 mb-8">すべての瞬間を捉える。<br />スタイリッシュで</Title>
+                <Title stop="。" className="fij-h2 mb-8">すべての瞬間を捉える。{" "}<br />スタイリッシュで</Title>
                 <p className="fij-lede max-w-xl mb-12" style={{ color: "#4a3a2a" }}>
                   海外クライアントの日本国内イベントを数多く手がけてきた経験から、ブランド基準に沿ったビジュアル納品の重要性を深く理解しています。
                 </p>
                 <ol className="fij-cells" style={{ gridTemplateColumns: "repeat(auto-fit, minmax(min(50%, 220px), 1fr))" }}>
                   {services.map((s, i) => (
                     <li key={i} className="p-4 pb-6 sm:p-6 sm:pb-8 flex flex-col gap-5 sm:gap-7 sm:min-h-[150px]">
-                      <span className="text-[13px] font-semibold tabular-nums" style={{ color: "#e95228" }}>{String(i + 1).padStart(2, "0")}</span>
+                      <span className="text-[13px] font-semibold tabular-nums" style={{ color: "var(--fij-num)" }}>{String(i + 1).padStart(2, "0")}</span>
                       <span className="text-base sm:text-[18px] leading-snug font-semibold">{s}</span>
                     </li>
                   ))}
@@ -330,7 +331,7 @@ export default function EventVideoPageJP() {
                 <div>
                   {differentiators.map((d, i) => (
                     <div key={i} className={`flex gap-6 py-6 border-t ${i === differentiators.length - 1 ? "border-b" : ""}`} style={{ borderColor: "#1c1208" }}>
-                      <span className="w-8 shrink-0 pt-1.5 text-[13px] font-semibold tabular-nums" style={{ color: "#e95228" }}>
+                      <span className="w-8 shrink-0 pt-1.5 text-[13px] font-semibold tabular-nums" style={{ color: "var(--fij-num)" }}>
                         {String(i + 1).padStart(2, "0")}
                       </span>
                       <div>
@@ -383,7 +384,7 @@ export default function EventVideoPageJP() {
             style={{ borderColor: "rgba(253,248,243,0.25)" }}
           >
             <div className="relative flex-[1.25_1_440px] aspect-[16/9]" style={{ backgroundColor: "#241a12" }}>
-              <iframe
+              <LazyIframe
                 src={`https://player.vimeo.com/video/${p.vimeoId}?h=${p.vimeoHash}&title=0&byline=0&portrait=0`}
                 className="absolute inset-0 w-full h-full"
                 allow="autoplay; fullscreen; picture-in-picture"
@@ -441,7 +442,7 @@ export default function EventVideoPageJP() {
         <div className="flex flex-wrap items-end gap-x-16 gap-y-12">
           <div className="flex-[1_1_320px]">
             <Kicker tone="night">SNSクリップ</Kicker>
-            <Title stop="。" id="social-clips-heading" tone="night" className="fij-h2 mb-6">縦型ショート動画も<br />すぐに投稿可能</Title>
+            <Title stop="。" id="social-clips-heading" tone="night" className="fij-h2 mb-6">縦型ショート動画も{" "}<br />すぐに投稿可能</Title>
             <p className="fij-lede max-w-md" style={{ color: "rgba(253,248,243,0.78)" }}>
               メインのイベント撮影に加えて、字幕・カラーグレーディング済みの縦型ショート動画も制作できます。Instagram、LinkedIn、社内チャンネルにそのまま使えます。お問い合わせの際にお知らせください。
             </p>

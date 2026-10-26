@@ -56,7 +56,7 @@ export default function EventPricing({ lang = "en", num }: { lang?: Lang; num?: 
     <Section num={num} label={t.label} labelLang={lang === "jp" ? "en" : "ja"} tone="orange" aria-labelledby="event-pricing-heading">
       <p className="text-sm font-medium mb-5">{t.eyebrow}</p>
       <div className="flex flex-wrap items-end gap-x-16 gap-y-6 mb-14">
-        <Title id="event-pricing-heading" tone="orange" className="fij-h2 flex-[1_1_480px]">{t.title}</Title>
+        <Title stop={lang === "jp" ? "。" : "."} id="event-pricing-heading" tone="orange" className="fij-h2 flex-[1_1_480px]">{t.title}</Title>
         <p className="fij-lede flex-[1_1_300px]">{t.lede}</p>
       </div>
 

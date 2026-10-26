@@ -43,6 +43,19 @@ const faqs = [
 export default function HomePageJp() {
   return (
     <div lang="ja" style={{ backgroundColor: "#fdf8f3" }}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "inLanguage": "ja",
+          "mainEntity": faqs.map((faq) => ({
+            "@type": "Question",
+            "name": faq.q,
+            "acceptedAnswer": { "@type": "Answer", "text": faq.a },
+          })),
+        }) }}
+      />
 
       {/* Hero: headline on cream, background video in a tall panel with vertical English on the right */}
       <section className="border-b" style={{ borderColor: "#1c1208" }}>
@@ -51,7 +64,7 @@ export default function HomePageJp() {
             <div>
               <p className="text-sm font-medium mb-8" style={{ color: "#6b5a48" }}>東京 · 広島 · 日本全国</p>
               <Title as="h1" stop="。" className="fij-h1">
-                企業向け映像制作<br />
+                企業向け映像制作{" "}<br />
                 日本全国
               </Title>
             </div>
@@ -108,7 +121,7 @@ export default function HomePageJp() {
           <div>
             <Kicker>サービス内容</Kicker>
             <Title id="services-heading" stop="。" className="fij-h2">
-              4つのサービスで<br />
+              4つのサービスで{" "}<br />
               ストーリーを届ける
             </Title>
           </div>
@@ -158,7 +171,7 @@ export default function HomePageJp() {
         <ol className="grid sm:grid-cols-2 lg:grid-cols-5 gap-x-8 gap-y-12">
           {workflow.map((w) => (
             <li key={w.step} className="border-t-2 pt-5" style={{ borderColor: "#1c1208" }}>
-              <span className="block text-[13px] font-semibold tabular-nums mb-8" style={{ color: "#e95228" }}>{w.step}</span>
+              <span className="block text-[13px] font-semibold tabular-nums mb-8" style={{ color: "var(--fij-num)" }}>{w.step}</span>
               <h3 className="text-[20px] leading-snug font-semibold mb-3">{w.title}</h3>
               <p className="text-[15px] leading-relaxed" style={{ color: "#4a3a2a" }}>{w.desc}</p>
             </li>
@@ -193,8 +206,8 @@ export default function HomePageJp() {
           <div className="flex-[1.4_1_420px] min-w-0">
             <Kicker tone="ink">まずはご相談ください</Kicker>
             <Title id="cta-heading" tone="ink" stop="。" className="fij-h2 mb-8">
-              日本でのプロジェクトを<br />
-              一緒に<br />
+              日本でのプロジェクトを{" "}<br />
+              一緒に{" "}<br />
               実現しましょう
             </Title>
             <p className="fij-lede mb-10 max-w-lg" style={{ color: "rgba(253,248,243,0.78)" }}>

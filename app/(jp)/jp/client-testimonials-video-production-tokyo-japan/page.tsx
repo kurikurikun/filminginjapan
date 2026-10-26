@@ -5,6 +5,7 @@ import { Section, SectionLabel, TrustedBy, type Tone } from "@/components/editor
 import Footer from "@/components/Footer";
 import LandingContactForm from "@/components/LandingContactForm";
 
+import LazyIframe from "@/components/LazyIframe";
 export const metadata: Metadata = {
   title: "映像制作の導入事例・お客様の声",
   description: "東京・日本全国でカスタマーストーリー・導入事例動画を制作。日英バイリンガル対応。オンライン・オフィス・イベント取材の3スタイル。Microsoft、Google、SAP など多数の実績。",
@@ -113,7 +114,7 @@ function CardGrid({ items, tone = "cream" }: { items: { heading: string; bullets
 function VideoEmbed({ src, title, allow }: { src: string; title: string; allow: string }) {
   return (
     <div className="relative w-full aspect-[16/9]" style={{ backgroundColor: "#241a12" }}>
-      <iframe
+      <LazyIframe
         src={src}
         title={title}
         allow={allow}
@@ -176,6 +177,19 @@ const reasons: { title: ReactNode; body: ReactNode }[] = [
 export default function TestimonialsPageJP() {
   return (
     <div lang="ja" style={{ backgroundColor: "#fdf8f3" }}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "inLanguage": "ja",
+          "mainEntity": faqs.map((faq) => ({
+            "@type": "Question",
+            "name": faq.q,
+            "acceptedAnswer": { "@type": "Answer", "text": faq.a },
+          })),
+        }) }}
+      />
 
       {/* Hero: headline on cream, tall photo with vertical English on the right */}
       <section className="border-b" style={{ borderColor: "#1c1208" }}>
@@ -184,7 +198,7 @@ export default function TestimonialsPageJP() {
             <div>
               <p className="text-sm font-medium mb-8" style={{ color: "#6b5a48" }}>導入事例動画 · 東京 · 日本</p>
               <h1 className="fij-h1 [line-break:strict] [word-break:auto-phrase] text-[length:clamp(32px,8.4vw,64px)] lg:text-[length:clamp(44px,4.8vw,72px)]">
-                カスタマーストーリー<br />
+                カスタマーストーリー{" "}<br />
                 動画制作<span style={{ color: "#e95228" }}>。</span>
               </h1>
             </div>
@@ -199,7 +213,7 @@ export default function TestimonialsPageJP() {
           <div className="relative flex-[5_1_380px] min-h-[420px] lg:min-h-[640px] -mx-[clamp(20px,4vw,48px)] lg:ml-0 overflow-hidden" style={{ backgroundColor: "#0d0a07" }}>
             <Image
               src="/images/customer_testimonial_office_tokyo.jpeg"
-              alt=""
+              alt="東京のオフィスでカスタマーストーリー動画を撮影するクルー"
               fill
               priority
               className="object-cover"
@@ -254,11 +268,11 @@ export default function TestimonialsPageJP() {
               <SectionLabel num="02" label="Why us" labelLang="en" />
               <div className="flex-1 min-w-0">
                 <p className="text-sm font-medium mb-5" style={{ color: "#6b5a48" }}>選ばれる理由</p>
-                <JTitle className="fij-h2 mb-12">カスタマーストーリーが<br />選ばれる理由</JTitle>
+                <JTitle className="fij-h2 mb-12">カスタマーストーリーが{" "}<br />選ばれる理由</JTitle>
                 <div>
                   {reasons.map((r, i) => (
                     <div key={i} className={`flex gap-6 py-7 border-t ${i === reasons.length - 1 ? "border-b" : ""}`} style={{ borderColor: "#1c1208" }}>
-                      <span className="w-8 shrink-0 pt-1.5 text-[13px] font-semibold tabular-nums" style={{ color: "#e95228" }}>
+                      <span className="w-8 shrink-0 pt-1.5 text-[13px] font-semibold tabular-nums" style={{ color: "var(--fij-num)" }}>
                         {String(i + 1).padStart(2, "0")}
                       </span>
                       <div className="min-w-0">

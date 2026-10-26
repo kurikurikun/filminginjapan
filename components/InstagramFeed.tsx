@@ -1,5 +1,5 @@
 "use client";
-import Script from "next/script";
+import LazyElfsight from "@/components/LazyElfsight";
 import { Section, Title, Kicker } from "@/components/editorial";
 
 export default function InstagramFeed({
@@ -25,11 +25,7 @@ export default function InstagramFeed({
           </a>
         </div>
 
-        <Script src="https://elfsightcdn.com/platform.js" strategy="lazyOnload" />
-        <div
-          className="elfsight-app-6e9766ec-6c97-4556-b049-6be8eb5a7967"
-          data-elfsight-app-lazy
-        />
+        <LazyElfsight appId="6e9766ec-6c97-4556-b049-6be8eb5a7967" minHeight={480} />
     </Section>
   );
 }

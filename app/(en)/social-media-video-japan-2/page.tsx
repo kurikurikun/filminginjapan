@@ -4,8 +4,9 @@ import Footer from "@/components/Footer";
 import LandingContactForm from "@/components/LandingContactForm";
 import { Section, SectionLabel, Title, Dot, Kicker, TrustedBy } from "@/components/editorial";
 
+import LazyIframe from "@/components/LazyIframe";
 export const metadata: Metadata = {
-  title: "Social Media Video Production Japan · Tokyo | Short-Form & Ad Content",
+  title: "Social Media Video Production Japan",
   description: "Social-first video production in Japan. Vertical, square and horizontal formats for Instagram, TikTok, YouTube and Google Ads. Fast turnaround. Bilingual crew.",
   alternates: {
     canonical: "https://www.filminginjapan.com/social-media-video-japan-2",
@@ -105,7 +106,7 @@ export default function SocialMediaVideoPage() {
           <div className="relative flex-[5_1_380px] min-h-[420px] lg:min-h-[640px] -mx-[clamp(20px,4vw,48px)] lg:ml-0 overflow-hidden" style={{ backgroundColor: "#0d0a07" }}>
             <Image
               src="/images/filming_in_japan_social_media_google_ads.jpg"
-              alt=""
+              alt="Sushi chef at the counter of a Japanese restaurant, filmed for a social media ad"
               fill
               priority
               className="object-cover object-[center_30%]"
@@ -134,7 +135,7 @@ export default function SocialMediaVideoPage() {
             <div className="flex-1 min-w-0">
               <Kicker>Campaign work · ZenMarket</Kicker>
               <h2 className="fij-h2 mb-8">
-                Sushi Surprise<Dot /><br />
+                Sushi Surprise<Dot />{" "}<br />
                 multi-format, one shoot<Dot />
               </h2>
               <div className="max-w-2xl space-y-4 mb-8 text-base leading-relaxed" style={{ color: "#4a3a2a" }}>
@@ -152,7 +153,7 @@ export default function SocialMediaVideoPage() {
               {/* Hero video — 30sec horizontal */}
               <figure className="mb-8">
                 <div className="relative overflow-hidden" style={{ aspectRatio: "16/9", backgroundColor: "#0d0a07" }}>
-                  <iframe
+                  <LazyIframe
                     src="https://player.vimeo.com/video/1199938257?h=b5961f06f8&title=0&byline=0&portrait=0"
                     className="absolute inset-0 w-full h-full"
                     allow="autoplay; fullscreen; picture-in-picture"
@@ -168,7 +169,7 @@ export default function SocialMediaVideoPage() {
                 <figure>
                   <div className="w-[56.25%] mx-auto">
                     <div className="relative overflow-hidden" style={{ aspectRatio: "9/16", backgroundColor: "#0d0a07" }}>
-                      <iframe
+                      <LazyIframe
                         src="https://player.vimeo.com/video/1201694607?h=599a431abd&title=0&byline=0&portrait=0"
                         className="absolute inset-0 w-full h-full"
                         allow="autoplay; fullscreen; picture-in-picture"
@@ -182,7 +183,7 @@ export default function SocialMediaVideoPage() {
                 </figure>
                 <figure>
                   <div className="relative overflow-hidden" style={{ aspectRatio: "1/1", backgroundColor: "#0d0a07" }}>
-                    <iframe
+                    <LazyIframe
                       src="https://player.vimeo.com/video/1200318073?h=52862dfd0e&title=0&byline=0&portrait=0"
                       className="absolute inset-0 w-full h-full"
                       allow="autoplay; fullscreen; picture-in-picture"
@@ -276,7 +277,7 @@ export default function SocialMediaVideoPage() {
           </div>
           <figure className="flex-[1_1_300px] max-w-[340px] mx-auto">
             <div className="relative overflow-hidden" style={{ aspectRatio: "9/16", backgroundColor: "#241a12" }}>
-              <iframe
+              <LazyIframe
                 src="https://player.vimeo.com/video/1182298430?h=0bbf0eeba0&title=0&byline=0&portrait=0"
                 className="absolute inset-0 w-full h-full"
                 allow="autoplay; fullscreen; picture-in-picture"
@@ -296,7 +297,7 @@ export default function SocialMediaVideoPage() {
           <div className="flex-[1_1_320px]">
             <Kicker>Programme Verticals · JIBTV</Kicker>
             <h2 id="jibtv-heading" className="fij-h2 mb-8">
-              Horizontal shoots<Dot /><br />
+              Horizontal shoots<Dot />{" "}<br />
               Vertical reach<Dot />
             </h2>
             <div className="max-w-md space-y-4 text-base leading-relaxed" style={{ color: "#4a3a2a" }}>
@@ -311,7 +312,7 @@ export default function SocialMediaVideoPage() {
           <div className="flex-[1.2_1_420px] grid grid-cols-2 gap-3 sm:gap-4 items-end">
             <figure className="mb-14">
               <div className="relative overflow-hidden" style={{ aspectRatio: "9/16", backgroundColor: "#0d0a07" }}>
-                <iframe
+                <LazyIframe
                   src="https://player.vimeo.com/video/1116054357?h=32612f33c1&title=0&byline=0&portrait=0"
                   className="absolute inset-0 w-full h-full"
                   allow="autoplay; fullscreen; picture-in-picture"
@@ -325,7 +326,7 @@ export default function SocialMediaVideoPage() {
             </figure>
             <figure>
               <div className="relative overflow-hidden" style={{ aspectRatio: "9/16", backgroundColor: "#0d0a07" }}>
-                <iframe
+                <LazyIframe
                   src="https://www.youtube.com/embed/SjMlPenmWao"
                   className="absolute inset-0 w-full h-full"
                   allow="autoplay; fullscreen; picture-in-picture"
@@ -347,7 +348,7 @@ export default function SocialMediaVideoPage() {
           <div className="flex-[1.2_1_420px] grid grid-cols-2 gap-3 sm:gap-4 items-end">
             <figure>
               <div className="relative overflow-hidden" style={{ aspectRatio: "9/16", backgroundColor: "#241a12" }}>
-                <iframe
+                <LazyIframe
                   src="https://player.vimeo.com/video/1030964766?h=89413e0077&title=0&byline=0&portrait=0"
                   className="absolute inset-0 w-full h-full"
                   allow="autoplay; fullscreen; picture-in-picture"
@@ -361,7 +362,7 @@ export default function SocialMediaVideoPage() {
             </figure>
             <figure className="mb-14">
               <div className="relative overflow-hidden" style={{ aspectRatio: "9/16", backgroundColor: "#241a12" }}>
-                <iframe
+                <LazyIframe
                   src="https://player.vimeo.com/video/1030964803?h=587a005217&title=0&byline=0&portrait=0"
                   className="absolute inset-0 w-full h-full"
                   allow="autoplay; fullscreen; picture-in-picture"
@@ -377,7 +378,7 @@ export default function SocialMediaVideoPage() {
           <div className="flex-[1_1_320px]">
             <Kicker tone="night">Inbound · Setouchi DMO</Kicker>
             <h2 id="inbound-heading" className="fij-h2 mb-8">
-              Made for inbound<Dot tone="night" /><br />
+              Made for inbound<Dot tone="night" />{" "}<br />
               Filmed alongside the main shoot<Dot tone="night" />
             </h2>
             <p className="fij-lede max-w-md" style={{ color: "rgba(253,248,243,0.78)" }}>
@@ -392,13 +393,13 @@ export default function SocialMediaVideoPage() {
       <Section num="06" label="制作内容" aria-labelledby="services-heading">
         <Kicker>What we deliver</Kicker>
         <h2 id="services-heading" className="fij-h2 mb-12">
-          Every format<Dot /><br />
+          Every format<Dot />{" "}<br />
           Every platform<Dot />
         </h2>
         <ol className="fij-cells" style={{ gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 220px), 1fr))" }}>
           {services.map((s, i) => (
             <li key={i} className="p-5 pb-7 sm:p-6 sm:pb-8 flex flex-col gap-5 sm:gap-7 sm:min-h-[170px]">
-              <span className="text-[13px] font-semibold tabular-nums" style={{ color: "#e95228" }}>{String(i + 1).padStart(2, "0")}</span>
+              <span className="text-[13px] font-semibold tabular-nums" style={{ color: "var(--fij-num)" }}>{String(i + 1).padStart(2, "0")}</span>
               <span className="text-base sm:text-[19px] leading-snug font-semibold tracking-[-0.015em]">{s}</span>
             </li>
           ))}
@@ -416,7 +417,7 @@ export default function SocialMediaVideoPage() {
           <div className="flex-[1.4_1_480px] min-w-0">
             {differentiators.map((d, i) => (
               <div key={i} className={`flex gap-6 py-6 border-t ${i === differentiators.length - 1 ? "border-b" : ""}`} style={{ borderColor: "#1c1208" }}>
-                <span className="w-8 shrink-0 pt-1.5 text-[13px] font-semibold tabular-nums" style={{ color: "#e95228" }}>
+                <span className="w-8 shrink-0 pt-1.5 text-[13px] font-semibold tabular-nums" style={{ color: "var(--fij-num)" }}>
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <div>

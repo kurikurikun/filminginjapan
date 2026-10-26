@@ -9,8 +9,8 @@ import type { ReactNode } from "react";
 export type Tone = "cream" | "sand" | "night" | "ink" | "orange";
 
 const toneStyles: Record<Tone, { bg: string; fg: string; num: string; rule: string }> = {
-  cream: { bg: "#fdf8f3", fg: "#1c1208", num: "#e95228", rule: "#1c1208" },
-  sand: { bg: "#f5ede2", fg: "#1c1208", num: "#e95228", rule: "#1c1208" },
+  cream: { bg: "#fdf8f3", fg: "#1c1208", num: "#b5370d", rule: "#1c1208" },
+  sand: { bg: "#f5ede2", fg: "#1c1208", num: "#b5370d", rule: "#1c1208" },
   night: { bg: "#0d0a07", fg: "#fdf8f3", num: "#e95228", rule: "rgba(253,248,243,0.25)" },
   ink: { bg: "#1c1208", fg: "#fdf8f3", num: "#e95228", rule: "rgba(253,248,243,0.25)" },
   orange: { bg: "#e95228", fg: "#0d0a07", num: "#0d0a07", rule: "#0d0a07" },
@@ -78,7 +78,7 @@ export function Section({
       id={id}
       aria-labelledby={labelledBy}
       className={`scroll-mt-20 ${bordered ? "border-y" : ""} ${className}`}
-      style={{ backgroundColor: t.bg, color: t.fg, borderColor: "#1c1208" }}
+      style={{ backgroundColor: t.bg, color: t.fg, borderColor: "#1c1208", ["--fij-num" as string]: t.num }}
     >
       <div className="fij-wrap py-20 md:py-28 flex flex-col md:flex-row gap-6 md:gap-14">
         {(num || label) && <SectionLabel num={num} label={label} labelLang={labelLang} tone={tone} />}

@@ -5,6 +5,7 @@ import LandingContactForm from "@/components/LandingContactForm";
 import PhotoGrid from "@/components/PhotoGrid";
 import { Section, SectionLabel, Title, Kicker, TrustedBy } from "@/components/editorial";
 
+import LazyIframe from "@/components/LazyIframe";
 export const metadata: Metadata = {
   title: "不動産・商業施設の写真・動画・VRツアー制作",
   description: "東京・全国対応の商業不動産写真、ドローン空撮動画、360° Matterportバーチャルツアー。JLL・CBRE・クッシュマン・アンド・ウェイクフィールド・Hines・Savillsなど国内外大手に対応実績あり。",
@@ -145,6 +146,19 @@ const clients = ["JLL", "CBRE", "Cushman & Wakefield", "Hines", "Savills"];
 export default function RealEstatePageJp() {
   return (
     <div lang="ja" style={{ backgroundColor: "#fdf8f3" }}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "inLanguage": "ja",
+          "mainEntity": faqs.map((faq) => ({
+            "@type": "Question",
+            "name": faq.q,
+            "acceptedAnswer": { "@type": "Answer", "text": faq.a },
+          })),
+        }) }}
+      />
 
       {/* Hero: headline on cream, tall photo with vertical English on the right */}
       <section className="border-b" style={{ borderColor: "#1c1208" }}>
@@ -152,7 +166,7 @@ export default function RealEstatePageJp() {
           <div className="flex-[7_1_560px] pt-16 pb-12 lg:pt-24 lg:pb-14 flex flex-col justify-between gap-12">
             <div>
               <p className="text-sm font-medium mb-8" style={{ color: "#6b5a48" }}>不動産メディア · 東京 · 日本全国</p>
-              <Title as="h1" className="fij-h1 break-keep max-sm:text-[38px]">不動産・商業施設の<br />写真・動画・<br />VRツアー</Title>
+              <Title stop="。" as="h1" className="fij-h1 break-keep max-sm:text-[38px]">不動産・商業施設の{" "}<br />写真・動画・{" "}<br />VRツアー</Title>
             </div>
             <div className="flex flex-wrap items-end gap-x-12 gap-y-8">
               <p className="fij-lede flex-[1_1_340px]" style={{ color: "#4a3a2a" }}>
@@ -164,7 +178,7 @@ export default function RealEstatePageJp() {
           <div className="relative flex-[5_1_380px] min-h-[420px] lg:min-h-[640px] -mx-[clamp(20px,4vw,48px)] lg:ml-0 overflow-hidden" style={{ backgroundColor: "#0d0a07" }}>
             <Image
               src="/images/tokyo-real-estate-drone-photo1.jpg"
-              alt=""
+              alt="東京のオフィスビルと広場のドローン空撮"
               fill
               priority
               className="object-cover"
@@ -192,7 +206,7 @@ export default function RealEstatePageJp() {
             <SectionLabel num="01" label="Services" labelLang="en" />
             <div className="flex-1 min-w-0">
               <p className="text-sm font-medium mb-5" style={{ color: "#6b5a48" }}>サービス内容</p>
-              <h2 className="fij-h2 mb-14 max-sm:text-[32px]">物件の魅力を最大限に引き出す<br />映像・写真制作<span style={{ color: "#e95228" }}>。</span></h2>
+              <h2 className="fij-h2 mb-14 max-sm:text-[32px]">物件の魅力を最大限に引き出す{" "}<br />映像・写真制作<span style={{ color: "#e95228" }}>。</span></h2>
 
               <div className="border-b" style={{ borderColor: "#1c1208" }}>
                 {services.map((s) => {
@@ -200,7 +214,7 @@ export default function RealEstatePageJp() {
                   return (
                     <article key={s.num} className="py-10 border-t" style={{ borderColor: "#1c1208" }}>
                       <div className="flex gap-6 mb-8">
-                        <span className="w-8 shrink-0 pt-1.5 text-[13px] font-semibold tabular-nums" style={{ color: "#e95228" }}>{s.num}</span>
+                        <span className="w-8 shrink-0 pt-1.5 text-[13px] font-semibold tabular-nums" style={{ color: "var(--fij-num)" }}>{s.num}</span>
                         <div className="min-w-0">
                           <h3 className="fij-h3 mb-3">{s.title}</h3>
                           <p className="text-[15px] leading-loose mb-5" style={{ color: "#4a3a2a" }}>{s.desc}</p>
@@ -222,7 +236,7 @@ export default function RealEstatePageJp() {
                         {s.matterport && (
                           <figure>
                             <div className="relative w-full aspect-[16/9]" style={{ backgroundColor: "#0d0a07" }}>
-                              <iframe
+                              <LazyIframe
                                 src={`https://my.matterport.com/show/?m=${s.matterport}`}
                                 title="Matterport 360°バーチャルツアー"
                                 allow="vr; xr; accelerometer; magnetometer; gyroscope; autoplay"
@@ -241,7 +255,7 @@ export default function RealEstatePageJp() {
                             {s.videos.map((v, i) => (
                               <figure key={v.id} className={s.videos.length % 2 === 1 && i === 0 ? "sm:col-span-2" : ""}>
                                 <div className="relative w-full aspect-[16/9]" style={{ backgroundColor: "#0d0a07" }}>
-                                  <iframe
+                                  <LazyIframe
                                     src={`https://player.vimeo.com/video/${v.id}${v.hash ? `?h=${v.hash}` : ""}`}
                                     title={v.caption}
                                     allow="autoplay; fullscreen; picture-in-picture"
@@ -291,7 +305,7 @@ export default function RealEstatePageJp() {
       {/* 03 FAQ */}
       <Section num="03" label="FAQ" labelLang="en" bordered aria-labelledby="faq-heading">
         <div className="flex flex-wrap gap-x-16 gap-y-10">
-          <Title id="faq-heading" className="fij-h2 flex-[1_1_240px]">よくある質問</Title>
+          <Title stop="。" id="faq-heading" className="fij-h2 flex-[1_1_240px]">よくある質問</Title>
           <div className="flex-[3_1_520px] min-w-0 border-t-2" style={{ borderColor: "#1c1208" }}>
             {faqs.map((faq, i) => (
               <details key={i} className="fij-faq border-b" style={{ borderColor: "#1c1208" }} open={i === 0}>
@@ -311,7 +325,7 @@ export default function RealEstatePageJp() {
         <div className="flex flex-wrap items-end justify-between gap-x-16 gap-y-8">
           <div>
             <Kicker tone="ink">まずはお気軽に</Kicker>
-            <Title id="talk-heading" tone="ink" className="fij-h2">WhatsAppまたはメールでお問い合わせください</Title>
+            <Title stop="。" id="talk-heading" tone="ink" className="fij-h2">WhatsAppまたはメールでお問い合わせください</Title>
           </div>
           <div className="flex flex-wrap gap-3">
             <a href="https://wa.me/819038800895" className="fij-btn-orange">WhatsApp</a>

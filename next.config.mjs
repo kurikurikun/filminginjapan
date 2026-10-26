@@ -3,6 +3,8 @@ const nextConfig = {
   async redirects() {
     return [
       { source: "/corporate-video", destination: "/corporate-branding-videos-japan", permanent: true },
+      // Old social URL still shows in Search Console (Oct 2026)
+      { source: "/social-media-video-japan", destination: "/social-media-video-japan-2", permanent: true },
       { source: "/event-photo-video", destination: "/event-photo-video-japan", permanent: true },
       { source: "/real-estate-photo-video", destination: "/real-estate-photo-video-tokyo-japan", permanent: true },
       { source: "/client-testimonial", destination: "/client-testimonials-video-production-tokyo-japan", permanent: true },

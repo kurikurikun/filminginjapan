@@ -23,41 +23,34 @@ export default function VideoLightbox({ vimeoId, vimeoHash, title }: VideoLightb
 
   return (
     <>
-      {/* Panel video — fills container, cropped L/R */}
-      <div className="relative overflow-hidden min-h-[320px] lg:min-h-[560px]" style={{ backgroundColor: "#0d0a07" }}>
-        <LazyIframe
-          src={`https://player.vimeo.com/video/${vimeoId}?h=${vimeoHash}`}
-          title={title}
-          allow="autoplay; fullscreen; picture-in-picture"
-          allowFullScreen
-          className="absolute"
-          style={{
-            top: "50%", left: "50%",
-            transform: "translate(-50%, -50%)",
-            width: "177.78%",
-            aspectRatio: "16/9",
-            minHeight: "100%",
-            border: 0,
-          }}
-        />
-
-        {/* Expand button */}
-        <button
-          onClick={() => setOpen(true)}
-          className="absolute top-4 right-4 z-10 flex items-center gap-2 px-3 py-2 text-sm font-medium transition-colors hover:bg-[#3a2a1a]"
-          style={{ backgroundColor: "#0d0a07", color: "#fdf8f3" }}
-          aria-label="Watch full screen"
-        >
-          <svg className="w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5v-4m0 4h-4m4 0l-5-5" />
-          </svg>
-          <span>Full screen</span>
-        </button>
-
-        {/* Name card */}
-        <div className="absolute bottom-4 left-4 z-10 inline-block px-4 py-2.5" style={{ backgroundColor: "#0d0a07" }}>
-          <p className="text-[15px] font-semibold tracking-[-0.01em]" style={{ color: "#fdf8f3" }}>Chris Moore</p>
-          <p className="text-[13px] font-medium" style={{ color: "rgba(253,248,243,0.75)" }}>Creative Director</p>
+      {/* Panel video at its native 16:9, with the name and full-screen control underneath
+          (overlays would sit on top of Vimeo's own controls once it plays) */}
+      <div className="flex flex-col justify-center">
+        <div className="relative w-full aspect-video overflow-hidden" style={{ backgroundColor: "#0d0a07" }}>
+          <LazyIframe
+            src={`https://player.vimeo.com/video/${vimeoId}?h=${vimeoHash}`}
+            title={title}
+            allow="autoplay; fullscreen; picture-in-picture"
+            allowFullScreen
+            className="absolute inset-0 w-full h-full"
+            style={{ border: 0 }}
+          />
+        </div>
+        <div className="flex items-stretch justify-between gap-3" style={{ backgroundColor: "#0d0a07" }}>
+          <div className="px-4 py-2.5">
+            <p className="text-[15px] font-semibold tracking-[-0.01em]" style={{ color: "#fdf8f3" }}>Chris Moore</p>
+            <p className="text-[13px] font-medium" style={{ color: "rgba(253,248,243,0.75)" }}>Creative Director</p>
+          </div>
+          <button
+            onClick={() => setOpen(true)}
+            className="flex items-center gap-2 px-4 text-sm font-medium transition-colors hover:bg-[#3a2a1a]"
+            style={{ color: "#fdf8f3" }}
+          >
+            <svg className="w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5v-4m0 4h-4m4 0l-5-5" />
+            </svg>
+            <span>Full screen</span>
+          </button>
         </div>
       </div>
 

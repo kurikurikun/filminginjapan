@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import { Section, SectionLabel, Title, TrustedBy } from "@/components/editorial";
 import Footer from "@/components/Footer";
 import LandingContactForm from "@/components/LandingContactForm";
 
@@ -88,6 +89,27 @@ const faqs = [
 
 const clients = ["JLL", "Microsoft", "SAP", "Celonis", "HP", "Canon", "Sony", "Accenture"];
 
+const samples = [
+  {
+    src: "https://www.youtube.com/embed/72GKHq5pCDY",
+    title: "Client testimonial video filmed for Microsoft Asia",
+    allow: "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture",
+    caption: "Chris from Filming in Japan was the DP for this client testimonial for Microsoft",
+  },
+  {
+    src: "https://player.vimeo.com/video/561655197?h=d1ca57fb5c",
+    title: "Video clip samples from selected past corporate interview projects and client testimonial videos in Tokyo",
+    allow: "autoplay; fullscreen; picture-in-picture",
+    caption: "Video clip samples from selected past corporate interview projects / client testimonial videos in Tokyo",
+  },
+  {
+    src: "https://www.youtube.com/embed/3Jf81EQ_1Jw",
+    title: "Chris from Filming in Japan as DP on Microsoft client testimonial",
+    allow: "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture",
+    caption: "Client testimonial video we filmed for Microsoft Asia",
+  },
+];
+
 export default function TestimonialsPage() {
   return (
     <div style={{ backgroundColor: "#fdf8f3" }}>
@@ -112,242 +134,185 @@ export default function TestimonialsPage() {
         }) }}
       />
 
-      {/* Hero */}
-      <section className="relative pt-32 pb-20 overflow-hidden" style={{ backgroundColor: "#0d0a07" }}>
-        {/* Background image */}
-        <div className="absolute inset-0">
-          <Image
-            src="/images/customer_testimonial_office_tokyo.jpeg"
-            alt=""
-            fill
-            priority
-            className="object-cover"
-            sizes="100vw"
-          />
-          <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(13,10,7,0.92) 0%, rgba(13,10,7,0.6) 50%, rgba(13,10,7,0.45) 100%)" }} />
-        </div>
-        <div className="absolute top-8 left-8 pointer-events-none" style={{ zIndex: 1 }}>
-          <div className="w-8 h-8 border-t border-l" style={{ borderColor: "rgba(233,82,40,0.4)" }} />
-        </div>
-        <div className="absolute top-8 right-8 pointer-events-none" style={{ zIndex: 1 }}>
-          <div className="w-8 h-8 border-t border-r" style={{ borderColor: "rgba(233,82,40,0.4)" }} />
-        </div>
-        <div className="relative max-w-7xl mx-auto px-6 sm:px-12 lg:px-16" style={{ zIndex: 1 }}>
-          <div className="flex items-center gap-4 mb-8">
-            <div className="h-px w-10" style={{ backgroundColor: "#e95228" }} />
-            <span className="font-mono text-[10px] tracking-[0.35em] uppercase" style={{ color: "#e95228" }}>
-              Testimonial Video · Tokyo · Japan
-            </span>
-          </div>
-          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black leading-[0.9] mb-8 max-w-4xl" style={{ color: "#fdf8f3" }}>
-            Client Testimonial<br />
-            Videos in <em className="not-italic" style={{ color: "#e95228" }}>Japan.</em>
-          </h1>
-          <p className="text-lg max-w-2xl leading-relaxed" style={{ color: "rgba(253,248,243,0.6)" }}>
-            We produce compelling client testimonial and case study videos that build trust and drive sales.
-            Bilingual team. Real stories. Broadcast-quality results, delivered fast.
-          </p>
-        </div>
-      </section>
-
-      {/* Clients */}
-      <section className="py-6" style={{ backgroundColor: "#e95228" }}>
-        <div className="max-w-7xl mx-auto px-6 sm:px-12 lg:px-16">
-          <div className="flex flex-wrap items-center gap-x-2 gap-y-2">
-            <span className="font-mono text-[10px] tracking-[0.3em] uppercase mr-4" style={{ color: "rgba(13,10,7,0.5)" }}>Trusted by</span>
-            {clients.map((c, i) => (
-              <span key={c} className="flex items-center gap-2">
-                <span className="text-sm font-black" style={{ color: "rgba(13,10,7,0.75)" }}>{c}</span>
-                {i < clients.length - 1 && <span style={{ color: "rgba(13,10,7,0.3)" }}>·</span>}
-              </span>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Main content + form */}
-      <section className="py-24">
-        <div className="max-w-7xl mx-auto px-6 sm:px-12 lg:px-16">
-          <div className="grid lg:grid-cols-[1fr_480px] gap-16 lg:gap-24">
-
-            {/* Left — service detail */}
+      {/* Hero: headline on cream, tall photo with vertical Japanese on the right */}
+      <section className="border-b" style={{ borderColor: "#1c1208" }}>
+        <div className="fij-wrap flex flex-wrap lg:flex-nowrap gap-x-12">
+          <div className="flex-[7_1_560px] pt-16 pb-12 lg:pt-24 lg:pb-14 flex flex-col justify-between gap-12">
             <div>
-              <div className="flex items-center gap-4 mb-6">
-                <div className="h-px w-10" style={{ backgroundColor: "#e95228" }} />
-                <span className="font-mono text-[10px] tracking-[0.35em] uppercase" style={{ color: "#e95228" }}>What we deliver</span>
-              </div>
-              <h2 className="text-3xl sm:text-4xl font-black mb-10 leading-tight" style={{ color: "#1c1208" }}>
-                Real clients. Real stories.<br />Real results<span style={{ color: "#e95228" }}>.</span>
-              </h2>
+              <p className="text-sm font-medium mb-8" style={{ color: "#6b5a48" }}>Testimonial Video · Tokyo · Japan</p>
+              <Title as="h1" className="fij-h1">Client Testimonial Videos in Japan</Title>
+            </div>
+            <div className="flex flex-wrap items-end gap-x-12 gap-y-8">
+              <p className="fij-lede flex-[1_1_340px]" style={{ color: "#4a3a2a" }}>
+                We produce compelling client testimonial and case study videos that build trust and drive sales.
+                Bilingual team. Real stories. Broadcast-quality results, delivered fast.
+              </p>
+              <a href="#enquire" className="fij-btn shrink-0">Get a free quote</a>
+            </div>
+          </div>
+          <div className="relative flex-[5_1_380px] min-h-[420px] lg:min-h-[640px] -mx-[clamp(20px,4vw,48px)] lg:ml-0 overflow-hidden" style={{ backgroundColor: "#0d0a07" }}>
+            <Image
+              src="/images/customer_testimonial_office_tokyo.jpeg"
+              alt=""
+              fill
+              priority
+              className="object-cover"
+              sizes="(max-width: 1024px) 100vw, 40vw"
+            />
+            <div aria-hidden="true" className="absolute inset-y-0 right-0 w-40" style={{ background: "linear-gradient(to left, rgba(13,10,7,0.45), rgba(13,10,7,0))" }} />
+            <p
+              lang="ja"
+              aria-hidden="true"
+              className="absolute top-8 right-6 font-jp font-bold text-[26px] lg:text-[30px] tracking-[0.18em]"
+              style={{ writingMode: "vertical-rl", color: "#fdf8f3", textShadow: "0 1px 12px rgba(0,0,0,0.35)" }}
+            >
+              お客様の声を映像に
+            </p>
+          </div>
+        </div>
+      </section>
 
-              <div className="space-y-8 mb-16">
-                {points.map((p) => (
-                  <div key={p.num} className="flex gap-6 pb-8 border-b" style={{ borderColor: "#e8d9c8" }}>
-                    <span className="font-mono text-xs font-black shrink-0 mt-0.5" style={{ color: "#e95228" }}>{p.num}</span>
-                    <div>
-                      <h3 className="font-black mb-1" style={{ color: "#1c1208" }}>{p.title}</h3>
-                      <p className="text-sm leading-relaxed" style={{ color: "rgba(28,18,8,0.55)" }}>{p.desc}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
+      <TrustedBy clients={clients} />
 
-              {/* Video samples */}
-              <div className="mb-16">
-                <div className="flex items-center gap-4 mb-8">
-                  <div className="h-px w-10" style={{ backgroundColor: "#e95228" }} />
-                  <span className="font-mono text-[10px] tracking-[0.35em] uppercase" style={{ color: "#e95228" }}>Work samples</span>
-                </div>
-
-                <div className="space-y-8">
-                  <div>
-                    <div className="relative w-full" style={{ paddingBottom: "56.25%" }}>
-                      <iframe
-                        src="https://www.youtube.com/embed/72GKHq5pCDY"
-                        title="Client testimonial video filmed for Microsoft Asia"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowFullScreen
-                        className="absolute inset-0 w-full h-full"
-                        style={{ border: 0 }}
-                      />
-                    </div>
-                    <p className="mt-3 text-sm font-black" style={{ color: "#1c1208" }}>Chris from Filming in Japan was the DP for this client testimonial for Microsoft</p>
-                  </div>
-
-                  <div>
-                    <div className="relative w-full" style={{ paddingBottom: "56.25%" }}>
-                      <iframe
-                        src="https://player.vimeo.com/video/561655197?h=d1ca57fb5c"
-                        title="Video clip samples from selected past corporate interview projects and client testimonial videos in Tokyo"
-                        allow="autoplay; fullscreen; picture-in-picture"
-                        allowFullScreen
-                        className="absolute inset-0 w-full h-full"
-                        style={{ border: 0 }}
-                      />
-                    </div>
-                    <p className="mt-3 text-sm font-black" style={{ color: "#1c1208" }}>Video clip samples from selected past corporate interview projects / client testimonial videos in Tokyo</p>
-                  </div>
-
-                  <div>
-                    <div className="relative w-full" style={{ paddingBottom: "56.25%" }}>
-                      <iframe
-                        src="https://www.youtube.com/embed/3Jf81EQ_1Jw"
-                        title="Chris from Filming in Japan as DP on Microsoft client testimonial"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowFullScreen
-                        className="absolute inset-0 w-full h-full"
-                        style={{ border: 0 }}
-                      />
-                    </div>
-                    <p className="mt-3 text-sm font-black" style={{ color: "#1c1208" }}>Client testimonial video we filmed for Microsoft Asia</p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Green screen section */}
-              <div className="mb-16 p-8" style={{ backgroundColor: "#0d0a07" }}>
-                <div className="flex items-center gap-4 mb-6">
-                  <div className="h-px w-10" style={{ backgroundColor: "#e95228" }} />
-                  <span className="font-mono text-[10px] tracking-[0.35em] uppercase" style={{ color: "#e95228" }}>Green screen on location</span>
-                </div>
-                <h3 className="text-2xl font-black mb-4" style={{ color: "#fdf8f3" }}>
-                  Studio quality, anywhere in Japan<span style={{ color: "#e95228" }}>.</span>
-                </h3>
-                <p className="text-sm leading-relaxed mb-8" style={{ color: "rgba(253,248,243,0.6)" }}>
-                  We have recorded corporate presentations for companies such as Canon, and client testimonials at events for companies such as SAP, on green screen. We carry a complete package — large portable green screen, professional lighting, boom and lapel sound, and cameras — to set up a broadcast-quality green screen studio anywhere there is space.
-                </p>
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="relative w-full" style={{ paddingBottom: "66.67%" }}>
-                    <Image
-                      src="/images/tokyo_japan_studio_green_screen_recordings_1.jpeg"
-                      alt="Green screen studio setup in Tokyo Japan"
-                      fill
-                      className="object-cover"
-                      sizes="(max-width: 768px) 100vw, 50vw"
-                    />
-                  </div>
-                  <div className="relative w-full" style={{ paddingBottom: "66.67%" }}>
-                    <Image
-                      src="/images/tokyo_japan_studio_green_screen_recordings_2.jpg"
-                      alt="Green screen testimonial recording in Tokyo Japan"
-                      fill
-                      className="object-cover"
-                      sizes="(max-width: 768px) 100vw, 50vw"
-                    />
-                  </div>
-                </div>
-              </div>
-
-              {/* Testimonials */}
-              <div className="space-y-6 mb-16">
-                <div className="flex items-center gap-4 mb-6">
-                  <div className="h-px w-10" style={{ backgroundColor: "#e95228" }} />
-                  <span className="font-mono text-[10px] tracking-[0.35em] uppercase" style={{ color: "#e95228" }}>Client feedback</span>
-                </div>
-
-                <blockquote className="pl-6 border-l-4" style={{ borderColor: "#e95228" }}>
-                  <p className="text-base font-black italic leading-snug mb-3" style={{ color: "#1c1208" }}>
-                    &ldquo;Again, great job with the video. I was a bit worried going into this as I don&apos;t speak Japanese, but this turned out really fantastic.&rdquo;
-                  </p>
-                  <cite className="font-mono text-[10px] tracking-widest not-italic uppercase" style={{ color: "rgba(28,18,8,0.4)" }}>
-                    Overseas-based client
-                  </cite>
-                </blockquote>
-              </div>
-
-              {/* FAQ */}
-              <div>
-                <div className="flex items-center gap-4 mb-8">
-                  <div className="h-px w-10" style={{ backgroundColor: "#e95228" }} />
-                  <span className="font-mono text-[10px] tracking-[0.35em] uppercase" style={{ color: "#e95228" }}>FAQ</span>
-                </div>
-                <div className="space-y-6">
-                  {faqs.map((faq, i) => (
-                    <div key={i} className="pb-6 border-b" style={{ borderColor: "#e8d9c8" }}>
-                      <h4 className="font-black mb-2 text-sm" style={{ color: "#1c1208" }}>{faq.q}</h4>
-                      <p className="text-sm leading-relaxed" style={{ color: "rgba(28,18,8,0.55)" }}>{faq.a}</p>
+      {/* What we deliver, beside the sticky enquiry form */}
+      <section className="border-b" style={{ borderColor: "#1c1208" }}>
+        <div className="fij-wrap py-20 md:py-28 grid lg:grid-cols-[minmax(0,1fr)_420px] gap-14 xl:gap-20">
+          <div className="min-w-0">
+            {/* 01 What we deliver */}
+            <div className="flex flex-col md:flex-row gap-6 md:gap-14">
+              <SectionLabel num="01" label="撮影内容" />
+              <div className="flex-1 min-w-0">
+                <p className="text-sm font-medium mb-5" style={{ color: "#6b5a48" }}>What we deliver</p>
+                <Title className="fij-h2 mb-12">Real clients. Real stories. Real results</Title>
+                <div>
+                  {points.map((p, i) => (
+                    <div key={p.num} className={`flex gap-6 py-6 border-t ${i === points.length - 1 ? "border-b" : ""}`} style={{ borderColor: "#1c1208" }}>
+                      <span className="w-8 shrink-0 pt-1.5 text-[13px] font-semibold tabular-nums" style={{ color: "#e95228" }}>{p.num}</span>
+                      <div>
+                        <h3 className="fij-h3 mb-2">{p.title}</h3>
+                        <p className="text-[15px] leading-relaxed" style={{ color: "#4a3a2a" }}>{p.desc}</p>
+                      </div>
                     </div>
                   ))}
                 </div>
               </div>
             </div>
+          </div>
 
-            {/* Right — form */}
-            <div>
-              <div
-                className="p-8 lg:p-10 sticky top-24"
-                style={{ backgroundColor: "#fff", border: "1px solid #e8d9c8" }}
-              >
-                <h3 className="text-xl font-black mb-2" style={{ color: "#1c1208" }}>
-                  Get a free quote
-                </h3>
-                <p className="text-sm mb-6" style={{ color: "rgba(28,18,8,0.5)" }}>
-                  Tell us about your project. We reply within 24 hours.
-                </p>
-                <LandingContactForm service="Client Testimonial Video Japan" />
-              </div>
+          {/* Sticky enquiry form */}
+          <aside>
+            <div id="enquire" className="sticky top-24 scroll-mt-24 border p-8 lg:p-10" style={{ backgroundColor: "#fff", borderColor: "#1c1208" }}>
+              <Title as="h2" className="text-[28px] leading-tight font-semibold tracking-[-0.03em] mb-2">Get a free quote</Title>
+              <p className="text-[15px] mb-6" style={{ color: "#4a3a2a" }}>
+                Tell us about your project. We reply within 24 hours.
+              </p>
+              <LandingContactForm service="Client Testimonial Video Japan" />
             </div>
-          </div>
+          </aside>
         </div>
       </section>
 
-      {/* Bottom CTA */}
-      <section className="py-16 border-t" style={{ borderColor: "#e8d9c8", backgroundColor: "#f5ede2" }}>
-        <div className="max-w-7xl mx-auto px-6 sm:px-12 lg:px-16 flex flex-col sm:flex-row items-center justify-between gap-6">
-          <div>
-            <p className="font-mono text-[10px] tracking-[0.3em] uppercase mb-2" style={{ color: "#e95228" }}>Prefer to talk?</p>
-            <p className="font-black text-lg" style={{ color: "#1c1208" }}>WhatsApp or email — we reply fast.</p>
+      {/* 02 Work samples — dark alternating rows */}
+      <Section num="02" label="制作事例" tone="night" aria-labelledby="samples-heading">
+        <Title id="samples-heading" tone="night" className="fij-h2 mb-16">Work samples</Title>
+        {samples.map((v, i) => (
+          <article
+            key={v.src}
+            className={`flex flex-wrap items-center gap-x-14 gap-y-6 py-12 border-t ${i % 2 ? "flex-row-reverse" : ""}`}
+            style={{ borderColor: "rgba(253,248,243,0.25)" }}
+          >
+            <div className="relative flex-[1.6_1_440px] min-w-0 aspect-[16/9]" style={{ backgroundColor: "#241a12" }}>
+              <iframe
+                src={v.src}
+                title={v.title}
+                allow={v.allow}
+                allowFullScreen
+                loading="lazy"
+                className="absolute inset-0 w-full h-full"
+                style={{ border: 0 }}
+              />
+            </div>
+            <div className="flex-[1_1_280px]">
+              <p className="text-[13px] font-semibold tabular-nums mb-4" style={{ color: "#f07a52" }}>{String(i + 1).padStart(2, "0")}</p>
+              <h3 className="text-[24px] lg:text-[30px] leading-[1.15] font-semibold tracking-[-0.025em]">{v.caption}</h3>
+            </div>
+          </article>
+        ))}
+      </Section>
+
+      {/* 03 Green screen on location */}
+      <Section num="03" label="グリーンバック撮影" tone="sand" aria-labelledby="green-heading">
+        <p className="text-sm font-medium mb-5" style={{ color: "#6b5a48" }}>Green screen on location</p>
+        <div className="flex flex-wrap items-end gap-x-16 gap-y-8 mb-14">
+          <Title id="green-heading" className="fij-h2 flex-[1_1_380px]">Studio quality, anywhere in Japan</Title>
+          <p className="fij-lede flex-[1_1_380px] max-w-xl" style={{ color: "#4a3a2a" }}>
+            We have recorded corporate presentations for companies such as Canon, and client testimonials at events for companies such as SAP, on green screen. We carry a complete package — large portable green screen, professional lighting, boom and lapel sound, and cameras — to set up a broadcast-quality green screen studio anywhere there is space.
+          </p>
+        </div>
+        <div className="grid grid-cols-2 gap-4">
+          <div className="relative aspect-[3/2] overflow-hidden">
+            <Image
+              src="/images/tokyo_japan_studio_green_screen_recordings_1.jpeg"
+              alt="Green screen studio setup in Tokyo Japan"
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 50vw, 640px"
+            />
           </div>
-          <div className="flex gap-4">
-            <a href="https://wa.me/819038800895" className="btn-warm font-black text-sm tracking-[0.15em] uppercase px-6 py-3">
-              WhatsApp Us
-            </a>
-            <a href="mailto:filminginjapan@move-ment.co" className="font-black text-sm tracking-[0.15em] uppercase px-6 py-3 border" style={{ borderColor: "#1c1208", color: "#1c1208" }}>
-              Email Us
-            </a>
+          <div className="relative aspect-[3/2] overflow-hidden">
+            <Image
+              src="/images/tokyo_japan_studio_green_screen_recordings_2.jpg"
+              alt="Green screen testimonial recording in Tokyo Japan"
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 50vw, 640px"
+            />
           </div>
         </div>
-      </section>
+      </Section>
+
+      {/* 04 Client feedback */}
+      <Section num="04" label="お客様の声" bordered aria-labelledby="feedback-heading">
+        <h2 id="feedback-heading" className="sr-only">Client feedback</h2>
+        <figure>
+          <blockquote className="text-[30px] sm:text-[40px] lg:text-[52px] leading-[1.12] font-semibold tracking-[-0.035em] mb-7">
+            <span style={{ color: "#e95228" }}>&ldquo;</span>Again, great job with the video. I was a bit worried going into this as I don&apos;t speak Japanese, but this turned out really fantastic.<span style={{ color: "#e95228" }}>&rdquo;</span>
+          </blockquote>
+          <figcaption className="text-[15px]" style={{ color: "#6b5a48" }}>Overseas-based client</figcaption>
+        </figure>
+      </Section>
+
+      {/* 05 FAQ */}
+      <Section num="05" label="よくある質問" aria-labelledby="faq-heading">
+        <div className="flex flex-wrap gap-x-16 gap-y-10">
+          <Title id="faq-heading" className="fij-h2 flex-[1_1_240px]">FAQ</Title>
+          <div className="flex-[3_1_520px] border-t-2" style={{ borderColor: "#1c1208" }}>
+            {faqs.map((faq, i) => (
+              <details key={i} className="fij-faq border-b" style={{ borderColor: "#1c1208" }} open={i === 0}>
+                <summary className="flex justify-between items-center gap-6 py-[22px] text-[19px] font-semibold tracking-[-0.015em]">
+                  <h3>{faq.q}</h3>
+                  <span aria-hidden="true" className="fij-faq-icon shrink-0 text-2xl font-normal leading-none" style={{ color: "#e95228" }}>+</span>
+                </summary>
+                <p className="pb-6 max-w-2xl text-base leading-relaxed" style={{ color: "#4a3a2a" }}>{faq.a}</p>
+              </details>
+            ))}
+          </div>
+        </div>
+      </Section>
+
+      {/* 06 Prefer to talk? */}
+      <Section num="06" label="お問い合わせ" tone="ink" aria-labelledby="talk-heading">
+        <div className="flex flex-wrap items-end justify-between gap-x-16 gap-y-8">
+          <div>
+            <h2 id="talk-heading" className="fij-h2 mb-4">Prefer to talk?</h2>
+            <p className="fij-lede" style={{ color: "rgba(253,248,243,0.78)" }}>WhatsApp or email — we reply fast.</p>
+          </div>
+          <div className="flex flex-wrap gap-3">
+            <a href="https://wa.me/819038800895" className="fij-btn-orange">WhatsApp us</a>
+            <a href="mailto:filminginjapan@move-ment.co" className="fij-btn-outline" style={{ color: "#fdf8f3" }}>Email us</a>
+          </div>
+        </div>
+      </Section>
 
       <Footer lang="en" />
     </div>

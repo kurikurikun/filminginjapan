@@ -3,6 +3,7 @@ import EventPricing from "@/components/EventPricing";
 import EventsCovered from "@/components/EventsCovered";
 import VerticalVideoTile from "@/components/VerticalVideoTile";
 import Image from "next/image";
+import { Section, SectionLabel, Title, Kicker, TrustedBy } from "@/components/editorial";
 import Footer from "@/components/Footer";
 import LandingContactForm from "@/components/LandingContactForm";
 import GoogleReviews from "@/components/GoogleReviews";
@@ -244,7 +245,7 @@ const clients = ["Sony", "HP", "Canon", "NEC", "JLL", "Accenture", "Microsoft", 
 
 export default function EventVideoPageJP() {
   return (
-    <div style={{ backgroundColor: "#fdf8f3" }}>
+    <div lang="ja" style={{ backgroundColor: "#fdf8f3" }}>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify({
@@ -258,294 +259,238 @@ export default function EventVideoPageJP() {
         }) }}
       />
 
-      {/* Hero */}
-      <section className="relative pt-32 pb-20 overflow-hidden" style={{ backgroundColor: "#0d0a07" }}>
-        <div className="absolute inset-0">
-          <Image
-            src="/images/event_top.jpg"
-            alt="東京のカンファレンスでの企業イベント写真・映像撮影"
-            fill
-            priority
-            className="object-cover"
-            sizes="100vw"
-          />
-          <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(13,10,7,0.92) 0%, rgba(13,10,7,0.6) 50%, rgba(13,10,7,0.45) 100%)" }} />
-        </div>
-        <div className="absolute top-8 left-8 pointer-events-none" style={{ zIndex: 1 }}>
-          <div className="w-8 h-8 border-t border-l" style={{ borderColor: "rgba(233,82,40,0.4)" }} />
-        </div>
-        <div className="absolute top-8 right-8 pointer-events-none" style={{ zIndex: 1 }}>
-          <div className="w-8 h-8 border-t border-r" style={{ borderColor: "rgba(233,82,40,0.4)" }} />
-        </div>
-        <div className="relative max-w-7xl mx-auto px-6 sm:px-12 lg:px-16" style={{ zIndex: 1 }}>
-          <div className="flex items-center gap-4 mb-8">
-            <div className="h-px w-10" style={{ backgroundColor: "#e95228" }} />
-            <span className="font-mono text-[10px] tracking-[0.35em] uppercase" style={{ color: "#e95228" }}>
-              イベント撮影 · 東京 · 日本全国
-            </span>
-          </div>
-          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black leading-[0.9] mb-8 max-w-4xl break-keep" style={{ color: "#fdf8f3" }}>
-            企業イベント<br />
-            写真・映像制作 <em className="not-italic" style={{ color: "#e95228" }}>全国対応。</em>
-          </h1>
-          <p className="text-lg max-w-2xl leading-relaxed" style={{ color: "rgba(253,248,243,0.6)" }}>
-            企業映像・ドキュメンタリーの制作チームによるイベント撮影。東京拠点のバイリンガルクルーが、サミット、カンファレンス、ガラの写真・映像を担当し、ただの記録ではなくストーリーのあるハイライト映像に仕上げます。
-          </p>
-        </div>
-      </section>
-
-      {/* Clients */}
-      <section className="py-6" style={{ backgroundColor: "#e95228" }}>
-        <div className="max-w-7xl mx-auto px-6 sm:px-12 lg:px-16">
-          <div className="flex flex-wrap items-center gap-x-2 gap-y-2">
-            <span className="font-mono text-[10px] tracking-[0.3em] uppercase mr-4" style={{ color: "rgba(13,10,7,0.5)" }}>実績企業</span>
-            {clients.map((c, i) => (
-              <span key={c} className="flex items-center gap-2">
-                <span className="text-sm font-black" style={{ color: "rgba(13,10,7,0.75)" }}>{c}</span>
-                {i < clients.length - 1 && <span style={{ color: "rgba(13,10,7,0.3)" }}>·</span>}
-              </span>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Main content + form */}
-      <section id="full-production" className="py-24">
-        <div className="max-w-7xl mx-auto px-6 sm:px-12 lg:px-16">
-          <div className="grid lg:grid-cols-[1fr_480px] gap-16 lg:gap-24">
-
-            {/* Left */}
+      {/* Hero: headline on cream, tall photo with vertical English on the right */}
+      <section className="border-b" style={{ borderColor: "#1c1208" }}>
+        <div className="fij-wrap flex flex-wrap lg:flex-nowrap gap-x-12">
+          <div className="flex-[7_1_560px] pt-16 pb-12 lg:pt-24 lg:pb-14 flex flex-col justify-between gap-12">
             <div>
-
-              {/* Services */}
-              <div className="flex items-center gap-4 mb-6">
-                <div className="h-px w-10" style={{ backgroundColor: "#e95228" }} />
-                <span className="font-mono text-[10px] tracking-[0.35em] uppercase" style={{ color: "#e95228" }}>サービス内容</span>
-              </div>
-              <h2 className="text-3xl sm:text-4xl font-black mb-8 leading-tight" style={{ color: "#1c1208" }}>
-                すべての瞬間を捉える。<br />スタイリッシュで<span style={{ color: "#e95228" }}>。</span>
-              </h2>
-              <p className="text-sm leading-relaxed mb-8" style={{ color: "rgba(28,18,8,0.6)" }}>
-                海外クライアントの日本国内イベントを数多く手がけてきた経験から、ブランド基準に沿ったビジュアル納品の重要性を深く理解しています。
+              <p className="text-sm font-medium mb-8" style={{ color: "#6b5a48" }}>イベント撮影 · 東京 · 日本全国</p>
+              <Title stop="。" as="h1" className="fij-h1 break-keep">企業イベント<br />写真・映像制作 全国対応</Title>
+            </div>
+            <div className="flex flex-wrap items-end gap-x-12 gap-y-8">
+              <p className="fij-lede flex-[1_1_340px]" style={{ color: "#4a3a2a" }}>
+                企業映像・ドキュメンタリーの制作チームによるイベント撮影。東京拠点のバイリンガルクルーが、サミット、カンファレンス、ガラの写真・映像を担当し、ただの記録ではなくストーリーのあるハイライト映像に仕上げます。
               </p>
-              <ul className="space-y-3 mb-16">
-                {services.map((s, i) => (
-                  <li key={i} className="flex items-start gap-3 text-sm" style={{ color: "rgba(28,18,8,0.75)" }}>
-                    <span className="mt-1.5 shrink-0 w-1.5 h-1.5 rounded-full" style={{ backgroundColor: "#e95228" }} />
-                    {s}
-                  </li>
-                ))}
-              </ul>
-
-              {/* Why us */}
-              <div className="flex items-center gap-4 mb-6">
-                <div className="h-px w-10" style={{ backgroundColor: "#e95228" }} />
-                <h2 className="font-mono text-[10px] tracking-[0.35em] uppercase" style={{ color: "#e95228" }}>選ばれる理由</h2>
-              </div>
-              <div className="space-y-0 mb-16">
-                {differentiators.map((d, i) => (
-                  <div key={i} className="flex gap-6 py-6 border-b" style={{ borderColor: "#e8d9c8" }}>
-                    <span className="font-mono text-xs font-black shrink-0 mt-0.5" style={{ color: "#e95228" }}>
-                      {String(i + 1).padStart(2, "0")}
-                    </span>
-                    <div>
-                      <h3 className="font-black mb-1 text-sm flex items-center gap-2" style={{ color: "#1c1208" }}>
-                        {d.title}
-                        {d.dsMark && <Image src="/images/ds-mark.svg" alt="DS 消費税免除指定店舗標識" width={25} height={20} unoptimized />}
-                      </h3>
-                      <p className="text-sm leading-relaxed" style={{ color: "rgba(28,18,8,0.55)" }}>{d.desc}</p>
-                      {d.link && (
-                        <a href={d.link.href} target="_blank" rel="noopener" className="inline-block mt-2 font-mono text-[10px] tracking-[0.2em] uppercase border-b" style={{ color: "#e95228", borderColor: "#e95228" }}>{d.link.label} →</a>
-                      )}
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-              {/* Side photos */}
-              <div className="grid grid-cols-2 gap-3 mb-16">
-                <div className="relative overflow-hidden" style={{ aspectRatio: "3/4" }}>
-                  <Image
-                    src="/images/event_side1.jpeg"
-                    alt="日本のイベント撮影"
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 1024px) 50vw, 320px"
-                  />
-                </div>
-                <div className="relative overflow-hidden" style={{ aspectRatio: "3/4" }}>
-                  <Image
-                    src="/images/event_side2.jpeg"
-                    alt="企業イベント写真撮影・日本"
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 1024px) 50vw, 320px"
-                  />
-                </div>
-              </div>
-
-              {/* Project examples */}
-              <div className="flex items-center gap-4 mb-6">
-                <div className="h-px w-10" style={{ backgroundColor: "#e95228" }} />
-                <h2 className="font-mono text-[10px] tracking-[0.35em] uppercase" style={{ color: "#e95228" }}>制作事例</h2>
-              </div>
-              <div className="space-y-8 mb-16">
-                {projects.map((p, i) => (
-                  <div key={i} className="border" style={{ borderColor: "#e8d9c8" }}>
-                    {p.vimeoId ? (
-                      <div className="relative aspect-[16/9]" style={{ backgroundColor: "#0d0a07" }}>
-                        <iframe
-                          src={`https://player.vimeo.com/video/${p.vimeoId}?h=${p.vimeoHash}&title=0&byline=0&portrait=0`}
-                          className="absolute inset-0 w-full h-full"
-                          allow="autoplay; fullscreen; picture-in-picture"
-                          allowFullScreen
-                          title={p.title}
-                        />
-                      </div>
-                    ) : p.img ? (
-                      <div className="relative aspect-[16/9] overflow-hidden" style={{ backgroundColor: "#e8d9c8" }}>
-                        <Image
-                          src={p.img}
-                          alt={p.title}
-                          fill
-                          className="object-cover"
-                          sizes="(max-width: 1024px) 100vw, 640px"
-                        />
-                      </div>
-                    ) : null}
-                    <div className="p-6">
-                      <p className="font-mono text-[10px] tracking-[0.2em] uppercase mb-1" style={{ color: "#e95228" }}>{p.venue}</p>
-                      <h3 className="font-black mb-2" style={{ color: "#1c1208" }}>{p.title}</h3>
-                      <p className="text-sm leading-relaxed" style={{ color: "rgba(28,18,8,0.55)" }}>{p.desc}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-              {/* Photo events */}
-              <div className="flex items-center gap-4 mb-6">
-                <div className="h-px w-10" style={{ backgroundColor: "#e95228" }} />
-                <h2 className="font-mono text-[10px] tracking-[0.35em] uppercase" style={{ color: "#e95228" }}>写真撮影実績</h2>
-              </div>
-              <div className="mb-16">
-                <PhotoGallery events={photoEvents} lang="jp" />
-              </div>
-
-              {/* Google Reviews */}
-              <div className="mb-16">
-                <div className="flex items-center gap-4 mb-8">
-                  <div className="h-px w-10" style={{ backgroundColor: "#e95228" }} />
-                  <h2 className="font-mono text-[10px] tracking-[0.35em] uppercase" style={{ color: "#e95228" }}>Googleレビュー</h2>
-                </div>
-                <GoogleReviews appId="94fa8f98-15eb-4b6a-8318-c0d4579384d8" />
-              </div>
-
-              {/* Testimonials */}
-              <div className="space-y-6 mb-16">
-                <div className="flex items-center gap-4 mb-6">
-                  <div className="h-px w-10" style={{ backgroundColor: "#e95228" }} />
-                  <h2 className="font-mono text-[10px] tracking-[0.35em] uppercase" style={{ color: "#e95228" }}>クライアントの声</h2>
-                </div>
-                <blockquote className="pl-6 border-l-4" style={{ borderColor: "#e95228" }}>
-                  <p className="text-base font-black italic leading-snug mb-3" style={{ color: "#1c1208" }}>
-                    &ldquo;Chris delivered exceptional photography and video coverage across our entire 3-day event. Beyond the visuals, he also helped bridge language gaps with local venue staff and AV teams — something that proved invaluable to our onsite execution.&rdquo;
-                  </p>
-                  <cite className="font-mono text-[10px] tracking-widest not-italic uppercase" style={{ color: "rgba(28,18,8,0.4)" }}>
-                    Events Director · Global Advertising Organisation · Tokyo
-                  </cite>
-                </blockquote>
-                <blockquote className="pl-6 border-l-4" style={{ borderColor: "#e8d9c8" }}>
-                  <p className="text-base font-black italic leading-snug mb-3" style={{ color: "#1c1208" }}>
-                    &ldquo;The photos look great! We are very happy with the outcome.&rdquo;
-                  </p>
-                  <cite className="font-mono text-[10px] tracking-widest not-italic uppercase" style={{ color: "rgba(28,18,8,0.4)" }}>
-                    Client Partner · Marketing Agency
-                  </cite>
-                </blockquote>
-              </div>
-
+              <a href="#enquire" className="fij-btn shrink-0">無料見積もりを依頼する</a>
             </div>
+          </div>
+          <div className="relative flex-[5_1_380px] min-h-[420px] lg:min-h-[640px] -mx-[clamp(20px,4vw,48px)] lg:ml-0 overflow-hidden" style={{ backgroundColor: "#0d0a07" }}>
+            <Image
+              src="/images/event_top.jpg"
+              alt="東京のカンファレンスでの企業イベント写真・映像撮影"
+              fill
+              priority
+              className="object-cover object-[55%_50%]"
+              sizes="(max-width: 1024px) 100vw, 40vw"
+            />
+            <div aria-hidden="true" className="absolute inset-y-0 right-0 w-40" style={{ background: "linear-gradient(to left, rgba(13,10,7,0.45), rgba(13,10,7,0))" }} />
+            <p
+              lang="en"
+              aria-hidden="true"
+              className="absolute top-8 right-6 font-sans font-semibold uppercase text-[22px] lg:text-[26px] tracking-[0.2em]"
+              style={{ writingMode: "vertical-rl", color: "#fdf8f3", textShadow: "0 1px 12px rgba(0,0,0,0.35)" }}
+            >
+              Event Coverage
+            </p>
+          </div>
+        </div>
+      </section>
 
-            {/* Right — sticky form */}
-            <div>
-              <div id="enquire" className="p-8 lg:p-10 sticky top-24 scroll-mt-24" style={{ backgroundColor: "#fff", border: "1px solid #e8d9c8" }}>
-                <h3 className="text-xl font-black mb-2" style={{ color: "#1c1208" }}>無料見積もりを依頼する</h3>
-                <p className="text-sm mb-6" style={{ color: "rgba(28,18,8,0.5)" }}>
-                  プロジェクトについてお聞かせください。24時間以内にご返信します。
+      <TrustedBy clients={clients} label="実績企業" />
+
+      {/* Services + why us, beside the sticky enquiry form */}
+      <section id="full-production" className="border-b" style={{ borderColor: "#1c1208" }}>
+        <div className="fij-wrap py-20 md:py-28 grid lg:grid-cols-[minmax(0,1fr)_420px] gap-14 xl:gap-20">
+          <div className="min-w-0 space-y-24">
+            {/* 01 Services */}
+            <div className="flex flex-col md:flex-row gap-6 md:gap-14">
+              <SectionLabel num="01" label="Services" labelLang="en" />
+              <div className="flex-1 min-w-0">
+                <Kicker>サービス内容</Kicker>
+                <Title stop="。" className="fij-h2 mb-8">すべての瞬間を捉える。<br />スタイリッシュで</Title>
+                <p className="fij-lede max-w-xl mb-12" style={{ color: "#4a3a2a" }}>
+                  海外クライアントの日本国内イベントを数多く手がけてきた経験から、ブランド基準に沿ったビジュアル納品の重要性を深く理解しています。
                 </p>
-                <LandingContactForm service="Event Photo & Video JP" />
+                <ol className="fij-cells" style={{ gridTemplateColumns: "repeat(auto-fit, minmax(min(50%, 220px), 1fr))" }}>
+                  {services.map((s, i) => (
+                    <li key={i} className="p-4 pb-6 sm:p-6 sm:pb-8 flex flex-col gap-5 sm:gap-7 sm:min-h-[150px]">
+                      <span className="text-[13px] font-semibold tabular-nums" style={{ color: "#e95228" }}>{String(i + 1).padStart(2, "0")}</span>
+                      <span className="text-base sm:text-[18px] leading-snug font-semibold">{s}</span>
+                    </li>
+                  ))}
+                </ol>
+              </div>
+            </div>
+
+            {/* 02 Why us */}
+            <div className="flex flex-col md:flex-row gap-6 md:gap-14">
+              <SectionLabel num="02" label="Why us" labelLang="en" />
+              <div className="flex-1 min-w-0">
+                <Title stop="。" className="fij-h2 mb-12">選ばれる理由</Title>
+                <div>
+                  {differentiators.map((d, i) => (
+                    <div key={i} className={`flex gap-6 py-6 border-t ${i === differentiators.length - 1 ? "border-b" : ""}`} style={{ borderColor: "#1c1208" }}>
+                      <span className="w-8 shrink-0 pt-1.5 text-[13px] font-semibold tabular-nums" style={{ color: "#e95228" }}>
+                        {String(i + 1).padStart(2, "0")}
+                      </span>
+                      <div>
+                        <h3 className="fij-h3 mb-2 flex items-center gap-3">
+                          {d.title}
+                          {d.dsMark && <Image src="/images/ds-mark.svg" alt="DS 消費税免除指定店舗標識" width={36} height={29} unoptimized />}
+                        </h3>
+                        <p className="text-[15px] leading-relaxed" style={{ color: "#4a3a2a" }}>{d.desc}</p>
+                        {d.link && (
+                          <a href={d.link.href} target="_blank" rel="noopener" className="fij-link inline-block mt-3 text-[15px]">{d.link.label}</a>
+                        )}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Side photos */}
+                <div className="grid grid-cols-2 gap-4 mt-12">
+                  <div className="relative overflow-hidden aspect-[4/5]">
+                    <Image src="/images/event_side1.jpeg" alt="日本のイベント撮影" fill className="object-cover" sizes="(max-width: 1024px) 50vw, 360px" />
+                  </div>
+                  <div className="relative overflow-hidden aspect-[4/5]">
+                    <Image src="/images/event_side2.jpeg" alt="企業イベント写真撮影・日本" fill className="object-cover" sizes="(max-width: 1024px) 50vw, 360px" />
+                  </div>
+                </div>
               </div>
             </div>
           </div>
+
+          {/* Sticky enquiry form */}
+          <aside>
+            <div id="enquire" className="sticky top-24 scroll-mt-24 border p-8 lg:p-10" style={{ backgroundColor: "#fff", borderColor: "#1c1208" }}>
+              <h2 className="text-[26px] leading-tight font-semibold tracking-[-0.02em] mb-2">無料見積もりを依頼する</h2>
+              <p className="text-[15px] mb-6" style={{ color: "#4a3a2a" }}>
+                プロジェクトについてお聞かせください。24時間以内にご返信します。
+              </p>
+              <LandingContactForm service="Event Photo & Video JP" lang="jp" />
+            </div>
+          </aside>
         </div>
       </section>
 
-      {/* Events we've covered — searchable venue list */}
-      <EventsCovered lang="jp" />
+      {/* 03 Recent projects */}
+      <Section num="03" label="Projects" labelLang="en" tone="night" aria-labelledby="projects-heading">
+        <Title stop="。" id="projects-heading" tone="night" className="fij-h2 mb-16">制作事例</Title>
+        {projects.map((p, i) => (
+          <article
+            key={p.title}
+            className={`flex flex-wrap items-center gap-x-14 gap-y-8 py-12 border-t ${i % 2 ? "flex-row-reverse" : ""}`}
+            style={{ borderColor: "rgba(253,248,243,0.25)" }}
+          >
+            <div className="relative flex-[1.25_1_440px] aspect-[16/9]" style={{ backgroundColor: "#241a12" }}>
+              <iframe
+                src={`https://player.vimeo.com/video/${p.vimeoId}?h=${p.vimeoHash}&title=0&byline=0&portrait=0`}
+                className="absolute inset-0 w-full h-full"
+                allow="autoplay; fullscreen; picture-in-picture"
+                allowFullScreen
+                title={p.title}
+                loading="lazy"
+              />
+            </div>
+            <div className="flex-[1_1_340px]">
+              <p className="text-sm font-medium mb-4" style={{ color: "#f07a52" }}>{p.venue}</p>
+              <h3 className="text-[24px] lg:text-[32px] leading-[1.25] font-semibold tracking-[-0.02em] mb-4">{p.title}</h3>
+              <p className="text-base leading-relaxed" style={{ color: "rgba(253,248,243,0.78)" }}>{p.desc}</p>
+            </div>
+          </article>
+        ))}
+      </Section>
 
-      {/* Typical costs */}
-      <EventPricing lang="jp" />
+      {/* 04 Photography events */}
+      <Section num="04" label="Photography" labelLang="en" aria-labelledby="photo-events-heading">
+        <Title stop="。" id="photo-events-heading" className="fij-h2 mb-14">写真撮影実績</Title>
+        <PhotoGallery events={photoEvents} lang="jp" />
+      </Section>
 
-      {/* Vertical social clips */}
-      <section className="py-20 border-t" style={{ borderColor: "#e8d9c8", backgroundColor: "#fdf8f3" }}>
-        <div className="max-w-5xl mx-auto px-6 sm:px-12">
-          <div className="flex items-center gap-4 mb-4">
-            <div className="h-px w-10" style={{ backgroundColor: "#e95228" }} />
-            <span className="font-mono text-[10px] tracking-[0.35em] uppercase" style={{ color: "#e95228" }}>SNSクリップ</span>
+      {/* 05 Client feedback */}
+      <Section num="05" label="Feedback" labelLang="en" bordered aria-labelledby="feedback-heading">
+        <h2 id="feedback-heading" className="sr-only">クライアントの声</h2>
+        <figure lang="en" className="mb-16">
+          <blockquote className="text-[30px] sm:text-[40px] lg:text-[52px] leading-[1.12] font-semibold tracking-[-0.035em] mb-7">
+            <span style={{ color: "#e95228" }}>&ldquo;</span>Chris delivered exceptional photography and video coverage across our entire 3-day event. Beyond the visuals, he also helped bridge language gaps with local venue staff and AV teams — something that proved invaluable to our onsite execution.<span style={{ color: "#e95228" }}>&rdquo;</span>
+          </blockquote>
+          <figcaption className="text-[15px]" style={{ color: "#6b5a48" }}>Events Director · Global Advertising Organisation · Tokyo</figcaption>
+        </figure>
+        <div className="flex flex-wrap gap-x-16 gap-y-8 pt-8 border-t" style={{ borderColor: "#1c1208" }}>
+          <figure lang="en" className="flex-[1_1_320px]">
+            <blockquote className="text-[22px] leading-snug font-semibold tracking-[-0.02em] mb-3">
+              &ldquo;The photos look great! We are very happy with the outcome.&rdquo;
+            </blockquote>
+            <figcaption className="text-sm" style={{ color: "#6b5a48" }}>Client Partner · Marketing Agency</figcaption>
+          </figure>
+          <div className="flex-[2_1_480px] min-w-0">
+            <h3 className="text-sm font-medium mb-4" style={{ color: "#6b5a48" }}>Googleレビュー</h3>
+            <GoogleReviews appId="94fa8f98-15eb-4b6a-8318-c0d4579384d8" />
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black leading-[0.95] mb-4" style={{ color: "#1c1208" }}>
-            縦型ショート動画も<br /><span style={{ color: "rgba(28,18,8,0.4)" }}>すぐに投稿可能。</span>
-          </h2>
-          <p className="text-sm leading-relaxed max-w-xl mb-10" style={{ color: "rgba(28,18,8,0.55)" }}>
-            メインのイベント撮影に加えて、字幕・カラーグレーディング済みの縦型ショート動画も制作できます。Instagram、LinkedIn、社内チャンネルにそのまま使えます。お問い合わせの際にお知らせください。
-          </p>
-          <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+        </div>
+      </Section>
+
+      {/* 06 Events we've covered — searchable venue list */}
+      <EventsCovered lang="jp" num="06" />
+
+      {/* 07 Typical costs */}
+      <EventPricing lang="jp" num="07" />
+
+      {/* 08 Vertical social clips */}
+      <Section num="08" label="Social" labelLang="en" tone="night" aria-labelledby="social-clips-heading">
+        <div className="flex flex-wrap items-end gap-x-16 gap-y-12">
+          <div className="flex-[1_1_320px]">
+            <Kicker tone="night">SNSクリップ</Kicker>
+            <Title stop="。" id="social-clips-heading" tone="night" className="fij-h2 mb-6">縦型ショート動画も<br />すぐに投稿可能</Title>
+            <p className="fij-lede max-w-md" style={{ color: "rgba(253,248,243,0.78)" }}>
+              メインのイベント撮影に加えて、字幕・カラーグレーディング済みの縦型ショート動画も制作できます。Instagram、LinkedIn、社内チャンネルにそのまま使えます。お問い合わせの際にお知らせください。
+            </p>
+          </div>
+          <div className="flex-[1.3_1_460px] grid grid-cols-3 gap-3 sm:gap-4 items-end">
             {[
-              { src: "/videos/event-social-highlights3.mp4", poster: "/videos/event-social-highlights3-poster.jpg", label: "カンファレンスハイライト", autoPlay: true },
-              { src: "/videos/26_4_21_SNS%2030p_2_siteb.mp4", poster: "/videos/26_4_21_SNS%2030p_2_siteb.jpg", label: "ネットワーキングリキャップ" },
-              { src: "/videos/26_4_21_SNS%2030p_3_siteb.mp4", poster: "/videos/26_4_21_SNS%2030p_3_siteb.jpg", label: "ブレイクアウトセッションハイライト" },
+              { src: "/videos/event-social-highlights3.mp4", poster: "/videos/event-social-highlights3-poster.jpg", label: "カンファレンスハイライト", autoPlay: true, offset: "mb-12" },
+              { src: "/videos/26_4_21_SNS%2030p_2_siteb.mp4", poster: "/videos/26_4_21_SNS%2030p_2_siteb.jpg", label: "ネットワーキングリキャップ", offset: "" },
+              { src: "/videos/26_4_21_SNS%2030p_3_siteb.mp4", poster: "/videos/26_4_21_SNS%2030p_3_siteb.jpg", label: "ブレイクアウトセッションハイライト", offset: "mb-24" },
             ].map((v, i) => (
-              <VerticalVideoTile key={i} src={v.src} poster={v.poster} label={v.label} autoPlay={v.autoPlay} />
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* FAQ */}
-      <section className="py-20 border-t" style={{ borderColor: "#e8d9c8", backgroundColor: "#fdf8f3" }}>
-        <div className="max-w-5xl mx-auto px-6 sm:px-12">
-          <div className="flex items-center gap-4 mb-8">
-            <div className="h-px w-10" style={{ backgroundColor: "#e95228" }} />
-            <h2 className="font-mono text-[10px] tracking-[0.35em] uppercase" style={{ color: "#e95228" }}>よくある質問</h2>
-          </div>
-          <div className="space-y-6">
-            {faqs.map((faq, i) => (
-              <div key={i} className="pb-6 border-b" style={{ borderColor: "#e8d9c8" }}>
-                <h4 className="font-black mb-2 text-sm" style={{ color: "#1c1208" }}>{faq.q}</h4>
-                <p className="text-sm leading-relaxed" style={{ color: "rgba(28,18,8,0.55)" }}>{faq.a}</p>
+              <div key={i} className={v.offset}>
+                <VerticalVideoTile src={v.src} poster={v.poster} label={v.label} autoPlay={v.autoPlay} />
               </div>
             ))}
           </div>
         </div>
-      </section>
+      </Section>
 
-      {/* Bottom CTA */}
-      <section className="py-16 border-t" style={{ borderColor: "#e8d9c8", backgroundColor: "#f5ede2" }}>
-        <div className="max-w-7xl mx-auto px-6 sm:px-12 lg:px-16 flex flex-col sm:flex-row items-center justify-between gap-6">
-          <div>
-            <p className="font-mono text-[10px] tracking-[0.3em] uppercase mb-2" style={{ color: "#e95228" }}>まずはお気軽に</p>
-            <p className="font-black text-lg" style={{ color: "#1c1208" }}>WhatsAppまたはメールで、すぐにご返信します。</p>
-          </div>
-          <div className="flex gap-4">
-            <a href="https://wa.me/819038800895" className="btn-warm font-black text-sm tracking-[0.15em] uppercase px-6 py-3">
-              WhatsApp
-            </a>
-            <a href="mailto:filminginjapan@move-ment.co" className="font-black text-sm tracking-[0.15em] uppercase px-6 py-3 border" style={{ borderColor: "#1c1208", color: "#1c1208" }}>
-              メールで問い合わせ
-            </a>
+      {/* 09 FAQ */}
+      <Section num="09" label="FAQ" labelLang="en" aria-labelledby="faq-heading">
+        <div className="flex flex-wrap gap-x-16 gap-y-10">
+          <Title stop="。" id="faq-heading" className="fij-h2 flex-[1_1_240px]">よくある質問</Title>
+          <div className="flex-[3_1_520px] min-w-0 border-t-2" style={{ borderColor: "#1c1208" }}>
+            {faqs.map((faq, i) => (
+              <details key={i} className="fij-faq border-b" style={{ borderColor: "#1c1208" }} open={i === 0}>
+                <summary className="flex justify-between items-center gap-6 py-[22px] text-[18px] font-semibold">
+                  <h3>{faq.q}</h3>
+                  <span aria-hidden="true" className="fij-faq-icon shrink-0 text-2xl font-normal leading-none" style={{ color: "#e95228" }}>+</span>
+                </summary>
+                <p className="pb-6 max-w-2xl text-base leading-relaxed" style={{ color: "#4a3a2a" }}>{faq.a}</p>
+              </details>
+            ))}
           </div>
         </div>
-      </section>
+      </Section>
+
+      {/* 10 Prefer to talk? */}
+      <Section num="10" label="Contact" labelLang="en" tone="ink" aria-labelledby="talk-heading">
+        <div className="flex flex-wrap items-end justify-between gap-x-16 gap-y-8">
+          <div className="flex-[1_1_320px] max-w-2xl">
+            <Kicker tone="ink">まずはお気軽に</Kicker>
+            <Title stop="。" id="talk-heading" tone="ink" className="fij-h2">WhatsAppまたはメールで、すぐにご返信します</Title>
+          </div>
+          <div className="flex flex-wrap gap-3">
+            <a href="https://wa.me/819038800895" className="fij-btn-orange">WhatsApp</a>
+            <a href="mailto:filminginjapan@move-ment.co" className="fij-btn-outline" style={{ color: "#fdf8f3" }}>メールで問い合わせ</a>
+          </div>
+        </div>
+      </Section>
 
       <Footer lang="jp" />
     </div>

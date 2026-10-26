@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import { useState, useEffect } from "react";
+import { PlayIcon } from "@/components/editorial";
 
 interface Service {
   num: string;
@@ -115,72 +116,56 @@ export default function ServiceGrid({ lang = "en" }: { lang?: "en" | "jp" }) {
 
   return (
     <>
-      <div className="grid md:grid-cols-2 gap-px" style={{ backgroundColor: "#e8d9c8" }}>
+      <div className="grid md:grid-cols-2 gap-x-10 xl:gap-x-14 gap-y-16">
         {services.map((s) => {
           const thumb = getThumb(s);
           return (
-            <div key={s.num} className="service-card flex flex-col">
-              {/* Text portion — navigates to service page */}
-              <Link href={isJp ? s.hrefJp : s.href} className="p-10 lg:p-12 flex flex-col flex-1">
-                <div className="flex items-start justify-between mb-8">
-                  <span className="service-num text-xs font-black" style={{ color: "#e95228" }}>
-                    {s.num}
-                  </span>
-                  <span className="service-learn font-mono text-[10px] tracking-[0.2em] uppercase" style={{ color: "#e95228" }}>
-                    {isJp ? "詳しく見る →" : "Learn more →"}
-                  </span>
-                </div>
-                <h3 className="service-title text-xl lg:text-2xl font-black leading-tight mb-1" style={{ color: "#1c1208" }}>
-                  {isJp ? s.titleJp : s.title}
-                </h3>
-                <p className="service-jp text-xs font-jp mb-5" style={{ color: "#e95228" }}>
-                  {isJp ? s.enLabel : s.titleJp}
-                </p>
-                <p className="service-desc text-sm leading-relaxed mt-auto" style={{ color: "rgba(28,18,8,0.5)" }}>
-                  {isJp ? s.descJp : s.desc}
-                </p>
-              </Link>
-
-              {/* Thumbnail — clicks to open lightbox */}
+            <article key={s.num} className="flex flex-col min-w-0">
+              {/* Image first — opens the video lightbox */}
               <button
+                type="button"
                 onClick={() => setActive(s)}
-                className="relative w-full overflow-hidden group/thumb"
+                className="fij-zoom relative w-full overflow-hidden"
                 style={{ aspectRatio: "16/9", backgroundColor: "#0d0a07" }}
                 aria-label={isJp ? `${s.titleJp}の動画を見る` : `Watch ${s.title} example`}
               >
                 {thumb && (
                   // eslint-disable-next-line @next/next/no-img-element
-                  <img
-                    src={thumb}
-                    alt=""
-                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover/thumb:scale-105"
-                    style={{ opacity: 0.85 }}
-                  />
+                  <img src={thumb} alt="" className="absolute inset-0 w-full h-full object-cover" />
                 )}
-                {/* Overlay */}
-                <div
-                  className="absolute inset-0 transition-opacity duration-300 group-hover/thumb:opacity-60"
-                  style={{ background: "linear-gradient(to top, rgba(13,10,7,0.6) 0%, rgba(13,10,7,0.1) 60%)" }}
-                />
-                {/* Play button */}
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <span
-                    className="flex items-center justify-center w-12 h-12 rounded-full border-2 transition-all duration-200 group-hover/thumb:bg-[#e95228] group-hover/thumb:border-[#e95228]"
-                    style={{ borderColor: "rgba(255,255,255,0.8)", backgroundColor: "rgba(0,0,0,0.3)" }}
-                  >
-                    <svg className="w-5 h-5 ml-0.5" viewBox="0 0 10 10" fill="white">
-                      <polygon points="2,1 9,5 2,9" />
-                    </svg>
-                  </span>
-                </div>
-                {/* Watch label */}
-                <div className="absolute bottom-3 left-0 right-0 flex justify-center">
-                  <span className="font-mono text-[10px] tracking-[0.2em] uppercase" style={{ color: "rgba(255,255,255,0.6)" }}>
+                <span className="absolute left-4 bottom-4 flex items-center gap-3">
+                  <PlayIcon />
+                  <span className="px-3 py-2 text-sm font-medium" style={{ backgroundColor: "#0d0a07", color: "#fdf8f3" }}>
                     {isJp ? "動画を見る" : "Watch example"}
                   </span>
-                </div>
+                </span>
               </button>
-            </div>
+
+              {/* Text — navigates to the service page */}
+              <Link
+                href={isJp ? s.hrefJp : s.href}
+                className="group flex flex-col flex-1 pt-6 mt-6 border-t-2"
+                style={{ borderColor: "#1c1208", color: "#1c1208" }}
+              >
+                <span className="text-[13px] font-semibold tabular-nums mb-4" style={{ color: "#e95228" }}>
+                  {s.num}
+                </span>
+                <h3 className="fij-h3 mb-2">{isJp ? s.titleJp : s.title}</h3>
+                <p
+                  lang={isJp ? "en" : "ja"}
+                  className={`text-sm font-medium mb-4 ${isJp ? "" : "font-jp"}`}
+                  style={{ color: "#6b5a48" }}
+                >
+                  {isJp ? s.enLabel : s.titleJp}
+                </p>
+                <p className="text-[15px] leading-relaxed mb-6 max-w-xl" style={{ color: "#4a3a2a" }}>
+                  {isJp ? s.descJp : s.desc}
+                </p>
+                <span className="mt-auto self-start fij-link text-[15px] group-hover:text-[#c43d10]">
+                  {isJp ? "詳しく見る" : "Learn more"}
+                </span>
+              </Link>
+            </article>
           );
         })}
       </div>
@@ -193,8 +178,8 @@ export default function ServiceGrid({ lang = "en" }: { lang?: "en" | "jp" }) {
           onClick={() => setActive(null)}
         >
           <button
-            className="absolute top-5 right-5 z-10 p-2 transition-colors"
-            style={{ color: "rgba(255,255,255,0.6)" }}
+            className="absolute top-5 right-5 z-10 p-2 transition-colors hover:text-white"
+            style={{ color: "rgba(255,255,255,0.75)" }}
             onClick={() => setActive(null)}
             aria-label="Close"
           >

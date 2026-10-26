@@ -9,11 +9,19 @@ interface PhotoItem {
 }
 
 interface PhotoGridProps {
+  /** The first image is the large lead; the rest fill a tight grid around and below it. */
   images: PhotoItem[];
+  /** Language of the lightbox control labels. */
+  lang?: "en" | "jp";
 }
 
-export default function PhotoGrid({ images }: PhotoGridProps) {
+/**
+ * Editorial photo mosaic: one large lead image (2×2 cells) and the rest in a tight
+ * grid of identical 4:3 crops. Square corners, `.fij-zoom` hover, click to open the lightbox.
+ */
+export default function PhotoGrid({ images, lang = "en" }: PhotoGridProps) {
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+  const jp = lang === "jp";
 
   const close = useCallback(() => setLightboxIndex(null), []);
   const prev = useCallback(
@@ -36,68 +44,72 @@ export default function PhotoGrid({ images }: PhotoGridProps) {
     return () => window.removeEventListener("keydown", handler);
   }, [lightboxIndex, close, prev, next]);
 
-  const gridCols = images.length >= 3 ? "grid-cols-2 sm:grid-cols-4" : "grid-cols-2";
-
   return (
     <>
-      <div className={`grid gap-2 mb-8 ${gridCols}`}>
-        {images.map((img, i) => (
-          <button
-            key={i}
-            className="relative aspect-square overflow-hidden group cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#e95228]"
-            onClick={() => setLightboxIndex(i)}
-            aria-label={`View ${img.alt}`}
-          >
-            <Image
-              src={img.src}
-              alt={img.alt}
-              fill
-              className="object-cover transition-transform duration-300 group-hover:scale-105"
-              sizes="(max-width: 768px) 50vw, 20vw"
-            />
-            <div className="absolute inset-0 bg-black/0 group-hover:bg-black/25 transition-colors duration-300" />
-            <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              <svg className="w-7 h-7 drop-shadow-lg" fill="none" stroke="white" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
-              </svg>
-            </div>
-          </button>
-        ))}
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-1.5">
+        {images.map((img, i) => {
+          const lead = i === 0 && images.length > 1;
+          return (
+            <button
+              key={img.src}
+              type="button"
+              className={`fij-zoom relative overflow-hidden cursor-zoom-in focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#1c1208] ${
+                lead ? "col-span-2 aspect-[4/3] sm:aspect-auto sm:row-span-2" : "aspect-[4/3]"
+              }`}
+              style={{ backgroundColor: "#e8d9c8" }}
+              onClick={() => setLightboxIndex(i)}
+              aria-label={jp ? `${img.alt}を拡大表示` : `View ${img.alt}`}
+            >
+              <Image
+                src={img.src}
+                alt={img.alt}
+                fill
+                className="object-cover"
+                sizes={lead ? "(max-width: 640px) 100vw, (max-width: 1024px) 60vw, 420px" : "(max-width: 640px) 50vw, (max-width: 1024px) 30vw, 210px"}
+              />
+            </button>
+          );
+        })}
       </div>
 
       {lightboxIndex !== null && (
         <div
           className="fixed inset-0 z-50 flex items-center justify-center"
-          style={{ backgroundColor: "rgba(0,0,0,0.93)" }}
+          style={{ backgroundColor: "rgba(13,10,7,0.95)" }}
           onClick={close}
+          role="dialog"
+          aria-modal="true"
+          aria-label={images[lightboxIndex].alt}
         >
           {/* Close */}
           <button
-            className="absolute top-5 right-5 z-10 p-2 text-white/60 hover:text-white transition-colors"
+            type="button"
+            className="absolute top-5 right-5 z-10 p-2 text-white/70 hover:text-white transition-colors"
             onClick={close}
-            aria-label="Close"
+            aria-label={jp ? "閉じる" : "Close"}
           >
-            <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M6 18L18 6M6 6l12 12" />
+            <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path strokeLinecap="square" strokeWidth={1.5} d="M6 18L18 6M6 6l12 12" />
             </svg>
           </button>
 
           {/* Prev */}
           {images.length > 1 && (
             <button
-              className="absolute left-4 top-1/2 -translate-y-1/2 z-10 p-3 text-white/60 hover:text-white transition-colors"
+              type="button"
+              className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 z-10 p-3 text-white/70 hover:text-white transition-colors"
               onClick={(e) => { e.stopPropagation(); prev(); }}
-              aria-label="Previous"
+              aria-label={jp ? "前の写真" : "Previous"}
             >
-              <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 19l-7-7 7-7" />
+              <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path strokeLinecap="square" strokeWidth={1.5} d="M15 19l-7-7 7-7" />
               </svg>
             </button>
           )}
 
           {/* Image */}
           <div
-            className="relative w-full max-w-5xl mx-20 max-h-[85vh]"
+            className="relative w-full max-w-5xl mx-14 sm:mx-20 max-h-[85vh]"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="relative w-full" style={{ paddingBottom: "66.67%" }}>
@@ -109,23 +121,24 @@ export default function PhotoGrid({ images }: PhotoGridProps) {
                 sizes="90vw"
               />
             </div>
-            <p className="text-center text-sm mt-3" style={{ color: "rgba(255,255,255,0.5)" }}>
-              {images[lightboxIndex].alt}
-            </p>
-            <p className="text-center mt-1 font-mono text-[10px]" style={{ color: "rgba(255,255,255,0.25)" }}>
-              {lightboxIndex + 1} / {images.length}
-            </p>
+            <div className="flex flex-wrap justify-between gap-x-6 gap-y-1 mt-4 text-sm" style={{ color: "rgba(253,248,243,0.78)" }}>
+              <p>{images[lightboxIndex].alt}</p>
+              <p className="text-[13px] font-semibold tabular-nums">
+                {lightboxIndex + 1} / {images.length}
+              </p>
+            </div>
           </div>
 
           {/* Next */}
           {images.length > 1 && (
             <button
-              className="absolute right-4 top-1/2 -translate-y-1/2 z-10 p-3 text-white/60 hover:text-white transition-colors"
+              type="button"
+              className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 z-10 p-3 text-white/70 hover:text-white transition-colors"
               onClick={(e) => { e.stopPropagation(); next(); }}
-              aria-label="Next"
+              aria-label={jp ? "次の写真" : "Next"}
             >
-              <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 5l7 7-7 7" />
+              <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path strokeLinecap="square" strokeWidth={1.5} d="M9 5l7 7-7 7" />
               </svg>
             </button>
           )}

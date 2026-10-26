@@ -23,7 +23,7 @@ export default function VideoLightbox({ vimeoId, vimeoHash, title }: VideoLightb
   return (
     <>
       {/* Panel video — fills container, cropped L/R */}
-      <div className="relative overflow-hidden min-h-[320px]" style={{ backgroundColor: "#1a1208" }}>
+      <div className="relative overflow-hidden min-h-[320px] lg:min-h-[560px]" style={{ backgroundColor: "#0d0a07" }}>
         <iframe
           src={`https://player.vimeo.com/video/${vimeoId}?h=${vimeoHash}`}
           title={title}
@@ -43,20 +43,20 @@ export default function VideoLightbox({ vimeoId, vimeoHash, title }: VideoLightb
         {/* Expand button */}
         <button
           onClick={() => setOpen(true)}
-          className="absolute top-4 right-4 z-10 flex items-center gap-2 px-3 py-2 text-white/80 hover:text-white transition-colors"
-          style={{ backgroundColor: "rgba(0,0,0,0.5)" }}
+          className="absolute top-4 right-4 z-10 flex items-center gap-2 px-3 py-2 text-sm font-medium transition-colors hover:bg-[#3a2a1a]"
+          style={{ backgroundColor: "#0d0a07", color: "#fdf8f3" }}
           aria-label="Watch full screen"
         >
-          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg className="w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5v-4m0 4h-4m4 0l-5-5" />
           </svg>
-          <span className="font-mono text-[10px] tracking-[0.2em] uppercase">Full screen</span>
+          <span>Full screen</span>
         </button>
 
         {/* Name card */}
-        <div className="absolute bottom-4 left-4 z-10 inline-block px-4 py-2" style={{ backgroundColor: "#e95228" }}>
-          <p className="font-black text-xs tracking-wide" style={{ color: "#0d0a07" }}>Chris Moore</p>
-          <p className="font-mono text-[10px] tracking-wider" style={{ color: "rgba(13,10,7,0.6)" }}>Creative Director</p>
+        <div className="absolute bottom-4 left-4 z-10 inline-block px-4 py-2.5" style={{ backgroundColor: "#0d0a07" }}>
+          <p className="text-[15px] font-semibold tracking-[-0.01em]" style={{ color: "#fdf8f3" }}>Chris Moore</p>
+          <p className="text-[13px] font-medium" style={{ color: "rgba(253,248,243,0.75)" }}>Creative Director</p>
         </div>
       </div>
 
@@ -68,7 +68,7 @@ export default function VideoLightbox({ vimeoId, vimeoHash, title }: VideoLightb
           onClick={close}
         >
           <button
-            className="absolute top-5 right-5 z-10 p-2 text-white/60 hover:text-white transition-colors"
+            className="absolute top-5 right-5 z-10 p-2 text-white/75 hover:text-white transition-colors"
             onClick={close}
             aria-label="Close"
           >

@@ -2,14 +2,16 @@
 
 import { useMemo, useState } from "react";
 import { coveredEvents, SHOW_FIRST, type CoveredEvent } from "@/lib/eventsCovered";
+import { Section, Title, Kicker } from "@/components/editorial";
 
 type Lang = "en" | "jp";
 
 const copy = {
   en: {
     eyebrow: "Events we've covered",
-    h1: "We've probably been",
-    h2: "to your venue.",
+    title: "We've probably been to your venue",
+    label: "撮影会場",
+    wall: ["Palace Hotel Tokyo", "ANA InterContinental Tokyo", "Kimpton Shinjuku Tokyo", "Happo-en", "Makuhari Messe", "Grand Hyatt Tokyo"],
     lede: "Corporate event photography and video at hotels, conference centres and venues across Japan — including Palace Hotel Tokyo, ANA InterContinental Tokyo, Kimpton Shinjuku Tokyo, Happo-en, Makuhari Messe and Grand Hyatt Tokyo. Search for yours below.",
     search: "Search a venue or event…",
     searchLabel: "Search events or venues",
@@ -26,8 +28,9 @@ const copy = {
   },
   jp: {
     eyebrow: "これまでの撮影実績",
-    h1: "その会場、",
-    h2: "撮影経験があるかもしれません。",
+    title: "その会場、撮影経験があるかもしれません",
+    label: "Venues",
+    wall: ["パレスホテル東京", "ANAインターコンチネンタルホテル東京", "キンプトン新宿東京", "八芳園", "幕張メッセ", "グランド ハイアット 東京"],
     lede: "パレスホテル東京、ANAインターコンチネンタルホテル東京、キンプトン新宿東京、八芳園、幕張メッセ、グランド ハイアット 東京など、全国のホテル・会議施設・イベント会場で企業イベントの写真・映像を撮影してきました。会場名で検索できます。",
     search: "会場名・イベント名で検索…",
     searchLabel: "イベント・会場を検索",
@@ -46,7 +49,7 @@ const copy = {
 
 const SERVICES = ["photo", "highlight", "recording", "raw"] as const;
 
-export default function EventsCovered({ lang = "en" }: { lang?: Lang }) {
+export default function EventsCovered({ lang = "en", num }: { lang?: Lang; num?: string }) {
   const t = copy[lang];
   const [query, setQuery] = useState("");
   const [expanded, setExpanded] = useState(false);
@@ -72,21 +75,23 @@ export default function EventsCovered({ lang = "en" }: { lang?: Lang }) {
   const matchCount = matches.filter(Boolean).length;
 
   return (
-    <section className="py-20 border-t" style={{ borderColor: "#e8d9c8", backgroundColor: "#fdf8f3" }} aria-labelledby="events-covered-heading">
-      <div className="max-w-6xl mx-auto px-6 sm:px-12">
-        <div className="flex items-center gap-4 mb-4">
-          <div className="h-px w-10" style={{ backgroundColor: "#e95228" }} />
-          <span className="font-mono text-[10px] tracking-[0.35em] uppercase" style={{ color: "#e95228" }}>{t.eyebrow}</span>
-        </div>
-        <h2 id="events-covered-heading" className="text-3xl sm:text-4xl lg:text-5xl font-black leading-[0.95] mb-4" style={{ color: "#1c1208" }}>
-          {t.h1}<br /><span style={{ color: "rgba(28,18,8,0.4)" }}>{t.h2}</span>
-        </h2>
-        <p className="text-sm leading-relaxed max-w-2xl mb-8" style={{ color: "rgba(28,18,8,0.55)" }}>{t.lede}</p>
+    <Section num={num} label={t.label} labelLang={lang === "jp" ? "en" : "ja"} aria-labelledby="events-covered-heading">
+        <Kicker>{t.eyebrow}</Kicker>
+        <Title id="events-covered-heading" className="fij-h2 mb-10">{t.title}</Title>
+        <p className="mb-10 text-[26px] sm:text-[34px] lg:text-[42px] leading-[1.2] font-semibold tracking-[-0.03em]" style={{ color: "#a8937a" }} aria-hidden="true">
+          {t.wall.map((v, i) => (
+            <span key={v}>
+              {v}
+              {i < t.wall.length - 1 && <span style={{ color: "#e95228" }}> / </span>}
+            </span>
+          ))}
+        </p>
+        <p className="fij-lede max-w-2xl mb-10" style={{ color: "#4a3a2a" }}>{t.lede}</p>
 
         <div className="flex flex-wrap items-center justify-between gap-4 mb-5">
           <label className="relative w-full sm:max-w-sm">
             <span className="sr-only">{t.searchLabel}</span>
-            <svg className="absolute left-3 top-1/2 -translate-y-1/2" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(28,18,8,0.4)" strokeWidth="2" aria-hidden="true">
+            <svg className="absolute left-4 top-1/2 -translate-y-1/2" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1c1208" strokeWidth="1.8" aria-hidden="true">
               <circle cx="11" cy="11" r="7" /><path d="m20 20-3.5-3.5" />
             </svg>
             <input
@@ -96,16 +101,16 @@ export default function EventsCovered({ lang = "en" }: { lang?: Lang }) {
               onChange={(e) => setQuery(e.target.value)}
               placeholder={t.search}
               autoComplete="off"
-              className="w-full text-sm py-3 pl-10 pr-3 border outline-none focus:border-[#e95228]"
-              style={{ borderColor: "#e8d9c8", backgroundColor: "#fff", color: "#1c1208" }}
+              className="w-full text-base py-3.5 pl-11 pr-3 border outline-none focus:border-[#e95228]"
+              style={{ borderColor: "#1c1208", backgroundColor: "#fff", color: "#1c1208" }}
             />
           </label>
-          <span className="font-mono text-[10px] tracking-[0.2em] uppercase" style={{ color: "rgba(28,18,8,0.55)" }} aria-live="polite">
+          <span className="text-sm" style={{ color: "#6b5a48" }} aria-live="polite">
             {q ? t.matches(matchCount) : t.listed(coveredEvents.length)}
           </span>
         </div>
 
-        <table className="ec-table w-full text-[13px]" style={{ color: "#1c1208" }}>
+        <table className="ec-table w-full text-[14px]" style={{ color: "#1c1208" }}>
           <thead>
             <tr className="ec-group">
               <th /><th />
@@ -152,44 +157,42 @@ export default function EventsCovered({ lang = "en" }: { lang?: Lang }) {
           </tbody>
         </table>
         {q && matchCount === 0 && (
-          <p className="py-6 text-sm border-t" style={{ borderColor: "#e8d9c8", color: "rgba(28,18,8,0.55)" }}>
-            {t.none} <a href="#enquire" style={{ color: "#e95228", fontWeight: 600 }}>{t.ask}</a>
+          <p className="py-6 text-[15px] border-t" style={{ borderColor: "#e8d9c8", color: "#4a3a2a" }}>
+            {t.none} <a href="#enquire" className="fij-link">{t.ask}</a>
           </p>
         )}
 
-        <div className="flex flex-wrap items-center justify-between gap-4 pt-5 border-t" style={{ borderColor: "#1c1208" }}>
+        <div className="flex flex-wrap items-center justify-between gap-4 pt-7 border-t-2" style={{ borderColor: "#1c1208" }}>
           {!q && coveredEvents.length > SHOW_FIRST ? (
             <button
               type="button"
               onClick={() => setExpanded((v) => !v)}
               aria-expanded={expanded}
-              className="font-mono text-[11px] tracking-[0.2em] uppercase pb-1 border-b"
-              style={{ borderColor: "#e95228", color: "#1c1208" }}
+              className="fij-btn"
             >
               {expanded ? t.showFewer : t.showAll(coveredEvents.length)}
             </button>
           ) : <span />}
-          <p className="text-sm" style={{ color: "rgba(28,18,8,0.55)" }}>
-            {t.notListed} <a href="#enquire" style={{ color: "#e95228", fontWeight: 600 }}>{t.ask}</a>{lang === "en" ? " — " : " "}{t.notListed2}
+          <p className="text-[15px]" style={{ color: "#4a3a2a" }}>
+            {t.notListed} <a href="#enquire" className="fij-link">{t.ask}</a>{lang === "en" ? " — " : " "}{t.notListed2}
           </p>
         </div>
-      </div>
 
       <style jsx>{`
         .ec-table { border-collapse: collapse; }
-        .ec-table :global(th) { font-family: ui-monospace, Menlo, monospace; font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(28,18,8,0.55); font-weight: 400; text-align: center; padding: 0 6px 12px; vertical-align: bottom; line-height: 1.4; }
+        .ec-table :global(th) { font-size: 13px; color: #6b5a48; font-weight: 500; text-align: center; padding: 0 6px 12px; vertical-align: bottom; line-height: 1.4; }
         .ec-table :global(th.ec-l) { text-align: left; padding-left: 0; }
-        .ec-table :global(tr.ec-group th) { color: #e95228; font-size: 10px; letter-spacing: 0.3em; padding-bottom: 6px; }
-        .ec-table :global(th.ec-g) { border-bottom: 1px solid #e95228; }
-        .ec-table :global(td) { border-top: 1px solid #e8d9c8; padding: 14px 6px; text-align: center; vertical-align: middle; }
+        .ec-table :global(tr.ec-group th) { color: #1c1208; font-size: 13px; font-weight: 600; padding-bottom: 6px; }
+        .ec-table :global(th.ec-g) { border-bottom: 2px solid #1c1208; }
+        .ec-table :global(td) { border-top: 1px solid #dccab4; padding: 16px 6px; text-align: center; vertical-align: middle; }
         .ec-table :global(td.ec-ev) { text-align: left; padding-left: 0; width: 38%; }
-        .ec-table :global(td.ec-ev b) { display: block; font-weight: 900; font-size: 15px; line-height: 1.25; }
-        .ec-table :global(td small) { display: block; font-size: 11px; color: rgba(28,18,8,0.45); margin-top: 2px; }
+        .ec-table :global(td.ec-ev b) { display: block; font-weight: 600; font-size: 16px; line-height: 1.3; letter-spacing: -0.01em; }
+        .ec-table :global(td small) { display: block; font-size: 13px; color: #6b5a48; margin-top: 2px; }
         .ec-table :global(td.ec-venue) { text-align: left; width: 26%; }
         .ec-table :global(.ec-extras) { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 6px; }
-        .ec-table :global(.ec-extras span) { font-family: ui-monospace, Menlo, monospace; font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(28,18,8,0.6); background: #f5ede2; padding: 3px 6px; }
+        .ec-table :global(.ec-extras span) { font-size: 12px; color: #4a3a2a; background: #f5ede2; padding: 3px 7px; }
         .ec-table :global(.ec-dot) { display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: #e95228; }
-        .ec-table :global(.ec-no) { color: #e8d9c8; }
+        .ec-table :global(.ec-no) { color: #c9b49c; }
         .ec-table :global(.ec-lbl) { display: none; }
         .ec-table :global(tbody tr:hover td) { background: #f5ede2; }
         .ec-table :global(tr.ec-hidden) { display: none; }
@@ -205,10 +208,10 @@ export default function EventsCovered({ lang = "en" }: { lang?: Lang }) {
           .ec-table :global(td.ec-d) { display: inline-block; width: auto; margin: 0 6px 6px 0; }
           .ec-table :global(td.ec-no) { display: none; }
           .ec-table :global(.ec-dot) { display: none; }
-          .ec-table :global(.ec-lbl) { display: inline-block; font-family: ui-monospace, Menlo, monospace; font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase; padding: 4px 7px; border: 1px solid #e95228; color: #e95228; }
+          .ec-table :global(.ec-lbl) { display: inline-block; font-size: 12px; font-weight: 500; padding: 4px 8px; border: 1px solid #1c1208; color: #1c1208; }
           .ec-table :global(tbody tr:hover td) { background: none; }
         }
       `}</style>
-    </section>
+    </Section>
   );
 }

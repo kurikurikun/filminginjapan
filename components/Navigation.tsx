@@ -64,8 +64,8 @@ export default function Navigation() {
     : enToJp[pathname] ?? `/jp${pathname === "/" ? "" : pathname}`;
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-sm border-b" style={{ backgroundColor: "rgba(253,248,243,0.95)", borderColor: "#e8d9c8" }}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-sm border-b" style={{ backgroundColor: "rgba(253,248,243,0.95)", borderColor: "#1c1208" }}>
+      <div className="fij-wrap">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link href={isJp ? "/jp" : "/"} className="flex items-center gap-2 shrink-0">
@@ -74,19 +74,19 @@ export default function Navigation() {
               alt="Filming in Japan"
               width={160}
               height={54}
-              className="h-11 w-auto"
+              className="h-10 w-auto"
               priority
             />
           </Link>
 
           {/* Desktop nav */}
-          <nav className="hidden lg:flex items-center gap-6">
+          <nav aria-label={isJp ? "メイン" : "Main"} className="hidden lg:flex items-center gap-7">
             {links.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className={`text-sm font-medium transition-colors hover:text-[#e95228] ${
-                  pathname === link.href ? "text-[#e95228]" : "text-neutral-600"
+                className={`text-sm font-medium transition-colors hover:text-[#c43d10] ${
+                  pathname === link.href ? "text-[#c43d10]" : "text-[#4a3a2a]"
                 }`}
               >
                 {link.label}
@@ -97,8 +97,8 @@ export default function Navigation() {
             {groupLinks.length === 1 && (
               <Link
                 href={groupLinks[0].href}
-                className={`text-sm font-medium transition-colors hover:text-[#e95228] ${
-                  pathname === groupLinks[0].href ? "text-[#e95228]" : "text-neutral-600"
+                className={`text-sm font-medium transition-colors hover:text-[#c43d10] ${
+                  pathname === groupLinks[0].href ? "text-[#c43d10]" : "text-[#4a3a2a]"
                 }`}
               >
                 {groupLinks[0].label}
@@ -115,8 +115,8 @@ export default function Navigation() {
                   onClick={() => setGroupOpen(!groupOpen)}
                   aria-expanded={groupOpen}
                   aria-haspopup="true"
-                  className={`flex items-center gap-1.5 text-sm font-medium transition-colors hover:text-[#e95228] ${
-                    groupLinks.some((c) => c.href === pathname) ? "text-[#e95228]" : "text-neutral-600"
+                  className={`flex items-center gap-1.5 text-sm font-medium transition-colors hover:text-[#c43d10] ${
+                    groupLinks.some((c) => c.href === pathname) ? "text-[#c43d10]" : "text-[#4a3a2a]"
                   }`}
                 >
                   {group.label}
@@ -133,13 +133,13 @@ export default function Navigation() {
                   <div
                     className="absolute left-0 top-full pt-3 min-w-[220px]"
                   >
-                    <div className="border py-2" style={{ backgroundColor: "#fdf8f3", borderColor: "#e8d9c8" }}>
+                    <div className="border py-2" style={{ backgroundColor: "#fdf8f3", borderColor: "#1c1208" }}>
                       {groupLinks.map((child) => (
                         <Link
                           key={child.href}
                           href={child.href}
-                          className={`block px-4 py-2 text-sm font-medium transition-colors hover:text-[#e95228] ${
-                            pathname === child.href ? "text-[#e95228]" : "text-neutral-600"
+                          className={`block px-4 py-2 text-sm font-medium transition-colors hover:text-[#c43d10] ${
+                            pathname === child.href ? "text-[#c43d10]" : "text-[#4a3a2a]"
                           }`}
                         >
                           {child.label}
@@ -153,8 +153,8 @@ export default function Navigation() {
 
             <Link
               href={contact.href}
-              className={`text-sm font-medium transition-colors hover:text-[#e95228] ${
-                pathname === contact.href ? "text-[#e95228]" : "text-neutral-600"
+              className={`text-sm font-medium transition-colors hover:text-[#c43d10] ${
+                pathname === contact.href ? "text-[#c43d10]" : "text-[#4a3a2a]"
               }`}
             >
               {contact.label}
@@ -165,7 +165,8 @@ export default function Navigation() {
             {/* Language toggle */}
             <Link
               href={toggleHref}
-              className="font-mono text-xs tracking-[0.2em] border border-neutral-200 px-3 py-1.5 hover:border-[#e95228] hover:text-[#e95228] transition-colors"
+              lang={isJp ? "en" : "ja"}
+              className={`text-[13px] font-medium px-2 py-2.5 text-[#4a3a2a] hover:text-[#c43d10] transition-colors ${isJp ? "" : "font-jp"}`}
             >
               {isJp ? "EN" : "日本語"}
             </Link>
@@ -173,21 +174,22 @@ export default function Navigation() {
             {/* Contact CTA */}
             <Link
               href={isJp ? "/jp/contact" : "/contact"}
-              className="hidden sm:block bg-[#e95228] text-white text-xs font-bold tracking-[0.15em] uppercase px-4 py-2 hover:bg-[#c43d10] transition-colors"
+              className="hidden sm:block bg-[#e95228] text-[#0d0a07] text-sm font-semibold px-[18px] py-[11px] hover:bg-[#f06a42] transition-colors"
             >
-              {isJp ? "相談する" : "Get a Quote"}
+              {isJp ? "相談する" : "Get a quote"}
             </Link>
 
             {/* Mobile hamburger */}
             <button
               className="lg:hidden p-2"
               onClick={() => setOpen(!open)}
-              aria-label="Toggle menu"
+              aria-label={isJp ? "メニュー" : "Toggle menu"}
+              aria-expanded={open}
             >
               <div className="w-5 space-y-1">
-                <span className={`block h-0.5 bg-neutral-800 transition-all ${open ? "rotate-45 translate-y-1.5" : ""}`} />
-                <span className={`block h-0.5 bg-neutral-800 transition-all ${open ? "opacity-0" : ""}`} />
-                <span className={`block h-0.5 bg-neutral-800 transition-all ${open ? "-rotate-45 -translate-y-1.5" : ""}`} />
+                <span className={`block h-0.5 bg-[#1c1208] transition-all ${open ? "rotate-45 translate-y-1.5" : ""}`} />
+                <span className={`block h-0.5 bg-[#1c1208] transition-all ${open ? "opacity-0" : ""}`} />
+                <span className={`block h-0.5 bg-[#1c1208] transition-all ${open ? "-rotate-45 -translate-y-1.5" : ""}`} />
               </div>
             </button>
           </div>
@@ -196,13 +198,13 @@ export default function Navigation() {
 
       {/* Mobile menu */}
       {open && (
-        <div className="lg:hidden border-t px-4 py-4 space-y-3" style={{ backgroundColor: "#fdf8f3", borderColor: "#e8d9c8" }}>
+        <div className="lg:hidden border-t px-5 py-5 space-y-1" style={{ backgroundColor: "#fdf8f3", borderColor: "#1c1208" }}>
           {links.map((link) => (
             <Link
               key={link.href}
               href={link.href}
               onClick={() => setOpen(false)}
-              className="block text-sm font-medium text-neutral-700 hover:text-[#e95228] py-1"
+              className="block text-lg font-semibold tracking-[-0.01em] text-[#1c1208] hover:text-[#c43d10] py-2"
             >
               {link.label}
             </Link>
@@ -213,14 +215,14 @@ export default function Navigation() {
             <Link
               href={groupLinks[0].href}
               onClick={() => setOpen(false)}
-              className="block text-sm font-medium text-neutral-700 hover:text-[#e95228] py-1"
+              className="block text-lg font-semibold tracking-[-0.01em] text-[#1c1208] hover:text-[#c43d10] py-2"
             >
               {groupLinks[0].label}
             </Link>
           )}
           {groupLinks.length > 1 && (
             <div className="space-y-2">
-              <span className="block font-mono text-[10px] tracking-[0.2em] uppercase pt-1" style={{ color: "#e95228" }}>
+              <span className="block text-[13px] font-medium pt-2" style={{ color: "#6b5a48" }}>
                 {group.label}
               </span>
               {groupLinks.map((child) => (
@@ -228,7 +230,7 @@ export default function Navigation() {
                   key={child.href}
                   href={child.href}
                   onClick={() => setOpen(false)}
-                  className="block pl-4 text-sm font-medium text-neutral-700 hover:text-[#e95228] py-1"
+                  className="block pl-4 text-base font-medium text-[#4a3a2a] hover:text-[#c43d10] py-1.5"
                 >
                   {child.label}
                 </Link>
@@ -239,7 +241,7 @@ export default function Navigation() {
           <Link
             href={contact.href}
             onClick={() => setOpen(false)}
-            className="block text-sm font-medium text-neutral-700 hover:text-[#e95228] py-1"
+            className="block text-lg font-semibold tracking-[-0.01em] text-[#1c1208] hover:text-[#c43d10] py-2"
           >
             {contact.label}
           </Link>

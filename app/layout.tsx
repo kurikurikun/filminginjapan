@@ -3,6 +3,10 @@ import "./globals.css";
 import Navigation from "@/components/Navigation";
 import ClickTracker from "@/components/ClickTracker";
 import Script from "next/script";
+import { Inter_Tight, Noto_Sans_JP } from "next/font/google";
+
+const sans = Inter_Tight({ subsets: ["latin"], weight: ["400", "500", "600", "700"], variable: "--font-sans", display: "swap" });
+const jp = Noto_Sans_JP({ subsets: ["latin"], weight: ["400", "500", "700"], variable: "--font-jp", display: "swap", preload: false });
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.filminginjapan.com"),
@@ -79,7 +83,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${sans.variable} ${jp.variable}`}>
       <head>
         <Script src="https://www.googletagmanager.com/gtag/js?id=G-HRSC1F9YKM" strategy="afterInteractive" />
         <Script id="ga4-init" strategy="afterInteractive">{`
@@ -93,7 +97,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(businessSchema) }}
         />
       </head>
-      <body className="antialiased">
+      <body className="antialiased font-sans">
         <Navigation />
         <ClickTracker />
         <main className="pt-16">{children}</main>

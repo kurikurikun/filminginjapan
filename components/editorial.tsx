@@ -17,8 +17,8 @@ const toneStyles: Record<Tone, { bg: string; fg: string; num: string; rule: stri
 };
 
 /** The coloured full stop that ends every headline. Cream on orange sections so it stays visible. */
-export function Dot({ tone = "cream" }: { tone?: Tone }) {
-  return <span style={{ color: tone === "orange" ? "#fdf8f3" : "#e95228" }}>.</span>;
+export function Dot({ tone = "cream", stop = "." }: { tone?: Tone; stop?: "." | "。" }) {
+  return <span style={{ color: tone === "orange" ? "#fdf8f3" : "#e95228" }}>{stop}</span>;
 }
 
 /** Wraps headline text and appends the coloured full stop. */
@@ -27,18 +27,21 @@ export function Title({
   tone = "cream",
   className = "fij-h2",
   id,
+  stop = ".",
   children,
 }: {
   as?: "h1" | "h2" | "h3";
   tone?: Tone;
   className?: string;
   id?: string;
+  /** Japanese headlines end in 。 */
+  stop?: "." | "。";
   children: ReactNode;
 }) {
   return (
     <Tag id={id} className={className}>
       {children}
-      <Dot tone={tone} />
+      <Dot tone={tone} stop={stop} />
     </Tag>
   );
 }

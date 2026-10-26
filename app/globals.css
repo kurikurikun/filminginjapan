@@ -45,8 +45,9 @@
     letter-spacing: -0.02em;
   }
   /* Japanese headlines: tighter tracking reads badly in CJK, so relax it */
-  :lang(ja) .fij-h1, .fij-h1:lang(ja) { letter-spacing: -0.02em; line-height: 1.05; }
-  :lang(ja) .fij-h2, .fij-h2:lang(ja) { letter-spacing: -0.02em; line-height: 1.1; }
+  /* and break between phrases, never mid-word, at a slightly smaller size so lines fit at 390px */
+  :lang(ja) .fij-h1, .fij-h1:lang(ja) { letter-spacing: -0.02em; line-height: 1.05; font-size: clamp(40px, 6.6vw, 104px); line-break: strict; word-break: auto-phrase; }
+  :lang(ja) .fij-h2, .fij-h2:lang(ja) { letter-spacing: -0.02em; line-height: 1.1; font-size: clamp(32px, 4.2vw, 60px); line-break: strict; word-break: auto-phrase; }
   :lang(ja) .fij-h3, .fij-h3:lang(ja) { letter-spacing: 0; line-height: 1.4; }
 
   .fij-lede { font-size: 17px; line-height: 1.6; }

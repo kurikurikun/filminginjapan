@@ -265,7 +265,7 @@ export default function EventVideoPageJP() {
           <div className="flex-[7_1_560px] pt-16 pb-12 lg:pt-24 lg:pb-14 flex flex-col justify-between gap-12">
             <div>
               <p className="text-sm font-medium mb-8" style={{ color: "#6b5a48" }}>イベント撮影 · 東京 · 日本全国</p>
-              <Title as="h1" className="fij-h1 break-keep">企業イベント<br />写真・映像制作 全国対応</Title>
+              <Title stop="。" as="h1" className="fij-h1 break-keep">企業イベント<br />写真・映像制作 全国対応</Title>
             </div>
             <div className="flex flex-wrap items-end gap-x-12 gap-y-8">
               <p className="fij-lede flex-[1_1_340px]" style={{ color: "#4a3a2a" }}>
@@ -307,7 +307,7 @@ export default function EventVideoPageJP() {
               <SectionLabel num="01" label="Services" labelLang="en" />
               <div className="flex-1 min-w-0">
                 <Kicker>サービス内容</Kicker>
-                <Title className="fij-h2 mb-8">すべての瞬間を捉える。<br />スタイリッシュで</Title>
+                <Title stop="。" className="fij-h2 mb-8">すべての瞬間を捉える。<br />スタイリッシュで</Title>
                 <p className="fij-lede max-w-xl mb-12" style={{ color: "#4a3a2a" }}>
                   海外クライアントの日本国内イベントを数多く手がけてきた経験から、ブランド基準に沿ったビジュアル納品の重要性を深く理解しています。
                 </p>
@@ -326,7 +326,7 @@ export default function EventVideoPageJP() {
             <div className="flex flex-col md:flex-row gap-6 md:gap-14">
               <SectionLabel num="02" label="Why us" labelLang="en" />
               <div className="flex-1 min-w-0">
-                <Title className="fij-h2 mb-12">選ばれる理由</Title>
+                <Title stop="。" className="fij-h2 mb-12">選ばれる理由</Title>
                 <div>
                   {differentiators.map((d, i) => (
                     <div key={i} className={`flex gap-6 py-6 border-t ${i === differentiators.length - 1 ? "border-b" : ""}`} style={{ borderColor: "#1c1208" }}>
@@ -375,7 +375,7 @@ export default function EventVideoPageJP() {
 
       {/* 03 Recent projects */}
       <Section num="03" label="Projects" labelLang="en" tone="night" aria-labelledby="projects-heading">
-        <Title id="projects-heading" tone="night" className="fij-h2 mb-16">制作事例</Title>
+        <Title stop="。" id="projects-heading" tone="night" className="fij-h2 mb-16">制作事例</Title>
         {projects.map((p, i) => (
           <article
             key={p.title}
@@ -403,7 +403,7 @@ export default function EventVideoPageJP() {
 
       {/* 04 Photography events */}
       <Section num="04" label="Photography" labelLang="en" aria-labelledby="photo-events-heading">
-        <Title id="photo-events-heading" className="fij-h2 mb-14">写真撮影実績</Title>
+        <Title stop="。" id="photo-events-heading" className="fij-h2 mb-14">写真撮影実績</Title>
         <PhotoGallery events={photoEvents} lang="jp" />
       </Section>
 
@@ -441,7 +441,7 @@ export default function EventVideoPageJP() {
         <div className="flex flex-wrap items-end gap-x-16 gap-y-12">
           <div className="flex-[1_1_320px]">
             <Kicker tone="night">SNSクリップ</Kicker>
-            <Title id="social-clips-heading" tone="night" className="fij-h2 mb-6">縦型ショート動画も<br />すぐに投稿可能</Title>
+            <Title stop="。" id="social-clips-heading" tone="night" className="fij-h2 mb-6">縦型ショート動画も<br />すぐに投稿可能</Title>
             <p className="fij-lede max-w-md" style={{ color: "rgba(253,248,243,0.78)" }}>
               メインのイベント撮影に加えて、字幕・カラーグレーディング済みの縦型ショート動画も制作できます。Instagram、LinkedIn、社内チャンネルにそのまま使えます。お問い合わせの際にお知らせください。
             </p>
@@ -463,7 +463,7 @@ export default function EventVideoPageJP() {
       {/* 09 FAQ */}
       <Section num="09" label="FAQ" labelLang="en" aria-labelledby="faq-heading">
         <div className="flex flex-wrap gap-x-16 gap-y-10">
-          <Title id="faq-heading" className="fij-h2 flex-[1_1_240px]">よくある質問</Title>
+          <Title stop="。" id="faq-heading" className="fij-h2 flex-[1_1_240px]">よくある質問</Title>
           <div className="flex-[3_1_520px] min-w-0 border-t-2" style={{ borderColor: "#1c1208" }}>
             {faqs.map((faq, i) => (
               <details key={i} className="fij-faq border-b" style={{ borderColor: "#1c1208" }} open={i === 0}>
@@ -483,7 +483,7 @@ export default function EventVideoPageJP() {
         <div className="flex flex-wrap items-end justify-between gap-x-16 gap-y-8">
           <div className="flex-[1_1_320px] max-w-2xl">
             <Kicker tone="ink">まずはお気軽に</Kicker>
-            <Title id="talk-heading" tone="ink" className="fij-h2">WhatsAppまたはメールで、すぐにご返信します</Title>
+            <Title stop="。" id="talk-heading" tone="ink" className="fij-h2">WhatsAppまたはメールで、すぐにご返信します</Title>
           </div>
           <div className="flex flex-wrap gap-3">
             <a href="https://wa.me/819038800895" className="fij-btn-orange">WhatsApp</a>

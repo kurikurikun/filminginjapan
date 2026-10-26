@@ -27,7 +27,7 @@ export default function ContactPageJp() {
           <div className="flex-[7_1_560px] pt-16 pb-12 lg:pt-24 lg:pb-14 flex flex-col justify-between gap-12">
             <div>
               <p className="text-sm font-medium mb-8" style={{ color: "#6b5a48" }}>東京 · 日本</p>
-              <Title as="h1" className="fij-h1 break-keep">お気軽に<br />ご相談ください</Title>
+              <Title stop="。" as="h1" className="fij-h1 break-keep">お気軽に<br />ご相談ください</Title>
             </div>
             <div className="flex flex-wrap items-end gap-x-12 gap-y-8">
               <p className="fij-lede flex-[1_1_340px] max-w-xl" style={{ color: "#4a3a2a" }}>プロジェクトの内容をお聞かせください。24時間以内にご返信します。</p>
@@ -64,7 +64,7 @@ export default function ContactPageJp() {
           <div className="flex flex-col md:flex-row gap-6 md:gap-14 min-w-0">
             <SectionLabel num="01" label="Enquire" labelLang="en" />
             <div id="enquire" className="flex-1 min-w-0 scroll-mt-24 border p-8 lg:p-10" style={{ backgroundColor: "#fff", borderColor: "#1c1208" }}>
-              <Title as="h2" className="text-[28px] leading-tight font-semibold tracking-[-0.03em] mb-2">無料見積もりを依頼する</Title>
+              <Title stop="。" as="h2" className="text-[28px] leading-tight font-semibold tracking-[-0.03em] mb-2">無料見積もりを依頼する</Title>
               <p className="text-[15px] mb-6" style={{ color: "#4a3a2a" }}>プロジェクトの内容をお聞かせください。24時間以内にご返信します。</p>
               <LandingContactForm service="General Enquiry (JP)" lang="jp" />
             </div>

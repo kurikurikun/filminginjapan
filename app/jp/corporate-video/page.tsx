@@ -178,7 +178,7 @@ export default function JpCorporateVideoPage() {
           <div className="flex-[7_1_560px] pt-16 pb-12 lg:pt-24 lg:pb-14 flex flex-col justify-between gap-12">
             <div>
               <p lang="en" className="text-sm font-medium mb-8" style={{ color: "#6b5a48" }}>Corporate Video · Tokyo · Japan</p>
-              <h1 className="fij-h1 break-keep">
+              <h1 className="fij-h1 break-keep text-[clamp(32px,8.4vw,64px)] lg:text-[clamp(44px,4.8vw,72px)]">
                 採用動画<span style={{ color: "#e95228" }}>。</span><br />
                 インタビュー動画<span style={{ color: "#e95228" }}>。</span>
               </h1>

@@ -450,7 +450,7 @@ export default function SocialMediaVideoPage() {
       {/* 09 Internal links */}
       <Section num="09" label="関連サービス" bordered aria-labelledby="related-heading">
         <div className="flex flex-wrap gap-x-16 gap-y-8">
-          <h2 id="related-heading" className="fij-h3 flex-[1_1_240px]">Also from Filming in Japan</h2>
+          <Title id="related-heading" className="fij-h3 flex-[1_1_240px]">Also from Filming in Japan</Title>
           <div className="flex-[3_1_520px] min-w-0 border-t-2" style={{ borderColor: "#1c1208" }}>
             {[
               { label: "Corporate branding & interview video", href: "/corporate-branding-videos-japan" },

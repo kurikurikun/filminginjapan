@@ -152,7 +152,7 @@ export default function RealEstatePageJp() {
           <div className="flex-[7_1_560px] pt-16 pb-12 lg:pt-24 lg:pb-14 flex flex-col justify-between gap-12">
             <div>
               <p className="text-sm font-medium mb-8" style={{ color: "#6b5a48" }}>不動産メディア · 東京 · 日本全国</p>
-              <Title as="h1" className="fij-h1 break-keep">不動産・商業施設の<br />写真・動画・<br />VRツアー</Title>
+              <Title as="h1" className="fij-h1 break-keep max-sm:text-[38px]">不動産・商業施設の<br />写真・動画・<br />VRツアー</Title>
             </div>
             <div className="flex flex-wrap items-end gap-x-12 gap-y-8">
               <p className="fij-lede flex-[1_1_340px]" style={{ color: "#4a3a2a" }}>
@@ -192,7 +192,7 @@ export default function RealEstatePageJp() {
             <SectionLabel num="01" label="Services" labelLang="en" />
             <div className="flex-1 min-w-0">
               <p className="text-sm font-medium mb-5" style={{ color: "#6b5a48" }}>サービス内容</p>
-              <h2 className="fij-h2 mb-14 break-keep">物件の魅力を最大限に引き出す<br />映像・写真制作<span style={{ color: "#e95228" }}>。</span></h2>
+              <h2 className="fij-h2 mb-14 max-sm:text-[32px]">物件の魅力を最大限に引き出す<br />映像・写真制作<span style={{ color: "#e95228" }}>。</span></h2>
 
               <div className="border-b" style={{ borderColor: "#1c1208" }}>
                 {services.map((s) => {

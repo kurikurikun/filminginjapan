@@ -183,7 +183,7 @@ export default function TestimonialsPageJP() {
           <div className="flex-[7_1_560px] pt-16 pb-12 lg:pt-24 lg:pb-14 flex flex-col justify-between gap-12">
             <div>
               <p className="text-sm font-medium mb-8" style={{ color: "#6b5a48" }}>導入事例動画 · 東京 · 日本</p>
-              <h1 className="fij-h1 break-keep">
+              <h1 className="fij-h1 break-keep text-[clamp(32px,8.4vw,64px)] lg:text-[clamp(44px,4.8vw,72px)]">
                 カスタマーストーリー<br />
                 動画制作<span style={{ color: "#e95228" }}>。</span>
               </h1>

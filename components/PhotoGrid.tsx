@@ -54,7 +54,7 @@ export default function PhotoGrid({ images, lang = "en" }: PhotoGridProps) {
               key={img.src}
               type="button"
               className={`fij-zoom relative overflow-hidden cursor-zoom-in focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#1c1208] ${
-                lead ? "col-span-2 row-span-2" : "aspect-[4/3]"
+                lead ? "col-span-2 aspect-[4/3] sm:aspect-auto sm:row-span-2" : "aspect-[4/3]"
               }`}
               style={{ backgroundColor: "#e8d9c8" }}
               onClick={() => setLightboxIndex(i)}

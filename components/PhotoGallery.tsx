@@ -12,7 +12,7 @@ export default function PhotoGallery({ events, lang = "en" }: { events: Event[];
   const altFor = (e: Event, n?: number) =>
     lang === "jp"
       ? `${e.label}（${e.location}）企業イベント写真撮影${n ? ` ${n}` : ""}`
-      : `${e.label} at ${e.location} — corporate event photography in Japan${n ? ` (${n})` : ""}`;
+      : `${e.label} at ${e.location}: corporate event photography in Japan${n ? ` (${n})` : ""}`;
     const [lightbox, setLightbox] = useState<{ eventIdx: number; photoIdx: number } | null>(null);
 
   function openLightbox(eventIdx: number, photoIdx: number, e: React.MouseEvent) {

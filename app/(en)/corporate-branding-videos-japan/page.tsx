@@ -21,7 +21,7 @@ export const metadata: Metadata = {
 const faqs = [
   {
     q: "How do you ensure the video aligns with our company's message?",
-    a: "We begin by meeting with your marketing team or production agency to understand the core message and outcomes. We also discuss where the video will be used — website, SNS, trade shows — so the length, style and tone are aligned with your overall marketing strategy.",
+    a: "We begin by meeting with your marketing team or production agency to understand the core message and outcomes. We also discuss where the video will be used (website, SNS, trade shows), so the length, style and tone are aligned with your overall marketing strategy.",
   },
   {
     q: "Do you always need a script and storyboard?",
@@ -33,7 +33,7 @@ const faqs = [
   },
   {
     q: "Can you source talent and locations for us?",
-    a: "Yes. We source both Japanese and international talent, as well as studios and outdoor locations across Japan. We specialise in working with non-professional talent — your own staff or influencers — to create authentic and engaging content.",
+    a: "Yes. We source both Japanese and international talent, as well as studios and outdoor locations across Japan. We specialise in working with non-professional talent (your own staff or influencers) to create authentic and engaging content.",
   },
   {
     q: "What size crew should we expect on the day?",
@@ -49,7 +49,7 @@ const faqs = [
   },
   {
     q: "Do we need filming permits in Japan?",
-    a: "If we are putting up a tripod then permits are generally required in public locations. With a small handheld crew of 3–5 people, permits are often not required — though there are many exceptions. We advise on a case-by-case basis.",
+    a: "If we are putting up a tripod then permits are generally required in public locations. With a small handheld crew of 3–5 people, permits are often not required, though there are many exceptions. We advise on a case-by-case basis.",
   },
   {
     q: "What are the typical costs for a corporate video in Japan?",
@@ -84,7 +84,7 @@ const clients = ["Sony", "HP", "Canon", "EY", "NEC", "Accenture", "Microsoft", "
 const workflow = [
   {
     step: "The Plan",
-    desc: "We location scout video interview locations beforehand, take photos, then work together on a call to discuss the best options. We align on message, length, tone and where the video will be used — website, SNS, trade shows.",
+    desc: "We location scout video interview locations beforehand, take photos, then work together on a call to discuss the best options. We align on message, length, tone and where the video will be used: website, SNS, trade shows.",
   },
   {
     step: "The Shoot",
@@ -92,30 +92,30 @@ const workflow = [
   },
   {
     step: "The Edit",
-    desc: "Native Japanese and English editors cut to your house style or to a pre-agreed script. We deliver in all formats — 16:9 for YouTube and websites, 9:16 for social — via Google Drive, Dropbox, MASV, Frame.io, or hard disk by courier.",
+    desc: "Native Japanese and English editors cut to your house style or to a pre-agreed script. We deliver in all formats: 16:9 for YouTube and websites, 9:16 for social. Delivered via Google Drive, Dropbox, MASV, Frame.io, or hard disk by courier.",
   },
 ];
 
 const brandFilms = [
-  { src: "https://www.youtube.com/embed/t-VSxoBQlRA?rel=0", title: "Corporate branding video — Filming in Japan", caption: "Brand film — Japan" },
-  { src: "https://www.youtube.com/embed/m1KV1UTpSzU?rel=0", title: "HP Asian Influencer Series — Filming in Japan", caption: "HP — Asian Influencer Series" },
-  { src: "https://player.vimeo.com/video/836766996?h=ccb3b1ab04", title: "White Express brand film — Filming in Japan", caption: "White Express — Brand Film" },
-  { src: "https://player.vimeo.com/video/517509247", title: "Craft brewery and distillery brand film — Japan", caption: "Craft Brewery & Distillery — Brand Film" },
-  { src: "https://player.vimeo.com/video/888141337?h=7f88a78ba3", title: "Handmade knife company brand film — Japan", caption: "Handmade Knife Company — Brand Film" },
+  { src: "https://www.youtube.com/embed/t-VSxoBQlRA?rel=0", title: "Corporate branding video: Filming in Japan", caption: "Brand film: Japan" },
+  { src: "https://www.youtube.com/embed/m1KV1UTpSzU?rel=0", title: "HP Asian Influencer Series: Filming in Japan", caption: "HP: Asian Influencer Series" },
+  { src: "https://player.vimeo.com/video/836766996?h=ccb3b1ab04", title: "White Express brand film: Filming in Japan", caption: "White Express: Brand Film" },
+  { src: "https://player.vimeo.com/video/517509247", title: "Craft brewery and distillery brand film: Japan", caption: "Craft Brewery & Distillery: Brand Film" },
+  { src: "https://player.vimeo.com/video/888141337?h=7f88a78ba3", title: "Handmade knife company brand film: Japan", caption: "Handmade Knife Company: Brand Film" },
 ];
 
 const recruitment = [
   {
     src: "https://www.youtube.com/embed/UbkuSD-ht1U?rel=0",
     title: "Google Japan recruitment video — Filming in Japan",
-    caption: "Google Japan — Recruitment Video",
+    caption: "Google Japan: Recruitment Video",
     desc: "Recruitment video for Google Japan, hearing from employees at their Inzai data centre near Tokyo about why they think Google is the right place for them.",
   },
   {
     src: "https://www.youtube.com/embed/ZDKXfIE_b1Y?rel=0",
     title: "EY employee profile video — Filming in Japan",
-    caption: "EY — Employee Profile Series",
-    desc: "Part of a series of six recruit and employee profile videos for EY — going beyond the workplace to discover the passion that drives their life and work.",
+    caption: "EY: Employee Profile Series",
+    desc: "Part of a series of six recruit and employee profile videos for EY: going beyond the workplace to discover the passion that drives their life and work.",
   },
 ];
 
@@ -144,14 +144,14 @@ export default function CorporateBrandingPage() {
           "@context": "https://schema.org",
           "@type": "FAQPage",
           "mainEntity": [
-            { "@type": "Question", "name": "How do you ensure the video aligns with our company's message?", "acceptedAnswer": { "@type": "Answer", "text": "We begin by meeting with your marketing team or production agency to understand the core message and outcomes. We also discuss where the video will be used — website, SNS, trade shows — so the length, style and tone are aligned with your overall marketing strategy." } },
+            { "@type": "Question", "name": "How do you ensure the video aligns with our company's message?", "acceptedAnswer": { "@type": "Answer", "text": "We begin by meeting with your marketing team or production agency to understand the core message and outcomes. We also discuss where the video will be used (website, SNS, trade shows), so the length, style and tone are aligned with your overall marketing strategy." } },
             { "@type": "Question", "name": "Do you always need a script and storyboard?", "acceptedAnswer": { "@type": "Answer", "text": "Not always. We're comfortable with a documentary style, but using a storyboard ensures the scenes support your message and avoids surprises in the edit stage." } },
             { "@type": "Question", "name": "What factors determine the budget for a corporate video in Japan?", "acceptedAnswer": { "@type": "Answer", "text": "The main driver is the number of production days and deliverables. Other factors include preproduction requirements, talent, locations, equipment and whether professional actors are needed. We can also tailor a plan to work within a fixed budget." } },
-            { "@type": "Question", "name": "Can you source talent and locations for us?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We source both Japanese and international talent, as well as studios and outdoor locations across Japan. We specialise in working with non-professional talent — your own staff or influencers — to create authentic and engaging content." } },
+            { "@type": "Question", "name": "Can you source talent and locations for us?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We source both Japanese and international talent, as well as studios and outdoor locations across Japan. We specialise in working with non-professional talent (your own staff or influencers) to create authentic and engaging content." } },
             { "@type": "Question", "name": "What size crew should we expect on the day?", "acceptedAnswer": { "@type": "Answer", "text": "Crew size depends on budget and the type of production. We can scale up when needed, but we also keep teams small when working with non-professional talent, helping them feel relaxed and natural on camera." } },
             { "@type": "Question", "name": "Can interviews be directed remotely by our overseas team?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We can link overseas directors to the set via remote video, enabling them to observe, give feedback or ask interview questions directly." } },
             { "@type": "Question", "name": "How long does it take to produce a corporate video in Japan?", "acceptedAnswer": { "@type": "Answer", "text": "A small-scale shoot can take 2–3 weeks from planning to delivery; larger productions 1–2 months. We recommend starting the conversation at least 4–6 weeks before your target delivery date." } },
-            { "@type": "Question", "name": "Do we need filming permits in Japan?", "acceptedAnswer": { "@type": "Answer", "text": "If we are putting up a tripod then permits are generally required in public locations. With a small handheld crew of 3–5 people, permits are often not required — though there are many exceptions. We advise on a case-by-case basis." } },
+            { "@type": "Question", "name": "Do we need filming permits in Japan?", "acceptedAnswer": { "@type": "Answer", "text": "If we are putting up a tripod then permits are generally required in public locations. With a small handheld crew of 3–5 people, permits are often not required, though there are many exceptions. We advise on a case-by-case basis." } },
             { "@type": "Question", "name": "What are the typical costs for a corporate video in Japan?", "acceptedAnswer": { "@type": "Answer", "text": "Costs depend on crew size, equipment, locations and post-production requirements. We provide transparent quotes and can tailor packages for different budgets while maintaining high production value." } }
           ]
         }) }}
@@ -207,7 +207,7 @@ export default function CorporateBrandingPage() {
               <div className="flex-1 min-w-0">
                 <Title className="fij-h2 mb-8">Interview filming in Japan</Title>
                 <p className="fij-lede max-w-2xl mb-5" style={{ color: "#4a3a2a" }}>
-                  CEO interviews, exec profiles, thought leadership pieces and case study interviews — filmed at your client&apos;s office, a studio, or anywhere in Japan. Our Japanese and English bilingual crew ensure the interviewee is relaxed and delivers genuine, on-message answers.
+                  CEO interviews, exec profiles, thought leadership pieces and case study interviews, filmed at your client&apos;s office, a studio, or anywhere in Japan. Our Japanese and English bilingual crew ensure the interviewee is relaxed and delivers genuine, on-message answers.
                 </p>
                 <p className="fij-lede max-w-2xl mb-12" style={{ color: "#4a3a2a" }}>
                   We can link overseas producers or directors to the set via remote video, enabling them to observe, give feedback or ask questions directly. Small crew to keep your subjects comfortable.
@@ -217,7 +217,7 @@ export default function CorporateBrandingPage() {
                     src="https://player.vimeo.com/video/561655197?h=d1ca57fb5c"
                     title="Corporate interview video samples — Filming in Japan"
                   />
-                  <figcaption className="mt-3 text-[15px] font-semibold">Selected corporate interview clips — Tokyo</figcaption>
+                  <figcaption className="mt-3 text-[15px] font-semibold">Selected corporate interview clips: Tokyo</figcaption>
                 </figure>
               </div>
             </div>
@@ -262,7 +262,7 @@ export default function CorporateBrandingPage() {
         <div className="flex flex-wrap items-end justify-between gap-x-16 gap-y-6 mb-16">
           <Title id="brand-films-heading" tone="night" className="fij-h2 flex-[1_1_320px]">Brand films &amp; corporate documentaries</Title>
           <p className="fij-lede flex-[1.4_1_420px] max-w-2xl" style={{ color: "rgba(253,248,243,0.78)" }}>
-            Brand films, product launches, influencer series and commercial content for global brands operating in Japan. We use a documentary approach — finding the authentic story behind the brand — rather than scripted advertising. Trusted by HP, Canon, Google and others to connect with Japanese and international audiences.
+            Brand films, product launches, influencer series and commercial content for global brands operating in Japan. We use a documentary approach, finding the authentic story behind the brand, rather than scripted advertising. Trusted by HP, Canon, Google and others to connect with Japanese and international audiences.
           </p>
         </div>
         {brandFilms.map((v, i) => (
@@ -363,7 +363,7 @@ export default function CorporateBrandingPage() {
         <div className="flex flex-wrap items-end justify-between gap-x-16 gap-y-8">
           <div>
             <h2 id="talk-heading" className="fij-h2 mb-4">Prefer to talk?</h2>
-            <p className="fij-lede" style={{ color: "rgba(253,248,243,0.78)" }}>WhatsApp or email — we reply fast.</p>
+            <p className="fij-lede" style={{ color: "rgba(253,248,243,0.78)" }}>WhatsApp or email. We reply fast.</p>
           </div>
           <div className="flex flex-wrap gap-3">
             <a href="https://wa.me/819038800895" className="fij-btn-orange">WhatsApp us</a>

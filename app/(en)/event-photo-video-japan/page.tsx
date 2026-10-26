@@ -26,7 +26,7 @@ export const metadata: Metadata = {
 const services = [
   "Corporate event photography",
   "Story-led highlight films, edited by our corporate video team",
-  "Photography-only coverage — video not required",
+  "Photography-only coverage: video not required",
   "Multi-camera coverage for conferences and panels",
   "Executive interviews and keynote documentation",
   "Same-day social media edits and recap videos",
@@ -37,12 +37,12 @@ const services = [
 const differentiators: { title: string; desc: string; dsMark?: boolean; link?: { href: string; label: string } }[] = [
   {
     title: "Filmmakers, not just camera operators",
-    desc: "Our crew makes corporate films and broadcast documentaries. We bring that eye for story, light and sound to your event — interviews that sound good, edits with a structure, and photos that are composed, not just captured.",
+    desc: "Our crew makes corporate films and broadcast documentaries. We bring that eye for story, light and sound to your event: interviews that sound good, edits with a structure, and photos that are composed, not just captured.",
     link: { href: "https://www.move-ment.co", label: "See our documentary and broadcast work" },
   },
   {
     title: "Bilingual crew",
-    desc: "We communicate smoothly in English and Japanese — coordinating directly with venues, local AV teams, and staff. No friction, no delays on the day.",
+    desc: "We communicate smoothly in English and Japanese, coordinating directly with venues, local AV teams, and staff. No friction, no delays on the day.",
   },
   {
     title: "Corporate-ready workflow",
@@ -75,7 +75,7 @@ const projects = [
   {
     title: "IHIF Asia – International Hospitality Investment Forum",
     venue: "Kimpton Shinjuku Tokyo · 2025",
-    desc: "Event highlight video, full photography coverage, and standalone attendee testimonial-style recap videos for the IHIF conference — all delivered from a single coordinated shoot.",
+    desc: "Event highlight video, full photography coverage, and standalone attendee testimonial-style recap videos for the IHIF conference, all delivered from a single coordinated shoot.",
     vimeoId: "1063107227",
     vimeoHash: "c0bc991380",
     img: null,
@@ -214,11 +214,11 @@ const faqs = [
   },
   {
     q: "Can you provide both photography and video on the same day?",
-    a: "Yes — one coordinated bilingual team covers both stills and motion. This keeps costs down and ensures a consistent look and feel across all your event assets.",
+    a: "Yes, one coordinated bilingual team covers both stills and motion. This keeps costs down and ensures a consistent look and feel across all your event assets.",
   },
   {
     q: "Do you offer photography only, without video?",
-    a: "Yes. Many clients book photo and video together, but photography-only coverage is just as welcome — from a single photographer to a multi-photographer team for larger events. You still get same-day social selects and a full edited archive on the same fast timeline. Just tell us in your enquiry and we'll quote photography on its own.",
+    a: "Yes. Many clients book photo and video together, but photography-only coverage is just as welcome, from a single photographer to a multi-photographer team for larger events. You still get same-day social selects and a full edited archive on the same fast timeline. Just tell us in your enquiry and we'll quote photography on its own.",
   },
   {
     q: "Can you handle multi-day or multi-location events?",
@@ -234,11 +234,11 @@ const faqs = [
   },
   {
     q: "How do you coordinate with Japanese venue AV teams?",
-    a: "Our bilingual crew liaises directly with Japanese venue and AV staff, removing the friction that slows down international production teams — particularly valuable for overseas clients managing events remotely.",
+    a: "Our bilingual crew liaises directly with Japanese venue and AV staff, removing the friction that slows down international production teams, particularly valuable for overseas clients managing events remotely.",
   },
   {
     q: "Can you film executive interviews at the event?",
-    a: "Yes. We set up dedicated interview spots at the venue for planned executive interviews and spontaneous attendee soundbites — adding depth to your event coverage and giving you material for future campaigns.",
+    a: "Yes. We set up dedicated interview spots at the venue for planned executive interviews and spontaneous attendee soundbites, adding depth to your event coverage and giving you material for future campaigns.",
   },
 ];
 
@@ -265,7 +265,7 @@ export default function EventVideoPage() {
         <div className="fij-wrap flex flex-wrap lg:flex-nowrap gap-x-12">
           <div className="flex-[7_1_560px] pt-16 pb-12 lg:pt-24 lg:pb-14 flex flex-col justify-between gap-12">
             <div>
-              <p className="text-sm font-medium mb-8" style={{ color: "#6b5a48" }}>Event Coverage — Tokyo · Japan</p>
+              <p className="text-sm font-medium mb-8" style={{ color: "#6b5a48" }}>Event Coverage · Tokyo · Japan</p>
               <Title as="h1" className="fij-h1">Corporate event photo &amp; video in Japan</Title>
             </div>
             <div className="flex flex-wrap items-end gap-x-12 gap-y-8">
@@ -274,7 +274,7 @@ export default function EventVideoPage() {
                   Event coverage by a corporate and documentary film team.
                 </p>
                 <p className="fij-lede" style={{ color: "#4a3a2a" }}>
-                  Our bilingual Tokyo crew photographs and films summits, conferences and galas — and edits highlight videos with a story, not just a recap.
+                  Our bilingual Tokyo crew photographs and films summits, conferences and galas, and edits highlight videos with a story, not just a recap.
                 </p>
               </div>
               <a href="#enquire" className="fij-btn shrink-0">Get a free quote</a>
@@ -433,7 +433,7 @@ export default function EventVideoPage() {
         <h2 id="feedback-heading" className="sr-only">Client feedback</h2>
         <figure className="mb-16">
           <blockquote className="text-[30px] sm:text-[40px] lg:text-[52px] leading-[1.12] font-semibold tracking-[-0.035em] mb-7">
-            <span style={{ color: "#e95228" }}>&ldquo;</span>Chris delivered exceptional photography and video coverage across our entire 3-day event. Beyond the visuals, he also helped bridge language gaps with local venue staff and AV teams — something that proved invaluable to our onsite execution.<span style={{ color: "#e95228" }}>&rdquo;</span>
+            <span style={{ color: "#e95228" }}>&ldquo;</span>Chris delivered exceptional photography and video coverage across our entire 3-day event. Beyond the visuals, he also helped bridge language gaps with local venue staff and AV teams, something that proved invaluable to our onsite execution.<span style={{ color: "#e95228" }}>&rdquo;</span>
           </blockquote>
           <figcaption className="text-[15px]" style={{ color: "#6b5a48" }}>Events Director · Global Advertising Organisation · Tokyo</figcaption>
         </figure>
@@ -464,7 +464,7 @@ export default function EventVideoPage() {
             <Kicker tone="night">Social clips</Kicker>
             <Title id="social-clips-heading" tone="night" className="fij-h2 mb-6">Vertical edits, ready to post</Title>
             <p className="fij-lede max-w-md" style={{ color: "rgba(253,248,243,0.78)" }}>
-              Alongside your main event coverage, we can cut short vertical clips — captioned and colour-graded, ready for Instagram, LinkedIn and internal channels. Just mention it in your enquiry.
+              Alongside your main event coverage, we can cut short vertical clips, captioned and colour-graded, ready for Instagram, LinkedIn and internal channels. Just mention it in your enquiry.
             </p>
           </div>
           <div className="flex-[1.3_1_460px] grid grid-cols-3 gap-3 sm:gap-4 items-end">
@@ -504,7 +504,7 @@ export default function EventVideoPage() {
         <div className="flex flex-wrap items-end justify-between gap-x-16 gap-y-8">
           <div>
             <h2 id="talk-heading" className="fij-h2 mb-4">Prefer to talk?</h2>
-            <p className="fij-lede" style={{ color: "rgba(253,248,243,0.78)" }}>WhatsApp or email — we reply fast.</p>
+            <p className="fij-lede" style={{ color: "rgba(253,248,243,0.78)" }}>WhatsApp or email. We reply fast.</p>
           </div>
           <div className="flex flex-wrap gap-3">
             <a href="https://wa.me/819038800895" className="fij-btn-orange">WhatsApp us</a>

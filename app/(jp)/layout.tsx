@@ -37,7 +37,7 @@ const businessSchema = {
       "image": "https://www.filminginjapan.com/images/fij.png",
       "logo": "https://www.filminginjapan.com/images/fij.png",
       "description":
-        "Bilingual (English/Japanese) corporate video production and event photography in Tokyo and across Japan — branding films, client testimonials, event coverage, and real estate.",
+        "Bilingual (English/Japanese) corporate video production and event photography in Tokyo and across Japan: branding films, client testimonials, event coverage, and real estate.",
       "email": "filminginjapan@move-ment.co",
       "telephone": "+81-50-1724-6517",
       "address": {

@@ -22,29 +22,29 @@ const points = [
   {
     num: "01",
     title: "Authentic storytelling",
-    desc: "We put your clients at ease so they speak naturally on camera — no scripts, no stiff delivery. We use a documentary approach that gets genuine, honest comments that convert far better than polished PR speak.",
+    desc: "We put your clients at ease so they speak naturally on camera: no scripts, no stiff delivery. We use a documentary approach that gets genuine, honest comments that convert far better than polished PR speak.",
   },
   {
     num: "02",
     title: "Bilingual interviews",
-    desc: "Native English and Japanese speakers on every shoot. We interview in both languages and deliver subtitled cuts for global and domestic use. Your Japanese clients speak in Japanese — we handle everything else.",
+    desc: "Native English and Japanese speakers on every shoot. We interview in both languages and deliver subtitled cuts for global and domestic use. Your Japanese clients speak in Japanese. We handle everything else.",
   },
   {
     num: "03",
     title: "Studio, office, or anywhere in Japan",
-    desc: "Based in Tokyo and Hiroshima, we coordinate shoots across Japan — at your client's office, facility, studio, or chosen location. Green screen available on location. Small crew to keep your client relaxed.",
+    desc: "Based in Tokyo and Hiroshima, we coordinate shoots across Japan, at your client's office, facility, studio, or chosen location. Green screen available on location. Small crew to keep your client relaxed.",
   },
   {
     num: "04",
     title: "Multi-format delivery",
-    desc: "16:9 long-form, 9:16 social cuts, 1:1 square — all included. We deliver via Google Drive, Dropbox, MASV or Frame.io. Hard disk by DHL or FedEx also available for large projects.",
+    desc: "16:9 long-form, 9:16 social cuts, 1:1 square, all included. We deliver via Google Drive, Dropbox, MASV or Frame.io. Hard disk by DHL or FedEx also available for large projects.",
   },
 ];
 
 const faqs = [
   {
     q: "Where do you film client testimonial videos in Japan?",
-    a: "Anywhere that suits your client — their office, a studio, an event venue, or outdoors. We can also set up green screen on location. We scout locations beforehand and advise on the best setup for lighting and sound.",
+    a: "Anywhere that suits your client: their office, a studio, an event venue, or outdoors. We can also set up green screen on location. We scout locations beforehand and advise on the best setup for lighting and sound.",
   },
   {
     q: "Can you film in Japanese and English on the same shoot?",
@@ -72,7 +72,7 @@ const faqs = [
   },
   {
     q: "Do you provide B-roll footage as part of the testimonial?",
-    a: "Yes. We can capture additional office, product or cityscape footage — for example, Tokyo skyline shots — to complement the interview and make the final video more engaging.",
+    a: "Yes. We can capture additional office, product or cityscape footage, for example Tokyo skyline shots, to complement the interview and make the final video more engaging.",
   },
   {
     q: "How do you ensure the interviewee is comfortable on camera?",
@@ -84,7 +84,7 @@ const faqs = [
   },
   {
     q: "What formats do you deliver in?",
-    a: "16:9 for YouTube and websites, 9:16 for social media (Reels, TikTok, Stories), and 1:1 square. We deliver via Google Drive, Dropbox, MASV or Frame.io — or hard disk by courier if required.",
+    a: "16:9 for YouTube and websites, 9:16 for social media (Reels, TikTok, Stories), and 1:1 square. We deliver via Google Drive, Dropbox, MASV or Frame.io, or hard disk by courier if required.",
   },
 ];
 
@@ -120,17 +120,17 @@ export default function TestimonialsPage() {
           "@context": "https://schema.org",
           "@type": "FAQPage",
           "mainEntity": [
-            { "@type": "Question", "name": "Where do you film client testimonial videos in Japan?", "acceptedAnswer": { "@type": "Answer", "text": "Anywhere that suits your client — their office, a studio, an event venue, or outdoors. We can also set up green screen on location. We scout locations beforehand and advise on the best setup for lighting and sound." } },
+            { "@type": "Question", "name": "Where do you film client testimonial videos in Japan?", "acceptedAnswer": { "@type": "Answer", "text": "Anywhere that suits your client: their office, a studio, an event venue, or outdoors. We can also set up green screen on location. We scout locations beforehand and advise on the best setup for lighting and sound." } },
             { "@type": "Question", "name": "Can you film in Japanese and English on the same shoot?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We have native English and Japanese interviewers on every shoot. We can conduct the same interview in both languages and cut bilingual versions for domestic and international audiences." } },
             { "@type": "Question", "name": "What clients have you produced testimonial videos for?", "acceptedAnswer": { "@type": "Answer", "text": "We've been trusted by JLL, Microsoft, SAP, Celonis, HP and many others to film client testimonial and case study videos in Japan." } },
             { "@type": "Question", "name": "Do you offer studio facilities?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We have access to studios in Tokyo, or we can set up a professional-grade studio environment at your client's office using our own lighting and backdrop equipment." } },
             { "@type": "Question", "name": "What camera and audio equipment do you use?", "acceptedAnswer": { "@type": "Answer", "text": "Our standard equipment is the Canon C80 and Canon R5C, but we have shot on Sony FX3, FX6, FX9 and Arri Amira cameras. Audio is captured with boom and lapel mics. We have a compact lighting setup that travels well, or can do three-point lighting." } },
             { "@type": "Question", "name": "Can the interview be directed remotely by our overseas team?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We can link overseas producers or directors to the set via remote video, enabling them to observe, give feedback or ask questions directly." } },
             { "@type": "Question", "name": "What is the process for preparing a testimonial shoot?", "acceptedAnswer": { "@type": "Answer", "text": "We work with you in advance to agree on interview questions, filming style and location. We can also coordinate directly with your client to keep scheduling simple and ensure they feel comfortable on camera before the shoot day." } },
-            { "@type": "Question", "name": "Do you provide B-roll footage as part of the testimonial?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We can capture additional office, product or cityscape footage — for example, Tokyo skyline shots — to complement the interview and make the final video more engaging." } },
+            { "@type": "Question", "name": "Do you provide B-roll footage as part of the testimonial?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We can capture additional office, product or cityscape footage, for example Tokyo skyline shots, to complement the interview and make the final video more engaging." } },
             { "@type": "Question", "name": "How do you ensure the interviewee is comfortable on camera?", "acceptedAnswer": { "@type": "Answer", "text": "We treat interviews as a natural conversation, with genuine curiosity about what drives the interviewee. We keep crew sizes small and create a relaxed environment so interviewees deliver authentic, engaging answers rather than stiff on-camera performances." } },
             { "@type": "Question", "name": "How quickly can you turn around the edited video?", "acceptedAnswer": { "@type": "Answer", "text": "Rough cut typically within 1–2 weeks of the shoot. Final delivery depends on the number of review rounds. Same-day social cuts available on request." } },
-            { "@type": "Question", "name": "What formats do you deliver in?", "acceptedAnswer": { "@type": "Answer", "text": "16:9 for YouTube and websites, 9:16 for social media (Reels, TikTok, Stories), and 1:1 square. We deliver via Google Drive, Dropbox, MASV or Frame.io — or hard disk by courier if required." } }
+            { "@type": "Question", "name": "What formats do you deliver in?", "acceptedAnswer": { "@type": "Answer", "text": "16:9 for YouTube and websites, 9:16 for social media (Reels, TikTok, Stories), and 1:1 square. We deliver via Google Drive, Dropbox, MASV or Frame.io, or hard disk by courier if required." } }
           ]
         }) }}
       />
@@ -247,7 +247,7 @@ export default function TestimonialsPage() {
         <div className="flex flex-wrap items-end gap-x-16 gap-y-8 mb-14">
           <Title id="green-heading" className="fij-h2 flex-[1_1_380px]">Studio quality, anywhere in Japan</Title>
           <p className="fij-lede flex-[1_1_380px] max-w-xl" style={{ color: "#4a3a2a" }}>
-            We have recorded corporate presentations for companies such as Canon, and client testimonials at events for companies such as SAP, on green screen. We carry a complete package — large portable green screen, professional lighting, boom and lapel sound, and cameras — to set up a broadcast-quality green screen studio anywhere there is space.
+            We have recorded corporate presentations for companies such as Canon, and client testimonials at events for companies such as SAP, on green screen. We carry a complete package: large portable green screen, professional lighting, boom and lapel sound, and cameras, to set up a broadcast-quality green screen studio anywhere there is space.
           </p>
         </div>
         <div className="grid grid-cols-2 gap-4">
@@ -306,7 +306,7 @@ export default function TestimonialsPage() {
         <div className="flex flex-wrap items-end justify-between gap-x-16 gap-y-8">
           <div>
             <h2 id="talk-heading" className="fij-h2 mb-4">Prefer to talk?</h2>
-            <p className="fij-lede" style={{ color: "rgba(253,248,243,0.78)" }}>WhatsApp or email — we reply fast.</p>
+            <p className="fij-lede" style={{ color: "rgba(253,248,243,0.78)" }}>WhatsApp or email. We reply fast.</p>
           </div>
           <div className="flex flex-wrap gap-3">
             <a href="https://wa.me/819038800895" className="fij-btn-orange">WhatsApp us</a>

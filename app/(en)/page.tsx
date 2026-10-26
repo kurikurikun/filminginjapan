@@ -36,7 +36,7 @@ const workflow = [
 const faqs = [
   { q: "How far in advance do you need to confirm?", a: "Earlier is always better, but we're flexible. A 1–2 person shoot can typically be confirmed up to a week before the date." },
   { q: "What are your payment terms?", a: "We invoice after delivery. For large upfront costs like studio hire or equipment rental, we require those costs in advance." },
-  { q: "Can your team conduct interviews in Japanese?", a: "Yes — we have both native and fluent Japanese speakers who have conducted many interviews in Japanese." },
+  { q: "Can your team conduct interviews in Japanese?", a: "Yes, we have both native and fluent Japanese speakers who have conducted many interviews in Japanese." },
   { q: "Can you just shoot and hand over the raw footage?", a: "Absolutely. We're happy to shoot and deliver the raw data for your team to edit." },
   { q: "How do you deliver footage?", a: "Usually via Google Drive or Dropbox, but we've also FedExed hard drives around the world." },
   { q: "Do you take on smaller or more creative projects?", a: "Absolutely. If there's a human story in it, we're usually keen. Recent examples: a shamisen player under cherry blossoms, pro women wrestlers, a classical violinist on a mountaintop." },
@@ -83,7 +83,7 @@ export default function HomePage() {
               "mainEntity": [
                 { "@type": "Question", "name": "How far in advance do you need to confirm?", "acceptedAnswer": { "@type": "Answer", "text": "Earlier is always better, but we're flexible. A 1–2 person shoot can typically be confirmed up to a week before the date." } },
                 { "@type": "Question", "name": "What are your payment terms?", "acceptedAnswer": { "@type": "Answer", "text": "We invoice after delivery. For large upfront costs like studio hire or equipment rental, we require those costs in advance." } },
-                { "@type": "Question", "name": "Can your team conduct interviews in Japanese?", "acceptedAnswer": { "@type": "Answer", "text": "Yes — we have both native and fluent Japanese speakers who have conducted many interviews in Japanese." } },
+                { "@type": "Question", "name": "Can your team conduct interviews in Japanese?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, we have both native and fluent Japanese speakers who have conducted many interviews in Japanese." } },
                 { "@type": "Question", "name": "Can you just shoot and hand over the raw footage?", "acceptedAnswer": { "@type": "Answer", "text": "Absolutely. We're happy to shoot and deliver the raw data for your team to edit." } },
                 { "@type": "Question", "name": "How do you deliver footage?", "acceptedAnswer": { "@type": "Answer", "text": "Usually via Google Drive or Dropbox, but we've also FedExed hard drives around the world." } },
                 { "@type": "Question", "name": "Do you take on smaller or more creative projects?", "acceptedAnswer": { "@type": "Answer", "text": "Absolutely. If there's a human story in it, we're usually keen. Recent examples: a shamisen player under cherry blossoms, pro women wrestlers, a classical violinist on a mountaintop." } }
@@ -188,7 +188,7 @@ export default function HomePage() {
               and Japanese work environments.
             </p>
             <p className="fij-lede mb-10" style={{ color: "#0d0a07" }}>
-              From Tokyo boardrooms to mountain summits — we make corporate video feel genuinely human.
+              From Tokyo boardrooms to mountain summits. We make corporate video feel genuinely human.
             </p>
             <div className="flex flex-wrap gap-3">
               <Link href="/contact" className="fij-btn">Get in touch</Link>

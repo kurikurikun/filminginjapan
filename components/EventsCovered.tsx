@@ -12,14 +12,14 @@ const copy = {
     title: "We've probably been to your venue",
     label: "撮影会場",
     wall: ["Palace Hotel Tokyo", "ANA InterContinental Tokyo", "Kimpton Shinjuku Tokyo", "Happo-en", "Makuhari Messe", "Grand Hyatt Tokyo"],
-    lede: "Corporate event photography and video at hotels, conference centres and venues across Japan — including Palace Hotel Tokyo, ANA InterContinental Tokyo, Kimpton Shinjuku Tokyo, Happo-en, Makuhari Messe and Grand Hyatt Tokyo. Search for yours below.",
+    lede: "Corporate event photography and video at hotels, conference centres and venues across Japan, including Palace Hotel Tokyo, ANA InterContinental Tokyo, Kimpton Shinjuku Tokyo, Happo-en, Makuhari Messe and Grand Hyatt Tokyo. Search for yours below.",
     search: "Search a venue or event…",
     searchLabel: "Search events or venues",
     listed: (n: number) => `${n} events listed`,
     matches: (n: number) => `${n} match${n === 1 ? "" : "es"}`,
     showAll: (n: number) => `Show all ${n} events +`,
     showFewer: "Show fewer −",
-    none: "No match yet — we may still know the venue.",
+    none: "No match yet. We may still know the venue.",
     ask: "Ask us",
     notListed: "Don't see your venue?",
     notListed2: "we've probably shot nearby.",
@@ -174,7 +174,7 @@ export default function EventsCovered({ lang = "en", num }: { lang?: Lang; num?:
             </button>
           ) : <span />}
           <p className="text-[15px]" style={{ color: "#4a3a2a" }}>
-            {t.notListed} <a href="#enquire" className="fij-link">{t.ask}</a>{lang === "en" ? " — " : " "}{t.notListed2}
+            {t.notListed} <a href="#enquire" className="fij-link">{t.ask}</a>{lang === "en" ? ": " : " "}{t.notListed2}
           </p>
         </div>
 

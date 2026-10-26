@@ -143,7 +143,7 @@ export default function HomePageJp() {
               ニュージーランド出身。長年にわたり日本各地で撮影を続け、グローバルブランドと日本のストーリーをつなぐ事業を築いてきました。日英バイリンガルで、日本語・英語どちらの現場にも対応しています。
             </p>
             <p className="fij-lede mb-10" style={{ color: "#0d0a07" }}>
-              東京のオフィスから山頂まで — 企業映像に、本物の人間味を。
+              東京のオフィスから山頂まで。企業映像に、本物の人間味を。
             </p>
             <div className="flex flex-wrap gap-3">
               <Link href="/jp/contact" className="fij-btn">お問い合わせ</Link>

@@ -7,7 +7,7 @@ import LandingContactForm from "@/components/LandingContactForm";
 import LazyIframe from "@/components/LazyIframe";
 export const metadata: Metadata = {
   title: "Corporate Video & Interview Filming Japan",
-  description: "Professional corporate interview, brand film and recruitment video production in Japan. Bilingual EN/JP team. Trusted by Sony, Google, Microsoft, HP, EY, Canon.",
+  description: "Corporate interview filming, brand films, documentaries and recruitment videos across Japan. Bilingual EN/JP crew trusted by Sony, Google, Microsoft, HP and EY.",
   alternates: {
     canonical: "https://www.filminginjapan.com/corporate-branding-videos-japan",
     languages: {
@@ -163,11 +163,11 @@ export default function CorporateBrandingPage() {
           <div className="flex-[7_1_560px] pt-16 pb-12 lg:pt-24 lg:pb-14 flex flex-col justify-between gap-12">
             <div>
               <p className="text-sm font-medium mb-8" style={{ color: "#6b5a48" }}>Corporate Video · Tokyo · Japan</p>
-              <Title as="h1" className="fij-h1">Corporate Video Production in Japan</Title>
+              <Title as="h1" className="fij-h1">Corporate Video &amp; Interview Filming in Japan</Title>
             </div>
             <div className="flex flex-wrap items-end gap-x-12 gap-y-8">
               <p className="fij-lede flex-[1_1_340px]" style={{ color: "#4a3a2a" }}>
-                Corporate interviews, brand films and recruitment videos for global companies operating in Japan.
+                Corporate interview filming, brand films, corporate documentaries and recruitment videos for global companies operating in Japan.
                 Bilingual team, broadcast-quality results.
               </p>
               <a href="#enquire" className="fij-btn shrink-0">Get a free quote</a>
@@ -205,7 +205,7 @@ export default function CorporateBrandingPage() {
             <div className="flex flex-col md:flex-row gap-6 md:gap-14">
               <SectionLabel num="01" label="企業インタビュー" />
               <div className="flex-1 min-w-0">
-                <Title className="fij-h2 mb-8">Corporate Interviews</Title>
+                <Title className="fij-h2 mb-8">Interview filming in Japan</Title>
                 <p className="fij-lede max-w-2xl mb-5" style={{ color: "#4a3a2a" }}>
                   CEO interviews, exec profiles, thought leadership pieces and case study interviews — filmed at your client&apos;s office, a studio, or anywhere in Japan. Our Japanese and English bilingual crew ensure the interviewee is relaxed and delivers genuine, on-message answers.
                 </p>
@@ -260,7 +260,7 @@ export default function CorporateBrandingPage() {
       {/* 03 Brand Films — dark alternating rows */}
       <Section num="03" label="ブランド映像" tone="night" aria-labelledby="brand-films-heading">
         <div className="flex flex-wrap items-end justify-between gap-x-16 gap-y-6 mb-16">
-          <Title id="brand-films-heading" tone="night" className="fij-h2 flex-[1_1_320px]">Brand Films</Title>
+          <Title id="brand-films-heading" tone="night" className="fij-h2 flex-[1_1_320px]">Brand films &amp; corporate documentaries</Title>
           <p className="fij-lede flex-[1.4_1_420px] max-w-2xl" style={{ color: "rgba(253,248,243,0.78)" }}>
             Brand films, product launches, influencer series and commercial content for global brands operating in Japan. We use a documentary approach — finding the authentic story behind the brand — rather than scripted advertising. Trusted by HP, Canon, Google and others to connect with Japanese and international audiences.
           </p>

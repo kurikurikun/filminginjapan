@@ -145,7 +145,7 @@ const brandFilms = [
 /** Japanese headline ending in the coloured 。 (the Japanese full stop). */
 function JTitle({ as: Tag = "h2", className = "fij-h2", id, children }: { as?: "h1" | "h2" | "h3"; className?: string; id?: string; children: ReactNode }) {
   return (
-    <Tag id={id} className={className}>
+    <Tag id={id} className={`${className} ${className.includes("fij-h2") ? "text-[length:clamp(32px,4.2vw,60px)]" : ""} [line-break:strict] [word-break:auto-phrase]`}>
       {children}
       <span style={{ color: "#e95228" }}>。</span>
     </Tag>
@@ -178,7 +178,7 @@ export default function JpCorporateVideoPage() {
           <div className="flex-[7_1_560px] pt-16 pb-12 lg:pt-24 lg:pb-14 flex flex-col justify-between gap-12">
             <div>
               <p lang="en" className="text-sm font-medium mb-8" style={{ color: "#6b5a48" }}>Corporate Video · Tokyo · Japan</p>
-              <h1 className="fij-h1 break-keep text-[clamp(32px,8.4vw,64px)] lg:text-[clamp(44px,4.8vw,72px)]">
+              <h1 className="fij-h1 [line-break:strict] [word-break:auto-phrase] text-[length:clamp(32px,8.4vw,64px)] lg:text-[length:clamp(44px,4.8vw,72px)]">
                 採用動画<span style={{ color: "#e95228" }}>。</span><br />
                 インタビュー動画<span style={{ color: "#e95228" }}>。</span>
               </h1>
@@ -298,9 +298,9 @@ export default function JpCorporateVideoPage() {
 
       {/* 03 コーポレートインタビュー */}
       <Section num="03" label="Interviews" labelLang="en" aria-labelledby="interviews-heading">
+        <JTitle id="interviews-heading" className="fij-h2 mb-10">コーポレートインタビュー</JTitle>
         <div className="flex flex-wrap items-start gap-x-14 gap-y-10">
           <div className="flex-[1_1_340px]">
-            <JTitle id="interviews-heading" className="fij-h2 mb-8">コーポレートインタビュー</JTitle>
             <p className="fij-lede mb-5" style={{ color: "#4a3a2a" }}>
               CEO・役員インタビュー、ソートリーダーシップ映像、導入事例インタビューなど。クライアント先オフィス、スタジオ、日本全国どこでも対応。日英バイリンガルのクルーが、インタビュイーがリラックスして自然な言葉で語れる環境を作ります。
             </p>

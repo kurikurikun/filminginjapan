@@ -221,7 +221,7 @@ export default function SocialMediaVideoPage() {
                 {["30 sec", "15 sec"].map((dur) => (
                   <div key={dur} className="grid grid-cols-[72px_1fr_1fr_1fr] sm:grid-cols-[96px_1fr_1fr_1fr] border-b" style={{ borderColor: "#1c1208" }}>
                     <div className="p-4 flex items-center">
-                      <span className="text-[15px] font-semibold tabular-nums">{dur}</span>
+                      <span className="text-[15px] font-semibold tabular-nums whitespace-nowrap">{dur}</span>
                     </div>
                     {[0, 1, 2].map((ci) => (
                       <div key={ci} className="p-4 border-l flex items-center justify-center" style={{ borderColor: "#1c1208" }}>

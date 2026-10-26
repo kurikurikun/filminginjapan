@@ -80,7 +80,7 @@ const faqs = [
 /** Japanese headline ending in the coloured 。 (the Japanese full stop). */
 function JTitle({ as: Tag = "h2", className = "fij-h2", id, children }: { as?: "h1" | "h2" | "h3"; className?: string; id?: string; children: ReactNode }) {
   return (
-    <Tag id={id} className={className}>
+    <Tag id={id} className={`${className} ${className.includes("fij-h2") ? "text-[length:clamp(32px,4.2vw,60px)]" : ""} [line-break:strict] [word-break:auto-phrase]`}>
       {children}
       <span style={{ color: "#e95228" }}>。</span>
     </Tag>
@@ -183,7 +183,7 @@ export default function TestimonialsPageJP() {
           <div className="flex-[7_1_560px] pt-16 pb-12 lg:pt-24 lg:pb-14 flex flex-col justify-between gap-12">
             <div>
               <p className="text-sm font-medium mb-8" style={{ color: "#6b5a48" }}>導入事例動画 · 東京 · 日本</p>
-              <h1 className="fij-h1 break-keep text-[clamp(32px,8.4vw,64px)] lg:text-[clamp(44px,4.8vw,72px)]">
+              <h1 className="fij-h1 [line-break:strict] [word-break:auto-phrase] text-[length:clamp(32px,8.4vw,64px)] lg:text-[length:clamp(44px,4.8vw,72px)]">
                 カスタマーストーリー<br />
                 動画制作<span style={{ color: "#e95228" }}>。</span>
               </h1>

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { Section, SectionLabel, Title, TrustedBy } from "@/components/editorial";
 import Footer from "@/components/Footer";
 import LandingContactForm from "@/components/LandingContactForm";
@@ -50,28 +51,32 @@ const differentiators = [
 
 const projects = [
   {
-    title: "Skyy Development データセンター コンセプト映像",
-    meta: "Skyy Development · 2026",
-    desc: "データセンター開発会社Skyy Developmentの新しいウェブサイト公開に合わせて制作したコンセプト・プロモーション映像。",
-    src: "https://player.vimeo.com/video/1234077140?h=9304bb03e5&title=0&byline=0&portrait=0",
+    title: "データセンター開発会社のコンセプト映像",
+    meta: "データセンター開発会社 · 東京 · 2026",
+    desc: "データセンター開発会社の新しいウェブサイト向けコンセプト映像。コンテンポラリーダンサーと光のVFXが、施設、開所式、地域の映像をつなぎます。ダンスはスタジオで、施設はロケで撮影しました。",
+    src: null,
+    stills: [1, 2, 3, 4].map((n) => ({ src: `/images/dc/data-centre-concept-film-dancer-${n}.jpg`, alt: "データセンターのコンセプト映像より、光のエフェクトとコンテンポラリーダンサー" })),
   },
   {
     title: "Princeton Digital Group データセンター開所式（埼玉）",
     meta: "Princeton Digital Group · 埼玉 · 2025",
     desc: "開所式のダイジェスト動画と写真撮影。SNS用の写真セレクトはイベント終了後すぐに納品しました。",
     src: "https://player.vimeo.com/video/1079354745?h=17c53b18eb&title=0&byline=0&portrait=0",
+    stills: null,
   },
   {
     title: "MC Digital Reality コロケーション・データセンター",
     meta: "MC Digital Reality · 日本",
     desc: "MC Digital Realityのコロケーションサービスを紹介するプロモーション映像。データセンター内で撮影しました。",
     src: "https://player.vimeo.com/video/667821838?h=d32683d90f&title=0&byline=0&portrait=0",
+    stills: null,
   },
   {
     title: "Google Japan 印西データセンター 採用動画",
     meta: "Google · 千葉県印西市",
     desc: "東京近郊の印西データセンターで働くGoogle Japan社員に、Googleで働く理由を聞いた採用動画。インタビューとBロールを現地で撮影しました。",
     src: "https://www.youtube.com/embed/UbkuSD-ht1U?rel=0",
+    stills: null,
   },
 ];
 
@@ -102,7 +107,7 @@ const faqs = [
   },
 ];
 
-const clients = ["Google", "Princeton Digital Group", "MC Digital Reality", "Skyy Development", "JLL", "CBRE"];
+const clients = ["Google", "Princeton Digital Group", "MC Digital Reality", "JLL", "CBRE"];
 
 export default function DataCenterVideoPageJp() {
   return (
@@ -144,7 +149,7 @@ export default function DataCenterVideoPageJp() {
             <figure className="w-full">
               <div className="relative aspect-[16/9]" style={{ backgroundColor: "#241a12" }}>
                 <LazyIframe
-                  src={projects[1].src}
+                  src={projects[1].src!}
                   className="absolute inset-0 w-full h-full"
                   allow="autoplay; fullscreen; picture-in-picture"
                   allowFullScreen
@@ -236,9 +241,18 @@ export default function DataCenterVideoPageJp() {
             className={`flex flex-wrap items-center gap-x-14 gap-y-8 py-12 border-t ${i % 2 ? "flex-row-reverse" : ""}`}
             style={{ borderColor: "rgba(253,248,243,0.25)" }}
           >
+            {p.stills ? (
+              <div className="flex-[1.25_1_440px] grid grid-cols-2 gap-2">
+                {p.stills.map((img) => (
+                  <div key={img.src} className="relative aspect-[16/9]" style={{ backgroundColor: "#241a12" }}>
+                    <Image src={img.src} alt={img.alt} fill className="object-cover" sizes="(max-width: 1024px) 50vw, 360px" />
+                  </div>
+                ))}
+              </div>
+            ) : (
             <div className="relative flex-[1.25_1_440px] aspect-[16/9]" style={{ backgroundColor: "#241a12" }}>
               <LazyIframe
-                src={p.src}
+                src={p.src!}
                 className="absolute inset-0 w-full h-full"
                 allow="autoplay; fullscreen; picture-in-picture"
                 allowFullScreen
@@ -246,6 +260,7 @@ export default function DataCenterVideoPageJp() {
                 loading="lazy"
               />
             </div>
+            )}
             <div className="flex-[1_1_340px]">
               <p className="text-sm font-medium mb-4" style={{ color: "#f07a52" }}>{p.meta}</p>
               <h3 className="text-[26px] lg:text-[36px] leading-[1.1] font-semibold tracking-[-0.03em] mb-4">{p.title}</h3>

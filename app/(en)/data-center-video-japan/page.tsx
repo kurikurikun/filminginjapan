@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { Section, SectionLabel, Title, TrustedBy } from "@/components/editorial";
 import Footer from "@/components/Footer";
 import LandingContactForm from "@/components/LandingContactForm";
@@ -50,28 +51,32 @@ const differentiators = [
 
 const projects = [
   {
-    title: "Skyy Development: data centre concept film",
-    meta: "Skyy Development · 2026",
-    desc: "Concept and promotion video for data centre developer Skyy Development, made for the launch of their new website.",
-    src: "https://player.vimeo.com/video/1234077140?h=9304bb03e5&title=0&byline=0&portrait=0",
+    title: "Concept film for a data centre developer",
+    meta: "Data centre developer · Tokyo · 2026",
+    desc: "Brand concept film for a data centre developer's new website. A contemporary dancer and light-trail VFX tie together footage of their facilities, opening ceremonies and local community. We filmed the dance in studio and the facilities on location.",
+    src: null,
+    stills: [1, 2, 3, 4].map((n) => ({ src: `/images/dc/data-centre-concept-film-dancer-${n}.jpg`, alt: "Contemporary dancer with light-trail effects, from a data centre concept film" })),
   },
   {
     title: "Princeton Digital Group: data centre opening, Saitama",
     meta: "Princeton Digital Group · Saitama · 2025",
     desc: "Digest video of the opening ceremony, plus photo coverage with a fast-turnaround social media photo selection delivered shortly after the event finished.",
     src: "https://player.vimeo.com/video/1079354745?h=17c53b18eb&title=0&byline=0&portrait=0",
+    stills: null,
   },
   {
     title: "MC Digital Reality: colocation data centre",
     meta: "MC Digital Reality · Japan",
     desc: "Promotion video for MC Digital Reality's colocation services, filmed inside their data centre.",
     src: "https://player.vimeo.com/video/667821838?h=d32683d90f&title=0&byline=0&portrait=0",
+    stills: null,
   },
   {
     title: "Google Japan: recruitment video at the Inzai data centre",
     meta: "Google · Inzai, Chiba",
     desc: "Recruitment video hearing from employees at Google's Inzai data centre near Tokyo about why they think Google is the right place for them. Interviews and b-roll filmed on site.",
     src: "https://www.youtube.com/embed/UbkuSD-ht1U?rel=0",
+    stills: null,
   },
 ];
 
@@ -102,7 +107,7 @@ const faqs = [
   },
 ];
 
-const clients = ["Google", "Princeton Digital Group", "MC Digital Reality", "Skyy Development", "JLL", "CBRE"];
+const clients = ["Google", "Princeton Digital Group", "MC Digital Reality", "JLL", "CBRE"];
 
 export default function DataCenterVideoPage() {
   return (
@@ -144,7 +149,7 @@ export default function DataCenterVideoPage() {
             <figure className="w-full">
               <div className="relative aspect-[16/9]" style={{ backgroundColor: "#241a12" }}>
                 <LazyIframe
-                  src={projects[1].src}
+                  src={projects[1].src!}
                   className="absolute inset-0 w-full h-full"
                   allow="autoplay; fullscreen; picture-in-picture"
                   allowFullScreen
@@ -236,9 +241,18 @@ export default function DataCenterVideoPage() {
             className={`flex flex-wrap items-center gap-x-14 gap-y-8 py-12 border-t ${i % 2 ? "flex-row-reverse" : ""}`}
             style={{ borderColor: "rgba(253,248,243,0.25)" }}
           >
+            {p.stills ? (
+              <div className="flex-[1.25_1_440px] grid grid-cols-2 gap-2">
+                {p.stills.map((img) => (
+                  <div key={img.src} className="relative aspect-[16/9]" style={{ backgroundColor: "#241a12" }}>
+                    <Image src={img.src} alt={img.alt} fill className="object-cover" sizes="(max-width: 1024px) 50vw, 360px" />
+                  </div>
+                ))}
+              </div>
+            ) : (
             <div className="relative flex-[1.25_1_440px] aspect-[16/9]" style={{ backgroundColor: "#241a12" }}>
               <LazyIframe
-                src={p.src}
+                src={p.src!}
                 className="absolute inset-0 w-full h-full"
                 allow="autoplay; fullscreen; picture-in-picture"
                 allowFullScreen
@@ -246,6 +260,7 @@ export default function DataCenterVideoPage() {
                 loading="lazy"
               />
             </div>
+            )}
             <div className="flex-[1_1_340px]">
               <p className="text-sm font-medium mb-4" style={{ color: "#f07a52" }}>{p.meta}</p>
               <h3 className="text-[26px] lg:text-[36px] leading-[1.1] font-semibold tracking-[-0.03em] mb-4">{p.title}</h3>

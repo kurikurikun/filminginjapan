@@ -53,7 +53,7 @@ const projects = [
   {
     title: "Concept film for a data centre developer",
     meta: "Data centre developer · Tokyo · 2026",
-    desc: "Brand concept film for a data centre developer's new website. A contemporary dancer and light-trail VFX tie together footage of their facilities, opening ceremonies and local community. We filmed the dance in studio and the facilities on location.",
+    desc: "Brand concept film for a data centre developer's new website. A contemporary dancer and light-trail VFX tie together footage of their facilities, opening ceremonies and local community. Concept, VFX design, studio dance shoot and location filming all by our team.",
     src: null,
     stills: [1, 2, 3, 4].map((n) => ({ src: `/images/dc/data-centre-concept-film-dancer-${n}.jpg`, alt: "Contemporary dancer with light-trail effects, from a data centre concept film" })),
   },

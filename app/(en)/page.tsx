@@ -153,7 +153,7 @@ export default function HomePage() {
         <div className="flex flex-wrap items-end justify-between gap-x-16 gap-y-6 mb-14">
           <div>
             <Kicker>What we do</Kicker>
-            <Title id="services-heading" className="fij-h2">How we tell your story</Title>
+            <Title id="services-heading" className="fij-h2">Video that grows your business in Japan</Title>
           </div>
           <p className="text-base leading-relaxed max-w-xs" style={{ color: "#6b5a48" }}>
             Bilingual corporate video production across Japan, from Tokyo to the regions.

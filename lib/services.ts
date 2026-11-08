@@ -37,8 +37,8 @@ export const enSocialGroup: ServiceGroup = {
     { label: "Social Video", href: "/social-media-video-japan-2", live: true },
     // Launch step: flip to true once /managed-youtube-japan is committed and de-noindexed.
     // That alone turns this group into a dropdown — no other change needed.
-    // The homepage "Four ways we tell your story" heading counts the four core
-    // service cards only; social and YouTube sit outside it deliberately.
+    // The homepage service cards (components/ServiceGrid.tsx) include Social;
+    // the heading there deliberately gives no count.
     { label: "Managed YouTube", href: "/managed-youtube-japan", live: false },
   ],
 };

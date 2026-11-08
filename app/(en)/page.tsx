@@ -153,7 +153,7 @@ export default function HomePage() {
         <div className="flex flex-wrap items-end justify-between gap-x-16 gap-y-6 mb-14">
           <div>
             <Kicker>What we do</Kicker>
-            <Title id="services-heading" className="fij-h2">Four ways we tell your story</Title>
+            <Title id="services-heading" className="fij-h2">How we tell your story</Title>
           </div>
           <p className="text-base leading-relaxed max-w-xs" style={{ color: "#6b5a48" }}>
             Bilingual corporate video production across Japan, from Tokyo to the regions.
@@ -161,18 +161,6 @@ export default function HomePage() {
         </div>
 
         <ServiceGrid />
-
-        {/* Social media strip */}
-        <a
-          href="/social-media-video-japan-2"
-          className="group flex flex-wrap items-center justify-between gap-x-8 gap-y-3 mt-16 py-7 border-y-2"
-          style={{ borderColor: "#1c1208", color: "#1c1208" }}
-        >
-          <span className="text-[22px] sm:text-[28px] leading-tight font-semibold tracking-[-0.025em]">
-            Social Media Video &amp; Ad Content
-          </span>
-          <span className="fij-link text-[15px] group-hover:text-[#c43d10]">View</span>
-        </a>
       </Section>
 
       {/* 02 About Chris — the page's one orange section */}

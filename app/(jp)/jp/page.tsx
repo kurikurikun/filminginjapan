@@ -121,8 +121,8 @@ export default function HomePageJp() {
           <div>
             <Kicker>サービス内容</Kicker>
             <Title id="services-heading" stop="。" className="fij-h2">
-              4つのサービスで{" "}<br />
-              ストーリーを届ける
+              ストーリーを{" "}<br />
+              映像で届ける
             </Title>
           </div>
           <p className="text-base leading-relaxed max-w-xs" style={{ color: "#6b5a48" }}>

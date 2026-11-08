@@ -49,6 +49,7 @@ export default function Navigation() {
     "/jp/event-photo-video-japan": "/event-photo-video-japan",
     "/jp/real-estate-photo-video-tokyo-japan": "/real-estate-photo-video-tokyo-japan",
     "/jp/managed-youtube": "/managed-youtube-japan",
+    "/jp/data-center-video": "/data-center-video-japan",
   };
   const enToJp: Record<string, string> = {
     "/corporate-branding-videos-japan": "/jp/corporate-video",
@@ -56,6 +57,7 @@ export default function Navigation() {
     "/event-photo-video-japan": "/jp/event-photo-video-japan",
     "/real-estate-photo-video-tokyo-japan": "/jp/real-estate-photo-video-tokyo-japan",
     "/managed-youtube-japan": "/jp/managed-youtube",
+    "/data-center-video-japan": "/jp/data-center-video",
   };
 
   // Language toggle target

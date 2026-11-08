@@ -53,6 +53,7 @@ app/
   client-testimonials-video-production-tokyo-japan/ — Google Ads landing page
   event-photo-video-japan/                          — Google Ads landing page
   real-estate-photo-video-tokyo-japan/              — Google Ads landing page
+  data-center-video-japan/                          — Data centre work in one place (JP: /jp/data-center-video)
   thank-you/page.tsx                                — Post-form conversion page (no-index)
 
 components/

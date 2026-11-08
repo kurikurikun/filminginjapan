@@ -20,6 +20,7 @@ export const enServices: ServiceLink[] = [
   { label: "Testimonials", href: "/client-testimonials-video-production-tokyo-japan", live: true },
   { label: "Events", href: "/event-photo-video-japan", live: true },
   { label: "Real Estate", href: "/real-estate-photo-video-tokyo-japan", live: true },
+  { label: "Data Centres", href: "/data-center-video-japan", live: true },
 ];
 
 export const jpServices: ServiceLink[] = [
@@ -27,6 +28,7 @@ export const jpServices: ServiceLink[] = [
   { label: "カスタマーストーリー", href: "/jp/client-testimonials-video-production-tokyo-japan", live: true },
   { label: "イベント", href: "/jp/event-photo-video-japan", live: true },
   { label: "不動産", href: "/jp/real-estate-photo-video-tokyo-japan", live: true },
+  { label: "データセンター", href: "/jp/data-center-video", live: true },
 ];
 
 export const enSocialGroup: ServiceGroup = {

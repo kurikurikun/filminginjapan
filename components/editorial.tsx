@@ -1,6 +1,6 @@
 // Shared building blocks for the bilingual editorial design.
 //
-// The signature of the design: every major section carries a numbered label
+// The signature of the design: every major section carries a label
 // set vertically (縦書き) in the *other* language — Japanese on English pages,
 // English on Japanese pages — and every headline ends in a coloured full stop.
 
@@ -47,12 +47,11 @@ export function Title({
 }
 
 /**
- * A full-width section with the numbered vertical label in its left gutter.
+ * A full-width section with the vertical label in its left gutter.
  * `label` is the section name in the other language; `labelLang` is its language.
  * On phones the label sits above the content, horizontal.
  */
 export function Section({
-  num,
   label,
   labelLang = "ja",
   tone = "cream",
@@ -62,6 +61,7 @@ export function Section({
   children,
   "aria-labelledby": labelledBy,
 }: {
+  /** No longer shown (section numbers dropped Nov 2026); kept so existing pages compile. */
   num?: string;
   label?: string;
   labelLang?: "ja" | "en";
@@ -81,32 +81,26 @@ export function Section({
       style={{ backgroundColor: t.bg, color: t.fg, borderColor: "#1c1208", ["--fij-num" as string]: t.num }}
     >
       <div className="fij-wrap py-20 md:py-28 flex flex-col md:flex-row gap-6 md:gap-14">
-        {(num || label) && <SectionLabel num={num} label={label} labelLang={labelLang} tone={tone} />}
+        {label && <SectionLabel label={label} labelLang={labelLang} tone={tone} />}
         <div className="flex-1 min-w-0">{children}</div>
       </div>
     </section>
   );
 }
 
+// Section numbers were dropped in Nov 2026; `num` is still accepted so existing
+// pages don't need editing, but it is no longer shown.
 export function SectionLabel({
-  num,
   label,
   labelLang = "ja",
-  tone = "cream",
 }: {
   num?: string;
   label?: string;
   labelLang?: "ja" | "en";
   tone?: Tone;
 }) {
-  const t = toneStyles[tone];
   return (
     <div className="flex md:flex-col items-center md:w-14 shrink-0 gap-3 md:gap-4" aria-hidden="true">
-      {num && (
-        <span className="text-[13px] font-semibold tabular-nums" style={{ color: t.num }}>
-          {num}
-        </span>
-      )}
       {label && (
         <span
           lang={labelLang}

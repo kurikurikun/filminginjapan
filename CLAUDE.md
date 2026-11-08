@@ -35,8 +35,8 @@ Dev server is configured in `.claude/launch.json` as `filminginjapan-dev` on por
   No mono, no serif, no italics.
 - **Headlines**: `.fij-h1` / `.fij-h2` / `.fij-h3` (weight 600, tight tracking). Every headline ends with an orange
   full stop — use `<Title>` from `components/editorial.tsx` (cream dot on orange sections). No dot after "?" or "!".
-- **Signature**: each main section is a `<Section num="01" label="撮影内容">` — a number plus a vertical (縦書き) label in
-  the *other* language: Japanese on EN pages, English (`labelLang="en"`) on JP pages. Number sections down the page.
+- **Signature**: each main section is a `<Section label="撮影内容">` with a vertical (縦書き) label in the *other* language:
+  Japanese on EN pages, English (`labelLang="en"`) on JP pages. Section numbers are no longer shown (Nov 2026).
 - Strong ink rules (1–2px) instead of beige dividers; square corners; no shadows, corner brackets, grain or gradients
   used as decoration. Small labels are plain `text-sm font-medium` in muted (`<Kicker>`), not tracked uppercase.
 - Orange (`tone="orange"`) at most once per page; `night` for video/project sections; `ink` for the closing CTA band.

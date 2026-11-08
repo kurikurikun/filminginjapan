@@ -7,7 +7,7 @@ import LazyIframe from "@/components/LazyIframe";
 
 export const metadata: Metadata = {
   title: "Data Centre Video & Photography Japan",
-  description: "Bilingual video and photo crew for data centres in Japan: opening ceremonies, completion films, recruitment videos and site photography. Work for Google and Princeton Digital Group.",
+  description: "Bilingual video and photo crew for data centres in Japan: opening ceremonies, completion films, recruitment videos and site photography. Work for Google, Princeton Digital Group and MC Digital Reality.",
   alternates: {
     canonical: "https://www.filminginjapan.com/data-center-video-japan",
     languages: {
@@ -50,16 +50,28 @@ const differentiators = [
 
 const projects = [
   {
-    title: "Google Japan: recruitment video at the Inzai data centre",
-    meta: "Google · Inzai, Chiba",
-    desc: "Recruitment video hearing from employees at Google's Inzai data centre near Tokyo about why they think Google is the right place for them. Interviews and b-roll filmed on site.",
-    src: "https://www.youtube.com/embed/UbkuSD-ht1U?rel=0",
+    title: "Skyy Development: data centre concept film",
+    meta: "Skyy Development · 2026",
+    desc: "Concept and promotion video for data centre developer Skyy Development, made for the launch of their new website.",
+    src: "https://player.vimeo.com/video/1234077140?h=9304bb03e5&title=0&byline=0&portrait=0",
   },
   {
     title: "Princeton Digital Group: data centre opening, Saitama",
     meta: "Princeton Digital Group · Saitama · 2025",
     desc: "Digest video of the opening ceremony, plus photo coverage with a fast-turnaround social media photo selection delivered shortly after the event finished.",
     src: "https://player.vimeo.com/video/1079354745?h=17c53b18eb&title=0&byline=0&portrait=0",
+  },
+  {
+    title: "MC Digital Reality: colocation data centre",
+    meta: "MC Digital Reality · Japan",
+    desc: "Promotion video for MC Digital Reality's colocation services, filmed inside their data centre.",
+    src: "https://player.vimeo.com/video/667821838?h=d32683d90f&title=0&byline=0&portrait=0",
+  },
+  {
+    title: "Google Japan: recruitment video at the Inzai data centre",
+    meta: "Google · Inzai, Chiba",
+    desc: "Recruitment video hearing from employees at Google's Inzai data centre near Tokyo about why they think Google is the right place for them. Interviews and b-roll filmed on site.",
+    src: "https://www.youtube.com/embed/UbkuSD-ht1U?rel=0",
   },
 ];
 
@@ -90,7 +102,7 @@ const faqs = [
   },
 ];
 
-const clients = ["Google", "Princeton Digital Group", "JLL", "CBRE", "Hines", "NEC"];
+const clients = ["Google", "Princeton Digital Group", "MC Digital Reality", "Skyy Development", "JLL", "CBRE"];
 
 export default function DataCenterVideoPage() {
   return (

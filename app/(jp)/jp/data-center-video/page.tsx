@@ -7,7 +7,7 @@ import LazyIframe from "@/components/LazyIframe";
 
 export const metadata: Metadata = {
   title: "データセンターの映像制作・写真撮影（英語対応）",
-  description: "データセンターの開所式撮影、竣工・プロモーション動画、採用動画、施設写真を英語・日本語のバイリンガルチームが制作。Google、Princeton Digital Groupの実績あり。",
+  description: "データセンターの開所式撮影、竣工・プロモーション動画、採用動画、施設写真を英語・日本語のバイリンガルチームが制作。Google、Princeton Digital Group、MC Digital Realityの実績あり。",
   alternates: {
     canonical: "https://www.filminginjapan.com/jp/data-center-video",
     languages: {
@@ -50,16 +50,28 @@ const differentiators = [
 
 const projects = [
   {
-    title: "Google Japan 印西データセンター 採用動画",
-    meta: "Google · 千葉県印西市",
-    desc: "東京近郊の印西データセンターで働くGoogle Japan社員に、Googleで働く理由を聞いた採用動画。インタビューとBロールを現地で撮影しました。",
-    src: "https://www.youtube.com/embed/UbkuSD-ht1U?rel=0",
+    title: "Skyy Development データセンター コンセプト映像",
+    meta: "Skyy Development · 2026",
+    desc: "データセンター開発会社Skyy Developmentの新しいウェブサイト公開に合わせて制作したコンセプト・プロモーション映像。",
+    src: "https://player.vimeo.com/video/1234077140?h=9304bb03e5&title=0&byline=0&portrait=0",
   },
   {
     title: "Princeton Digital Group データセンター開所式（埼玉）",
     meta: "Princeton Digital Group · 埼玉 · 2025",
     desc: "開所式のダイジェスト動画と写真撮影。SNS用の写真セレクトはイベント終了後すぐに納品しました。",
     src: "https://player.vimeo.com/video/1079354745?h=17c53b18eb&title=0&byline=0&portrait=0",
+  },
+  {
+    title: "MC Digital Reality コロケーション・データセンター",
+    meta: "MC Digital Reality · 日本",
+    desc: "MC Digital Realityのコロケーションサービスを紹介するプロモーション映像。データセンター内で撮影しました。",
+    src: "https://player.vimeo.com/video/667821838?h=d32683d90f&title=0&byline=0&portrait=0",
+  },
+  {
+    title: "Google Japan 印西データセンター 採用動画",
+    meta: "Google · 千葉県印西市",
+    desc: "東京近郊の印西データセンターで働くGoogle Japan社員に、Googleで働く理由を聞いた採用動画。インタビューとBロールを現地で撮影しました。",
+    src: "https://www.youtube.com/embed/UbkuSD-ht1U?rel=0",
   },
 ];
 
@@ -90,7 +102,7 @@ const faqs = [
   },
 ];
 
-const clients = ["Google", "Princeton Digital Group", "JLL", "CBRE", "Hines", "NEC"];
+const clients = ["Google", "Princeton Digital Group", "MC Digital Reality", "Skyy Development", "JLL", "CBRE"];
 
 export default function DataCenterVideoPageJp() {
   return (

@@ -147,7 +147,7 @@ export default function ServiceGrid({ lang = "en" }: { lang?: "en" | "jp" }) {
         {services.map((s) => {
           const thumb = getThumb(s);
           return (
-            <article key={s.num} className="flex flex-col min-w-0">
+            <article key={s.num} className="flex flex-col min-w-0 pt-6 border-t-2" style={{ borderColor: "#1c1208" }}>
               {/* Image first — opens the video lightbox */}
               <button
                 type="button"
@@ -168,15 +168,12 @@ export default function ServiceGrid({ lang = "en" }: { lang?: "en" | "jp" }) {
                 </span>
               </button>
 
-              {/* Text — navigates to the service page */}
+              {/* Text: navigates to the service page */}
               <Link
                 href={isJp ? s.hrefJp : s.href}
-                className="group flex flex-col flex-1 pt-6 mt-6 border-t-2"
-                style={{ borderColor: "#1c1208", color: "#1c1208" }}
+                className="group flex flex-col flex-1 pt-6"
+                style={{ color: "#1c1208" }}
               >
-                <span className="text-[13px] font-semibold tabular-nums mb-4" style={{ color: "var(--fij-num)" }}>
-                  {s.num}
-                </span>
                 <h3 className="fij-h3 mb-2">{isJp ? s.titleJp : s.title}</h3>
                 <p
                   lang={isJp ? "en" : "ja"}

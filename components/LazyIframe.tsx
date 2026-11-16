@@ -25,9 +25,6 @@ function parse(src: string) {
   const yt = src.match(/youtube(?:-nocookie)?\.com\/embed\/([\w-]+)/);
   if (yt) return { kind: "youtube" as const, id: yt[1] };
   if (/matterport\.com/.test(src)) return { kind: "matterport" as const };
-  // Crew Book portal: passes ?autoplay=1 through to the underlying Bunny player,
-  // so the viewer's click on our poster starts playback instead of landing on a second play button.
-  if (/video\.move-ment\.co\/embed\//.test(src)) return { kind: "portal" as const };
   return { kind: "other" as const };
 }
 

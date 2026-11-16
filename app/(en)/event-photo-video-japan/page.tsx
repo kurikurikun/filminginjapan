@@ -9,7 +9,6 @@ import LandingContactForm from "@/components/LandingContactForm";
 import GoogleReviews from "@/components/GoogleReviews";
 import PhotoGallery from "@/components/PhotoGallery";
 
-import LazyIframe from "@/components/LazyIframe";
 export const metadata: Metadata = {
   title: "Tokyo Event Photographer & Videographer",
   description: "Bilingual Tokyo event photographer and videographer for conferences, galas and launches. Same-day photos, highlight videos. Trusted by PwC, Riot Games, Celonis.",
@@ -69,7 +68,6 @@ const projects = [
     venue: "Ariake GYM-EX, Tokyo · 2024",
     desc: "Recap video for a fighting game tournament in Tokyo, edited to carry the scale of the venue, the atmosphere on the competition floor and the reaction of the crowd.",
     embedUrl: "https://video.move-ment.co/embed/300b6fd398",
-    poster: "/images/events/posters/300b6fd398.jpg",
     img: null,
   },
   {
@@ -77,7 +75,6 @@ const projects = [
     venue: "Kimpton Shinjuku Tokyo · 2025",
     desc: "Event highlight video, full photography coverage, and standalone attendee testimonial-style recap videos for the IHIF conference, all delivered from a single coordinated shoot.",
     embedUrl: "https://video.move-ment.co/embed/cd81bd3152",
-    poster: "/images/events/posters/cd81bd3152.jpg",
     img: null,
   },
   {
@@ -85,7 +82,6 @@ const projects = [
     venue: "Grand Hyatt Tokyo · 2024 · 3-day event",
     desc: "Promotional video filmed over 3 days with comments from staff, attendees and speakers at locations selected to convey the event atmosphere. Edited with Japanese and English subtitles, with careful attention to attendee visibility requirements.",
     embedUrl: "https://video.move-ment.co/embed/9716122c30",
-    poster: "/images/events/posters/9716122c30.jpg",
     img: null,
   },
   {
@@ -93,7 +89,6 @@ const projects = [
     venue: "PDG data centre, Saitama · 2025",
     desc: "Digest video of the opening ceremony, plus photo coverage with a fast-turnaround social media photo selection delivered shortly after the event finished.",
     embedUrl: "https://video.move-ment.co/embed/1fd4f8e50e",
-    poster: "/images/events/posters/1fd4f8e50e.jpg",
     img: null,
   },
   {
@@ -101,7 +96,6 @@ const projects = [
     venue: "Tokyo American Club · 2019",
     desc: "Day-long event digest filmed for DHL at Tokyo American Club, including quick sound-bite interviews with attendees captured on the day.",
     embedUrl: "https://video.move-ment.co/embed/9a4bda863c",
-    poster: "/images/events/posters/9a4bda863c.jpg",
     img: null,
   },
 ];
@@ -372,13 +366,13 @@ export default function EventVideoPage() {
                 </div>
                 <figure className="mt-4">
                   <div className="relative aspect-[16/9]" style={{ backgroundColor: "#0d0a07" }}>
-                    <LazyIframe
+                    <iframe
                       src="https://video.move-ment.co/embed/d3557bdfa3"
-                      poster="/images/events/posters/d3557bdfa3.jpg"
                       className="absolute inset-0 w-full h-full"
                       allow="autoplay; fullscreen; picture-in-picture"
                       allowFullScreen
                       title="Event attendee comments — Filming in Japan"
+                      loading="lazy"
                     />
                   </div>
                   <figcaption className="mt-3 text-[15px] font-semibold">Comments from event attendees taken during break time</figcaption>
@@ -410,9 +404,8 @@ export default function EventVideoPage() {
             style={{ borderColor: "rgba(253,248,243,0.25)" }}
           >
             <div className="relative flex-[1.25_1_440px] aspect-[16/9]" style={{ backgroundColor: "#241a12" }}>
-              <LazyIframe
+              <iframe
                 src={p.embedUrl}
-                poster={p.poster}
                 className="absolute inset-0 w-full h-full"
                 allow="autoplay; fullscreen; picture-in-picture"
                 allowFullScreen

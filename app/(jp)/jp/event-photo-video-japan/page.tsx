@@ -9,7 +9,6 @@ import LandingContactForm from "@/components/LandingContactForm";
 import GoogleReviews from "@/components/GoogleReviews";
 import PhotoGallery from "@/components/PhotoGallery";
 
-import LazyIframe from "@/components/LazyIframe";
 export const metadata: Metadata = {
   title: "東京のイベント撮影・映像制作（英語対応）",
   description: "東京のイベント撮影なら英語対応のバイリンガルチームへ。カンファレンス、ガラ、製品発表会の写真撮影とハイライト動画を制作。当日の写真納品にも対応。PwC、Riot Games、Celonisなど実績多数。",
@@ -69,7 +68,6 @@ const projects = [
     venue: "有明GYM-EX・東京 · 2024",
     desc: "東京で開催された対戦格闘ゲーム大会のリキャップ映像。会場のスケール感、競技フロアの熱気、観客の反応を1本の映像にまとめました。",
     embedUrl: "https://video.move-ment.co/embed/300b6fd398",
-    poster: "/images/events/posters/300b6fd398.jpg",
     img: null,
   },
   {
@@ -77,7 +75,6 @@ const projects = [
     venue: "キンプトン新宿東京 · 2025",
     desc: "IHIFカンファレンスのイベントハイライト映像・写真撮影全般・参加者インタビュー形式のリキャップ動画を、ひとつの統合撮影チームで一括納品。",
     embedUrl: "https://video.move-ment.co/embed/cd81bd3152",
-    poster: "/images/events/posters/cd81bd3152.jpg",
     img: null,
   },
   {
@@ -85,7 +82,6 @@ const projects = [
     venue: "グランド ハイアット 東京 · 2024 · 3日間イベント",
     desc: "スタッフ・参加者・登壇者のコメントを3日間かけて収録したプロモーション動画。イベントの雰囲気を伝えるロケーションを選定し、日英字幕付きで編集。参加者の映り込み要件にも細心の注意を払いました。",
     embedUrl: "https://video.move-ment.co/embed/9716122c30",
-    poster: "/images/events/posters/9716122c30.jpg",
     img: null,
   },
   {
@@ -93,7 +89,6 @@ const projects = [
     venue: "PDG データセンター・埼玉 · 2025",
     desc: "開所式のダイジェスト映像制作と写真撮影。イベント終了後すぐにSNS向け写真セレクションを高速納品しました。",
     embedUrl: "https://video.move-ment.co/embed/1fd4f8e50e",
-    poster: "/images/events/posters/1fd4f8e50e.jpg",
     img: null,
   },
   {
@@ -101,7 +96,6 @@ const projects = [
     venue: "東京アメリカンクラブ · 2019",
     desc: "東京アメリカンクラブで開催されたDHLの終日イベントのダイジェスト映像。当日収録した参加者の短いサウンドバイトインタビューも収録しています。",
     embedUrl: "https://video.move-ment.co/embed/9a4bda863c",
-    poster: "/images/events/posters/9a4bda863c.jpg",
     img: null,
   },
 ];
@@ -392,9 +386,8 @@ export default function EventVideoPageJP() {
             style={{ borderColor: "rgba(253,248,243,0.25)" }}
           >
             <div className="relative flex-[1.25_1_440px] aspect-[16/9]" style={{ backgroundColor: "#241a12" }}>
-              <LazyIframe
+              <iframe
                 src={p.embedUrl}
-                poster={p.poster}
                 className="absolute inset-0 w-full h-full"
                 allow="autoplay; fullscreen; picture-in-picture"
                 allowFullScreen

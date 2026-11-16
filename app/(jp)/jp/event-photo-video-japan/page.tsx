@@ -68,32 +68,40 @@ const projects = [
     title: "EVO Japan 2024（Riot Games「2XKO」発表）",
     venue: "有明GYM-EX・東京 · 2024",
     desc: "東京で開催された対戦格闘ゲーム大会のリキャップ映像。会場のスケール感、競技フロアの熱気、観客の反応を1本の映像にまとめました。",
-    vimeoId: "1212259773",
-    vimeoHash: "e3a9d1a2ff",
+    embedUrl: "https://video.move-ment.co/embed/300b6fd398",
+    poster: "/images/events/posters/300b6fd398.jpg",
     img: null,
   },
   {
     title: "IHIF Asia（International Hospitality Investment Forum）",
     venue: "キンプトン新宿東京 · 2025",
     desc: "IHIFカンファレンスのイベントハイライト映像・写真撮影全般・参加者インタビュー形式のリキャップ動画を、ひとつの統合撮影チームで一括納品。",
-    vimeoId: "1063107227",
-    vimeoHash: "c0bc991380",
+    embedUrl: "https://video.move-ment.co/embed/cd81bd3152",
+    poster: "/images/events/posters/cd81bd3152.jpg",
     img: null,
   },
   {
     title: "CITC CLSA Tokyo Forum",
     venue: "グランド ハイアット 東京 · 2024 · 3日間イベント",
     desc: "スタッフ・参加者・登壇者のコメントを3日間かけて収録したプロモーション動画。イベントの雰囲気を伝えるロケーションを選定し、日英字幕付きで編集。参加者の映り込み要件にも細心の注意を払いました。",
-    vimeoId: "959287158",
-    vimeoHash: "1368289498",
+    embedUrl: "https://video.move-ment.co/embed/9716122c30",
+    poster: "/images/events/posters/9716122c30.jpg",
     img: null,
   },
   {
     title: "Princeton Digital Group データセンター開所式（埼玉）",
     venue: "PDG データセンター・埼玉 · 2025",
     desc: "開所式のダイジェスト映像制作と写真撮影。イベント終了後すぐにSNS向け写真セレクションを高速納品しました。",
-    vimeoId: "1079354745",
-    vimeoHash: "17c53b18eb",
+    embedUrl: "https://video.move-ment.co/embed/1fd4f8e50e",
+    poster: "/images/events/posters/1fd4f8e50e.jpg",
+    img: null,
+  },
+  {
+    title: "DHL「Driving the Digital Transformation」",
+    venue: "東京アメリカンクラブ · 2019",
+    desc: "東京アメリカンクラブで開催されたDHLの終日イベントのダイジェスト映像。当日収録した参加者の短いサウンドバイトインタビューも収録しています。",
+    embedUrl: "https://video.move-ment.co/embed/9a4bda863c",
+    poster: "/images/events/posters/9a4bda863c.jpg",
     img: null,
   },
 ];
@@ -385,7 +393,8 @@ export default function EventVideoPageJP() {
           >
             <div className="relative flex-[1.25_1_440px] aspect-[16/9]" style={{ backgroundColor: "#241a12" }}>
               <LazyIframe
-                src={`https://player.vimeo.com/video/${p.vimeoId}?h=${p.vimeoHash}&title=0&byline=0&portrait=0`}
+                src={p.embedUrl}
+                poster={p.poster}
                 className="absolute inset-0 w-full h-full"
                 allow="autoplay; fullscreen; picture-in-picture"
                 allowFullScreen

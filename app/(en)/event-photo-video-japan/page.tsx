@@ -68,32 +68,40 @@ const projects = [
     title: "EVO Japan 2024 – Riot Games 2XKO Reveal",
     venue: "Ariake GYM-EX, Tokyo · 2024",
     desc: "Recap video for a fighting game tournament in Tokyo, edited to carry the scale of the venue, the atmosphere on the competition floor and the reaction of the crowd.",
-    vimeoId: "1212259773",
-    vimeoHash: "e3a9d1a2ff",
+    embedUrl: "https://video.move-ment.co/embed/300b6fd398",
+    poster: "/images/events/posters/300b6fd398.jpg",
     img: null,
   },
   {
     title: "IHIF Asia – International Hospitality Investment Forum",
     venue: "Kimpton Shinjuku Tokyo · 2025",
     desc: "Event highlight video, full photography coverage, and standalone attendee testimonial-style recap videos for the IHIF conference, all delivered from a single coordinated shoot.",
-    vimeoId: "1063107227",
-    vimeoHash: "c0bc991380",
+    embedUrl: "https://video.move-ment.co/embed/cd81bd3152",
+    poster: "/images/events/posters/cd81bd3152.jpg",
     img: null,
   },
   {
     title: "CITC CLSA Tokyo Forum",
     venue: "Grand Hyatt Tokyo · 2024 · 3-day event",
     desc: "Promotional video filmed over 3 days with comments from staff, attendees and speakers at locations selected to convey the event atmosphere. Edited with Japanese and English subtitles, with careful attention to attendee visibility requirements.",
-    vimeoId: "959287158",
-    vimeoHash: "1368289498",
+    embedUrl: "https://video.move-ment.co/embed/9716122c30",
+    poster: "/images/events/posters/9716122c30.jpg",
     img: null,
   },
   {
     title: "Princeton Digital Group – Data Centre Opening, Saitama",
     venue: "PDG data centre, Saitama · 2025",
     desc: "Digest video of the opening ceremony, plus photo coverage with a fast-turnaround social media photo selection delivered shortly after the event finished.",
-    vimeoId: "1079354745",
-    vimeoHash: "17c53b18eb",
+    embedUrl: "https://video.move-ment.co/embed/1fd4f8e50e",
+    poster: "/images/events/posters/1fd4f8e50e.jpg",
+    img: null,
+  },
+  {
+    title: "DHL – Driving the Digital Transformation",
+    venue: "Tokyo American Club · 2019",
+    desc: "Day-long event digest filmed for DHL at Tokyo American Club, including quick sound-bite interviews with attendees captured on the day.",
+    embedUrl: "https://video.move-ment.co/embed/9a4bda863c",
+    poster: "/images/events/posters/9a4bda863c.jpg",
     img: null,
   },
 ];
@@ -365,7 +373,8 @@ export default function EventVideoPage() {
                 <figure className="mt-4">
                   <div className="relative aspect-[16/9]" style={{ backgroundColor: "#0d0a07" }}>
                     <LazyIframe
-                      src="https://player.vimeo.com/video/1063107056?h=9932edce4c&title=0&byline=0&portrait=0"
+                      src="https://video.move-ment.co/embed/d3557bdfa3"
+                      poster="/images/events/posters/d3557bdfa3.jpg"
                       className="absolute inset-0 w-full h-full"
                       allow="autoplay; fullscreen; picture-in-picture"
                       allowFullScreen
@@ -402,7 +411,8 @@ export default function EventVideoPage() {
           >
             <div className="relative flex-[1.25_1_440px] aspect-[16/9]" style={{ backgroundColor: "#241a12" }}>
               <LazyIframe
-                src={`https://player.vimeo.com/video/${p.vimeoId}?h=${p.vimeoHash}&title=0&byline=0&portrait=0`}
+                src={p.embedUrl}
+                poster={p.poster}
                 className="absolute inset-0 w-full h-full"
                 allow="autoplay; fullscreen; picture-in-picture"
                 allowFullScreen
